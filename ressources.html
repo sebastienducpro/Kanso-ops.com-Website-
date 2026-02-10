@@ -3,8 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ═══ SEO ═══ -->
+    <!-- [EDIT] Titre du site (onglet navigateur + Google) -->
     <title>Ressources | KANSO OPS — Intelligence & Gouvernance IA</title>
+    <!-- [EDIT] Description Google (max ~155 caractères) -->
     <meta name="description" content="Analyses et ressources pour naviguer l'ère de l'IA industrielle : IA Act 2026, Shadow IA, et l'Industrie Agentique. Par Kanso-Ops, Lyon.">
+    <meta name="author" content="Sébastien Duc — Kanso-Ops">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kanso-ops.com/ressources.html">
+    <link rel="alternate" hreflang="fr" href="https://kanso-ops.com/ressources.html">
+    <link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/resources.html">
+
+    <!-- ═══ FAVICON & ICONS ═══ -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <meta name="theme-color" content="#0c1222">
+
+    <!-- ═══ OPEN GRAPH (Facebook, LinkedIn, iMessage…) ═══ -->
+    <!-- [EDIT] Titre social preview -->
+    <meta property="og:title" content="Ressources — Intelligence & Gouvernance IA | Kanso-Ops">
+    <!-- [EDIT] Description social preview -->
+    <meta property="og:description" content="IA Act 2026, Shadow IA, Industrie Agentique : nos analyses pour naviguer l'ère de l'IA industrielle en toute lucidité.">
+    <meta property="og:image" content="https://kanso-ops.com/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://kanso-ops.com/ressources.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kanso-Ops">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- ═══ TWITTER CARD ═══ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ressources — Intelligence & Gouvernance IA | Kanso-Ops">
+    <meta name="twitter:description" content="IA Act 2026, Shadow IA, Industrie Agentique : nos analyses pour naviguer l'ère de l'IA industrielle en toute lucidité.">
+    <meta name="twitter:image" content="https://kanso-ops.com/images/og-image.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -101,6 +137,8 @@
             font-weight: 700 !important; font-size: 0.78rem !important; transition: all 0.25s !important;
         }
         .nav-cta:hover { transform: translateY(-2px) !important; box-shadow: var(--purple-glow) !important; }
+        .nav-lang { font-size: 0.75rem !important; font-weight: 700 !important; letter-spacing: 0.08em; padding: 0.3rem 0.6rem; border: 1px solid var(--border); border-radius: var(--radius-sm); transition: all 0.2s; }
+        .nav-lang:hover { border-color: var(--purple) !important; color: var(--purple) !important; }
         .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 1001; }
         .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--white); margin: 5px 0; transition: 0.3s; border-radius: 2px; }
         .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
@@ -300,6 +338,7 @@
                 <li><a href="index.html#audit">Audit Blueprint</a></li>
                 <li><a href="#" class="active">Ressources</a></li>
                 <li><a href="index.html#about">À propos</a></li>
+                <li><a href="/en/resources.html" class="nav-lang">EN</a></li>
                 <!-- [LINK] Calendly -->
                 <li><a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="nav-cta">Réserver un appel</a></li>
             </ul>
@@ -664,12 +703,31 @@
                     <a href="https://www.linkedin.com/in/sebastienduc05" target="_blank">LinkedIn</a>
                     <!-- [LINK] LinkedIn entreprise -->
                     <a href="https://www.linkedin.com/company/kanso-ops/" target="_blank">Kanso-Ops</a>
-                    <a href="#">Mentions légales</a>
-                    <a href="#">Politique de confidentialité</a>
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <a href="mentions-legales.html">Politique de confidentialité</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- ═══ COOKIE BANNER ═══ -->
+    <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:1rem 2rem;background:rgba(15,23,42,0.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,0.1);font-family:'Inter',sans-serif;">
+        <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
+            <p style="font-size:0.82rem;color:#9ca3af;margin:0;flex:1;min-width:280px;line-height:1.55;">
+                Ce site utilise le stockage local pour mémoriser votre consentement. Aucun cookie publicitaire ou de tracking n'est utilisé.
+                <a href="mentions-legales.html" style="color:#8b5cf6;text-decoration:none;font-weight:600;">En savoir plus</a>
+            </p>
+            <div style="display:flex;gap:0.8rem;flex-shrink:0;">
+                <button onclick="acceptCookies()" style="padding:0.5rem 1.4rem;background:linear-gradient(135deg,#10b981,#059669);color:white;border:none;border-radius:8px;font-size:0.78rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.2s;">Accepter</button>
+                <button onclick="declineCookies()" style="padding:0.5rem 1.4rem;background:transparent;color:#9ca3af;border:1px solid rgba(255,255,255,0.15);border-radius:8px;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s;">Refuser</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function acceptCookies(){localStorage.setItem('kanso-cookies','accepted');document.getElementById('cookie-banner').style.display='none';}
+        function declineCookies(){localStorage.setItem('kanso-cookies','declined');document.getElementById('cookie-banner').style.display='none';}
+        if(!localStorage.getItem('kanso-cookies')){document.getElementById('cookie-banner').style.display='block';}
+    </script>
 
     <script>
         // Scroll reveal
