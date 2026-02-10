@@ -547,7 +547,7 @@
                     </div>
                     <div class="pillar-label">Pilier 01 — Le Réseau</div>
                     <h3>Réseau Kanso</h3>
-                    <p>Un cercle de confiance réservé aux entreprises souveraines. Synergies réseau / client, partage de bonnes pratiques et qualification croisée.</p>
+                    <p>Un cercle de confiance réservé aux entreprises souveraines. Synergies alumni Kedge / emlyon, partage de bonnes pratiques et qualification croisée.</p>
                     <span class="pillar-tag pillar-tag--purple">Cercle de confiance</span>
                 </div>
                 <div class="pillar reveal reveal-delay-2">
@@ -674,7 +674,7 @@
             <div class="intelligence-header reveal">
                 <div class="section-label">Intelligence & Gouvernance</div>
                 <h2>Comprendre pour mieux décider.</h2>
-                <p>Nos analyses pour naviguer à l'ère de l'IA industrielle en toute lucidité.</p>
+                <p>Nos analyses pour naviguer l'ère de l'IA industrielle en toute lucidité.</p>
             </div>
             <div class="intelligence-grid">
                 <a href="ressources.html#ia-act" class="intel-card reveal reveal-delay-1">
@@ -822,9 +822,15 @@
                                     <input type="email" id="email" name="email" placeholder="jean@entreprise.com" required>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="company">Entreprise</label>
-                                <input type="text" id="company" name="company" placeholder="Votre entreprise (optionnel)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="company">Entreprise</label>
+                                    <input type="text" id="company" name="company" placeholder="Votre entreprise (optionnel)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Téléphone</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="subject-select">Sujet</label>
@@ -963,6 +969,7 @@
                 const payload = {
                     nom: contactForm.querySelector('#name').value,
                     email: contactForm.querySelector('#email').value,
+                    telephone: contactForm.querySelector('#phone').value || '',
                     entreprise: contactForm.querySelector('#company').value || '',
                     sujet: contactForm.querySelector('#subject-select').value,
                     message: contactForm.querySelector('#message').value,
