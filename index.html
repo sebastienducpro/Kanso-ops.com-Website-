@@ -341,12 +341,11 @@
             border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;
             position: relative; overflow: hidden;
         }
-        .about-photo::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(to top, rgba(12,18,34,0.95), transparent); }
-        .about-photo::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--purple), var(--green), transparent); }
-        .about-initials { font-size: 5rem; font-weight: 900; color: rgba(139,92,246,0.08); letter-spacing: 0.1em; }
-        .about-name-overlay { position: absolute; bottom: 2rem; left: 2rem; z-index: 1; }
-        .about-name-overlay h3 { font-size: 1.4rem; font-weight: 800; }
-        .about-name-overlay span { font-size: 0.78rem; color: var(--green-bright); font-weight: 500; }
+        .about-photo::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60%; background: linear-gradient(to top, rgba(12,18,34,1) 0%, rgba(12,18,34,0.85) 30%, transparent 100%); z-index: 1; pointer-events: none; }
+        .about-photo::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--purple), var(--green), transparent); z-index: 2; }
+        .about-name-overlay { position: absolute; bottom: 1.8rem; left: 2rem; z-index: 3; }
+        .about-name-overlay h3 { font-size: 1.5rem; font-weight: 900; color: var(--white); text-shadow: 0 2px 12px rgba(0,0,0,0.6); }
+        .about-name-overlay span { font-size: 0.82rem; color: var(--green-bright); font-weight: 600; text-shadow: 0 1px 8px rgba(0,0,0,0.5); }
         .about-quote { font-family: var(--font-serif); font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-style: italic; line-height: 1.45; margin-bottom: 1.5rem; color: var(--white); padding-left: 1.5rem; border-left: 2px solid var(--purple); }
         .about-bio { font-size: 0.92rem; color: var(--white-muted); line-height: 1.7; margin-bottom: 2.5rem; }
         .about-logos { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
