@@ -135,13 +135,15 @@
         .nav-links.open {
             display: flex !important; flex-direction: column; position: fixed;
             top: 0; left: 0; right: 0; bottom: 0; z-index: 1000;
-            background: rgba(8, 14, 30, 0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            justify-content: center; align-items: center; gap: 2rem;
+            background: var(--bg-deep);
+            justify-content: center; align-items: center; gap: 2.5rem;
             animation: fadeInMenu 0.3s ease;
+            padding: 2rem;
         }
-        .nav-links.open a { font-size: 1.2rem; color: var(--white); }
+        .nav-links.open li { list-style: none; text-align: center; }
+        .nav-links.open a { font-size: 1.3rem; color: var(--white); font-weight: 600; }
         .nav-links.open a:hover { color: var(--purple); }
-        .nav-links.open .nav-cta { font-size: 1rem !important; padding: 0.8rem 2rem !important; }
+        .nav-links.open .nav-cta { font-size: 1rem !important; padding: 0.9rem 2.5rem !important; margin-top: 1rem; }
         @keyframes fadeInMenu { from { opacity: 0; } to { opacity: 1; } }
 
         /* HERO */
@@ -547,7 +549,7 @@
                     </div>
                     <div class="pillar-label">Pilier 01 — Le Réseau</div>
                     <h3>Réseau Kanso</h3>
-                    <p>Un cercle de confiance réservé aux entreprises souveraines. Synergies alumni Kedge / emlyon, partage de bonnes pratiques et qualification croisée.</p>
+                    <p>Un cercle de confiance réservé aux entreprises souveraines. Synergies réseau / client, partage de bonnes pratiques et qualification croisée.</p>
                     <span class="pillar-tag pillar-tag--purple">Cercle de confiance</span>
                 </div>
                 <div class="pillar reveal reveal-delay-2">
