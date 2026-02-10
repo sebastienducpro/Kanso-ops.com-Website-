@@ -1,0 +1,14 @@
+# Cache des images : 1 an (les navigateurs ne re-téléchargent plus)
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache des polices Google (si elles passent par nous)
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+# Pages HTML : cache court (pour que les mises à jour soient visibles)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
