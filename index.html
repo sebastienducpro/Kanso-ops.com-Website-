@@ -547,7 +547,7 @@
                     </div>
                     <div class="pillar-label">Pilier 01 — Le Réseau</div>
                     <h3>Réseau Kanso</h3>
-                    <p>Un cercle de confiance réservé aux entreprises souveraines. Synergies réseau et clients, partage de bonnes pratiques et qualification croisée.</p>
+                    <p>Un cercle de confiance réservé aux entreprises souveraines. Synergies réseau / client, partage de bonnes pratiques et qualification croisée.</p>
                     <span class="pillar-tag pillar-tag--purple">Cercle de confiance</span>
                 </div>
                 <div class="pillar reveal reveal-delay-2">
@@ -807,14 +807,11 @@
                 </div>
                 <div class="reveal reveal-delay-1">
                     <div class="contact-form-wrapper">
-                        <!-- ═══ FORMULAIRE WEB3FORMS ═══ -->
-                        <!-- [EDIT] Remplacer VOTRE_ACCESS_KEY par votre clé Web3Forms -->
-                        <!-- Obtenez-la gratuitement sur https://web3forms.com -->
-                        <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-                            <input type="hidden" name="access_key" value="VOTRE_ACCESS_KEY">
-                            <input type="hidden" name="subject" value="Nouveau message depuis kanso-ops.com">
-                            <input type="hidden" name="from_name" value="Kanso-Ops Website">
-                            <input type="checkbox" name="botcheck" style="display:none;">
+                        <!-- ═══ FORMULAIRE N8N WEBHOOK ═══ -->
+                        <!-- [EDIT] Remplacer l'URL du webhook n8n ci-dessous -->
+                        <!-- Workflow n8n : Webhook → Email/Slack/CRM/Google Sheets -->
+                        <form id="contact-form" class="contact-form">
+                            <input type="text" name="honeypot" style="display:none;" tabindex="-1" autocomplete="off">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="name">Nom complet</label>
@@ -919,7 +916,21 @@
             });
         });
 
-        // Contact form submission (Web3Forms)
+        // Contact form submission
+        const _e = [
+            'aHR0cHM6Ly9rYW5zby1jbGllbnQxLXU2Mjgw',
+            'OS52bS5lbGVzdGlvLmFwcC93ZWJob29rL2Nv',
+            'bnRhY3Qta2Fuc28='
+        ];
+        const N8N_WEBHOOK_URL = atob(_e.join(''));
+
+        // ═══ ANTI-SPAM : 3 protections ═══
+        // 1. Honeypot (champ invisible piège à bots)
+        // 2. Timer minimum (le formulaire doit être affiché >3s avant soumission)
+        // 3. Cooldown 5 min entre chaque envoi (par session)
+        const COOLDOWN_MS = 5 * 60 * 1000; // 5 minutes
+        const _formLoadTime = Date.now();
+
         const contactForm = document.getElementById('contact-form');
         const formSuccess = document.getElementById('form-success');
         if (contactForm) {
@@ -927,15 +938,45 @@
                 e.preventDefault();
                 const btn = contactForm.querySelector('.form-submit');
                 const originalText = btn.innerHTML;
+
+                // Protection 1 : Honeypot
+                if (contactForm.querySelector('[name="honeypot"]').value) return;
+
+                // Protection 2 : Timer minimum (bots soumettent en <1s)
+                if (Date.now() - _formLoadTime < 3000) {
+                    btn.innerHTML = 'Trop rapide — Réessayez';
+                    setTimeout(() => { btn.innerHTML = originalText; }, 3000);
+                    return;
+                }
+
+                // Protection 3 : Cooldown 5 min
+                const lastSent = sessionStorage.getItem('kanso-form-sent');
+                if (lastSent && Date.now() - parseInt(lastSent) < COOLDOWN_MS) {
+                    const reste = Math.ceil((COOLDOWN_MS - (Date.now() - parseInt(lastSent))) / 60000);
+                    btn.innerHTML = 'Patientez ' + reste + ' min avant de renvoyer';
+                    setTimeout(() => { btn.innerHTML = originalText; }, 4000);
+                    return;
+                }
+
                 btn.disabled = true;
                 btn.innerHTML = 'Envoi en cours…';
+                const payload = {
+                    nom: contactForm.querySelector('#name').value,
+                    email: contactForm.querySelector('#email').value,
+                    entreprise: contactForm.querySelector('#company').value || '',
+                    sujet: contactForm.querySelector('#subject-select').value,
+                    message: contactForm.querySelector('#message').value,
+                    source: 'kanso-ops.com',
+                    date: new Date().toISOString()
+                };
                 try {
-                    const res = await fetch('https://api.web3forms.com/submit', {
+                    const res = await fetch(N8N_WEBHOOK_URL, {
                         method: 'POST',
-                        body: new FormData(contactForm)
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
                     });
-                    const data = await res.json();
-                    if (data.success) {
+                    if (res.ok) {
+                        sessionStorage.setItem('kanso-form-sent', Date.now().toString());
                         contactForm.style.display = 'none';
                         formSuccess.classList.add('show');
                         contactForm.reset();
