@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -355,6 +355,64 @@
         .about-linkedin:hover { color: #a78bfa; }
         .about-linkedin svg { width: 16px; height: 16px; }
 
+        /* CONTACT */
+        .contact { padding: 7rem 0; border-top: 1px solid var(--border); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+        .contact-intro h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .contact-intro h2 em { font-family: var(--font-serif); font-style: italic; font-weight: 600; color: var(--green-bright); }
+        .contact-intro > p { color: var(--white-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 2rem; }
+        .contact-info { display: flex; flex-direction: column; gap: 1.2rem; }
+        .contact-info-item { display: flex; align-items: center; gap: 0.8rem; }
+        .contact-info-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--purple-dim); border: 1px solid rgba(139,92,246,0.2); flex-shrink: 0; }
+        .contact-info-icon svg { width: 18px; height: 18px; color: #a78bfa; }
+        .contact-info-item span { font-size: 0.88rem; color: var(--white-muted); }
+        .contact-info-item a { font-size: 0.88rem; color: var(--white); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .contact-info-item a:hover { color: var(--purple); }
+        .contact-form-wrapper {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+            padding: 2.5rem; position: relative; overflow: hidden;
+        }
+        .contact-form-wrapper::before {
+            content: ''; position: absolute; top: -60%; right: -40%; width: 80%; height: 80%;
+            background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 60%); pointer-events: none;
+        }
+        .contact-form { display: flex; flex-direction: column; gap: 1.2rem; position: relative; z-index: 1; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+        .form-group label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white-muted); }
+        .form-group input, .form-group textarea, .form-group select {
+            background: rgba(0,0,0,0.25); border: 1px solid var(--border); border-radius: var(--radius-sm);
+            padding: 0.8rem 1rem; color: var(--white); font-family: var(--font-sans); font-size: 0.88rem;
+            transition: all 0.2s; outline: none; resize: vertical;
+        }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: var(--white-dim); }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(139,92,246,0.15); }
+        .form-group textarea { min-height: 120px; }
+        .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239ca3af' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; cursor: pointer; }
+        .form-group select option { background: var(--bg-primary); color: var(--white); }
+        .form-submit {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.9rem 2rem;
+            background: linear-gradient(135deg, var(--purple) 0%, #7c3aed 100%); color: white;
+            border: none; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.88rem;
+            cursor: pointer; transition: all 0.25s; font-family: var(--font-sans); width: 100%;
+        }
+        .form-submit:hover { transform: translateY(-2px); box-shadow: var(--purple-glow); }
+        .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+        .form-submit svg { width: 16px; height: 16px; }
+        .form-note { font-size: 0.72rem; color: var(--white-dim); text-align: center; margin-top: 0.3rem; }
+        .form-success { display: none; text-align: center; padding: 2rem; }
+        .form-success.show { display: block; }
+        .form-success svg { width: 48px; height: 48px; color: var(--green); margin-bottom: 1rem; }
+        .form-success h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .form-success p { font-size: 0.9rem; color: var(--white-muted); }
+
+        @media (max-width: 1024px) {
+            .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+        }
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+
         /* FOOTER */
         footer { border-top: 1px solid var(--border); padding: 5rem 0 2rem; }
         .footer-cta-section { text-align: center; padding-bottom: 4rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
@@ -412,6 +470,7 @@
                 <li><a href="#audit">Audit Blueprint</a></li>
                 <li><a href="ressources.html">Ressources</a></li>
                 <li><a href="#about">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <!-- [LINK] Calendly -->
                 <li><a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="nav-cta">Réserver un appel</a></li>
             </ul>
@@ -488,7 +547,7 @@
                     </div>
                     <div class="pillar-label">Pilier 01 — Le Réseau</div>
                     <h3>Réseau Kanso</h3>
-                    <p>Un cercle de confiance réservé aux entreprises souveraines. Synergies réseau, partage de bonnes pratiques et qualification croisée.</p>
+                    <p>Un cercle de confiance réservé aux entreprises souveraines. Synergies réseau et clients, partage de bonnes pratiques et qualification croisée.</p>
                     <span class="pillar-tag pillar-tag--purple">Cercle de confiance</span>
                 </div>
                 <div class="pillar reveal reveal-delay-2">
@@ -615,7 +674,7 @@
             <div class="intelligence-header reveal">
                 <div class="section-label">Intelligence & Gouvernance</div>
                 <h2>Comprendre pour mieux décider.</h2>
-                <p>Nos analyses pour naviguer l'ère de l'IA industrielle en toute lucidité.</p>
+                <p>Nos analyses pour naviguer à l'ère de l'IA industrielle en toute lucidité.</p>
             </div>
             <div class="intelligence-grid">
                 <a href="ressources.html#ia-act" class="intel-card reveal reveal-delay-1">
@@ -717,8 +776,93 @@
         </div>
     </section>
 
+    <!-- ═══ CONTACT ═══ -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-intro reveal">
+                    <div class="section-label">Contact</div>
+                    <h2>Une question ?<br><em>Parlons-en.</em></h2>
+                    <p>Pas encore prêt pour un audit ? Aucun souci. Posez votre question, décrivez votre besoin — on revient vers vous sous 24h.</p>
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                            </div>
+                            <a href="mailto:contact@kanso-ops.fr">contact@kanso-ops.fr</a>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                            </div>
+                            <span>Lyon, France</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+                            </div>
+                            <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank">Réserver un appel — 30 min</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-1">
+                    <div class="contact-form-wrapper">
+                        <!-- ═══ FORMULAIRE WEB3FORMS ═══ -->
+                        <!-- [EDIT] Remplacer VOTRE_ACCESS_KEY par votre clé Web3Forms -->
+                        <!-- Obtenez-la gratuitement sur https://web3forms.com -->
+                        <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="VOTRE_ACCESS_KEY">
+                            <input type="hidden" name="subject" value="Nouveau message depuis kanso-ops.com">
+                            <input type="hidden" name="from_name" value="Kanso-Ops Website">
+                            <input type="checkbox" name="botcheck" style="display:none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Nom complet</label>
+                                    <input type="text" id="name" name="name" placeholder="Jean Dupont" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="jean@entreprise.com" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Entreprise</label>
+                                <input type="text" id="company" name="company" placeholder="Votre entreprise (optionnel)">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject-select">Sujet</label>
+                                <select id="subject-select" name="sujet">
+                                    <option value="Question générale">Question générale</option>
+                                    <option value="Audit Blueprint">Audit Blueprint</option>
+                                    <option value="Cockpit Kanso">Cockpit Kanso</option>
+                                    <option value="Conformité IA Act">Conformité IA Act</option>
+                                    <option value="Partenariat / Réseau">Partenariat / Réseau</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" placeholder="Décrivez votre besoin ou posez votre question..." required></textarea>
+                            </div>
+                            <button type="submit" class="form-submit">
+                                Envoyer le message
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>
+                            </button>
+                            <p class="form-note">Réponse garantie sous 24h ouvrées. Aucune donnée revendue.</p>
+                        </form>
+                        <!-- Message de succès -->
+                        <div id="form-success" class="form-success">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <h3>Message envoyé !</h3>
+                            <p>Merci pour votre message. On revient vers vous sous 24h.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ═══ FOOTER ═══ -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-cta-section reveal">
                 <h2>Prêt à sécuriser votre croissance ?</h2>
@@ -774,6 +918,37 @@
                 if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
+
+        // Contact form submission (Web3Forms)
+        const contactForm = document.getElementById('contact-form');
+        const formSuccess = document.getElementById('form-success');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const btn = contactForm.querySelector('.form-submit');
+                const originalText = btn.innerHTML;
+                btn.disabled = true;
+                btn.innerHTML = 'Envoi en cours…';
+                try {
+                    const res = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: new FormData(contactForm)
+                    });
+                    const data = await res.json();
+                    if (data.success) {
+                        contactForm.style.display = 'none';
+                        formSuccess.classList.add('show');
+                        contactForm.reset();
+                    } else {
+                        btn.innerHTML = 'Erreur — Réessayez';
+                        setTimeout(() => { btn.innerHTML = originalText; btn.disabled = false; }, 3000);
+                    }
+                } catch(err) {
+                    btn.innerHTML = 'Erreur réseau — Réessayez';
+                    setTimeout(() => { btn.innerHTML = originalText; btn.disabled = false; }, 3000);
+                }
+            });
+        }
 
         // Mobile hamburger menu
         const toggle = document.querySelector('.mobile-toggle');
