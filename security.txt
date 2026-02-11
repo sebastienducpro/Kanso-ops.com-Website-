@@ -1,0 +1,8 @@
+# Kanso-Ops Security Contact (RFC 9116)
+# https://kanso-ops.com/.well-known/security.txt
+
+Contact: mailto:sebastien.duc@kanso-ops.fr
+Expires: 2027-02-11T00:00:00.000Z
+Preferred-Languages: fr, en
+Canonical: https://kanso-ops.com/.well-known/security.txt
+Policy: https://kanso-ops.com/mentions-legales.html

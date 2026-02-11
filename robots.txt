@@ -1,0 +1,11 @@
+# kanso-ops.com — Robots.txt
+# Automatisation IA Souveraine pour l'industrie
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kanso-ops.com/sitemap.xml
+
+# Security contact
+# See https://kanso-ops.com/.well-known/security.txt
