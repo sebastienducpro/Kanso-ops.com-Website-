@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture Kanso | 5 moteurs IA + Éclaireur souverain pour l'industrie</title>
+    <meta name="description" content="Découvrez les 6 briques de l'architecture Kanso : 5 moteurs IA spécialisés et l'Éclaireur, votre chat IA souverain. Extracteur, Comparateur, Gardien, Relanceur, Vigie.">
+    <meta name="author" content="Sébastien Duc — Kanso-Ops">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kanso-ops.com/produit.html">
+    <link rel="alternate" hreflang="fr" href="https://kanso-ops.com/produit.html">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#0c1222">
+    <meta property="og:title" content="Architecture Kanso — 6 briques. Une intelligence. Votre métier.">
+    <meta property="og:description" content="5 moteurs IA + l'Éclaireur souverain. L'architecture complète pour automatiser l'industrie sans exposer vos données.">
+    <meta property="og:image" content="https://kanso-ops.com/images/og-image.png">
+    <meta property="og:url" content="https://kanso-ops.com/produit.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary:#0c1222;--bg-secondary:#16213e;--bg-deep:#080e1e;--bg-nav:#0f172a;
+            --bg-card:rgba(255,255,255,0.05);--bg-card-hover:rgba(255,255,255,0.08);
+            --white:#f3f4f6;--white-muted:#9ca3af;--white-dim:rgba(255,255,255,0.35);
+            --green:#10b981;--green-dim:rgba(16,185,129,0.15);--green-glow:rgba(16,185,129,0.35);--green-bright:#34d399;
+            --purple:#8b5cf6;--purple-dim:rgba(139,92,246,0.15);--purple-glow:0 8px 25px rgba(139,92,246,0.3);
+            --blue:#3b82f6;--red:#ef4444;--amber:#f59e0b;
+            --border:rgba(255,255,255,0.10);--border-hover:rgba(255,255,255,0.18);--border-accent:#2a3a5c;
+            --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:24px;
+            --font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+            --font-serif:'Source Serif 4',Georgia,serif;
+            --font-mono:'JetBrains Mono','Fira Code','Courier New',monospace;
+            --shadow-lg:0 10px 25px rgba(0,0,0,0.4);
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden;}
+        body{font-family:var(--font-sans);background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg-secondary) 50%,var(--bg-deep) 100%);background-attachment:fixed;color:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5;}
+        .container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+        .section-label{font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple);margin-bottom:1.5rem;}
+
+        /* NAV */
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 0;background:rgba(15,23,42,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-accent);transition:all 0.3s ease;}
+        nav .container{display:flex;align-items:center;justify-content:space-between;}
+        .logo{font-size:1.1rem;font-weight:900;letter-spacing:0.15em;text-transform:uppercase;color:var(--white);text-decoration:none;}
+        .logo span{color:var(--purple);}
+        .nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none;}
+        .nav-links a{color:var(--white-muted);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.04em;transition:color 0.2s;}
+        .nav-links a:hover{color:var(--purple);}
+        .nav-links a.active-page{color:var(--white);}
+        .nav-cta{padding:0.55rem 1.4rem!important;background:linear-gradient(135deg,var(--purple) 0%,#7c3aed 100%)!important;color:white!important;border-radius:var(--radius-sm);font-weight:700!important;font-size:0.78rem!important;transition:all 0.25s!important;}
+        .nav-cta:hover{transform:translateY(-2px)!important;box-shadow:var(--purple-glow)!important;}
+        .nav-lang{font-size:0.75rem!important;font-weight:700!important;letter-spacing:0.08em;padding:0.3rem 0.6rem;border:1px solid var(--border);border-radius:var(--radius-sm);transition:all 0.2s;}
+        .nav-lang:hover{border-color:var(--purple)!important;color:var(--purple)!important;}
+        .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:0.5rem;z-index:1001;}
+        .mobile-toggle span{display:block;width:22px;height:2px;background:var(--white);margin:5px 0;transition:0.3s;border-radius:2px;}
+        .mobile-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+        .mobile-toggle.active span:nth-child(2){opacity:0;}
+        .mobile-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+        .nav-links.open{display:flex!important;flex-direction:column;position:absolute;top:0;left:0;width:100vw;height:100vh;height:100dvh;z-index:1000;background:var(--bg-deep);justify-content:flex-start;align-items:center;gap:1.4rem;animation:fadeInMenu 0.3s ease;padding:5.5rem 2rem 2rem;overflow-y:auto;}
+        .nav-links.open li{list-style:none;text-align:center;width:100%;}
+        .nav-links.open a{font-size:1.15rem;color:var(--white);font-weight:600;display:block;padding:0.4rem 0;}
+        .nav-links.open .nav-cta{font-size:0.95rem!important;padding:0.8rem 2rem!important;margin-top:0.8rem;display:inline-block!important;}
+        @keyframes fadeInMenu{from{opacity:0;}to{opacity:1;}}
+
+        /* REVEAL */
+        .reveal{opacity:0;transform:translateY(30px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1);}
+        .reveal.visible{opacity:1;transform:translateY(0);}
+        .reveal-delay-1{transition-delay:0.1s;}.reveal-delay-2{transition-delay:0.2s;}.reveal-delay-3{transition-delay:0.3s;}
+
+        /* ═══ HERO ═══ */
+        .p-hero{min-height:100vh;display:flex;align-items:center;padding-top:5rem;position:relative;overflow:hidden;}
+        .p-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,0.06),rgba(16,185,129,0.03) 40%,transparent 70%);pointer-events:none;}
+        .p-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+        .p-hero-text{position:relative;z-index:1;}
+        .p-hero h1{font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:900;line-height:1.1;letter-spacing:-0.03em;margin-bottom:1.5rem;}
+        .p-hero h1 em{font-style:italic;font-family:var(--font-serif);font-weight:600;background:linear-gradient(135deg,var(--green),var(--green-bright));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+        .p-hero-sub{font-size:1.1rem;color:var(--white-muted);line-height:1.7;max-width:500px;margin-bottom:2rem;}
+        .p-hero-cta{display:inline-flex;align-items:center;gap:0.7rem;padding:1rem 2rem;background:linear-gradient(135deg,var(--green),#059669);color:white;text-decoration:none;font-weight:700;font-size:0.9rem;border-radius:var(--radius-sm);transition:all 0.25s;}
+        .p-hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(16,185,129,0.3);}
+        .p-hero-cta svg{width:16px;height:16px;}
+
+        /* Hexagone */
+        .hex-wrapper{position:relative;width:100%;max-width:500px;margin:0 auto;}
+        .hex-svg{width:100%;height:auto;}
+        #gideon{transform-origin:200px 210px;animation:gideonSway 7s ease-in-out infinite;}
+        @keyframes gideonSway{0%,100%{transform:rotate(-1.2deg);}50%{transform:rotate(1.2deg);}}
+        #pupils-group{transition:transform 0.8s cubic-bezier(0.16,1,0.3,1);}
+        .hex-node{cursor:pointer;}
+        .hex-aura{transition:opacity 0.6s,filter 0.6s;animation:auraPulse 4s ease-in-out infinite;}
+        .hex-bubble{transition:all 0.35s;}
+        .hex-highlight{transition:opacity 0.4s;}
+        .hex-node:hover .hex-bubble,.hex-node.active .hex-bubble{stroke-width:2.2;filter:brightness(1.6);}
+        .hex-node:hover .hex-aura,.hex-node.active .hex-aura{filter:url(#bubbleGlow) brightness(1.5);}
+        .hex-node:hover .hex-highlight,.hex-node.active .hex-highlight{opacity:1;stroke:rgba(255,255,255,0.3);}
+        @keyframes auraPulse{0%,100%{opacity:0.5;}50%{opacity:1;}}
+        .hex-glow-line{opacity:0;transition:opacity 0.5s,stroke-width 0.5s;filter:url(#lineGlow);}
+        .hex-glow-line.active{opacity:1;}
+        .hex-label-box{position:absolute;bottom:-1.5rem;left:50%;transform:translateX(-50%);background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:0.6rem 1.2rem;font-size:0.78rem;font-weight:600;color:var(--white);white-space:nowrap;opacity:0;transition:all 0.3s;pointer-events:none;text-align:center;backdrop-filter:blur(10px);}
+        .hex-label-box.show{opacity:1;bottom:-2.5rem;}
+
+        /* ═══ 3 ÉTAPES — PIPELINE + MOCKUP FUSION ═══ */
+        .meca{padding:8rem 0;border-top:1px solid var(--border);}
+        .meca-header{text-align:center;max-width:650px;margin:0 auto 3rem;}
+        .meca h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:1rem;}
+        .meca h2 em{font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--green-bright);}
+        .meca-header p{color:var(--white-muted);font-size:1rem;line-height:1.6;}
+        /* Pipeline flow */
+        .flow-visual{display:flex;align-items:center;justify-content:center;padding:2rem 0 2.5rem;position:relative;}
+        .flow-node{position:relative;flex-shrink:0;text-align:center;cursor:pointer;}
+        .flow-ring{width:90px;height:90px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;position:relative;transition:all 0.4s;}
+        .flow-ring svg{width:32px;height:32px;}
+        .flow-ring::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid;opacity:0;animation:ringWave 3s ease infinite;}
+        .flow-node--depot .flow-ring{border-color:rgba(139,92,246,0.35);background:rgba(139,92,246,0.05);color:#a78bfa;}
+        .flow-node--depot .flow-ring::after{border-color:rgba(139,92,246,0.3);}
+        .flow-node--trait .flow-ring{border-color:rgba(59,130,246,0.35);background:rgba(59,130,246,0.05);color:#60a5fa;}
+        .flow-node--trait .flow-ring::after{border-color:rgba(59,130,246,0.3);}
+        .flow-node--resti .flow-ring{border-color:rgba(16,185,129,0.35);background:rgba(16,185,129,0.05);color:var(--green-bright);}
+        .flow-node--resti .flow-ring::after{border-color:rgba(16,185,129,0.3);}
+        /* Active step states */
+        .flow-node.step-active .flow-ring{transform:scale(1.1);}
+        .flow-node--depot.step-active .flow-ring{border-color:rgba(139,92,246,0.7);background:rgba(139,92,246,0.12);box-shadow:0 0 25px rgba(139,92,246,0.2);}
+        .flow-node--trait.step-active .flow-ring{border-color:rgba(59,130,246,0.7);background:rgba(59,130,246,0.12);box-shadow:0 0 25px rgba(59,130,246,0.2);animation:coreGlow 2s ease infinite;}
+        .flow-node--resti.step-active .flow-ring{border-color:rgba(16,185,129,0.7);background:rgba(16,185,129,0.12);box-shadow:0 0 25px rgba(16,185,129,0.2);}
+        @keyframes ringWave{0%{opacity:0.5;transform:scale(1);}100%{opacity:0;transform:scale(1.5);}}
+        @keyframes coreGlow{0%,100%{box-shadow:0 0 0 0 rgba(59,130,246,0.2);}50%{box-shadow:0 0 25px 8px rgba(59,130,246,0.15);}}
+        .flow-node-label{margin-top:0.8rem;font-size:0.82rem;font-weight:700;letter-spacing:0.02em;transition:all 0.3s;}
+        .flow-node.step-active .flow-node-label{transform:scale(1.05);}
+        .flow-connector{flex:1;max-width:180px;height:2px;position:relative;margin:0 1.2rem;margin-bottom:2rem;}
+        .flow-wire{position:absolute;inset:0;background:rgba(255,255,255,0.06);border-radius:2px;}
+        .flow-dot{position:absolute;width:5px;height:5px;border-radius:50%;top:-1.5px;background:var(--green-bright);box-shadow:0 0 10px var(--green-glow);animation:dotTravel 2.2s linear infinite;}
+        .flow-dot:nth-child(3){animation-delay:0.7s;}.flow-dot:nth-child(4){animation-delay:1.4s;}
+        @keyframes dotTravel{0%{left:-3px;opacity:0;}5%{opacity:1;}95%{opacity:1;}100%{left:calc(100% + 3px);opacity:0;}}
+        /* Step progress bar */
+        .step-progress{width:100%;height:3px;background:rgba(255,255,255,0.06);border-radius:3px;margin-bottom:1.5rem;overflow:hidden;}
+        .step-progress-fill{height:100%;border-radius:3px;width:0%;transition:background 0.4s;}
+        .step-progress-fill.running{animation:stepTimer 5s linear infinite;}
+        @keyframes stepTimer{from{width:0%;}to{width:100%;}}
+        /* Mockup window */
+        .step-mockup{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;min-height:320px;position:relative;overflow:hidden;}
+        .step-mockup::before{content:'';position:absolute;top:-40%;right:-30%;width:60%;height:60%;background:radial-gradient(circle,rgba(139,92,246,0.04),transparent 65%);pointer-events:none;}
+        .sm-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;padding-bottom:0.8rem;border-bottom:1px solid var(--border);}
+        .sm-dots{display:flex;gap:0.4rem;}
+        .sm-dot{width:8px;height:8px;border-radius:50%;}
+        .sm-dot:nth-child(1){background:#FF5F57;}.sm-dot:nth-child(2){background:#FEBC2E;}.sm-dot:nth-child(3){background:var(--green);}
+        .sm-title{font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--white-muted);transition:color 0.3s;}
+        .sm-status{display:flex;align-items:center;gap:0.35rem;font-size:0.6rem;font-weight:600;}
+        .sm-status::before{content:'';width:5px;height:5px;border-radius:50%;animation:pulseDot 1.4s infinite;}
+        /* Step screens */
+        .step-screen{display:none;animation:smFadeIn 0.45s cubic-bezier(0.16,1,0.3,1);}
+        .step-screen.active{display:block;}
+        @keyframes smFadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+        .sm-topbar{display:flex;align-items:center;gap:0.7rem;padding:0.7rem 1rem;border-radius:var(--radius-sm);margin-bottom:0.8rem;animation:smSlideUp 0.4s cubic-bezier(0.16,1,0.3,1) backwards;}
+        .sm-topbar-dot{width:8px;height:8px;border-radius:50%;animation:pulseDot 1.4s infinite;}
+        .sm-topbar-text{font-size:0.78rem;font-weight:700;flex:1;}
+        .sm-topbar-meta{font-size:0.68rem;color:var(--white-muted);}
+        .sm-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;}
+        .sm-card{padding:0.8rem 1rem;background:rgba(0,0,0,0.2);border:1px solid var(--border);border-radius:var(--radius-sm);animation:smSlideUp 0.5s cubic-bezier(0.16,1,0.3,1) backwards;}
+        .sm-card:nth-child(1){animation-delay:0.05s;}.sm-card:nth-child(2){animation-delay:0.12s;}.sm-card:nth-child(3){animation-delay:0.19s;}.sm-card:nth-child(4){animation-delay:0.26s;}.sm-card:nth-child(5){animation-delay:0.33s;}.sm-card:nth-child(6){animation-delay:0.4s;}
+        @keyframes smSlideUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+        .sm-label{font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--white-dim);margin-bottom:0.25rem;}
+        .sm-value{font-size:0.82rem;font-weight:600;color:var(--white);}
+        .sm-badge{display:inline-flex;font-size:0.55rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:0.18rem 0.5rem;border-radius:9999px;}
+        .sm-bar-wrap{flex:1;height:4px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;}
+        .sm-bar-fill{height:100%;border-radius:4px;width:0%;transition:width 1.2s cubic-bezier(0.16,1,0.3,1);}
+        .sm-bar-fill.animate{width:var(--fill);}
+        .sm-file-row{display:flex;align-items:center;gap:0.8rem;padding:0.65rem 1rem;background:rgba(0,0,0,0.2);border:1px solid var(--border);border-radius:var(--radius-sm);animation:smSlideUp 0.5s cubic-bezier(0.16,1,0.3,1) backwards;}
+        .sm-file-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;flex-shrink:0;}
+        .sm-file-name{flex:1;font-size:0.78rem;font-weight:600;color:var(--white);}
+        .sm-file-meta{font-size:0.65rem;color:var(--white-muted);}
+        .sm-engine-row{display:flex;align-items:center;gap:0.8rem;padding:0.55rem 1rem;background:rgba(0,0,0,0.15);border:1px solid var(--border);border-radius:var(--radius-sm);animation:smSlideUp 0.45s cubic-bezier(0.16,1,0.3,1) backwards;}
+        .sm-engine-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+        .sm-engine-name{font-size:0.72rem;font-weight:700;width:90px;}
+        .sm-engine-status{font-size:0.65rem;font-weight:600;margin-left:auto;}
+        .sm-kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-bottom:0.8rem;}
+        .sm-kpi{text-align:center;padding:1rem 0.6rem;background:rgba(0,0,0,0.2);border:1px solid var(--border);border-radius:var(--radius-sm);animation:smSlideUp 0.5s cubic-bezier(0.16,1,0.3,1) backwards;}
+        .sm-kpi-val{font-size:1.3rem;font-weight:900;margin-bottom:0.2rem;}
+        .sm-kpi-label{font-size:0.6rem;font-weight:600;color:var(--white-muted);text-transform:uppercase;letter-spacing:0.08em;}
+
+        /* ═══ ÉCLAIREUR IA ═══ */
+        .eclaireur{padding:8rem 0;border-top:1px solid var(--border);}
+        .ecl-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:center;}
+        .ecl-text h2{font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:1rem;}
+        .ecl-text h2 em{font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--green-bright);}
+        .ecl-text>p{color:var(--white-muted);font-size:1rem;line-height:1.65;margin-bottom:1.5rem;}
+        .ecl-features{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem;}
+        .ecl-feat{display:flex;align-items:flex-start;gap:0.8rem;padding:0.8rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);}
+        .ecl-feat-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--green-dim);border:1px solid rgba(16,185,129,0.25);}
+        .ecl-feat-icon svg{width:16px;height:16px;color:var(--green-bright);}
+        .ecl-feat h4{font-size:0.85rem;font-weight:700;margin-bottom:0.15rem;}
+        .ecl-feat p{font-size:0.78rem;color:var(--white-muted);line-height:1.45;}
+        .chat-mock{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;position:relative;}
+        .chat-mock::before{content:'';position:absolute;top:-40%;left:-20%;width:60%;height:60%;background:radial-gradient(circle,rgba(16,185,129,0.06),transparent 60%);pointer-events:none;}
+        .chat-header{display:flex;align-items:center;gap:0.8rem;padding:1rem 1.5rem;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.15);}
+        .chat-header-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulseDot 2s infinite;}
+        @keyframes pulseDot{0%,100%{opacity:1;}50%{opacity:0.4;}}
+        .chat-header-title{font-size:0.78rem;font-weight:700;color:var(--white);flex:1;}
+        .chat-header-badge{font-size:0.58rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:9999px;background:var(--green-dim);color:var(--green-bright);border:1px solid rgba(16,185,129,0.25);}
+        .chat-body{padding:1.5rem;display:flex;flex-direction:column;gap:1rem;min-height:280px;}
+        .chat-msg{max-width:88%;animation:chatIn 0.5s cubic-bezier(0.16,1,0.3,1) backwards;}
+        .chat-msg:nth-child(1){animation-delay:0.2s;}.chat-msg:nth-child(2){animation-delay:0.8s;}.chat-msg:nth-child(3){animation-delay:1.6s;}
+        @keyframes chatIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        .chat-msg--user{align-self:flex-end;}
+        .chat-msg--user .chat-bubble{background:linear-gradient(135deg,var(--purple),#7c3aed);color:white;border-radius:var(--radius-md) var(--radius-md) 4px var(--radius-md);padding:0.9rem 1.2rem;font-size:0.85rem;line-height:1.5;}
+        .chat-msg--ai{align-self:flex-start;}
+        .chat-msg--ai .chat-bubble{background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:var(--radius-md) var(--radius-md) var(--radius-md) 4px;padding:1rem 1.3rem;font-size:0.82rem;line-height:1.6;color:var(--white);}
+        .chat-msg--ai .chat-label{font-size:0.6rem;font-weight:700;color:var(--green-bright);margin-bottom:0.3rem;letter-spacing:0.06em;text-transform:uppercase;}
+        .chat-source{display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.5rem;font-size:0.65rem;color:var(--white-dim);background:rgba(255,255,255,0.05);padding:0.2rem 0.5rem;border-radius:4px;}
+        .chat-source::before{content:'📎';font-size:0.6rem;}
+        .chat-input{display:flex;align-items:center;gap:0.8rem;padding:1rem 1.5rem;border-top:1px solid var(--border);background:rgba(0,0,0,0.1);}
+        .chat-input-field{flex:1;font-size:0.82rem;color:var(--white-dim);font-style:italic;}
+        .chat-input-btn{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--green),#059669);border:none;cursor:pointer;}
+        .chat-input-btn svg{width:16px;height:16px;color:white;}
+
+        /* ═══ 5 MOTEURS — EXEMPLES PAR SECTEUR ═══ */
+        .moteurs{padding:8rem 0;border-top:1px solid var(--border);}
+        .moteurs-header{text-align:center;max-width:700px;margin:0 auto 3.5rem;}
+        .moteurs h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:1rem;}
+        .moteurs h2 em{font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--green-bright);}
+        .moteurs-header p{color:var(--white-muted);font-size:1rem;line-height:1.6;}
+        .engine-tabs{display:flex;gap:0.6rem;margin-bottom:2rem;overflow-x:auto;padding-bottom:0.5rem;}
+        .engine-tab{flex:1;min-width:130px;padding:1rem 1rem;border-radius:var(--radius-md);background:var(--bg-card);border:1px solid var(--border);cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;text-align:center;}
+        .engine-tab::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--engine-color,var(--purple));transform:scaleX(0);transition:transform 0.4s;transform-origin:center;}
+        .engine-tab:hover{border-color:var(--border-hover);transform:translateY(-2px);}
+        .engine-tab.active{border-color:var(--engine-color,var(--purple));background:var(--engine-bg,rgba(139,92,246,0.08));}
+        .engine-tab.active::after{transform:scaleX(1);}
+        .engine-tab-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;font-size:1.2rem;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s;}
+        .engine-tab.active .engine-tab-icon{background:var(--engine-bg);border-color:var(--engine-color);box-shadow:0 0 20px var(--engine-glow);}
+        .engine-tab-name{font-size:0.78rem;font-weight:700;color:var(--white-muted);transition:color 0.3s;}
+        .engine-tab.active .engine-tab-name{color:var(--white);}
+        .engine-tab-role{font-size:0.6rem;color:var(--white-dim);margin-top:0.1rem;}
+        .engine-progress{height:2px;background:rgba(255,255,255,0.06);border-radius:2px;margin-bottom:2rem;overflow:hidden;}
+        .engine-progress-fill{height:100%;width:0;border-radius:2px;}
+        .engine-progress-fill.running{animation:engineTimer 7s linear forwards;}
+        @keyframes engineTimer{from{width:0;}to{width:100%;}}
+        .engine-content{display:none;animation:engFadeIn 0.5s ease;}
+        .engine-content.active{display:block;}
+        @keyframes engFadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+        .eng-base{display:flex;align-items:center;gap:0.8rem;padding:1rem 1.3rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:1.5rem;font-size:0.88rem;color:var(--white-muted);line-height:1.5;}
+        .eng-base-tag{font-size:0.6rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:0.25rem 0.7rem;border-radius:9999px;flex-shrink:0;}
+        .eng-examples{display:grid;grid-template-columns:repeat(2,1fr);gap:0.8rem;margin-bottom:1.2rem;}
+        .eng-ex{display:flex;align-items:flex-start;gap:0.8rem;padding:1rem;background:rgba(0,0,0,0.2);border:1px solid var(--border);border-radius:var(--radius-sm);transition:all 0.3s;animation:engCardIn 0.4s ease backwards;}
+        .eng-ex:nth-child(1){animation-delay:0.05s;}.eng-ex:nth-child(2){animation-delay:0.1s;}.eng-ex:nth-child(3){animation-delay:0.15s;}.eng-ex:nth-child(4){animation-delay:0.2s;}
+        @keyframes engCardIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+        .eng-ex:hover{border-color:var(--border-hover);transform:translateY(-2px);}
+        .eng-ex-icon{font-size:1.3rem;flex-shrink:0;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid var(--border);}
+        .eng-ex-sector{font-size:0.78rem;font-weight:700;margin-bottom:0.15rem;}
+        .eng-ex-desc{font-size:0.75rem;color:var(--white-muted);line-height:1.45;}
+        .eng-custom{text-align:center;padding:1rem;font-size:0.85rem;color:var(--white-muted);font-style:italic;border-top:1px solid var(--border);}
+        .eng-custom strong{color:var(--white);font-style:normal;}
+
+        /* ═══ CHAT INTERACTIF ═══ */
+        .chat-quick-questions{display:flex;flex-wrap:wrap;gap:0.5rem;padding:0.8rem 1.5rem;border-top:1px solid var(--border);background:rgba(0,0,0,0.08);}
+        .quick-btn{background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.25);color:var(--green-bright);padding:0.5rem 0.9rem;border-radius:9999px;font-size:0.72rem;font-weight:600;cursor:pointer;transition:all 0.3s;font-family:var(--font-sans);white-space:nowrap;}
+        .quick-btn:hover{background:rgba(16,185,129,0.14);border-color:rgba(16,185,129,0.5);transform:translateY(-1px);box-shadow:0 4px 15px rgba(16,185,129,0.2);}
+        .quick-btn:disabled{opacity:0.35;cursor:default;transform:none;box-shadow:none;}
+        .chat-typing{display:flex;gap:4px;align-items:center;padding:0.7rem 1rem;}
+        .chat-typing-dot{width:6px;height:6px;border-radius:50%;background:var(--green-bright);animation:typingBounce 1.4s infinite;}
+        .chat-typing-dot:nth-child(2){animation-delay:0.15s;}
+        .chat-typing-dot:nth-child(3){animation-delay:0.3s;}
+        @keyframes typingBounce{0%,60%,100%{opacity:0.3;transform:translateY(0);}30%{opacity:1;transform:translateY(-4px);}}
+        .chat-msg.entering{animation:chatSlideIn 0.4s cubic-bezier(0.16,1,0.3,1);}
+        @keyframes chatSlideIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+        /* ═══ DASHBOARD INDUSTRIEL 5 MOTEURS ═══ */
+        .engine-dashboard{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:2rem;}
+        .engine-monitor{background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:var(--radius-md);padding:1.2rem;position:relative;overflow:hidden;transition:all 0.4s;cursor:pointer;}
+        .engine-monitor::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--eng-color);opacity:0.5;transition:opacity 0.3s;}
+        .engine-monitor:hover,.engine-monitor.monitor-active{border-color:var(--eng-color);transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.4);}
+        .engine-monitor:hover::before,.engine-monitor.monitor-active::before{opacity:1;}
+        .monitor-header{display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;font-weight:700;color:var(--white);margin-bottom:0.8rem;}
+        .monitor-header-icon{font-size:1.1rem;}
+        .monitor-status{display:flex;align-items:center;gap:0.4rem;font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--green-bright);margin-bottom:0.8rem;}
+        .monitor-led{width:7px;height:7px;border-radius:50%;background:var(--green);animation:ledPulse 2s infinite;flex-shrink:0;}
+        @keyframes ledPulse{0%,100%{opacity:1;box-shadow:0 0 4px var(--green);}50%{opacity:0.4;box-shadow:none;}}
+        .monitor-counter{font-family:var(--font-mono);font-size:1.6rem;font-weight:700;color:var(--eng-color);line-height:1;margin-bottom:0.15rem;}
+        .monitor-label{font-size:0.6rem;color:var(--white-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.8rem;}
+        .monitor-log{background:rgba(0,0,0,0.4);border-radius:6px;padding:0.5rem 0.6rem;min-height:72px;overflow:hidden;position:relative;}
+        .log-entry{font-family:var(--font-mono);font-size:0.6rem;color:rgba(255,255,255,0.4);line-height:1.7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;animation:logFadeIn 0.4s ease;}
+        .log-entry .log-ok{color:var(--green-bright);font-weight:700;}
+        .log-entry .log-warn{color:#fbbf24;font-weight:700;}
+        .log-entry .log-progress{color:var(--blue);font-weight:700;}
+        .log-entry .log-time{color:rgba(255,255,255,0.2);margin-right:0.4rem;}
+        @keyframes logFadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+        /* ═══ SOLUTIONS ═══ */
+        .solutions{padding:8rem 0;border-top:1px solid var(--border);}
+        .solutions-header{text-align:center;max-width:650px;margin:0 auto 4rem;}
+        .solutions h2{font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:1rem;}
+        .solutions h2 em{font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--green-bright);}
+        .solutions-header p{color:var(--white-muted);font-size:1rem;line-height:1.6;}
+        .solutions-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;}
+        .sol-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.2rem 1.8rem;transition:all 0.3s;position:relative;overflow:hidden;}
+        .sol-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--sol-color,var(--green));opacity:0;transition:opacity 0.3s;}
+        .sol-card:hover{border-color:var(--border-hover);transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+        .sol-card:hover::before{opacity:1;}
+        .sol-icon{width:44px;height:44px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.3rem;}
+        .sol-card h3{font-size:1.1rem;font-weight:800;margin-bottom:0.6rem;}
+        .sol-card p{font-size:0.85rem;color:var(--white-muted);line-height:1.6;}
+        .sol-tag{display:inline-flex;margin-top:1.2rem;font-size:0.65rem;font-weight:600;padding:0.25rem 0.7rem;border-radius:9999px;}
+
+        /* ═══ OBSESSION ═══ */
+        .obsession{padding:8rem 0;border-top:1px solid var(--border);position:relative;overflow:hidden;}
+        .obsession::before{content:'';position:absolute;top:50%;left:50%;width:600px;height:600px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(16,185,129,0.04),transparent 60%);pointer-events:none;}
+        .obs-header{text-align:center;max-width:650px;margin:0 auto 4rem;}
+        .obsession h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:1rem;}
+        .obsession h2 em{font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--green-bright);}
+        .obs-header p{color:var(--white-muted);font-size:1rem;line-height:1.6;}
+        .obs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:3rem;}
+        .obs-card{text-align:center;padding:2.5rem 1.5rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);transition:all 0.3s;}
+        .obs-card:hover{border-color:var(--border-hover);transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+        .obs-icon{font-size:2rem;margin-bottom:1rem;}
+        .obs-number{font-size:3rem;font-weight:900;letter-spacing:-0.04em;line-height:1;}
+        .obs-unit{font-size:0.85rem;font-weight:600;margin-top:0.3rem;margin-bottom:0.8rem;}
+        .obs-desc{font-size:0.82rem;color:var(--white-muted);line-height:1.5;}
+        .obs-quote{text-align:center;max-width:700px;margin:0 auto;font-family:var(--font-serif);font-size:1.2rem;font-style:italic;color:var(--white-muted);line-height:1.6;padding:2rem;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--bg-card);position:relative;}
+        .obs-quote::before{content:'"';position:absolute;top:-0.5rem;left:2rem;font-size:3rem;color:var(--green);font-family:var(--font-serif);line-height:1;}
+
+        /* ═══ CTA AUDIT ═══ */
+        .cta-audit{padding:8rem 0;border-top:1px solid var(--border);}
+        .cta-wrapper{background:linear-gradient(135deg,rgba(16,185,129,0.08),rgba(255,255,255,0.04) 40%,rgba(139,92,246,0.05));border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-xl);padding:4rem;text-align:center;position:relative;overflow:hidden;}
+        .cta-wrapper::before{content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(16,185,129,0.08),transparent 70%);}
+        .cta-wrapper h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:0.5rem;position:relative;z-index:1;}
+        .cta-subtitle{font-size:1.05rem;color:var(--white-muted);margin-bottom:2rem;position:relative;z-index:1;}
+        .cta-price{font-size:3.5rem;font-weight:900;letter-spacing:-0.04em;margin-bottom:0.3rem;position:relative;z-index:1;}
+        .cta-price sup{font-size:0.35em;vertical-align:super;color:var(--white-muted);}
+        .cta-duration{font-size:0.85rem;color:var(--white-muted);margin-bottom:2rem;position:relative;z-index:1;}
+        .cta-btn{display:inline-flex;align-items:center;gap:0.6rem;padding:1rem 2.5rem;background:linear-gradient(135deg,var(--green),#059669);color:white;text-decoration:none;font-weight:700;font-size:0.95rem;border-radius:var(--radius-sm);transition:all 0.25s;position:relative;z-index:1;}
+        .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(16,185,129,0.3);}
+        .cta-btn svg{width:16px;height:16px;}
+        .cta-note{font-size:0.78rem;color:var(--white-dim);margin-top:1.2rem;font-style:italic;position:relative;z-index:1;}
+
+        /* FOOTER */
+        footer{border-top:1px solid var(--border);padding:5rem 0 2rem;}
+        .footer-cta-section{text-align:center;padding-bottom:4rem;border-bottom:1px solid var(--border);margin-bottom:2rem;}
+        .footer-cta-section h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:1.5rem;}
+        .footer-cta-link{display:inline-flex;align-items:center;gap:0.6rem;color:var(--purple);text-decoration:none;font-weight:700;font-size:0.95rem;transition:all 0.2s;padding:0.8rem 1.8rem;border:1px solid rgba(139,92,246,0.3);border-radius:var(--radius-sm);}
+        .footer-cta-link:hover{background:var(--purple-dim);border-color:var(--purple);}
+        .footer-cta-link svg{width:16px;height:16px;}
+        .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;}
+        .footer-copy{font-size:0.75rem;color:var(--white-dim);}
+        .footer-links{display:flex;gap:1.5rem;}
+        .footer-links a{font-size:0.75rem;color:var(--white-dim);text-decoration:none;transition:color 0.2s;}
+        .footer-links a:hover{color:var(--white);}
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .p-hero-grid{grid-template-columns:1fr;text-align:center;}
+            .p-hero-sub{margin-left:auto;margin-right:auto;}
+            .hex-wrapper{max-width:360px;margin-top:2rem;}
+            .ecl-grid{grid-template-columns:1fr;gap:3rem;}
+            .sm-grid{grid-template-columns:1fr;}
+            .eng-examples{grid-template-columns:1fr;}
+            .engine-dashboard{grid-template-columns:repeat(3,1fr);}
+            .solutions-grid{grid-template-columns:1fr;}
+            .obs-grid{grid-template-columns:1fr;}
+            .cta-wrapper{padding:3rem 2rem;}
+        }
+        @media(max-width:768px){
+            .nav-links{display:none;}
+            .mobile-toggle{display:block;}
+            .engine-tab{min-width:0;flex:1;padding:0.6rem 0.3rem;}
+            .engine-tab-icon{width:28px;height:28px;margin-bottom:0.3rem;}
+            .engine-tab-icon svg{width:14px;height:14px;}
+            .engine-tab-name{font-size:0.6rem;}
+            .engine-tab-role{display:none;}
+            .engine-dashboard{grid-template-columns:repeat(2,1fr);}
+            .monitor-counter{font-size:1.2rem;}
+            .chat-quick-questions{flex-direction:column;}
+            .quick-btn{white-space:normal;text-align:left;}
+            /* Pipeline vertical */
+            .flow-visual{flex-direction:column;gap:0;}
+            .flow-connector{width:2px;height:60px;max-width:none;margin:0.5rem 0;}
+            .flow-dot{left:-1.5px!important;top:auto;animation:dotTravelV 2.2s linear infinite;}
+            .flow-wire{width:2px;height:100%;}
+            @keyframes dotTravelV{0%{top:-3px;opacity:0;}5%{opacity:1;}95%{opacity:1;}100%{top:calc(100% + 3px);opacity:0;}}
+            /* Mockup 3 étapes */
+            .step-mockup{padding:1rem;min-height:auto;}
+            .sm-kpi-grid{grid-template-columns:1fr;}
+            .sm-grid{grid-template-columns:1fr;}
+            .sm-grid .sm-card[style*="grid-column"]{grid-column:auto!important;}
+            .sm-file-row{flex-wrap:wrap;gap:0.4rem;}
+            .sm-file-name{width:100%;font-size:0.72rem;}
+            .sm-engine-row{flex-wrap:wrap;gap:0.4rem;}
+            .sm-engine-name{width:auto;}
+            .sm-bar-wrap{min-width:60px;}
+            .sm-topbar{flex-wrap:wrap;gap:0.4rem;}
+            .sm-topbar-text{font-size:0.7rem;}
+            /* Hexagone */
+            .hex-wrapper{max-width:85vw;padding-bottom:3.5rem;}
+            .hex-label-box{white-space:normal;max-width:220px;font-size:0.72rem;padding:0.5rem 0.9rem;line-height:1.4;}
+            .p-hero{overflow-x:hidden;overflow-y:visible;}
+            .footer-bottom{flex-direction:column;gap:1rem;text-align:center;}
+        }
+        @media(max-width:480px){
+            .flow-ring{width:70px;height:70px;}
+            .flow-ring svg{width:26px;height:26px;}
+            .flow-node-label{font-size:0.72rem;}
+            .sm-kpi-val{font-size:1rem;}
+            .sm-file-icon{width:24px;height:24px;font-size:0.6rem;}
+            .sm-badge{font-size:0.5rem;padding:0.15rem 0.4rem;}
+            .hex-wrapper{max-width:90vw;padding-bottom:3rem;}
+            .engine-dashboard{grid-template-columns:1fr;}
+            .monitor-counter{font-size:1.1rem;}
+            .hex-label-box{max-width:180px;font-size:0.65rem;padding:0.4rem 0.7rem;}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">KANSO<span>.</span>OPS</a>
+            <ul class="nav-links">
+                <li><a href="index.html#pillars">Écosystème</a></li>
+                <li><a href="index.html#cockpit">Cockpit Kanso</a></li>
+                <li><a href="produit.html" class="active-page">Produit</a></li>
+                <li><a href="index.html#audit">Audit Blueprint</a></li>
+                <li><a href="ressources.html">Ressources</a></li>
+                <li><a href="index.html#about">À propos</a></li>
+                <li><a href="/en/index.html" class="nav-lang">EN</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+            </ul>
+            <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO — HEXAGONE GIDEON ═══ -->
+    <section class="p-hero">
+        <div class="container">
+            <div class="p-hero-grid">
+                <div class="p-hero-text reveal">
+                    <div class="section-label">L'architecture Kanso</div>
+                    <h1>6 briques. Une intelligence.<br><em>Votre métier.</em></h1>
+                    <p class="p-hero-sub">Les 5 moteurs Kanso automatisent l'exécution. L'Éclaireur IA pilote la décision. L'humain garde le contrôle.</p>
+                    <a href="index.html#contact" class="p-hero-cta">
+                        Découvrir mon potentiel
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                    </a>
+                </div>
+                <div class="hex-wrapper reveal reveal-delay-1">
+                    <svg class="hex-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <filter id="lineGlow"><feGaussianBlur stdDeviation="4"/></filter>
+                            <filter id="eyeGlow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                            <filter id="softGlow"><feGaussianBlur stdDeviation="8"/></filter>
+                            <filter id="bubbleGlow"><feGaussianBlur stdDeviation="6"/></filter>
+                            <path id="hexPath" d="M200,60 L321,130 L321,270 L200,340 L79,270 L79,130 Z" fill="none"/>
+                        </defs>
+
+                        <!-- Hex outline pulse -->
+                        <polygon points="200,60 321,130 321,270 200,340 79,270 79,130" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1">
+                            <animate attributeName="stroke-opacity" values="0.04;0.1;0.04" dur="4s" repeatCount="indefinite"/>
+                        </polygon>
+
+                        <!-- Electric current — 6 permanent animated wires -->
+                        <line x1="200" y1="200" x2="200" y2="60" stroke="rgba(16,185,129,0.2)" stroke-width="1" stroke-dasharray="3 7" stroke-linecap="round"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur="0.9s" repeatCount="indefinite"/></line>
+                        <line x1="200" y1="200" x2="321" y2="130" stroke="rgba(59,130,246,0.2)" stroke-width="1" stroke-dasharray="3 7" stroke-linecap="round"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur="0.8s" repeatCount="indefinite"/></line>
+                        <line x1="200" y1="200" x2="321" y2="270" stroke="rgba(239,68,68,0.2)" stroke-width="1" stroke-dasharray="3 7" stroke-linecap="round"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1s" repeatCount="indefinite"/></line>
+                        <line x1="200" y1="200" x2="200" y2="340" stroke="rgba(245,158,11,0.2)" stroke-width="1" stroke-dasharray="3 7" stroke-linecap="round"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur="0.85s" repeatCount="indefinite"/></line>
+                        <line x1="200" y1="200" x2="79" y2="270" stroke="rgba(139,92,246,0.2)" stroke-width="1" stroke-dasharray="3 7" stroke-linecap="round"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur="0.95s" repeatCount="indefinite"/></line>
+                        <line x1="200" y1="200" x2="79" y2="130" stroke="rgba(52,211,153,0.2)" stroke-width="1" stroke-dasharray="3 7" stroke-linecap="round"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur="0.75s" repeatCount="indefinite"/></line>
+
+                        <!-- Orbiting particles along hexagon -->
+                        <circle r="2.5" fill="#34d399" opacity="0.6"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#hexPath"/></animateMotion></circle>
+                        <circle r="2" fill="#8b5cf6" opacity="0.5"><animateMotion dur="9s" begin="-3s" repeatCount="indefinite"><mpath href="#hexPath"/></animateMotion></circle>
+                        <circle r="1.8" fill="#3b82f6" opacity="0.4"><animateMotion dur="9s" begin="-6s" repeatCount="indefinite"><mpath href="#hexPath"/></animateMotion></circle>
+
+                        <!-- GIDEON — holographic human bust, cyan, pupils track active node -->
+                        <g id="gideon">
+                            <!-- Ambient glow aura (cyan) -->
+                            <circle cx="200" cy="200" r="52" fill="rgba(56,189,248,0.04)" filter="url(#softGlow)">
+                                <animate attributeName="r" values="50;56;50" dur="4s" repeatCount="indefinite"/>
+                            </circle>
+
+                            <!-- Human head silhouette -->
+                            <path d="M200 160 C216 160,228 169,232 180 C235 190,235 200,232 208 C229 216,224 224,218 230 C212 236,207 239,200 241 C193 239,188 236,182 230 C176 224,171 216,168 208 C165 200,165 190,168 180 C172 169,184 160,200 160Z" fill="rgba(56,189,248,0.05)" stroke="rgba(56,189,248,0.4)" stroke-width="1.1">
+                                <animate attributeName="stroke-opacity" values="0.35;0.6;0.35" dur="3s" repeatCount="indefinite"/>
+                            </path>
+
+                            <!-- Forehead contour -->
+                            <path d="M181 172 Q190 164,200 163 Q210 164,219 172" fill="none" stroke="rgba(56,189,248,0.2)" stroke-width="0.7"/>
+                            <!-- Temple lines -->
+                            <path d="M172 184 Q168 196,170 208" fill="none" stroke="rgba(56,189,248,0.15)" stroke-width="0.6"/>
+                            <path d="M228 184 Q232 196,230 208" fill="none" stroke="rgba(56,189,248,0.15)" stroke-width="0.6"/>
+
+                            <!-- Brow ridges -->
+                            <path d="M181 187 Q188 183,196 186" fill="none" stroke="rgba(56,189,248,0.5)" stroke-width="1" stroke-linecap="round"/>
+                            <path d="M204 186 Q212 183,219 187" fill="none" stroke="rgba(56,189,248,0.5)" stroke-width="1" stroke-linecap="round"/>
+
+                            <!-- Eye sockets (almond shapes) -->
+                            <path d="M182 192 Q189 186,196 192 Q189 196.5,182 192Z" fill="rgba(56,189,248,0.06)" stroke="rgba(56,189,248,0.3)" stroke-width="0.7"/>
+                            <path d="M204 192 Q211 186,218 192 Q211 196.5,204 192Z" fill="rgba(56,189,248,0.06)" stroke="rgba(56,189,248,0.3)" stroke-width="0.7"/>
+
+                            <!-- Iris rings -->
+                            <circle cx="189.5" cy="192" r="3.5" fill="none" stroke="rgba(56,189,248,0.12)" stroke-width="0.4"/>
+                            <circle cx="210.5" cy="192" r="3.5" fill="none" stroke="rgba(56,189,248,0.12)" stroke-width="0.4"/>
+
+                            <!-- Pupils — movable group that tracks active node -->
+                            <g id="pupils-group">
+                                <circle cx="189.5" cy="192" r="2.4" fill="#38bdf8" opacity="0.95">
+                                    <animate attributeName="r" values="2.4;2.4;0.4;2.4;2.4" dur="5s" keyTimes="0;0.46;0.5;0.54;1" repeatCount="indefinite"/>
+                                </circle>
+                                <circle cx="210.5" cy="192" r="2.4" fill="#38bdf8" opacity="0.95">
+                                    <animate attributeName="r" values="2.4;2.4;0.4;2.4;2.4" dur="5s" keyTimes="0;0.46;0.5;0.54;1" repeatCount="indefinite"/>
+                                </circle>
+                                <!-- Pupil glow -->
+                                <circle cx="189.5" cy="192" r="6" fill="rgba(56,189,248,0.18)" filter="url(#eyeGlow)"/>
+                                <circle cx="210.5" cy="192" r="6" fill="rgba(56,189,248,0.18)" filter="url(#eyeGlow)"/>
+                            </g>
+
+                            <!-- Nose bridge + tip -->
+                            <path d="M200 197 L198.5 208 Q200 210,201.5 208 L200 197" fill="none" stroke="rgba(56,189,248,0.22)" stroke-width="0.7" stroke-linecap="round"/>
+                            <circle cx="197" cy="209" r="1" fill="none" stroke="rgba(56,189,248,0.12)" stroke-width="0.4"/>
+                            <circle cx="203" cy="209" r="1" fill="none" stroke="rgba(56,189,248,0.12)" stroke-width="0.4"/>
+
+                            <!-- Mouth -->
+                            <path d="M192 218 Q196 220,200 219.5 Q204 220,208 218" fill="none" stroke="rgba(56,189,248,0.3)" stroke-width="0.8" stroke-linecap="round"/>
+                            <path d="M194 220 Q200 223,206 220" fill="none" stroke="rgba(56,189,248,0.12)" stroke-width="0.5"/>
+
+                            <!-- Cheekbone highlights -->
+                            <path d="M173 200 Q177 195,183 193" fill="none" stroke="rgba(56,189,248,0.12)" stroke-width="0.5"/>
+                            <path d="M227 200 Q223 195,217 193" fill="none" stroke="rgba(56,189,248,0.12)" stroke-width="0.5"/>
+
+                            <!-- Jaw contour -->
+                            <path d="M172 204 Q170 220,182 232 Q192 240,200 242" fill="none" stroke="rgba(56,189,248,0.1)" stroke-width="0.6"/>
+                            <path d="M228 204 Q230 220,218 232 Q208 240,200 242" fill="none" stroke="rgba(56,189,248,0.1)" stroke-width="0.6"/>
+                            <!-- Chin -->
+                            <path d="M194 237 Q200 243,206 237" fill="none" stroke="rgba(56,189,248,0.16)" stroke-width="0.6"/>
+
+                            <!-- ═══ NECK + BUST ═══ -->
+                            <line x1="193" y1="242" x2="190" y2="258" stroke="rgba(56,189,248,0.18)" stroke-width="0.7"/>
+                            <line x1="207" y1="242" x2="210" y2="258" stroke="rgba(56,189,248,0.18)" stroke-width="0.7"/>
+                            <!-- Neck muscle lines -->
+                            <line x1="197" y1="243" x2="195" y2="258" stroke="rgba(56,189,248,0.06)" stroke-width="0.4"/>
+                            <line x1="203" y1="243" x2="205" y2="258" stroke="rgba(56,189,248,0.06)" stroke-width="0.4"/>
+
+                            <!-- Shoulders -->
+                            <path d="M190 258 Q185 259,175 264 Q162 270,155 278" fill="none" stroke="rgba(56,189,248,0.25)" stroke-width="0.9" stroke-linecap="round"/>
+                            <path d="M210 258 Q215 259,225 264 Q238 270,245 278" fill="none" stroke="rgba(56,189,248,0.25)" stroke-width="0.9" stroke-linecap="round"/>
+                            <!-- Collar bones -->
+                            <path d="M190 261 Q180 264,168 268" fill="none" stroke="rgba(56,189,248,0.12)" stroke-width="0.5"/>
+                            <path d="M210 261 Q220 264,232 268" fill="none" stroke="rgba(56,189,248,0.12)" stroke-width="0.5"/>
+                            <!-- Shoulder caps -->
+                            <path d="M155 278 Q154 282,156 285" fill="none" stroke="rgba(56,189,248,0.15)" stroke-width="0.6"/>
+                            <path d="M245 278 Q246 282,244 285" fill="none" stroke="rgba(56,189,248,0.15)" stroke-width="0.6"/>
+                            <!-- Chest center + contour -->
+                            <line x1="200" y1="258" x2="200" y2="275" stroke="rgba(56,189,248,0.05)" stroke-width="0.4"/>
+                            <path d="M156 285 Q170 280,190 270 Q200 266,210 270 Q230 280,244 285" fill="none" stroke="rgba(56,189,248,0.08)" stroke-width="0.5"/>
+
+                            <!-- Holographic scan lines (cyan) -->
+                            <line x1="178" y1="170" x2="222" y2="170" stroke="rgba(56,189,248,0.06)" stroke-width="0.35"/>
+                            <line x1="172" y1="182" x2="228" y2="182" stroke="rgba(56,189,248,0.07)" stroke-width="0.35"/>
+                            <line x1="170" y1="194" x2="230" y2="194" stroke="rgba(56,189,248,0.07)" stroke-width="0.35"/>
+                            <line x1="170" y1="206" x2="230" y2="206" stroke="rgba(56,189,248,0.06)" stroke-width="0.35"/>
+                            <line x1="172" y1="218" x2="228" y2="218" stroke="rgba(56,189,248,0.07)" stroke-width="0.35"/>
+                            <line x1="178" y1="230" x2="222" y2="230" stroke="rgba(56,189,248,0.05)" stroke-width="0.35"/>
+                            <line x1="185" y1="242" x2="215" y2="242" stroke="rgba(56,189,248,0.04)" stroke-width="0.3"/>
+                            <line x1="162" y1="268" x2="238" y2="268" stroke="rgba(56,189,248,0.035)" stroke-width="0.3"/>
+                            <line x1="157" y1="280" x2="243" y2="280" stroke="rgba(56,189,248,0.03)" stroke-width="0.3"/>
+
+                            <!-- Scan beam sweep -->
+                            <rect x="155" y="160" width="90" height="1.4" fill="rgba(56,189,248,0.2)" rx="0.7">
+                                <animate attributeName="y" values="158;288;158" dur="4s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.22;0.04;0.22" dur="4s" repeatCount="indefinite"/>
+                            </rect>
+                        </g>
+                        <!-- Label below bust -->
+                        <text x="200" y="298" text-anchor="middle" fill="rgba(56,189,248,0.4)" font-size="6" font-weight="700" font-family="Inter,sans-serif" letter-spacing="0.18em">DÉCIDEUR</text>
+
+                        <!-- Active glow lines (rendered ABOVE Gideon bust) -->
+                        <line class="hex-glow-line" id="glow-0" x1="200" y1="200" x2="200" y2="60" stroke="#10b981" stroke-width="3" filter="url(#lineGlow)"/>
+                        <line class="hex-glow-line" id="glow-1" x1="200" y1="200" x2="321" y2="130" stroke="#3b82f6" stroke-width="3" filter="url(#lineGlow)"/>
+                        <line class="hex-glow-line" id="glow-2" x1="200" y1="200" x2="321" y2="270" stroke="#ef4444" stroke-width="3" filter="url(#lineGlow)"/>
+                        <line class="hex-glow-line" id="glow-3" x1="200" y1="200" x2="200" y2="340" stroke="#f59e0b" stroke-width="3" filter="url(#lineGlow)"/>
+                        <line class="hex-glow-line" id="glow-4" x1="200" y1="200" x2="79" y2="270" stroke="#8b5cf6" stroke-width="3" filter="url(#lineGlow)"/>
+                        <line class="hex-glow-line" id="glow-5" x1="200" y1="200" x2="79" y2="130" stroke="#34d399" stroke-width="3" filter="url(#lineGlow)"/>
+
+                        <!-- Node 0 — Extracteur (top) -->
+                        <g class="hex-node" data-idx="0" data-label="Extracteur — Capture les données" data-color="#10b981">
+                            <circle class="hex-aura" cx="200" cy="60" r="34" fill="rgba(16,185,129,0.12)" filter="url(#bubbleGlow)" style="animation-delay:0s"/>
+                            <circle class="hex-bubble" cx="200" cy="60" r="26" fill="rgba(16,185,129,0.06)" stroke="rgba(16,185,129,0.5)" stroke-width="1.2"/>
+                            <circle cx="200" cy="60" r="23.5" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.6"/>
+                            <path class="hex-highlight" d="M189,51 Q200,45,211,51" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-linecap="round"/>
+                            <circle cx="192" cy="52" r="1.8" fill="rgba(255,255,255,0.1)"/>
+                            <text x="200" y="57" text-anchor="middle" fill="#34d399" font-size="13">📄</text>
+                            <text x="200" y="70" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="6" font-weight="700" font-family="Inter,sans-serif">EXTRACTEUR</text>
+                        </g>
+                        <!-- Node 1 — Comparateur -->
+                        <g class="hex-node" data-idx="1" data-label="Comparateur — Analyse les écarts" data-color="#3b82f6">
+                            <circle class="hex-aura" cx="321" cy="130" r="34" fill="rgba(59,130,246,0.12)" filter="url(#bubbleGlow)" style="animation-delay:-0.7s"/>
+                            <circle class="hex-bubble" cx="321" cy="130" r="26" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.5)" stroke-width="1.2"/>
+                            <circle cx="321" cy="130" r="23.5" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.6"/>
+                            <path class="hex-highlight" d="M310,121 Q321,115,332,121" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-linecap="round"/>
+                            <circle cx="313" cy="122" r="1.8" fill="rgba(255,255,255,0.1)"/>
+                            <text x="321" y="127" text-anchor="middle" fill="#60a5fa" font-size="13">📊</text>
+                            <text x="321" y="140" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="5.5" font-weight="700" font-family="Inter,sans-serif">COMPARATEUR</text>
+                        </g>
+                        <!-- Node 2 — Gardien -->
+                        <g class="hex-node" data-idx="2" data-label="Gardien — Protège vos données" data-color="#ef4444">
+                            <circle class="hex-aura" cx="321" cy="270" r="34" fill="rgba(239,68,68,0.12)" filter="url(#bubbleGlow)" style="animation-delay:-1.4s"/>
+                            <circle class="hex-bubble" cx="321" cy="270" r="26" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.5)" stroke-width="1.2"/>
+                            <circle cx="321" cy="270" r="23.5" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.6"/>
+                            <path class="hex-highlight" d="M310,261 Q321,255,332,261" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-linecap="round"/>
+                            <circle cx="313" cy="262" r="1.8" fill="rgba(255,255,255,0.1)"/>
+                            <text x="321" y="267" text-anchor="middle" fill="#f87171" font-size="13">🛡️</text>
+                            <text x="321" y="280" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="6" font-weight="700" font-family="Inter,sans-serif">GARDIEN</text>
+                        </g>
+                        <!-- Node 3 — Relanceur -->
+                        <g class="hex-node" data-idx="3" data-label="Relanceur — Suit les échéances" data-color="#f59e0b">
+                            <circle class="hex-aura" cx="200" cy="340" r="34" fill="rgba(245,158,11,0.12)" filter="url(#bubbleGlow)" style="animation-delay:-2.1s"/>
+                            <circle class="hex-bubble" cx="200" cy="340" r="26" fill="rgba(245,158,11,0.06)" stroke="rgba(245,158,11,0.5)" stroke-width="1.2"/>
+                            <circle cx="200" cy="340" r="23.5" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.6"/>
+                            <path class="hex-highlight" d="M189,331 Q200,325,211,331" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-linecap="round"/>
+                            <circle cx="192" cy="332" r="1.8" fill="rgba(255,255,255,0.1)"/>
+                            <text x="200" y="337" text-anchor="middle" fill="#fbbf24" font-size="13">⏰</text>
+                            <text x="200" y="350" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="6" font-weight="700" font-family="Inter,sans-serif">RELANCEUR</text>
+                        </g>
+                        <!-- Node 4 — Vigie -->
+                        <g class="hex-node" data-idx="4" data-label="Vigie — Détecte les signaux" data-color="#8b5cf6">
+                            <circle class="hex-aura" cx="79" cy="270" r="34" fill="rgba(139,92,246,0.12)" filter="url(#bubbleGlow)" style="animation-delay:-2.8s"/>
+                            <circle class="hex-bubble" cx="79" cy="270" r="26" fill="rgba(139,92,246,0.06)" stroke="rgba(139,92,246,0.5)" stroke-width="1.2"/>
+                            <circle cx="79" cy="270" r="23.5" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.6"/>
+                            <path class="hex-highlight" d="M68,261 Q79,255,90,261" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-linecap="round"/>
+                            <circle cx="71" cy="262" r="1.8" fill="rgba(255,255,255,0.1)"/>
+                            <text x="79" y="267" text-anchor="middle" fill="#a78bfa" font-size="13">🔭</text>
+                            <text x="79" y="280" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="6" font-weight="700" font-family="Inter,sans-serif">VIGIE</text>
+                        </g>
+                        <!-- Node 5 — Éclaireur -->
+                        <g class="hex-node" data-idx="5" data-label="Éclaireur IA — Votre chat souverain" data-color="#34d399">
+                            <circle class="hex-aura" cx="79" cy="130" r="34" fill="rgba(52,211,153,0.12)" filter="url(#bubbleGlow)" style="animation-delay:-3.5s"/>
+                            <circle class="hex-bubble" cx="79" cy="130" r="26" fill="rgba(52,211,153,0.06)" stroke="rgba(52,211,153,0.5)" stroke-width="1.2"/>
+                            <circle cx="79" cy="130" r="23.5" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.6"/>
+                            <path class="hex-highlight" d="M68,121 Q79,115,90,121" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-linecap="round"/>
+                            <circle cx="71" cy="122" r="1.8" fill="rgba(255,255,255,0.1)"/>
+                            <text x="79" y="127" text-anchor="middle" fill="#34d399" font-size="13">💬</text>
+                            <text x="79" y="140" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="6" font-weight="700" font-family="Inter,sans-serif">ÉCLAIREUR</text>
+                        </g>
+                    </svg>
+                    <div class="hex-label-box" id="hex-label"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ MÉCANIQUE 3 ÉTAPES — PIPELINE + MOCKUP FUSION ═══ -->
+    <section class="meca" id="meca">
+        <div class="container">
+            <div class="meca-header reveal">
+                <div class="section-label">La mécanique</div>
+                <h2>Dépôt. Traitement.<br><em>Restitution.</em></h2>
+                <p>Vos équipes ne changent rien. Les moteurs Kanso travaillent en coulisse. Le cockpit vous rend le contrôle.</p>
+            </div>
+
+            <!-- Pipeline flow — clickable steps -->
+            <div class="flow-visual reveal">
+                <div class="flow-node flow-node--depot step-active" data-step="depot">
+                    <div class="flow-ring">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"/></svg>
+                    </div>
+                    <div class="flow-node-label" style="color:#a78bfa;">Dépôt</div>
+                </div>
+                <div class="flow-connector">
+                    <div class="flow-wire"></div>
+                    <div class="flow-dot" style="animation-delay:0s;"></div>
+                    <div class="flow-dot" style="animation-delay:0.7s;"></div>
+                    <div class="flow-dot" style="animation-delay:1.4s;"></div>
+                </div>
+                <div class="flow-node flow-node--trait" data-step="trait">
+                    <div class="flow-ring">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/></svg>
+                    </div>
+                    <div class="flow-node-label" style="color:#60a5fa;">Traitement</div>
+                </div>
+                <div class="flow-connector">
+                    <div class="flow-wire"></div>
+                    <div class="flow-dot" style="animation-delay:0.3s;"></div>
+                    <div class="flow-dot" style="animation-delay:1s;"></div>
+                    <div class="flow-dot" style="animation-delay:1.7s;"></div>
+                </div>
+                <div class="flow-node flow-node--resti" data-step="resti">
+                    <div class="flow-ring">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+                    </div>
+                    <div class="flow-node-label" style="color:var(--green-bright);">Restitution</div>
+                </div>
+            </div>
+
+            <!-- Step progress bar -->
+            <div class="step-progress reveal"><div class="step-progress-fill running" id="step-progress" style="background:linear-gradient(90deg,#8b5cf6,#a78bfa);"></div></div>
+
+            <!-- Mockup window -->
+            <div class="step-mockup reveal" id="step-mockup">
+                <div class="sm-header">
+                    <div class="sm-dots"><div class="sm-dot"></div><div class="sm-dot"></div><div class="sm-dot"></div></div>
+                    <div class="sm-title" id="sm-title">Réception des documents</div>
+                    <div class="sm-status" id="sm-status" style="color:#a78bfa;"><span>Étape 1/3</span></div>
+                </div>
+
+                <!-- ── SCREEN: DÉPÔT ── -->
+                <div class="step-screen active" data-step="depot">
+                    <div class="sm-topbar" style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);">
+                        <div class="sm-topbar-dot" style="background:#8b5cf6;"></div>
+                        <div class="sm-topbar-text" style="color:#a78bfa;">Réception automatique — 4 documents détectés</div>
+                        <div class="sm-topbar-meta">il y a 2s</div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:0.5rem;">
+                        <div class="sm-file-row" style="animation-delay:0.1s;">
+                            <div class="sm-file-icon" style="background:rgba(139,92,246,0.15);color:#a78bfa;">📄</div>
+                            <div class="sm-file-name">Devis_Fournisseur_2026.pdf</div>
+                            <div class="sm-badge" style="background:rgba(139,92,246,0.15);color:#a78bfa;">SharePoint</div>
+                            <div class="sm-badge" style="background:rgba(16,185,129,0.15);color:#34d399;margin-left:0.3rem;">Reçu</div>
+                        </div>
+                        <div class="sm-file-row" style="animation-delay:0.2s;">
+                            <div class="sm-file-icon" style="background:rgba(59,130,246,0.15);color:#60a5fa;">📧</div>
+                            <div class="sm-file-name">Relance_Client_Dupont.eml</div>
+                            <div class="sm-badge" style="background:rgba(59,130,246,0.15);color:#60a5fa;">Email</div>
+                            <div class="sm-badge" style="background:rgba(16,185,129,0.15);color:#34d399;margin-left:0.3rem;">Reçu</div>
+                        </div>
+                        <div class="sm-file-row" style="animation-delay:0.3s;">
+                            <div class="sm-file-icon" style="background:rgba(245,158,11,0.15);color:#fbbf24;">📊</div>
+                            <div class="sm-file-name">Export_ERP_Q1_2026.xlsx</div>
+                            <div class="sm-badge" style="background:rgba(245,158,11,0.15);color:#fbbf24;">ERP</div>
+                            <div class="sm-badge" style="background:rgba(16,185,129,0.15);color:#34d399;margin-left:0.3rem;">Reçu</div>
+                        </div>
+                        <div class="sm-file-row" style="animation-delay:0.4s;">
+                            <div class="sm-file-icon" style="background:rgba(239,68,68,0.15);color:#f87171;">📑</div>
+                            <div class="sm-file-name">Contrat_Bail_Lyon7.pdf</div>
+                            <div class="sm-badge" style="background:rgba(239,68,68,0.15);color:#f87171;">GED</div>
+                            <div class="sm-badge" style="background:rgba(245,158,11,0.15);color:#fbbf24;margin-left:0.3rem;">En cours</div>
+                        </div>
+                    </div>
+                    <div style="margin-top:0.8rem;padding:0.6rem 1rem;background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:var(--radius-sm);font-size:0.72rem;color:var(--white-muted);">
+                        Zéro action requise — vos documents sont captés depuis vos sources habituelles.
+                    </div>
+                </div>
+
+                <!-- ── SCREEN: TRAITEMENT ── -->
+                <div class="step-screen" data-step="trait">
+                    <div class="sm-topbar" style="background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);">
+                        <div class="sm-topbar-dot" style="background:#3b82f6;"></div>
+                        <div class="sm-topbar-text" style="color:#60a5fa;">5 moteurs actifs — Analyse en cours</div>
+                        <div class="sm-topbar-meta">3.2s</div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:0.45rem;margin-bottom:0.8rem;">
+                        <div class="sm-engine-row" style="animation-delay:0.05s;">
+                            <div class="sm-engine-dot" style="background:#10b981;"></div>
+                            <div class="sm-engine-name" style="color:#34d399;">Extracteur</div>
+                            <div class="sm-bar-wrap"><div class="sm-bar-fill animate" style="--fill:100%;background:#10b981;"></div></div>
+                            <div class="sm-engine-status" style="color:#34d399;">✓ Terminé</div>
+                        </div>
+                        <div class="sm-engine-row" style="animation-delay:0.12s;">
+                            <div class="sm-engine-dot" style="background:#3b82f6;"></div>
+                            <div class="sm-engine-name" style="color:#60a5fa;">Comparateur</div>
+                            <div class="sm-bar-wrap"><div class="sm-bar-fill animate" style="--fill:72%;background:#3b82f6;"></div></div>
+                            <div class="sm-engine-status" style="color:#60a5fa;">▶ 72%</div>
+                        </div>
+                        <div class="sm-engine-row" style="animation-delay:0.19s;">
+                            <div class="sm-engine-dot" style="background:#ef4444;"></div>
+                            <div class="sm-engine-name" style="color:#f87171;">Gardien</div>
+                            <div class="sm-bar-wrap"><div class="sm-bar-fill animate" style="--fill:100%;background:#ef4444;"></div></div>
+                            <div class="sm-engine-status" style="color:#34d399;">✓ Conforme</div>
+                        </div>
+                        <div class="sm-engine-row" style="animation-delay:0.26s;">
+                            <div class="sm-engine-dot" style="background:#f59e0b;"></div>
+                            <div class="sm-engine-name" style="color:#fbbf24;">Relanceur</div>
+                            <div class="sm-bar-wrap"><div class="sm-bar-fill animate" style="--fill:45%;background:#f59e0b;"></div></div>
+                            <div class="sm-engine-status" style="color:#fbbf24;">▶ 45%</div>
+                        </div>
+                        <div class="sm-engine-row" style="animation-delay:0.33s;">
+                            <div class="sm-engine-dot" style="background:#8b5cf6;"></div>
+                            <div class="sm-engine-name" style="color:#a78bfa;">Vigie</div>
+                            <div class="sm-bar-wrap"><div class="sm-bar-fill animate" style="--fill:18%;background:#8b5cf6;"></div></div>
+                            <div class="sm-engine-status" style="color:var(--white-muted);">◼ En attente</div>
+                        </div>
+                    </div>
+                    <div class="sm-grid">
+                        <div class="sm-card" style="animation-delay:0.35s;"><div class="sm-label">Données extraites</div><div class="sm-value">148 champs <span style="color:#34d399;">✓</span></div></div>
+                        <div class="sm-card" style="animation-delay:0.4s;"><div class="sm-label">Anomalies détectées</div><div class="sm-value" style="color:#f87171;">2 écarts</div></div>
+                        <div class="sm-card" style="animation-delay:0.45s;grid-column:span 2;"><div class="sm-label">Prochaine action</div><div class="sm-value">Relance automatique client Dupont — <span style="color:#fbbf24;">J+3</span></div></div>
+                    </div>
+                </div>
+
+                <!-- ── SCREEN: RESTITUTION ── -->
+                <div class="step-screen" data-step="resti">
+                    <div class="sm-topbar" style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);">
+                        <div class="sm-topbar-dot" style="background:#10b981;"></div>
+                        <div class="sm-topbar-text" style="color:#34d399;">Cockpit BI — Résultats disponibles</div>
+                        <div class="sm-topbar-meta">Temps réel</div>
+                    </div>
+                    <div class="sm-kpi-grid">
+                        <div class="sm-kpi" style="animation-delay:0.08s;">
+                            <div class="sm-kpi-val" style="color:#34d399;">-42%</div>
+                            <div class="sm-kpi-label">Temps traitement</div>
+                        </div>
+                        <div class="sm-kpi" style="animation-delay:0.16s;">
+                            <div class="sm-kpi-val" style="color:#60a5fa;">+18%</div>
+                            <div class="sm-kpi-label">Marge brute</div>
+                        </div>
+                        <div class="sm-kpi" style="animation-delay:0.24s;">
+                            <div class="sm-kpi-val" style="color:#fbbf24;">3</div>
+                            <div class="sm-kpi-label">Alertes actives</div>
+                        </div>
+                    </div>
+                    <div class="sm-grid">
+                        <div class="sm-card" style="animation-delay:0.3s;"><div class="sm-label">Fournisseur optimal</div><div class="sm-value" style="color:#34d399;">MétalTech — 92/100</div></div>
+                        <div class="sm-card" style="animation-delay:0.35s;"><div class="sm-label">Échéance critique</div><div class="sm-value" style="color:#f87171;">Bail Lyon 7 — J-12</div></div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.8rem;padding:0.7rem 1rem;background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);border-radius:var(--radius-sm);margin-top:0.7rem;animation:smSlideUp 0.5s ease 0.4s backwards;">
+                        <div style="width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulseDot 2s infinite;flex-shrink:0;"></div>
+                        <div style="flex:1;">
+                            <div style="font-size:0.7rem;font-weight:700;color:#34d399;margin-bottom:0.15rem;">Éclaireur IA — Prêt</div>
+                            <div style="font-size:0.72rem;color:var(--white-muted);">« Quel est le fournisseur le plus compétitif sur l'acier ce trimestre ? »</div>
+                        </div>
+                        <div class="sm-badge" style="background:rgba(16,185,129,0.15);color:#34d399;">Demander</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ ÉCLAIREUR IA — CHAT SOUVERAIN ═══ -->
+    <section class="eclaireur" id="eclaireur">
+        <div class="container">
+            <div class="ecl-grid">
+                <div class="ecl-text reveal">
+                    <div class="section-label">Le cerveau</div>
+                    <h2>L'Éclaireur IA.<br>Votre LLM <em>souverain.</em></h2>
+                    <p>Un chat IA privé connecté à vos données internes et à la veille externe. Posez vos questions en langage naturel — l'Éclaireur trouve, synthétise et répond. Sans jamais exposer un octet.</p>
+                    <div class="ecl-features">
+                        <div class="ecl-feat">
+                            <div class="ecl-feat-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg></div>
+                            <div><h4>100% sécurisé</h4><p>Aucune donnée ne quitte votre infrastructure. Modèle souverain, hébergement isolé.</p></div>
+                        </div>
+                        <div class="ecl-feat">
+                            <div class="ecl-feat-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9zm3.75 11.625a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg></div>
+                            <div><h4>Recherche interne</h4><p>Interrogez vos contrats, devis, rapports qualité, fiches RH — en langage naturel.</p></div>
+                        </div>
+                        <div class="ecl-feat">
+                            <div class="ecl-feat-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg></div>
+                            <div><h4>Veille externe</h4><p>Marché, réglementation, concurrents — l'Éclaireur scrute l'extérieur pour vous.</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-1">
+                    <div class="chat-mock">
+                        <div class="chat-header">
+                            <div class="chat-header-dot"></div>
+                            <div class="chat-header-title">Éclaireur IA — Kanso</div>
+                            <div class="chat-header-badge">Souverain</div>
+                        </div>
+                        <div class="chat-body" id="chat-body">
+                            <div class="chat-msg chat-msg--user">
+                                <div class="chat-bubble">Quel est le risque IA Act sur nos contrats fournisseurs ?</div>
+                            </div>
+                            <div class="chat-msg chat-msg--ai">
+                                <div class="chat-label">Éclaireur IA</div>
+                                <div class="chat-bubble">Le Gardien a scanné vos 247 contrats actifs. Résultat : 18 contrats (7,3%) sans clause IA/RGPD renforcée, dont 3 fournisseurs cloud critiques. Risque estimé : amende jusqu'à 35M€ ou 7% CA.<br><br>Action recommandée : mise à jour des avenants avant le 31 mars.
+                                    <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.6rem;">
+                                        <span class="chat-source">Audit_IA_Act_Q1.pdf</span>
+                                        <span class="chat-source">Contrats_fournisseurs.db</span>
+                                        <span class="chat-source">Décret_IA_Act_2025.txt</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-msg chat-msg--ai">
+                                <div class="chat-bubble" style="background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);font-size:0.72rem;color:var(--green-bright);">Zéro donnée exposée. Traitement 100% local. Aucun appel serveur public.</div>
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <div class="chat-input-field">Posez votre question...</div>
+                            <div class="chat-input-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 5 MOTEURS — EXEMPLES PAR SECTEUR ═══ -->
+    <section class="moteurs" id="moteurs">
+        <div class="container">
+            <div class="moteurs-header reveal">
+                <div class="section-label">Les moteurs</div>
+                <h2>5 agents spécialisés.<br><em>Votre métier en plus.</em></h2>
+                <p>Chaque moteur est une base puissante. Par-dessus, on construit le sur-mesure de votre activité — de l'agent immobilier à la multinationale.</p>
+            </div>
+
+            <div class="engine-tabs reveal" id="engine-tabs">
+                <div class="engine-tab active" data-engine="extracteur" style="--engine-color:#10b981;--engine-bg:rgba(16,185,129,0.1);--engine-glow:rgba(16,185,129,0.3);">
+                    <div class="engine-tab-icon">📄</div><div class="engine-tab-name">Extracteur</div><div class="engine-tab-role">Capture</div>
+                </div>
+                <div class="engine-tab" data-engine="comparateur" style="--engine-color:#3b82f6;--engine-bg:rgba(59,130,246,0.1);--engine-glow:rgba(59,130,246,0.3);">
+                    <div class="engine-tab-icon">📊</div><div class="engine-tab-name">Comparateur</div><div class="engine-tab-role">Analyse</div>
+                </div>
+                <div class="engine-tab" data-engine="gardien" style="--engine-color:#ef4444;--engine-bg:rgba(239,68,68,0.1);--engine-glow:rgba(239,68,68,0.3);">
+                    <div class="engine-tab-icon">🛡️</div><div class="engine-tab-name">Gardien</div><div class="engine-tab-role">Protège</div>
+                </div>
+                <div class="engine-tab" data-engine="relanceur" style="--engine-color:#f59e0b;--engine-bg:rgba(245,158,11,0.1);--engine-glow:rgba(245,158,11,0.3);">
+                    <div class="engine-tab-icon">⏰</div><div class="engine-tab-name">Relanceur</div><div class="engine-tab-role">Suit</div>
+                </div>
+                <div class="engine-tab" data-engine="vigie" style="--engine-color:#8b5cf6;--engine-bg:rgba(139,92,246,0.1);--engine-glow:rgba(139,92,246,0.3);">
+                    <div class="engine-tab-icon">🔭</div><div class="engine-tab-name">Vigie</div><div class="engine-tab-role">Détecte</div>
+                </div>
+            </div>
+            <div class="engine-progress reveal"><div class="engine-progress-fill running" id="engine-progress" style="background:linear-gradient(90deg,#10b981,#34d399);"></div></div>
+
+            <!-- EXTRACTEUR -->
+            <div class="engine-content active" data-engine="extracteur">
+                <div class="eng-base"><span class="eng-base-tag" style="background:var(--green-dim);color:var(--green-bright);">Base</span> Capture et structure toute donnée non structurée — PDF, scan, email, photo — en temps réel.</div>
+                <div class="eng-examples">
+                    <div class="eng-ex"><div class="eng-ex-icon">🏭</div><div><div class="eng-ex-sector">Industrie</div><div class="eng-ex-desc">Extraction automatique des devis, bons de livraison et factures fournisseurs</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">🏠</div><div><div class="eng-ex-sector">Immobilier</div><div class="eng-ex-desc">Parsing des baux, mandats de gestion et diagnostics techniques</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">👥</div><div><div class="eng-ex-sector">RH & Recrutement</div><div class="eng-ex-desc">Analyse des CV, fiches de poste et comptes-rendus d'entretien</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">⚖️</div><div><div class="eng-ex-sector">Juridique</div><div class="eng-ex-desc">Extraction des clauses clés, dates et montants dans les contrats</div></div></div>
+                </div>
+                <div class="eng-custom"><strong>Chaque moteur est une base.</strong> Votre métier est la partition — on compose le sur-mesure.</div>
+            </div>
+
+            <!-- COMPARATEUR -->
+            <div class="engine-content" data-engine="comparateur">
+                <div class="eng-base"><span class="eng-base-tag" style="background:rgba(59,130,246,0.12);color:#60a5fa;">Base</span> Compare, classe et recommande à partir de vos critères métier — prix, qualité, délai, risque.</div>
+                <div class="eng-examples">
+                    <div class="eng-ex"><div class="eng-ex-icon">🏭</div><div><div class="eng-ex-sector">Achats industriels</div><div class="eng-ex-desc">Benchmark multicritères fournisseurs : prix unitaire, délai, certifications, historique</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">🏠</div><div><div class="eng-ex-sector">Immobilier</div><div class="eng-ex-desc">Analyse comparative du marché locatif zone par zone, rendement net/brut</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">📊</div><div><div class="eng-ex-sector">Finance & Contrôle</div><div class="eng-ex-desc">Comparaison budgets prévisionnels vs réalisés, écarts par centre de coût</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">🏥</div><div><div class="eng-ex-sector">Santé</div><div class="eng-ex-desc">Benchmark des fournisseurs de dispositifs médicaux : conformité + prix</div></div></div>
+                </div>
+                <div class="eng-custom"><strong>Chaque moteur est une base.</strong> Votre métier est la partition — on compose le sur-mesure.</div>
+            </div>
+
+            <!-- GARDIEN -->
+            <div class="engine-content" data-engine="gardien">
+                <div class="eng-base"><span class="eng-base-tag" style="background:rgba(239,68,68,0.12);color:#f87171;">Base</span> Scanne, détecte et alerte sur toute non-conformité — RGPD, IA Act, ISO, normes sectorielles.</div>
+                <div class="eng-examples">
+                    <div class="eng-ex"><div class="eng-ex-icon">🔒</div><div><div class="eng-ex-sector">RGPD & Données</div><div class="eng-ex-desc">Détection de données personnelles exposées sur vos serveurs et drives partagés</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">🏭</div><div><div class="eng-ex-sector">Industrie</div><div class="eng-ex-desc">Audit de conformité ISO 9001 / 14001 / IA Act automatisé et traçable</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">💳</div><div><div class="eng-ex-sector">Finance</div><div class="eng-ex-desc">Détection d'anomalies comptables, double facturation et anti-fraude</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">🏥</div><div><div class="eng-ex-sector">Santé</div><div class="eng-ex-desc">Protection des données patients — conformité HDS et RGPD santé</div></div></div>
+                </div>
+                <div class="eng-custom"><strong>Chaque moteur est une base.</strong> Votre métier est la partition — on compose le sur-mesure.</div>
+            </div>
+
+            <!-- RELANCEUR -->
+            <div class="engine-content" data-engine="relanceur">
+                <div class="eng-base"><span class="eng-base-tag" style="background:rgba(245,158,11,0.12);color:#fbbf24;">Base</span> Surveille les échéances, relance automatiquement et escale si nécessaire. Zéro oubli.</div>
+                <div class="eng-examples">
+                    <div class="eng-ex"><div class="eng-ex-icon">📦</div><div><div class="eng-ex-sector">Supply chain</div><div class="eng-ex-desc">Suivi automatique des commandes, accusés de réception et relance fournisseurs</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">👥</div><div><div class="eng-ex-sector">RH</div><div class="eng-ex-desc">Relance candidats, suivi onboarding, alertes fins de période d'essai</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">⚖️</div><div><div class="eng-ex-sector">Juridique</div><div class="eng-ex-desc">Échéances contractuelles, renouvellements tacites, préavis de résiliation</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">🏗️</div><div><div class="eng-ex-sector">BTP & Marchés</div><div class="eng-ex-desc">Suivi des appels d'offres, relance sous-traitants, jalons de chantier</div></div></div>
+                </div>
+                <div class="eng-custom"><strong>Chaque moteur est une base.</strong> Votre métier est la partition — on compose le sur-mesure.</div>
+            </div>
+
+            <!-- VIGIE -->
+            <div class="engine-content" data-engine="vigie">
+                <div class="eng-base"><span class="eng-base-tag" style="background:var(--purple-dim);color:#a78bfa;">Base</span> Scrute l'extérieur en permanence — marché, réglementation, concurrence — et remonte les signaux qui comptent.</div>
+                <div class="eng-examples">
+                    <div class="eng-ex"><div class="eng-ex-icon">📈</div><div><div class="eng-ex-sector">Marché & Prix</div><div class="eng-ex-desc">Signaux prix matières premières, tendances sectorielles, fenêtres d'achat</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">📜</div><div><div class="eng-ex-sector">Réglementaire</div><div class="eng-ex-desc">Veille normative IA Act, RGPD, Loi AGEC, décrets d'application sectoriels</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">🎯</div><div><div class="eng-ex-sector">Concurrence</div><div class="eng-ex-desc">Mouvements stratégiques, fusions-acquisitions, lancements produits concurrents</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">💡</div><div><div class="eng-ex-sector">Innovation</div><div class="eng-ex-desc">Opportunités technologiques, benchmarks IA sectoriels, brevets déposés</div></div></div>
+                </div>
+                <div class="eng-custom"><strong>Chaque moteur est une base.</strong> Votre métier est la partition — on compose le sur-mesure.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SOLUTIONS STRATÉGIQUES ═══ -->
+    <section class="solutions">
+        <div class="container">
+            <div class="solutions-header reveal">
+                <div class="section-label">Solutions</div>
+                <h2>Votre contexte.<br>Notre <em>architecture.</em></h2>
+                <p>Les moteurs sont les fondations. Votre métier est l'architecture. De la TPE au grand groupe, tout est personnalisable.</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="sol-card reveal" style="--sol-color:#8b5cf6;">
+                    <div class="sol-icon" style="background:var(--purple-dim);border:1px solid rgba(139,92,246,0.3);">🏢</div>
+                    <h3>Repreneurs d'entreprise</h3>
+                    <p>Sécurisez votre acquisition. Ne subissez pas l'héritage opérationnel — cartographiez-le dès le jour 1. L'Extracteur et le Gardien auditent vos flux avant que vous signiez.</p>
+                    <div class="sol-tag" style="color:#a78bfa;background:var(--purple-dim);">Due diligence IA</div>
+                </div>
+                <div class="sol-card reveal reveal-delay-1" style="--sol-color:#3b82f6;">
+                    <div class="sol-icon" style="background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.3);">🏛️</div>
+                    <h3>Grands groupes & ETI</h3>
+                    <p>Industrialisez votre transformation IA. Les 5 moteurs s'intègrent à votre SI existant — ERP, CRM, SIRH. Le Cockpit centralise le pilotage multi-sites.</p>
+                    <div class="sol-tag" style="color:#60a5fa;background:rgba(59,130,246,0.12);">Transformation industrielle</div>
+                </div>
+                <div class="sol-card reveal" style="--sol-color:#f59e0b;">
+                    <div class="sol-icon" style="background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);">👥</div>
+                    <h3>Recrutement & talents</h3>
+                    <p>Répondez à la pénurie de talents. L'IA gère le superflu — tri, relance, planification. Vos experts gèrent la valeur : l'humain.</p>
+                    <div class="sol-tag" style="color:#fbbf24;background:rgba(245,158,11,0.12);">RH augmentée</div>
+                </div>
+                <div class="sol-card reveal reveal-delay-1" style="--sol-color:#10b981;">
+                    <div class="sol-icon" style="background:var(--green-dim);border:1px solid rgba(16,185,129,0.3);">⚡</div>
+                    <h3>TPE / PME industrielles</h3>
+                    <p>Un board de direction automatisé. Le pilotage 360° réservé aux grands groupes, enfin accessible. De la signature au cockpit en 30 jours.</p>
+                    <div class="sol-tag" style="color:#34d399;background:var(--green-dim);">Cockpit PME</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ OBSESSION ═══ -->
+    <section class="obsession">
+        <div class="container">
+            <div class="obs-header reveal">
+                <div class="section-label">Notre obsession</div>
+                <h2>Du temps. De l'argent.<br><em>Du sens.</em></h2>
+                <p>Le brown-out tue plus d'entreprises que la concurrence. Quand vos talents perdent le sens de leur travail, c'est votre compétitivité qui s'effondre.</p>
+            </div>
+            <div class="obs-grid">
+                <div class="obs-card reveal" style="border-top:3px solid var(--purple);">
+                    <div class="obs-icon">⏱️</div>
+                    <div class="obs-number" data-target="40" style="color:#a78bfa;">0</div>
+                    <div class="obs-unit">heures / mois</div>
+                    <div class="obs-desc">récupérées par équipe sur les tâches sans valeur ajoutée</div>
+                </div>
+                <div class="obs-card reveal reveal-delay-1" style="border-top:3px solid var(--green);">
+                    <div class="obs-icon">💰</div>
+                    <div class="obs-number" data-target="35" style="color:var(--green-bright);">0</div>
+                    <div class="obs-unit">% de coûts évités</div>
+                    <div class="obs-desc">grâce à l'automatisation intelligente et la détection d'anomalies</div>
+                </div>
+                <div class="obs-card reveal reveal-delay-2" style="border-top:3px solid var(--amber);">
+                    <div class="obs-icon">🧠</div>
+                    <div class="obs-number" data-target="100" style="color:#fbbf24;">0</div>
+                    <div class="obs-unit">% de sens retrouvé</div>
+                    <div class="obs-desc">Vos experts font enfin ce pour quoi ils ont été embauchés. L'IA fait le reste.</div>
+                </div>
+            </div>
+            <div class="obs-quote reveal">
+                La meilleure IA ne remplace pas l'humain — elle lui rend son intelligence.
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CTA AUDIT ═══ -->
+    <section class="cta-audit">
+        <div class="container">
+            <div class="cta-wrapper reveal">
+                <h2>Prêt à voir ce que vos données peuvent faire ?</h2>
+                <p class="cta-subtitle">L'audit Blueprint : la feuille de route chiffrée de votre transformation.</p>
+                <div class="cta-price">1 990<sup>€ HT</sup></div>
+                <div class="cta-duration">Livrable en 2 semaines</div>
+                <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="cta-btn">
+                    Demander mon audit Blueprint
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                </a>
+                <p class="cta-note">Aucun engagement au-delà de l'audit. Repartez avec votre plan de bataille.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-cta-section reveal">
+                <h2>Prêt à sécuriser votre croissance ?</h2>
+                <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="footer-cta-link">
+                    Réserver mon point de situation — 30 min
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-copy">© 2026 KANSO-OPS — Lyon, France.</span>
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/sebastienduc05" target="_blank">LinkedIn</a>
+                    <a href="https://www.linkedin.com/company/kanso-ops/" target="_blank">Kanso-Ops</a>
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <a href="mentions-legales.html">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ═══ SCROLL REVEAL ═══
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // ═══ SMOOTH SCROLL ═══
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                const t = document.querySelector(this.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // ═══ MOBILE NAV ═══
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => { mobileToggle.classList.toggle('active'); navLinks.classList.toggle('open'); });
+            navLinks.querySelectorAll('a').forEach(l => { l.addEventListener('click', () => { mobileToggle.classList.remove('active'); navLinks.classList.remove('open'); }); });
+        }
+
+        // ═══ HEXAGONE — GIDEON PUPIL TRACKING + ELECTRIC GLOW ═══
+        (function() {
+            const nodes = document.querySelectorAll('.hex-node');
+            const glowLines = document.querySelectorAll('.hex-glow-line');
+            const pupils = document.getElementById('pupils-group');
+            const label = document.getElementById('hex-label');
+            // Pupil offsets per node: small (x,y) shift so eyes "look" toward each vertex
+            const offsets = [
+                {x:0, y:-2.5},    // 0: top (Extracteur)
+                {x:2.1, y:-1.2},  // 1: top-right (Comparateur)
+                {x:2.1, y:1.2},   // 2: bottom-right (Gardien)
+                {x:0, y:2.5},     // 3: bottom (Relanceur)
+                {x:-2.1, y:1.2},  // 4: bottom-left (Vigie)
+                {x:-2.1, y:-1.2}  // 5: top-left (Éclaireur)
+            ];
+            let activeIdx = -1, autoTimer = null, hovering = false;
+
+            function activate(idx) {
+                activeIdx = idx;
+                nodes.forEach(n => n.classList.remove('active'));
+                glowLines.forEach(l => l.classList.remove('active'));
+                const node = document.querySelector('.hex-node[data-idx="'+idx+'"]');
+                if (node) {
+                    node.classList.add('active');
+                    const gl = document.getElementById('glow-' + idx);
+                    if (gl) gl.classList.add('active');
+                    var o = offsets[idx];
+                    if (pupils) pupils.style.transform = 'translate(' + o.x + 'px,' + o.y + 'px)';
+                    if (label) {
+                        label.textContent = node.dataset.label;
+                        label.style.color = node.dataset.color;
+                        label.classList.add('show');
+                    }
+                }
+            }
+            function nextNode() { activate((activeIdx + 1) % 6); }
+            function startAuto() { stopAuto(); autoTimer = setInterval(() => { if (!hovering) nextNode(); }, 2500); }
+            function stopAuto() { if (autoTimer) clearInterval(autoTimer); }
+
+            nodes.forEach(n => {
+                n.addEventListener('mouseenter', () => { hovering = true; activate(parseInt(n.dataset.idx)); });
+                n.addEventListener('mouseleave', () => { hovering = false; });
+                n.addEventListener('click', () => { activate(parseInt(n.dataset.idx)); startAuto(); });
+            });
+
+            const hexObs = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) { activate(0); startAuto(); } else stopAuto(); });
+            }, { threshold: 0.3 });
+            const hexEl = document.querySelector('.hex-wrapper');
+            if (hexEl) hexObs.observe(hexEl);
+        })();
+
+        // ═══ 3 ÉTAPES — PIPELINE + MOCKUP ROTATION ═══
+        (function() {
+            const steps = ['depot','trait','resti'];
+            const titles = { depot:'Réception des documents', trait:'Traitement par les 5 moteurs', resti:'Cockpit BI — Résultats' };
+            const colors = { depot:'#a78bfa', trait:'#60a5fa', resti:'#34d399' };
+            const gradients = { depot:'linear-gradient(90deg,#8b5cf6,#a78bfa)', trait:'linear-gradient(90deg,#3b82f6,#60a5fa)', resti:'linear-gradient(90deg,#10b981,#34d399)' };
+            const flowNodes = document.querySelectorAll('.flow-node[data-step]');
+            const screens = document.querySelectorAll('.step-screen');
+            const titleEl = document.getElementById('sm-title');
+            const statusEl = document.getElementById('sm-status');
+            const progressBar = document.getElementById('step-progress');
+            let currentIdx = 0, autoTimer = null, paused = false;
+
+            function goToStep(idx) {
+                currentIdx = idx;
+                var name = steps[idx];
+                // Update pipeline nodes
+                flowNodes.forEach(function(n) { n.classList.remove('step-active'); });
+                var activeNode = document.querySelector('.flow-node[data-step="'+name+'"]');
+                if (activeNode) activeNode.classList.add('step-active');
+                // Update screens
+                screens.forEach(function(s) { s.classList.remove('active'); });
+                var activeScreen = document.querySelector('.step-screen[data-step="'+name+'"]');
+                if (activeScreen) activeScreen.classList.add('active');
+                // Re-trigger bar animations inside this screen
+                activeScreen.querySelectorAll('.sm-bar-fill').forEach(function(b) {
+                    b.classList.remove('animate');
+                    void b.offsetWidth;
+                    b.classList.add('animate');
+                });
+                // Update header
+                if (titleEl) titleEl.textContent = titles[name];
+                if (statusEl) { statusEl.style.color = colors[name]; statusEl.querySelector('span').textContent = 'Étape '+(idx+1)+'/3'; }
+                // Progress bar color
+                if (progressBar) {
+                    progressBar.style.background = gradients[name];
+                    progressBar.classList.remove('running');
+                    void progressBar.offsetWidth;
+                    progressBar.classList.add('running');
+                }
+            }
+            function nextStep() { goToStep((currentIdx + 1) % 3); }
+            function startAuto() { stopAuto(); autoTimer = setInterval(function() { if (!paused) nextStep(); }, 5000); }
+            function stopAuto() { if (autoTimer) clearInterval(autoTimer); }
+
+            // Click on pipeline nodes
+            flowNodes.forEach(function(n) {
+                n.addEventListener('click', function() {
+                    var idx = steps.indexOf(n.dataset.step);
+                    if (idx >= 0) { goToStep(idx); startAuto(); }
+                });
+                n.addEventListener('mouseenter', function() { paused = true; });
+                n.addEventListener('mouseleave', function() { paused = false; });
+            });
+
+            // Pause on mockup hover
+            var mockup = document.getElementById('step-mockup');
+            if (mockup) {
+                mockup.addEventListener('mouseenter', function() { paused = true; });
+                mockup.addEventListener('mouseleave', function() { paused = false; });
+            }
+
+            // Start on scroll into view
+            var mecaObs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(e) { if (e.isIntersecting) { goToStep(0); startAuto(); } else stopAuto(); });
+            }, { threshold: 0.2 });
+            var mecaEl = document.getElementById('meca');
+            if (mecaEl) mecaObs.observe(mecaEl);
+        })();
+
+        // ═══ MOTEURS — ENGINE TABS ROTATION ═══
+        (function() {
+            const engines = ['extracteur','comparateur','gardien','relanceur','vigie'];
+            const colors = { extracteur:'#10b981', comparateur:'#3b82f6', gardien:'#ef4444', relanceur:'#f59e0b', vigie:'#8b5cf6' };
+            const tabs = document.querySelectorAll('.engine-tab');
+            const contents = document.querySelectorAll('.engine-content');
+            const progressBar = document.getElementById('engine-progress');
+            let currentIdx = 0, autoTimer = null, paused = false;
+
+            function goTo(idx) {
+                currentIdx = idx;
+                const name = engines[idx];
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+                const tab = document.querySelector('.engine-tab[data-engine="'+name+'"]');
+                const content = document.querySelector('.engine-content[data-engine="'+name+'"]');
+                if (tab) tab.classList.add('active');
+                if (content) content.classList.add('active');
+                if (progressBar) {
+                    progressBar.classList.remove('running');
+                    progressBar.style.background = 'linear-gradient(90deg, '+colors[name]+', '+colors[name]+'88)';
+                    void progressBar.offsetWidth;
+                    progressBar.classList.add('running');
+                }
+            }
+            function next() { goTo((currentIdx + 1) % engines.length); }
+            function startAuto() { stopAuto(); autoTimer = setInterval(() => { if (!paused) next(); }, 7000); }
+            function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+
+            tabs.forEach((t, i) => { t.addEventListener('click', () => { goTo(i); startAuto(); }); });
+            const mSection = document.querySelector('.moteurs');
+            if (mSection) {
+                mSection.addEventListener('mouseenter', () => { paused = true; });
+                mSection.addEventListener('mouseleave', () => { paused = false; });
+            }
+            const mObs = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) startAuto(); else stopAuto(); });
+            }, { threshold: 0.15 });
+            if (mSection) mObs.observe(mSection);
+        })();
+
+        // ═══ CHAT ÉCLAIREUR — STATIQUE ═══
+
+        // ═══ OBSESSION — ANIMATED COUNTERS ═══
+        (function() {
+            const counters = document.querySelectorAll('.obs-number[data-target]');
+            let animated = false;
+            const cObs = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting && !animated) {
+                        animated = true;
+                        counters.forEach(el => {
+                            const target = parseInt(el.dataset.target);
+                            let current = 0;
+                            const step = Math.max(1, Math.floor(target / 40));
+                            const timer = setInterval(() => {
+                                current += step;
+                                if (current >= target) { current = target; clearInterval(timer); }
+                                el.textContent = current;
+                            }, 40);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+            const obsSection = document.querySelector('.obsession');
+            if (obsSection) cObs.observe(obsSection);
+        })();
+    </script>
+</body>
+</html>
