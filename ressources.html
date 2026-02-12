@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ═══ SEO ═══ -->
+    <!-- [EDIT] Titre du site (onglet navigateur + Google) -->
+    <title>Ressources | KANSO OPS — Intelligence & Gouvernance IA</title>
+    <!-- [EDIT] Description Google (max ~155 caractères) -->
+    <meta name="description" content="Analyses et ressources pour naviguer l'ère de l'IA industrielle : IA Act 2026, Shadow IA, et l'industrie agentique. Par Kanso-Ops, Lyon.">
+    <meta name="author" content="Sébastien Duc — Kanso-Ops">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kanso-ops.com/ressources.html">
+    <link rel="alternate" hreflang="fr" href="https://kanso-ops.com/ressources.html">
+    <link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/resources.html">
+
+    <!-- ═══ FAVICON & ICONS ═══ -->
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#0c1222">
+
+    <!-- ═══ OPEN GRAPH (Facebook, LinkedIn, iMessage…) ═══ -->
+    <!-- [EDIT] Titre social preview -->
+    <meta property="og:title" content="Ressources — Intelligence & Gouvernance IA | Kanso-Ops">
+    <!-- [EDIT] Description social preview -->
+    <meta property="og:description" content="IA Act 2026, Shadow IA, industrie agentique : nos analyses pour naviguer l'ère de l'IA industrielle en toute lucidité.">
+    <meta property="og:image" content="https://kanso-ops.com/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://kanso-ops.com/ressources.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kanso-Ops">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- ═══ TWITTER CARD ═══ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ressources — Intelligence & Gouvernance IA | Kanso-Ops">
+    <meta name="twitter:description" content="IA Act 2026, Shadow IA, industrie agentique : nos analyses pour naviguer l'ère de l'IA industrielle en toute lucidité.">
+    <meta name="twitter:image" content="https://kanso-ops.com/images/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0c1222;
+            --bg-secondary: #16213e;
+            --bg-deep: #080e1e;
+            --bg-nav: #0f172a;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --bg-card-hover: rgba(255, 255, 255, 0.08);
+            --white: #f3f4f6;
+            --white-muted: #9ca3af;
+            --white-dim: rgba(255,255,255,0.35);
+            --green: #10b981;
+            --green-dim: rgba(16, 185, 129, 0.15);
+            --green-glow: rgba(16, 185, 129, 0.35);
+            --green-bright: #34d399;
+            --purple: #8b5cf6;
+            --purple-dim: rgba(139, 92, 246, 0.15);
+            --purple-glow: 0 8px 25px rgba(139, 92, 246, 0.3);
+            --red: #ef4444;
+            --red-dim: rgba(239, 68, 68, 0.12);
+            --amber: #f59e0b;
+            --amber-dim: rgba(245, 158, 11, 0.12);
+            --cyan: #06b6d4;
+            --cyan-dim: rgba(6, 182, 212, 0.12);
+            --border: rgba(255, 255, 255, 0.10);
+            --border-hover: rgba(255, 255, 255, 0.18);
+            --border-accent: #2a3a5c;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-serif: 'Source Serif 4', Georgia, serif;
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-sans);
+            background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-secondary) 50%, var(--bg-deep) 100%);
+            background-attachment: fixed;
+            color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .container--narrow { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Badge */
+        .badge {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.35rem 0.9rem; border-radius: 9999px;
+            font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+        }
+        .badge--green { background: var(--green-dim); color: var(--green); border: 1px solid rgba(16, 185, 129, 0.25); }
+        .badge--red { background: var(--red-dim); color: #f87171; border: 1px solid rgba(239,68,68,0.25); }
+        .badge--amber { background: var(--amber-dim); color: #fbbf24; border: 1px solid rgba(245,158,11,0.25); }
+        .badge--cyan { background: var(--cyan-dim); color: #22d3ee; border: 1px solid rgba(6,182,212,0.25); }
+        .badge::before {
+            content: ''; width: 6px; height: 6px; border-radius: 50%;
+            background: currentColor; box-shadow: 0 0 8px currentColor;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        .section-label {
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--purple); margin-bottom: 1.5rem;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 1rem 0; background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-accent); transition: all 0.3s ease;
+        }
+        nav .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.1rem; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+        .logo span { color: var(--purple); }
+        .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: var(--white-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--purple); }
+        .nav-links a.active { color: var(--purple); }
+        .nav-cta {
+            padding: 0.55rem 1.4rem !important;
+            background: linear-gradient(135deg, var(--purple) 0%, #7c3aed 100%) !important;
+            color: white !important; border-radius: var(--radius-sm);
+            font-weight: 700 !important; font-size: 0.78rem !important; transition: all 0.25s !important;
+        }
+        .nav-cta:hover { transform: translateY(-2px) !important; box-shadow: var(--purple-glow) !important; }
+        .nav-lang { font-size: 0.75rem !important; font-weight: 700 !important; letter-spacing: 0.08em; padding: 0.3rem 0.6rem; border: 1px solid var(--border); border-radius: var(--radius-sm); transition: all 0.2s; }
+        .nav-lang:hover { border-color: var(--purple) !important; color: var(--purple) !important; }
+        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 1001; }
+        .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--white); margin: 5px 0; transition: 0.3s; border-radius: 2px; }
+        .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Mobile menu overlay */
+        .nav-links.open {
+            display: flex !important; flex-direction: column; position: absolute;
+            top: 0; left: 0; width: 100vw; height: 100vh; height: 100dvh; z-index: 1000;
+            background: rgba(8, 14, 30, 0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            justify-content: flex-start; align-items: center; gap: 1.4rem;
+            animation: fadeInMenu 0.3s ease;
+            padding: 5.5rem 2rem 2rem;
+            overflow-y: auto;
+        }
+        .nav-links.open a { font-size: 1.2rem; color: var(--white); }
+        .nav-links.open a:hover { color: var(--purple); }
+        .nav-links.open .nav-cta { font-size: 1rem !important; padding: 0.8rem 2rem !important; }
+        @keyframes fadeInMenu { from { opacity: 0; } to { opacity: 1; } }
+
+        /* PAGE HERO */
+        .page-hero {
+            padding: 10rem 0 4rem; text-align: center; position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; top: -30%; left: 50%; transform: translateX(-50%);
+            width: 80vw; height: 80vw; border-radius: 50%;
+            background: radial-gradient(circle, rgba(139,92,246,0.05) 0%, rgba(16,185,129,0.02) 40%, transparent 70%);
+            pointer-events: none;
+        }
+        .page-hero h1 {
+            font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; line-height: 1.1;
+            letter-spacing: -0.03em; margin-top: 1.2rem; margin-bottom: 1rem; position: relative;
+        }
+        .page-hero h1 em {
+            font-style: italic; font-family: var(--font-serif); font-weight: 600;
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-bright) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .page-hero p { font-size: 1.1rem; color: var(--white-muted); max-width: 560px; margin: 0 auto; line-height: 1.65; }
+
+        /* TABLE OF CONTENTS */
+        .toc { padding: 0 0 5rem; }
+        .toc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .toc-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+            padding: 1.8rem; text-decoration: none; color: var(--white); display: flex; flex-direction: column;
+            transition: all 0.3s; position: relative; overflow: hidden;
+        }
+        .toc-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; transition: opacity 0.3s;
+        }
+        .toc-card--red::before { background: linear-gradient(90deg, #ef4444, transparent); }
+        .toc-card--amber::before { background: linear-gradient(90deg, #f59e0b, transparent); }
+        .toc-card--cyan::before { background: linear-gradient(90deg, #06b6d4, transparent); }
+        .toc-card:hover { border-color: var(--border-hover); transform: translateY(-3px); background: var(--bg-card-hover); }
+        .toc-number { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); margin-bottom: 0.8rem; }
+        .toc-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .toc-card p { font-size: 0.83rem; color: var(--white-muted); line-height: 1.55; flex: 1; }
+        .toc-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.2rem; font-size: 0.78rem; font-weight: 700; color: var(--purple); }
+        .toc-link svg { width: 14px; height: 14px; transition: transform 0.2s; }
+        .toc-card:hover .toc-link svg { transform: translateX(3px); }
+
+        /* ARTICLE SECTIONS */
+        .article { padding: 5rem 0; border-top: 1px solid var(--border); scroll-margin-top: 5rem; }
+        .article-header { margin-bottom: 3rem; }
+        .article-header h2 {
+            font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 900;
+            letter-spacing: -0.02em; margin-bottom: 0.8rem; line-height: 1.15;
+        }
+        .article-header h2 em {
+            font-family: var(--font-serif); font-style: italic; font-weight: 600;
+        }
+        .article-header h2 em.text-red { color: #f87171; }
+        .article-header h2 em.text-amber { color: #fbbf24; }
+        .article-header h2 em.text-cyan { color: #22d3ee; }
+        .article-lead { font-size: 1.05rem; color: var(--white-muted); line-height: 1.7; max-width: 700px; margin-bottom: 2.5rem; }
+
+        /* Content cards within articles */
+        .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+        .content-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+            padding: 2rem; transition: all 0.3s;
+        }
+        .content-card:hover { border-color: var(--border-hover); }
+        .content-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.6rem; }
+        .content-card h3 svg { width: 18px; height: 18px; flex-shrink: 0; }
+        .content-card p { font-size: 0.88rem; color: var(--white-muted); line-height: 1.65; }
+        .content-card--full { grid-column: 1 / -1; }
+
+        /* Numbered list */
+        .steps { display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 3rem; counter-reset: step; }
+        .step {
+            display: flex; gap: 1.5rem; align-items: flex-start;
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+            padding: 2rem; counter-increment: step; transition: all 0.3s;
+        }
+        .step:hover { border-color: var(--border-hover); }
+        .step-number {
+            flex-shrink: 0; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+            border-radius: var(--radius-md); font-size: 1.1rem; font-weight: 900;
+        }
+        .step-number--red { background: var(--red-dim); color: #f87171; border: 1px solid rgba(239,68,68,0.25); }
+        .step-number--amber { background: var(--amber-dim); color: #fbbf24; border: 1px solid rgba(245,158,11,0.25); }
+        .step-number--cyan { background: var(--cyan-dim); color: #22d3ee; border: 1px solid rgba(6,182,212,0.25); }
+        .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .step p { font-size: 0.88rem; color: var(--white-muted); line-height: 1.65; }
+
+        /* Key figure callout */
+        .callout {
+            background: linear-gradient(135deg, rgba(139,92,246,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            border: 1px solid rgba(139,92,246,0.2); border-radius: var(--radius-xl);
+            padding: 2.5rem 3rem; display: flex; align-items: center; gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        .callout-stat { flex-shrink: 0; text-align: center; }
+        .callout-stat .value { font-size: 3.5rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; }
+        .callout-stat .value--red { color: #f87171; }
+        .callout-stat .value--amber { color: #fbbf24; }
+        .callout-stat .value--cyan { color: #22d3ee; }
+        .callout-stat .label { font-size: 0.7rem; color: var(--white-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.3rem; }
+        .callout-text { font-size: 0.95rem; color: var(--white-muted); line-height: 1.65; }
+        .callout-text strong { color: var(--white); font-weight: 700; }
+
+        /* CTA within articles */
+        .article-cta {
+            text-align: center; padding: 3rem; border-radius: var(--radius-xl);
+            background: linear-gradient(135deg, rgba(16,185,129,0.06) 0%, rgba(139,92,246,0.04) 100%);
+            border: 1px solid rgba(16,185,129,0.15);
+        }
+        .article-cta h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.6rem; }
+        .article-cta p { font-size: 0.9rem; color: var(--white-muted); margin-bottom: 1.5rem; }
+        .article-cta-btn {
+            display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 2rem;
+            background: linear-gradient(135deg, var(--green) 0%, #059669 100%); color: white;
+            text-decoration: none; font-weight: 700; font-size: 0.88rem; border-radius: var(--radius-sm);
+            transition: all 0.25s;
+        }
+        .article-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(16,185,129,0.3); }
+        .article-cta-btn svg { width: 16px; height: 16px; }
+
+        /* Back to top */
+        .back-top { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 2rem; font-size: 0.78rem; font-weight: 600; color: var(--purple); text-decoration: none; transition: color 0.2s; }
+        .back-top:hover { color: #a78bfa; }
+        .back-top svg { width: 14px; height: 14px; }
+
+        /* FOOTER */
+        footer { border-top: 1px solid var(--border); padding: 5rem 0 2rem; }
+        .footer-cta-section { text-align: center; padding-bottom: 4rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+        .footer-cta-section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+        .footer-cta-link {
+            display: inline-flex; align-items: center; gap: 0.6rem; color: var(--purple);
+            text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s;
+            padding: 0.8rem 1.8rem; border: 1px solid rgba(139,92,246,0.3); border-radius: var(--radius-sm);
+        }
+        .footer-cta-link:hover { background: var(--purple-dim); border-color: var(--purple); }
+        .footer-cta-link svg { width: 16px; height: 16px; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; }
+        .footer-copy { font-size: 0.75rem; color: var(--white-dim); }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { font-size: 0.75rem; color: var(--white-dim); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--white); }
+
+        /* ANIMATIONS */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .callout { flex-direction: column; text-align: center; gap: 1.5rem; padding: 2rem; }
+        }
+        @media (max-width: 768px) {
+            .toc-grid { grid-template-columns: 1fr; }
+            .content-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .page-hero { padding: 8rem 0 3rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .callout { padding: 1.5rem; }
+            .callout-stat .value { font-size: 2.5rem; }
+            .step { flex-direction: column; gap: 1rem; }
+            .article-cta { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══ NAV ═══ -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">KANSO<span>.</span>OPS</a>
+            <ul class="nav-links">
+                <li><a href="index.html#cockpit">Cockpit Kanso</a></li>
+                <li><a href="produit.html">Produit</a></li>
+                <li><a href="cas-usage.html">Cas d'usage</a></li>
+                <li><a href="index.html#audit">Audit Blueprint</a></li>
+                <li><a href="ressources.html" class="active-page">Ressources</a></li>
+                <li><a href="index.html#about">À propos</a></li>
+                <li><a href="/en/resources.html" class="nav-lang">EN</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+            </ul>
+            <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- ═══ PAGE HERO ═══ -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="badge badge--green">Intelligence & Gouvernance</div>
+            <h1>Comprendre pour mieux <em>décider.</em></h1>
+            <p>Nos analyses pour naviguer l'ère de l'IA industrielle en toute lucidité. Chaque article est un outil de décision.</p>
+        </div>
+    </section>
+
+    <!-- ═══ TABLE OF CONTENTS ═══ -->
+    <section class="toc">
+        <div class="container">
+            <div class="toc-grid">
+                <a href="#ia-act" class="toc-card toc-card--red reveal reveal-delay-1">
+                    <div class="toc-number">Analyse 01</div>
+                    <h3>IA Act 2026</h3>
+                    <p>Votre plan de mise en conformité. Ce que la loi exige, ce que vous risquez, et comment vous y préparer.</p>
+                    <span class="toc-link">Lire l'analyse <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" /></svg></span>
+                </a>
+                <a href="#shadow-ia" class="toc-card toc-card--amber reveal reveal-delay-2">
+                    <div class="toc-number">Analyse 02</div>
+                    <h3>Shadow IA</h3>
+                    <p>Sécurisez vos secrets de fabrication. 78% de vos salariés utilisent l'IA sans cadre.</p>
+                    <span class="toc-link">Lire l'analyse <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" /></svg></span>
+                </a>
+                <a href="#industrie-agentique" class="toc-card toc-card--cyan reveal reveal-delay-3">
+                    <div class="toc-number">Analyse 03</div>
+                    <h3>L'industrie agentique</h3>
+                    <p>Au-delà de l'automatisation. Comment les agents IA redéfinissent la chaîne de valeur.</p>
+                    <span class="toc-link">Lire l'analyse <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" /></svg></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- ═══ ARTICLE 1 : IA ACT 2026 ═══ -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="article" id="ia-act">
+        <div class="container--narrow">
+            <div class="article-header reveal">
+                <div class="badge badge--red">Réglementation</div>
+                <h2 style="margin-top:1rem;">IA Act 2026 : votre plan de <em class="text-red">mise en conformité.</em></h2>
+                <!-- [EDIT] Texte d'introduction IA Act -->
+                <p class="article-lead">Le Règlement européen sur l'Intelligence Artificielle entre en application progressive dès 2025. Pour les PME industrielles, ne pas s'y préparer revient à piloter à l'aveugle. Voici ce que vous devez savoir — et faire.</p>
+            </div>
+
+            <div class="callout reveal">
+                <div class="callout-stat">
+                    <div class="value value--red">35M€</div>
+                    <div class="label">Amende maximale</div>
+                </div>
+                <div class="callout-text">
+                    <!-- [EDIT] Chiffre clé IA Act -->
+                    Les sanctions prévues par l'IA Act peuvent atteindre <strong>35 millions d'euros ou 7% du chiffre d'affaires mondial</strong> pour les infractions les plus graves. Même les PME sont concernées dès lors qu'elles utilisent ou déploient des systèmes d'IA.
+                </div>
+            </div>
+
+            <div class="section-label reveal">Ce que la loi exige</div>
+            <div class="steps reveal">
+                <div class="step">
+                    <div class="step-number step-number--red">1</div>
+                    <div>
+                        <!-- [EDIT] Étape 1 IA Act -->
+                        <h3>Cartographier vos systèmes d'IA</h3>
+                        <p>Identifiez tous les outils d'IA utilisés dans votre organisation — y compris ceux adoptés par vos équipes sans validation (Shadow IA). Classez-les selon les niveaux de risque définis par le règlement : inacceptable, haut risque, risque limité, risque minimal.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number step-number--red">2</div>
+                    <div>
+                        <!-- [EDIT] Étape 2 IA Act -->
+                        <h3>Évaluer le niveau de risque</h3>
+                        <p>Les systèmes à haut risque (recrutement, notation de crédit, chaîne d'approvisionnement critique) nécessitent une documentation technique complète, un système de gestion des risques, et une supervision humaine effective.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number step-number--red">3</div>
+                    <div>
+                        <!-- [EDIT] Étape 3 IA Act -->
+                        <h3>Mettre en place la gouvernance</h3>
+                        <p>Désignez un responsable IA interne, documentez vos processus de décision automatisés, et mettez en place les registres de conformité exigés. Assurez la traçabilité et l'explicabilité de vos algorithmes.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number step-number--red">4</div>
+                    <div>
+                        <!-- [EDIT] Étape 4 IA Act -->
+                        <h3>Sécuriser vos données</h3>
+                        <p>Vos données d'entraînement et de production doivent être hébergées sur des infrastructures souveraines. L'IA Act renforce les exigences du RGPD en matière de qualité des données et de protection contre les biais.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-grid reveal">
+                <div class="content-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#f87171"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <!-- [EDIT] Titre calendrier -->
+                        Calendrier clé
+                    </h3>
+                    <!-- [EDIT] Contenu calendrier -->
+                    <p>Février 2025 : interdiction des pratiques à risque inacceptable. Août 2025 : obligations de gouvernance. Août 2026 : application complète aux systèmes à haut risque. Ne sous-estimez pas les délais de mise en conformité.</p>
+                </div>
+                <div class="content-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#f87171"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+                        <!-- [EDIT] Titre avantage -->
+                        L'avantage concurrentiel
+                    </h3>
+                    <!-- [EDIT] Contenu avantage -->
+                    <p>Les entreprises conformes en avance bénéficient d'un avantage décisif : accès facilité aux marchés publics, confiance renforcée des partenaires B2B, et réduction du risque juridique. La conformité est un investissement, pas un coût.</p>
+                </div>
+            </div>
+
+            <!-- [EDIT] CTA IA Act -->
+            <div class="article-cta reveal">
+                <h3>Besoin d'un diagnostic IA Act ?</h3>
+                <p>Notre Audit Blueprint inclut un plan complet de mise en conformité adapté à votre secteur.</p>
+                <!-- [LINK] Calendly -->
+                <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="article-cta-btn">
+                    Demander mon Audit Blueprint
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                </a>
+            </div>
+
+            <a href="#" class="back-top">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" /></svg>
+                Retour en haut
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- ═══ ARTICLE 2 : SHADOW IA ═══ -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="article" id="shadow-ia">
+        <div class="container--narrow">
+            <div class="article-header reveal">
+                <div class="badge badge--amber">Sécurité</div>
+                <h2 style="margin-top:1rem;">Shadow IA : sécurisez vos <em class="text-amber">secrets de fabrication.</em></h2>
+                <!-- [EDIT] Texte d'introduction Shadow IA -->
+                <p class="article-lead">Vos équipes utilisent ChatGPT, Gemini, Copilot — sans que la DSI le sache. Chaque prompt envoyé sur un serveur public est une fuite potentielle de votre patrimoine immatériel. Voici l'ampleur du phénomène et comment reprendre le contrôle.</p>
+            </div>
+
+            <div class="callout reveal">
+                <div class="callout-stat">
+                    <div class="value value--amber">78%</div>
+                    <div class="label">Salariés concernés</div>
+                </div>
+                <div class="callout-text">
+                    <!-- [EDIT] Chiffre clé Shadow IA -->
+                    Selon le Microsoft Work Trend Index 2025, <strong>78% des salariés utilisent l'IA générative sans cadre défini</strong> par leur employeur. Cela signifie que vos données sensibles — prix, marges, stratégies, brevets — transitent par des serveurs publics sans aucune protection.
+                </div>
+            </div>
+
+            <div class="section-label reveal">Les risques concrets</div>
+            <div class="content-grid reveal">
+                <div class="content-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#fbbf24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" /></svg>
+                        <!-- [EDIT] Risque 1 -->
+                        Fuite de données stratégiques
+                    </h3>
+                    <p>Un acheteur qui colle une grille tarifaire dans ChatGPT pour l'analyser expose vos conditions fournisseurs. Un ingénieur qui demande à l'IA de debugger du code propriétaire partage votre propriété intellectuelle.</p>
+                </div>
+                <div class="content-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#fbbf24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>
+                        <!-- [EDIT] Risque 2 -->
+                        Non-conformité RGPD
+                    </h3>
+                    <p>Les données personnelles de vos clients ou collaborateurs envoyées sur des IA publiques constituent une violation du RGPD. Les sanctions peuvent atteindre 4% du CA mondial.</p>
+                </div>
+                <div class="content-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#fbbf24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" /></svg>
+                        <!-- [EDIT] Risque 3 -->
+                        Perte d'avantage concurrentiel
+                    </h3>
+                    <p>Vos secrets de fabrication, vos processus uniques, vos innovations — tout ce qui fait votre différenciation peut être capté et redistribué via les modèles d'IA publics.</p>
+                </div>
+                <div class="content-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#fbbf24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
+                        <!-- [EDIT] Risque 4 -->
+                        Fragmentation des pratiques
+                    </h3>
+                    <p>Sans cadre commun, chaque service développe ses propres usages IA. Résultat : des résultats incohérents, des risques multipliés, et aucune capitalisation possible.</p>
+                </div>
+            </div>
+
+            <div class="section-label reveal">La solution Kanso-Ops</div>
+            <div class="steps reveal">
+                <div class="step">
+                    <div class="step-number step-number--amber">1</div>
+                    <div>
+                        <!-- [EDIT] Solution 1 -->
+                        <h3>Audit des usages existants</h3>
+                        <p>On identifie tous les outils IA utilisés par vos équipes, les données qui transitent, et les risques associés. Sans jugement — l'objectif est de comprendre pour mieux cadrer.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number step-number--amber">2</div>
+                    <div>
+                        <!-- [EDIT] Solution 2 -->
+                        <h3>Déploiement d'un cadre souverain</h3>
+                        <p>On remplace les usages sauvages par des Agents IA métiers, hébergés sur une infrastructure 100% sécurisée et isolée. Vos données ne quittent jamais votre périmètre.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number step-number--amber">3</div>
+                    <div>
+                        <!-- [EDIT] Solution 3 -->
+                        <h3>Formation et gouvernance</h3>
+                        <p>On forme vos équipes aux bonnes pratiques IA et on met en place une charte d'usage claire. Le Cockpit Kanso assure la supervision et la traçabilité en temps réel.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- [EDIT] CTA Shadow IA -->
+            <div class="article-cta reveal">
+                <h3>Reprenez le contrôle de vos données.</h3>
+                <p>30 minutes pour évaluer votre exposition au Shadow IA et définir un plan d'action.</p>
+                <!-- [LINK] Calendly -->
+                <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="article-cta-btn">
+                    Réserver mon diagnostic
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                </a>
+            </div>
+
+            <a href="#" class="back-top">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" /></svg>
+                Retour en haut
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- ═══ ARTICLE 3 : INDUSTRIE AGENTIQUE ═══ -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="article" id="industrie-agentique">
+        <div class="container--narrow">
+            <div class="article-header reveal">
+                <div class="badge badge--cyan">Vision</div>
+                <h2 style="margin-top:1rem;">L'industrie agentique : au-delà de <em class="text-cyan">l'automatisation.</em></h2>
+                <!-- [EDIT] Texte d'introduction Industrie Agentique -->
+                <p class="article-lead">L'automatisation classique (RPA, macros, workflows) atteint ses limites. La prochaine révolution industrielle ne sera pas automatisée — elle sera agentique. Des agents IA autonomes, capables de raisonner, décider et agir dans votre chaîne de valeur.</p>
+            </div>
+
+            <div class="callout reveal">
+                <div class="callout-stat">
+                    <div class="value value--cyan">3.2x</div>
+                    <div class="label">ROI moyen constaté</div>
+                </div>
+                <div class="callout-text">
+                    <!-- [EDIT] Chiffre clé Agentique -->
+                    Le retour sur investissement moyen constaté lors du déploiement d'agents métiers dédiés et souverains est de <strong>3.2x en moins de 6 mois</strong>. Contrairement à la RPA, les agents s'adaptent, apprennent et s'améliorent en continu.
+                </div>
+            </div>
+
+            <div class="section-label reveal">Automatisation vs. Agentique</div>
+            <div class="content-grid reveal">
+                <div class="content-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="var(--white-muted)"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        <!-- [EDIT] Ancien monde -->
+                        Automatisation classique (RPA)
+                    </h3>
+                    <p>Suit des règles fixes. Casse dès que le format change. Nécessite une maintenance constante. Ne comprend pas le contexte. Limité aux tâches répétitives et structurées.</p>
+                </div>
+                <div class="content-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#22d3ee"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" /></svg>
+                        <!-- [EDIT] Nouveau monde -->
+                        Agents IA (Agentique)
+                    </h3>
+                    <p>Raisonne et s'adapte au contexte. Comprend le langage naturel. Gère l'imprévu et les exceptions. S'améliore en continu. Opère sur des tâches complexes et non structurées.</p>
+                </div>
+            </div>
+
+            <div class="section-label reveal">Cas d'usage industriels</div>
+            <div class="steps reveal">
+                <div class="step">
+                    <div class="step-number step-number--cyan">1</div>
+                    <div>
+                        <!-- [EDIT] Cas d'usage 1 -->
+                        <h3>Agent Achats</h3>
+                        <p>Analyse automatique des contrats fournisseurs, détection d'anomalies tarifaires, benchmark en temps réel. Votre acheteur se concentre sur la négociation stratégique, l'agent gère le reste.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number step-number--cyan">2</div>
+                    <div>
+                        <!-- [EDIT] Cas d'usage 2 -->
+                        <h3>Agent Logistique</h3>
+                        <p>Optimisation des flux en temps réel, anticipation des ruptures, gestion proactive des litiges transporteurs. L'agent traite 24/7, vos équipes supervisent les décisions clés.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number step-number--cyan">3</div>
+                    <div>
+                        <!-- [EDIT] Cas d'usage 3 -->
+                        <h3>Agent Qualité</h3>
+                        <p>Contrôle documentaire automatisé, détection de non-conformités, génération de rapports d'audit. De la réception matière à la libération produit, l'agent assure la traçabilité totale.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-grid reveal">
+                <div class="content-card content-card--full">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#22d3ee"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+                        <!-- [EDIT] Titre différence Kanso-Ops -->
+                        La différence Kanso-Ops
+                    </h3>
+                    <!-- [EDIT] Contenu différence -->
+                    <p>Nos agents sont souverains : hébergés sur une infrastructure sécurisée et isolée, conformes RGPD et IA Act. Ils sont reliés au Cockpit Kanso pour une supervision en temps réel. Vous voyez ce qu'ils font, combien ils économisent, et vous gardez le contrôle total. De la signature à la production en moins de 30 jours.</p>
+                </div>
+            </div>
+
+            <!-- [EDIT] CTA Industrie Agentique -->
+            <div class="article-cta reveal">
+                <h3>Prêt pour l'industrie agentique ?</h3>
+                <p>Identifions ensemble les premiers agents métiers à déployer dans votre organisation.</p>
+                <!-- [LINK] Calendly -->
+                <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="article-cta-btn">
+                    Réserver mon point de situation
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                </a>
+            </div>
+
+            <a href="#" class="back-top">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" /></svg>
+                Retour en haut
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-cta-section reveal">
+                <h2>Prêt à sécuriser votre croissance ?</h2>
+                <!-- [LINK] Calendly -->
+                <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="footer-cta-link">
+                    Réserver mon point de situation — 30 min
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-copy">© 2026 KANSO-OPS — Lyon, France.</span>
+                <div class="footer-links">
+                    <!-- [LINK] LinkedIn personnel -->
+                    <a href="https://www.linkedin.com/in/sebastienduc05" target="_blank">LinkedIn</a>
+                    <!-- [LINK] LinkedIn entreprise -->
+                    <a href="https://www.linkedin.com/company/kanso-ops/" target="_blank">Kanso-Ops</a>
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <a href="mentions-legales.html">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══ COOKIE BANNER ═══ -->
+    <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:1rem 2rem;background:rgba(15,23,42,0.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,0.1);font-family:'Inter',sans-serif;">
+        <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
+            <p style="font-size:0.82rem;color:#9ca3af;margin:0;flex:1;min-width:280px;line-height:1.55;">
+                Ce site utilise le stockage local pour mémoriser votre consentement. Aucun cookie publicitaire ou de tracking n'est utilisé.
+                <a href="mentions-legales.html" style="color:#8b5cf6;text-decoration:none;font-weight:600;">En savoir plus</a>
+            </p>
+            <div style="display:flex;gap:0.8rem;flex-shrink:0;">
+                <button onclick="acceptCookies()" style="padding:0.5rem 1.4rem;background:linear-gradient(135deg,#10b981,#059669);color:white;border:none;border-radius:8px;font-size:0.78rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.2s;">Accepter</button>
+                <button onclick="declineCookies()" style="padding:0.5rem 1.4rem;background:transparent;color:#9ca3af;border:1px solid rgba(255,255,255,0.15);border-radius:8px;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s;">Refuser</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function acceptCookies(){localStorage.setItem('kanso-cookies','accepted');document.getElementById('cookie-banner').style.display='none';}
+        function declineCookies(){localStorage.setItem('kanso-cookies','declined');document.getElementById('cookie-banner').style.display='none';}
+        if(!localStorage.getItem('kanso-cookies')){document.getElementById('cookie-banner').style.display='block';}
+    </script>
+
+    <script>
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Mobile hamburger menu
+        const toggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+            navLinks.classList.toggle('open');
+            document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+        });
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggle.classList.remove('active');
+                navLinks.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- 🔒 ANTI-INSPECT PROTECTION                     -->
+    <!-- Mot de passe pour débloquer la console :        -->
+    <!-- rendezlecerveau                                 -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <script>
+    (function(){
+        const _k = 'rendezlecerveau';
+        let _unlocked = false;
+
+        // Block right-click
+        document.addEventListener('contextmenu', function(e) {
+            if (!_unlocked) e.preventDefault();
+        });
+
+        // Block F12, Ctrl+Shift+I/J/C, Ctrl+U
+        document.addEventListener('keydown', function(e) {
+            if (_unlocked) return;
+            if (e.key === 'F12') { e.preventDefault(); return; }
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['I','i','J','j','C','c'].includes(e.key)) { e.preventDefault(); return; }
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U')) { e.preventDefault(); return; }
+        });
+
+        // DevTools detection + console cleaner
+        const _clear = function() {
+            if (_unlocked) return;
+            console.clear();
+            console.log('%c🔒 Console verrouillée — KANSO-OPS', 'color:#8b5cf6;font-size:18px;font-weight:900;');
+            console.log('%cTapez le mot de passe pour débloquer :', 'color:#9ca3af;font-size:13px;');
+        };
+        _clear();
+        setInterval(_clear, 800);
+
+        // Password prompt via console
+        Object.defineProperty(window, '_unlock', {
+            set: function(v) {
+                if (v === _k) {
+                    _unlocked = true;
+                    console.clear();
+                    console.log('%c✅ Console déverrouillée. Bienvenue.', 'color:#10b981;font-size:16px;font-weight:700;');
+                } else {
+                    console.log('%c❌ Mot de passe incorrect.', 'color:#ef4444;font-size:14px;font-weight:600;');
+                }
+            },
+            get: function() { return '🔒'; }
+        });
+
+        // Instructions in console
+        setTimeout(function() {
+            if (!_unlocked) {
+                console.log('%c→ _unlock = "votre_mot_de_passe"', 'color:#fbbf24;font-size:12px;');
+            }
+        }, 1200);
+    })();
+    </script>
+</body>
+</html>
