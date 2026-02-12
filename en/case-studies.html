@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | Kanso-Ops — Sovereign AI Application Scenarios</title>
+    <meta name="description" content="5 concrete automation scenarios: logistics, pharma, real estate, procurement, invoicing. Discover the time recovered by your teams.">
+    <meta name="author" content="Sébastien Duc — Kanso-Ops">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kanso-ops.com/en/case-studies.html">
+    <link rel="alternate" hreflang="fr" href="https://kanso-ops.com/cas-usage.html">
+    <link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/case-studies.html">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#0c1222">
+    <meta property="og:title" content="Kanso-Ops Case Studies — Sovereign AI Application Scenarios">
+    <meta property="og:description" content="5 concrete automation scenarios for industry. Logistics, pharma, real estate, procurement, invoicing.">
+    <meta property="og:image" content="https://kanso-ops.com/images/og-image.png">
+    <meta property="og:url" content="https://kanso-ops.com/en/case-studies.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary:#0c1222;--bg-secondary:#16213e;--bg-deep:#080e1e;--bg-nav:#0f172a;
+            --bg-card:rgba(255,255,255,0.05);--bg-card-hover:rgba(255,255,255,0.08);
+            --white:#f3f4f6;--white-muted:#9ca3af;--white-dim:rgba(255,255,255,0.35);
+            --green:#10b981;--green-dim:rgba(16,185,129,0.15);--green-glow:rgba(16,185,129,0.35);--green-bright:#34d399;
+            --purple:#8b5cf6;--purple-dim:rgba(139,92,246,0.15);--purple-glow:0 8px 25px rgba(139,92,246,0.3);
+            --blue:#3b82f6;--red:#ef4444;--amber:#f59e0b;
+            --border:rgba(255,255,255,0.10);--border-hover:rgba(255,255,255,0.18);--border-accent:#2a3a5c;
+            --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:24px;
+            --font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+            --font-serif:'Source Serif 4',Georgia,serif;
+            --shadow-lg:0 10px 25px rgba(0,0,0,0.4);
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden;}
+        body{font-family:var(--font-sans);background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg-secondary) 50%,var(--bg-deep) 100%);background-attachment:fixed;color:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5;}
+        .container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+        .section-label{font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple);margin-bottom:1.5rem;}
+
+        /* NAV */
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 0;background:rgba(15,23,42,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-accent);transition:all 0.3s ease;}
+        nav .container{display:flex;align-items:center;justify-content:space-between;}
+        .logo{font-size:1.1rem;font-weight:900;letter-spacing:0.15em;text-transform:uppercase;color:var(--white);text-decoration:none;}
+        .logo span{color:var(--purple);}
+        .nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none;}
+        .nav-links a{color:var(--white-muted);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.04em;transition:color 0.2s;}
+        .nav-links a:hover{color:var(--purple);}
+        .nav-links a.active-page{color:var(--white);}
+        .nav-cta{padding:0.55rem 1.4rem!important;background:linear-gradient(135deg,var(--purple) 0%,#7c3aed 100%)!important;color:white!important;border-radius:var(--radius-sm);font-weight:700!important;font-size:0.78rem!important;transition:all 0.25s!important;}
+        .nav-cta:hover{transform:translateY(-2px)!important;box-shadow:var(--purple-glow)!important;}
+        .nav-lang{font-size:0.75rem!important;font-weight:700!important;letter-spacing:0.08em;padding:0.3rem 0.6rem;border:1px solid var(--border);border-radius:var(--radius-sm);transition:all 0.2s;}
+        .nav-lang:hover{border-color:var(--purple)!important;color:var(--purple)!important;}
+        .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:0.5rem;z-index:1001;}
+        .mobile-toggle span{display:block;width:22px;height:2px;background:var(--white);margin:5px 0;border-radius:2px;transition:all 0.3s;}
+        @keyframes fadeInMenu{from{opacity:0}to{opacity:1}}
+        .nav-links.open{display:flex!important;flex-direction:column;position:absolute;top:0;left:0;width:100vw;height:100vh;height:100dvh;z-index:1000;background:var(--bg-deep);justify-content:flex-start;align-items:center;gap:1.4rem;animation:fadeInMenu 0.3s ease;padding:5.5rem 2rem 2rem;overflow-y:auto;}
+        .nav-links.open li{list-style:none;text-align:center;width:100%;}
+        .nav-links.open a{font-size:1.15rem;color:var(--white);font-weight:600;display:block;padding:0.4rem 0;}
+        .nav-links.open a:hover{color:var(--purple);}
+        .nav-links.open .nav-cta{font-size:0.95rem!important;padding:0.8rem 2rem!important;margin-top:0.8rem;display:inline-block!important;}
+
+        /* HERO */
+        .page-hero{padding:10rem 0 5rem;text-align:center;position:relative;}
+        .page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border-accent),transparent);}
+        .page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-0.03em;line-height:1.15;max-width:800px;margin:0 auto 1.2rem;}
+        .page-hero h1 em{font-style:normal;color:var(--green);}
+        .page-hero p{font-size:1.05rem;color:var(--white-muted);max-width:620px;margin:0 auto;line-height:1.65;}
+
+        /* PHILOSOPHY NOTE */
+        .philosophy{padding:4rem 0;position:relative;}
+        .philosophy::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border-accent),transparent);}
+        .philosophy-card{max-width:800px;margin:0 auto;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;position:relative;overflow:hidden;}
+        .philosophy-card::before{content:'';position:absolute;top:-1px;left:-1px;right:-1px;height:3px;background:linear-gradient(90deg,var(--green),var(--blue),var(--purple));border-radius:var(--radius-lg) var(--radius-lg) 0 0;}
+        .philosophy-card h3{font-size:1rem;font-weight:700;margin-bottom:0.75rem;color:var(--green);}
+        .philosophy-card p{font-size:0.88rem;color:var(--white-muted);line-height:1.7;}
+        .philosophy-card p strong{color:var(--white);font-weight:600;}
+
+        /* CASES SECTION */
+        .cases{padding:5rem 0;}
+        .cases-list{display:flex;flex-direction:column;gap:3rem;}
+
+        /* CASE CARD */
+        .case-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);padding:3rem;position:relative;overflow:hidden;transition:border-color 0.3s;}
+        .case-card:hover{border-color:var(--border-hover);}
+        .case-card::before{content:'';position:absolute;top:-1px;left:-1px;right:-1px;height:3px;border-radius:var(--radius-xl) var(--radius-xl) 0 0;}
+        .case-card[data-color="blue"]::before{background:linear-gradient(90deg,var(--blue),rgba(59,130,246,0.3));}
+        .case-card[data-color="purple"]::before{background:linear-gradient(90deg,var(--purple),rgba(139,92,246,0.3));}
+        .case-card[data-color="amber"]::before{background:linear-gradient(90deg,var(--amber),rgba(245,158,11,0.3));}
+        .case-card[data-color="green"]::before{background:linear-gradient(90deg,var(--green),rgba(16,185,129,0.3));}
+        .case-card[data-color="red"]::before{background:linear-gradient(90deg,var(--red),rgba(239,68,68,0.3));}
+
+        .case-header{display:flex;align-items:center;gap:1.2rem;margin-bottom:2rem;flex-wrap:wrap;}
+        .case-badge{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:9999px;display:inline-flex;align-items:center;gap:0.35rem;}
+        .case-badge--blue{background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.3);}
+        .case-badge--purple{background:rgba(139,92,246,0.15);color:#a78bfa;border:1px solid rgba(139,92,246,0.3);}
+        .case-badge--amber{background:rgba(245,158,11,0.15);color:#fbbf24;border:1px solid rgba(245,158,11,0.3);}
+        .case-badge--green{background:rgba(16,185,129,0.15);color:#34d399;border:1px solid rgba(16,185,129,0.3);}
+        .case-badge--red{background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.3);}
+        .case-hypo{font-size:0.6rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--white-dim);padding:0.25rem 0.6rem;border:1px solid var(--border);border-radius:9999px;}
+
+        .case-title{font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.3rem;}
+        .case-subtitle{font-size:0.88rem;color:var(--white-muted);line-height:1.6;max-width:700px;}
+
+        .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;}
+
+        .case-problem, .case-solution{padding:1.5rem;border-radius:var(--radius-lg);position:relative;}
+        .case-problem{background:rgba(239,68,68,0.05);border:1px solid rgba(239,68,68,0.15);}
+        .case-solution{background:rgba(16,185,129,0.05);border:1px solid rgba(16,185,129,0.15);}
+        .case-problem h4, .case-solution h4{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem;}
+        .case-problem h4{color:#f87171;}
+        .case-solution h4{color:#34d399;}
+        .case-problem p, .case-solution p{font-size:0.84rem;color:var(--white-muted);line-height:1.65;}
+
+        .case-footer{display:flex;align-items:center;justify-content:space-between;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1.2rem;}
+        .case-time{display:flex;align-items:center;gap:0.8rem;}
+        .case-time-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);border-radius:var(--radius-md);}
+        .case-time-icon svg{width:22px;height:22px;color:var(--green);}
+        .case-time-val{font-size:1.3rem;font-weight:800;color:var(--green);line-height:1.2;}
+        .case-time-label{font-size:0.72rem;color:var(--white-muted);}
+        .case-time-euro{font-size:0.75rem;color:var(--white-dim);margin-top:0.15rem;}
+        .case-engines{display:flex;gap:0.5rem;flex-wrap:wrap;}
+        .case-engine{font-size:0.65rem;font-weight:600;padding:0.3rem 0.65rem;border-radius:var(--radius-sm);background:var(--bg-card);border:1px solid var(--border);color:var(--white-muted);display:inline-flex;align-items:center;gap:0.3rem;}
+        .case-engine-dot{width:6px;height:6px;border-radius:50%;}
+
+        /* SCALE SECTION */
+        .scale{padding:4rem 0;position:relative;}
+        .scale::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border-accent),transparent);}
+        .scale-card{max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(16,185,129,0.06) 0%,rgba(139,92,246,0.06) 100%);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-xl);padding:3rem;text-align:center;position:relative;overflow:hidden;}
+        .scale-card::before{content:'';position:absolute;top:-1px;left:-1px;right:-1px;height:3px;background:linear-gradient(90deg,var(--green),var(--purple));border-radius:var(--radius-xl) var(--radius-xl) 0 0;}
+        .scale-label{font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--purple);margin-bottom:1rem;}
+        .scale-amount{font-size:clamp(2.2rem,5vw,3.2rem);font-weight:900;letter-spacing:-0.03em;color:var(--green);margin-bottom:0.5rem;}
+        .scale-desc{font-size:0.9rem;color:var(--white-muted);line-height:1.65;max-width:600px;margin:0 auto 1.5rem;}
+        .scale-desc strong{color:var(--white);font-weight:600;}
+        .scale-note{font-size:0.72rem;color:var(--white-dim);font-style:italic;}
+
+        /* CTA SECTION */
+        .cta-section{padding:5rem 0 6rem;text-align:center;}
+        .cta-section h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:0.75rem;}
+        .cta-section h2 em{font-style:normal;color:var(--green);}
+        .cta-section p{color:var(--white-muted);font-size:0.92rem;max-width:550px;margin:0 auto 2rem;line-height:1.6;}
+        .cta-btn{display:inline-flex;align-items:center;gap:0.6rem;padding:1rem 2.4rem;background:linear-gradient(135deg,var(--green) 0%,#059669 100%);color:white;text-decoration:none;font-weight:700;font-size:0.9rem;border-radius:var(--radius-sm);transition:all 0.25s;}
+        .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--green-glow);}
+        .cta-btn svg{width:16px;height:16px;}
+
+        /* FOOTER */
+        footer{border-top:1px solid var(--border);padding:4rem 0 2rem;}
+        .footer-cta-section{text-align:center;padding-bottom:4rem;border-bottom:1px solid var(--border);margin-bottom:2rem;}
+        .footer-cta-section h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:1.2rem;}
+        .footer-cta-link{display:inline-flex;align-items:center;gap:0.6rem;font-size:0.95rem;color:var(--green);font-weight:700;text-decoration:none;transition:all 0.2s;}
+        .footer-cta-link:hover{gap:1rem;}
+        .footer-cta-link svg{width:18px;height:18px;}
+        .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding:1rem 0;}
+        .footer-copy{font-size:0.75rem;color:var(--white-dim);}
+        .footer-links{display:flex;gap:2rem;}
+        .footer-links a{font-size:0.75rem;color:var(--white-muted);text-decoration:none;transition:color 0.2s;}
+        .footer-links a:hover{color:var(--purple);}
+
+        /* REVEAL */
+        .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease;}
+        .reveal.visible{opacity:1;transform:translateY(0);}
+        .reveal-delay-1{transition-delay:0.1s;}
+        .reveal-delay-2{transition-delay:0.2s;}
+        .reveal-delay-3{transition-delay:0.3s;}
+        .reveal-delay-4{transition-delay:0.4s;}
+        .reveal-delay-5{transition-delay:0.5s;}
+
+        /* RESPONSIVE */
+        @media(max-width:900px){
+            .nav-links{display:none;}
+            .mobile-toggle{display:block;}
+            .case-grid{grid-template-columns:1fr;}
+            .case-footer{flex-direction:column;align-items:flex-start;}
+        }
+        @media(max-width:600px){
+            .page-hero{padding:8rem 0 3rem;}
+            .case-card{padding:2rem 1.5rem;}
+            .case-title{font-size:1.15rem;}
+            .philosophy-card{padding:1.5rem;}
+            .footer-bottom{flex-direction:column;text-align:center;}
+            .footer-links{justify-content:center;}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══ NAV ═══ -->
+    <nav>
+        <div class="container">
+            <a href="/en/index.html" class="logo">KANSO<span>.</span>OPS</a>
+            <ul class="nav-links">
+                <li><a href="/en/index.html#cockpit">Cockpit Kanso</a></li>
+                <li><a href="/en/product.html">Product</a></li>
+                <li><a href="/en/case-studies.html" class="active-page">Use cases</a></li>
+                <li><a href="/en/index.html#audit">Audit Blueprint</a></li>
+                <li><a href="/en/resources.html">Resources</a></li>
+                <li><a href="/en/index.html#about">About</a></li>
+                <li><a href="/cas-usage.html" class="nav-lang">FR</a></li>
+                <li><a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="nav-cta">Book a call</a></li>
+            </ul>
+            <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label">Use cases</div>
+                <h1>Every team wastes time on the same tasks. <em>We automate them.</em></h1>
+                <p>These scenarios illustrate how Kanso engines apply to real-world cases. We measure time recovered — not the money it could generate.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PHILOSOPHY ═══ -->
+    <section class="philosophy">
+        <div class="container">
+            <div class="philosophy-card reveal">
+                <h3>These figures are just the beginning</h3>
+                <p>Each scenario quantifies time saved at the scale of one department. But a company is made of many departments. <strong>Add up the gains across procurement, logistics, accounting, sales</strong> — and you get a substantial first amount. Now add what your teams do with that freed time: winning new clients, catching discrepancies no one spotted before, negotiating deals there was never time to negotiate. <strong>That's where the ROI takes off</strong> — and that one has no ceiling.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ 5 CASE STUDIES ═══ -->
+    <section class="cases">
+        <div class="container">
+            <div class="cases-list">
+
+                <!-- CASE 1 — LOGISTICS -->
+                <div class="case-card reveal" data-color="blue" id="logistics">
+                    <div class="case-header">
+                        <span class="case-badge case-badge--blue">Logistics</span>
+                    </div>
+                    <div class="case-title">Unified cockpit for a multi-client co-packer</div>
+                    <div class="case-subtitle">A logistics specialist in packaging manages about twenty clients. Each with their own Excel file, their own formats, their own habits.</div>
+                    <div class="case-grid">
+                        <div class="case-problem">
+                            <h4>The problem</h4>
+                            <p>Sales Administration juggles 20 Excel files for 3 distinct stock types (components, finished products, work in progress). No automatic reconciliation. Anomalies — stockouts, forgotten leftovers, yield gaps — are detected too late, sometimes after delivery. Sales Admin spends a full day per week on this.</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4>Kanso's answer</h4>
+                            <p>The Extractor automatically parses the 20 files and normalizes the formats. The Comparator reconciles the 3 data silos in real-time. The Lookout predicts stockouts 5 days before they occur. A single cockpit replaces the back-and-forth between files — without changing anyone's habits.</p>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <div class="case-time">
+                            <div class="case-time-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <div class="case-time-val">~8h / week</div>
+                                <div class="case-time-label">per sales admin</div>
+                                <div class="case-time-euro">i.e. ~€47,000/year for a team of 3 (based on €42/h loaded cost)</div>
+                            </div>
+                        </div>
+                        <div class="case-engines">
+                            <span class="case-engine"><span class="case-engine-dot" style="background:#10b981"></span>Extractor</span>
+                            <span class="case-engine"><span class="case-engine-dot" style="background:#3b82f6"></span>Comparator</span>
+                            <span class="case-engine"><span class="case-engine-dot" style="background:#8b5cf6"></span>Lookout</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CASE 2 — PHARMA -->
+                <div class="case-card reveal reveal-delay-1" data-color="purple" id="pharma">
+                    <div class="case-header">
+                        <span class="case-badge case-badge--purple">Pharmaceutical</span>
+                    </div>
+                    <div class="case-title">Multi-site supply chain for a CDMO</div>
+                    <div class="case-subtitle">A pharmaceutical contract manufacturer operates 5 production sites in France. SAP is in place, but teams spend their time manually compiling cross-site data.</div>
+                    <div class="case-grid">
+                        <div class="case-problem">
+                            <h4>The problem</h4>
+                            <p>Each site has its own schedules, stock levels and GMP constraints. The consolidated view only exists in PowerPoint presentations updated once a week. The supply chain team spends hours preparing each steering meeting. Critical alerts (supplier delays, compliance gaps) arrive too late.</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4>Kanso's answer</h4>
+                            <p>The Extractor connects above SAP and consolidates data from all 5 sites without modifying the source system. The Guardian continuously verifies GMP compliance and AI Act obligations. The Dispatcher tracks critical deadlines (certifications, audits, deliveries). A single cockpit provides the consolidated view in real-time.</p>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <div class="case-time">
+                            <div class="case-time-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <div class="case-time-val">~12h / week</div>
+                                <div class="case-time-label">per supply chain member</div>
+                                <div class="case-time-euro">i.e. ~€95,000/year for a team of 4 (based on €42/h loaded cost)</div>
+                            </div>
+                        </div>
+                        <div class="case-engines">
+                            <span class="case-engine"><span class="case-engine-dot" style="background:#10b981"></span>Extractor</span>
+                            <span class="case-engine"><span class="case-engine-dot" style="background:#ef4444"></span>Guardian</span>
+                            <span class="case-engine"><span class="case-engine-dot" style="background:#f59e0b"></span>Dispatcher</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CASE 3 — REAL ESTATE -->
+                <div class="case-card reveal reveal-delay-2" data-color="amber" id="real-estate">
+                    <div class="case-header">
+                        <span class="case-badge case-badge--amber">Real estate</span>
+                    </div>
+                    <div class="case-title">Tenant screening and fraud detection</div>
+                    <div class="case-subtitle">A real estate agency receives dozens of rental application files per week. Each file is manually verified, document by document.</div>
+                    <div class="case-grid">
+                        <div class="case-problem">
+                            <h4>The problem</h4>
+                            <p>A manager spends an average of 45 minutes per file verifying each document: pay stubs, tax notices, ID, guarantees. Inconsistencies (reported income vs. pay stubs, forged documents) are sometimes detected after lease signing. The resulting defaults cost money and take months to resolve.</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4>Kanso's answer</h4>
+                            <p>The Extractor automatically captures and structures each document in the file. The Guardian cross-checks the data (income vs. pay stubs, employer consistency, document validity) and assigns a confidence score in seconds. The manager focuses on customer relationships and flagged files — instead of verifying everything by hand.</p>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <div class="case-time">
+                            <div class="case-time-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <div class="case-time-val">~35 min / file</div>
+                                <div class="case-time-label">per property manager (45 → 10 min)</div>
+                                <div class="case-time-euro">i.e. ~€51,000/year for 3 managers (15 files/week)</div>
+                            </div>
+                        </div>
+                        <div class="case-engines">
+                            <span class="case-engine"><span class="case-engine-dot" style="background:#10b981"></span>Extractor</span>
+                            <span class="case-engine"><span class="case-engine-dot" style="background:#ef4444"></span>Guardian</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CASE 4 — PROCUREMENT -->
+                <div class="case-card reveal reveal-delay-3" data-color="green" id="procurement">
+                    <div class="case-header">
+                        <span class="case-badge case-badge--green">Procurement</span>
+                    </div>
+                    <div class="case-title">Supplier panel monitoring and enrichment</div>
+                    <div class="case-subtitle">A procurement team manages a panel of over 150 suppliers. Supplier files are rarely up to date, and every RFQ starts with a race against the clock.</div>
+                    <div class="case-grid">
+                        <div class="case-problem">
+                            <h4>The problem</h4>
+                            <p>Supplier files (certifications, financial health, contacts, capabilities) live in an Excel no one maintains. Before each RFQ, a buyer spends several days manually verifying and enriching each file. At-risk suppliers (deregistered, restructured) are only detected after the fact.</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4>Kanso's answer</h4>
+                            <p>The Lookout continuously monitors public sources (business registers, ISO certifications, industry news). The Extractor automatically enriches supplier files — over 90% of data is updated without human intervention. The Comparator scores and ranks suppliers by weighted criteria, ready for the RFQ.</p>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <div class="case-time">
+                            <div class="case-time-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <div class="case-time-val">~3 days / month</div>
+                                <div class="case-time-label">per buyer</div>
+                                <div class="case-time-euro">i.e. ~€36,000/year for a team of 3 (based on €42/h loaded cost)</div>
+                            </div>
+                        </div>
+                        <div class="case-engines">
+                            <span class="case-engine"><span class="case-engine-dot" style="background:#8b5cf6"></span>Lookout</span>
+                            <span class="case-engine"><span class="case-engine-dot" style="background:#10b981"></span>Extractor</span>
+                            <span class="case-engine"><span class="case-engine-dot" style="background:#3b82f6"></span>Comparator</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CASE 5 — INVOICING -->
+                <div class="case-card reveal reveal-delay-4" data-color="red" id="invoicing">
+                    <div class="case-header">
+                        <span class="case-badge case-badge--red">Invoicing</span>
+                    </div>
+                    <div class="case-title">Automatic detection of supplier invoice discrepancies</div>
+                    <div class="case-subtitle">Every time an invoice arrives, the accounting team must manually compare the invoiced prices to the contract prices. On hundreds of line items, discrepancies go unnoticed.</div>
+                    <div class="case-grid">
+                        <div class="case-problem">
+                            <h4>The problem</h4>
+                            <p>Invoices arrive as PDFs, reference prices live in another file (or in SAP), and the comparison is done line-by-line by hand. Verification time is considerable and undetected discrepancies accumulate month after month. Without tooling, it's impossible to know if you're overpaying.</p>
+                        </div>
+                        <div class="case-solution">
+                            <h4>Kanso's answer</h4>
+                            <p>The Extractor captures invoice data via intelligent OCR. The Comparator automatically cross-checks each invoiced line against reference prices in contracts or purchase orders. The Dispatcher triggers disputes for each detected discrepancy and tracks their resolution to closure.</p>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <div class="case-time">
+                            <div class="case-time-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <div class="case-time-val">~6h / week</div>
+                                <div class="case-time-label">per accountant</div>
+                                <div class="case-time-euro">i.e. ~€35,000/year for a team of 3 (based on €42/h loaded cost)</div>
+                            </div>
+                        </div>
+                        <div class="case-engines">
+                            <span class="case-engine"><span class="case-engine-dot" style="background:#10b981"></span>Extractor</span>
+                            <span class="case-engine"><span class="case-engine-dot" style="background:#3b82f6"></span>Comparator</span>
+                            <span class="case-engine"><span class="case-engine-dot" style="background:#f59e0b"></span>Dispatcher</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SCALE EFFECT ═══ -->
+    <section class="scale">
+        <div class="container">
+            <div class="scale-card reveal">
+                <div class="scale-label">Scale effect</div>
+                <div class="scale-amount">+€264,000/year</div>
+                <div class="scale-desc">That's the direct saving if you deploy these 5 scenarios in a single company. <strong>And we're not even counting the new clients won, the discrepancies caught, the negotiations there was never time to pursue.</strong></div>
+                <div class="scale-note">€47k + €95k + €51k + €36k + €35k — based on €42/h loaded cost, typical team sizes</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="cta-section">
+        <div class="container reveal">
+            <h2>Your industry is on this list?<br><em>Let's talk about yours.</em></h2>
+            <p>The Blueprint audit maps your workflows in 2 weeks and quantifies recoverable time. No commitment beyond that.</p>
+            <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="cta-btn">
+                Book 30 min to discuss
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+        <div class="container">
+            <div class="footer-cta-section reveal">
+                <h2>Ready to secure your growth?</h2>
+                <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="footer-cta-link">
+                    Book my status check-in — 30 min
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-copy">© 2026 KANSO-OPS — Lyon, France.</span>
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/sebastienduc05" target="_blank">LinkedIn</a>
+                    <a href="https://www.linkedin.com/company/kanso-ops/" target="_blank">Kanso-Ops</a>
+                    <a href="/en/legal.html">Legal notice</a>
+                    <a href="/en/legal.html">Privacy policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Mobile toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('open');
+                mobileToggle.classList.toggle('active');
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('open');
+                    mobileToggle.classList.remove('active');
+                });
+            });
+        }
+    </script>
+
+</body>
+</html>
