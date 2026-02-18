@@ -6,9 +6,9 @@
 
     <!-- ═══ SEO ═══ -->
     <!-- [EDIT] Titre du site (onglet navigateur + Google) -->
-    <title>KANSO OPS | Vos équipes perdent 2h/jour — on les récupère</title>
+    <title>KANSO OPS | Libérez vos équipes. Récupérez votre marge. IA souveraine pour l'industrie.</title>
     <!-- [EDIT] Description Google (max ~155 caractères) -->
-    <meta name="description" content="Vos équipes perdent 2h/jour sur des tâches sans valeur. Calculez ce qu'on va vous rapporter. Agence d'automatisation IA souveraine basée à Lyon.">
+    <meta name="description" content="Vos équipes perdent du temps, votre marge fuit. Agents IA souverains pour PME industrielles : diagnostic en 15 jours, cash récupéré en 30. Lyon.">
     <meta name="author" content="Sébastien Duc — Kanso-Ops">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://kanso-ops.com/">
@@ -24,14 +24,14 @@
 
     <!-- ═══ OPEN GRAPH (Facebook, LinkedIn, iMessage…) ═══ -->
     <!-- [EDIT] Titre social preview -->
-    <meta property="og:title" content="KANSO OPS — Vos équipes perdent 2h/jour — on les récupère">
+    <meta property="og:title" content="KANSO OPS — Libérez vos équipes. Récupérez votre marge.">
     <!-- [EDIT] Description social preview -->
-    <meta property="og:description" content="Vos équipes perdent 2h/jour sur des tâches sans valeur. Calculez ce qu'on va vous rapporter. IA souveraine, conforme IA Act 2026.">
+    <meta property="og:description" content="Agents IA souverains pour PME industrielles. Diagnostic en 15 jours, cash récupéré en 30. Conforme IA Act 2026.">
     <meta property="og:image" content="https://kanso-ops.com/images/og-image.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Kanso-Ops — Vos équipes perdent 2h/jour — on les récupère">
+    <meta property="og:image:alt" content="Kanso-Ops — Libérez vos équipes. Récupérez votre marge.">
     <meta property="og:url" content="https://kanso-ops.com/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Kanso-Ops">
@@ -39,8 +39,8 @@
 
     <!-- ═══ TWITTER CARD ═══ -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="KANSO OPS — Vos équipes perdent 2h/jour — on les récupère">
-    <meta name="twitter:description" content="Vos équipes perdent 2h/jour sur des tâches sans valeur. Calculez ce qu'on va vous rapporter. IA souveraine, conforme IA Act 2026.">
+    <meta name="twitter:title" content="KANSO OPS — Libérez vos équipes. Récupérez votre marge.">
+    <meta name="twitter:description" content="Agents IA souverains pour PME industrielles. Diagnostic en 15 jours, cash récupéré en 30. Conforme IA Act 2026.">
     <meta name="twitter:image" content="https://kanso-ops.com/images/og-image.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -302,6 +302,14 @@
         .scale-desc{font-size:0.9rem;color:var(--white-muted);line-height:1.65;max-width:600px;margin:0 auto 1.5rem;}
         .scale-desc strong{color:var(--white);font-weight:600;}
         .scale-note{font-size:0.7rem;color:var(--white-dim);font-family:var(--font-mono);}
+
+        /* Sprint timeline responsive */
+        @media (max-width: 1024px) {
+            #sprint .pillars-grid-timeline { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 768px) {
+            #sprint .pillars-grid-timeline { grid-template-columns: 1fr !important; }
+        }
     </style>
 </head>
 <body>
@@ -311,10 +319,11 @@
         <div class="container">
             <a href="#" class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">KANSO<span>.</span>OPS</a>
             <ul class="nav-links">
+                <li><a href="#sprint">Sprint 30 Jours</a></li>
                 <li><a href="#cockpit">Cockpit Kanso</a></li>
                 <li><a href="produit.html">Produit</a></li>
                 <li><a href="cas-usage.html">Cas d'usage</a></li>
-                <li><a href="#audit">Audit Blueprint</a></li>
+                <li><a href="#audit">Blueprint</a></li>
                 <li><a href="ressources.html">Ressources</a></li>
                 <li><a href="#about">À propos</a></li>
                 <li><a href="/en/index.html" class="nav-lang">EN</a></li>
@@ -329,11 +338,24 @@
         <div class="container">
             <div class="hero-content">
                 <div class="badge">Conforme IA Act 2026</div>
-                <h1>Vos équipes perdent 2h/jour sur des tâches sans valeur, <em>on les récupère</em></h1>
-                <a href="#roi-calculator" class="hero-cta">
-                    Calculez votre manque à gagner
+                <h1>Vos équipes perdent du temps. Votre marge&nbsp;fuit. <em>On règle les deux</em></h1>
+                <p class="hero-sub">Agents IA souverains pour PME industrielles. Diagnostic en 15 jours, cash récupéré en 30. Vos données ne quittent jamais vos serveurs.</p>
+                <a href="#sprint" class="hero-cta">
+                    Découvrir le Sprint 30 Jours
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" /></svg>
                 </a>
+                <div class="hero-proof">
+                    <span>Conçu pour</span>
+                    <div class="proof-logos">
+                        <span>DAF</span>
+                        <div class="proof-separator"></div>
+                        <span>Dir. Achats</span>
+                        <div class="proof-separator"></div>
+                        <span>Supply Chain</span>
+                        <div class="proof-separator"></div>
+                        <span>Direction Générale</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -356,11 +378,6 @@
                     <strong>Supply chain multi-sites</strong>
                     <span class="cases-bar-metric">~12h/sem · 95 000 €/an</span>
                 </a>
-                <a href="cas-usage.html#immobilier" class="cases-bar-item">
-                    <span class="cases-bar-tag cases-bar-tag--amber">Immobilier</span>
-                    <strong>Screening locataires IA</strong>
-                    <span class="cases-bar-metric">35min/dossier · 51 000 €/an</span>
-                </a>
                 <a href="cas-usage.html#achats" class="cases-bar-item">
                     <span class="cases-bar-tag cases-bar-tag--green">Achats</span>
                     <strong>Surveillance fournisseurs</strong>
@@ -382,11 +399,6 @@
                     <strong>Supply chain multi-sites</strong>
                     <span class="cases-bar-metric">~12h/sem · 95 000 €/an</span>
                 </a>
-                <a href="cas-usage.html#immobilier" class="cases-bar-item">
-                    <span class="cases-bar-tag cases-bar-tag--amber">Immobilier</span>
-                    <strong>Screening locataires IA</strong>
-                    <span class="cases-bar-metric">35min/dossier · 51 000 €/an</span>
-                </a>
                 <a href="cas-usage.html#achats" class="cases-bar-item">
                     <span class="cases-bar-tag cases-bar-tag--green">Achats</span>
                     <strong>Surveillance fournisseurs</strong>
@@ -406,9 +418,9 @@
         <div class="container">
             <div class="scale-card reveal">
                 <div class="scale-label">Effet d'échelle</div>
-                <div class="scale-amount">+264 000 €/an</div>
-                <div class="scale-desc">C'est l'économie directe en déployant sur 5 services d'une seule entreprise. <strong>Mais le vrai gain, c'est ce que vos équipes font du temps libéré : aller chercher de nouveaux clients, détecter des écarts qu'on ne voyait pas, négocier ce qu'on n'avait pas le temps de négocier.</strong> Ce ROI-là n'a pas de plafond.</div>
-                <div class="scale-note">47k + 95k + 51k + 36k + 35k — base 42 €/h chargé, équipes types</div>
+                <div class="scale-amount">+215 000 €/an</div>
+                <div class="scale-desc">C'est l'économie directe en déployant sur 4 services d'une seule PME industrielle. <strong>Mais le vrai gain, c'est ce que vos équipes font du temps libéré : aller chercher de nouveaux clients, détecter des écarts qu'on ne voyait pas, négocier ce qu'on n'avait pas le temps de négocier.</strong> Ce ROI-là n'a pas de plafond.</div>
+                <div class="scale-note">47k + 95k + 36k + 35k — base 42 €/h chargé, équipes types industrielles</div>
             </div>
         </div>
     </section>
@@ -434,10 +446,10 @@
                     <span class="pain-source">Règlement européen sur l'IA</span>
                 </div>
                 <div class="pain-card reveal reveal-delay-3">
-                    <div class="pain-stat">3.2x</div>
-                    <h3>ROI constaté</h3>
-                    <p>Le retour sur investissement moyen constaté lors du déploiement d'agents métiers dédiés et souverains.</p>
-                    <span class="pain-source">Études de cas Kanso-Ops</span>
+                    <div class="pain-stat">3-5%</div>
+                    <h3>Cash dormant dans vos factures</h3>
+                    <p>Écarts de prix, erreurs de facturation, doublons de paiement : des milliers d'euros fuient chaque mois sans que personne ne regarde.</p>
+                    <span class="pain-source">Estimation moyenne sur 24 mois d'historique fournisseurs</span>
                 </div>
             </div>
         </div>
@@ -479,6 +491,70 @@
                     <p>+100 interviews avec des décideurs. Un cockpit simple, centralisé, prêt à l'emploi. Vos équipes ne changent rien à leurs habitudes.</p>
                     <span class="pillar-tag pillar-tag--green">+100 décideurs consultés</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SPRINT 30 JOURS ═══ -->
+    <section class="pillars" id="sprint" style="border-top: 1px solid var(--border);">
+        <div class="container">
+            <div class="pillars-header reveal">
+                <div class="section-label">Le parcours</div>
+                <h2>Le Sprint 30 Jours</h2>
+                <p>30 jours pour prouver la valeur. Temps libéré ET cash récupéré dès le premier mois.</p>
+            </div>
+
+            <!-- Timeline 4 étapes -->
+            <div class="pillars-grid-timeline reveal" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+                <!-- J+1 Blueprint -->
+                <div style="text-align: center;">
+                    <div style="font-size: 1.2rem; font-weight: 800; color: #a78bfa; margin-bottom: 0.8rem;">J+1</div>
+                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, rgba(139,92,246,0.3), rgba(139,92,246,0.1)); border: 2px solid #a78bfa; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#a78bfa"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5"/></svg>
+                    </div>
+                    <div style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.5rem;">Blueprint</div>
+                    <div style="font-size: 0.82rem; color: var(--white-muted); line-height: 1.5;">Cartographie de vos flux sur 24 mois. Diagnostic chiffré. Gisements identifiés.</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.72rem; font-weight: 700; color: #a78bfa; background: rgba(139,92,246,0.1); padding: 0.3rem 0.8rem; border-radius: 9999px; display: inline-flex;">1 990 € HT</div>
+                </div>
+
+                <!-- J+16 Moisson -->
+                <div style="text-align: center;">
+                    <div style="font-size: 1.2rem; font-weight: 800; color: #60a5fa; margin-bottom: 0.8rem;">J+16</div>
+                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, rgba(59,130,246,0.3), rgba(59,130,246,0.1)); border: 2px solid #60a5fa; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#60a5fa"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33"/></svg>
+                    </div>
+                    <div style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.5rem;">Moisson</div>
+                    <div style="font-size: 0.82rem; color: var(--white-muted); line-height: 1.5;">Agents IA activés sur votre historique. Cash dormant récupéré. Le build s'autofinance.</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.72rem; font-weight: 700; color: #60a5fa; background: rgba(59,130,246,0.1); padding: 0.3rem 0.8rem; border-radius: 9999px; display: inline-flex;">Success fee 15%</div>
+                </div>
+
+                <!-- J+31 Sentinel -->
+                <div style="text-align: center;">
+                    <div style="font-size: 1.2rem; font-weight: 800; color: var(--green-bright); margin-bottom: 0.8rem;">J+31</div>
+                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, rgba(16,185,129,0.3), rgba(16,185,129,0.1)); border: 2px solid var(--green-bright); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#34d399"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+                    </div>
+                    <div style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.5rem;">Sentinel</div>
+                    <div style="font-size: 0.82rem; color: var(--white-muted); line-height: 1.5;">Surveillance continue. Abonnement actif. ROI mesurable chaque mois sur le cockpit.</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.72rem; font-weight: 700; color: var(--green-bright); background: var(--green-dim); padding: 0.3rem 0.8rem; border-radius: 9999px; display: inline-flex;">490 – 1 490 €/mois</div>
+                </div>
+
+                <!-- 12M+ Scale -->
+                <div style="text-align: center;">
+                    <div style="font-size: 1.2rem; font-weight: 800; color: #fbbf24; margin-bottom: 0.8rem;">12M+</div>
+                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, rgba(245,158,11,0.3), rgba(245,158,11,0.1)); border: 2px solid #fbbf24; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#fbbf24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+                    </div>
+                    <div style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.5rem;">Scale</div>
+                    <div style="font-size: 0.82rem; color: var(--white-muted); line-height: 1.5;">Ajout de modules. Montée en puissance. Gouvernance IA complète.</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.72rem; font-weight: 700; color: #fbbf24; background: rgba(245,158,11,0.1); padding: 0.3rem 0.8rem; border-radius: 9999px; display: inline-flex;">Modules additionnels</div>
+                </div>
+            </div>
+
+            <!-- Quote détecteur de métaux -->
+            <div class="reveal" style="background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(139,92,246,0.04)); border: 1px solid rgba(16,185,129,0.2); border-radius: var(--radius-lg); padding: 2rem 2.5rem; text-align: center; max-width: 800px; margin: 0 auto;">
+                <p style="font-family: var(--font-serif); font-size: clamp(1.1rem, 2vw, 1.35rem); font-style: italic; line-height: 1.55; color: var(--white); margin-bottom: 0.8rem;">« Je ne promets pas qu'il y a un trésor dans chaque boîte. Je promets d'apporter le détecteur de métaux. S'il y a de l'or, on le sort. S'il n'y en a pas, vous avez au moins la preuve que vos équipes sont des champions. »</p>
+                <p style="font-size: 0.78rem; color: var(--green-bright); font-weight: 600;">Sébastien Duc — Fondateur, Kanso-Ops</p>
             </div>
         </div>
     </section>
@@ -944,26 +1020,27 @@
         <div class="container">
             <div class="audit-wrapper reveal">
                 <div>
-                    <div class="section-label">Offre d'entrée</div>
-                    <h2>2 semaines pour votre Plan de bataille</h2>
-                    <p class="audit-subtitle">L'audit Blueprint : la feuille de route chiffrée de votre transformation</p>
+                    <div class="section-label">Première étape</div>
+                    <h2>Le Blueprint : votre détecteur de métaux</h2>
+                    <p class="audit-subtitle">15 jours pour cartographier vos gisements de temps perdu et de cash dormant.</p>
                     <ul class="audit-items">
-                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>Cartographie complète de vos flux opérationnels</li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>Calcul du ROI exact par module</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>Cartographie complète de vos flux sur 24 mois d'historique</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>Estimation chiffrée : temps récupérable + cash récupérable</li>
                         <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>Plan de mise en conformité IA Act 2026</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>Feuille de route Sprint 30 Jours personnalisée</li>
                     </ul>
-                    <p class="audit-promise">Aucun engagement au-delà de l'audit. Vous repartez avec votre feuille de route chiffrée.</p>
+                    <p class="audit-promise">Aucun engagement au-delà du Blueprint. Si on ne trouve rien, vous repartez avec la preuve que vos équipes sont des champions.</p>
                 </div>
                 <div class="audit-pricing">
                     <div class="audit-price-label">Investissement</div>
                     <div class="audit-price">1 990<sup>€ HT</sup></div>
-                    <div class="audit-duration">Livrable en 2 semaines</div>
+                    <div class="audit-duration">Livrable en 15 jours</div>
                     <!-- [LINK] Calendly -->
                     <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="audit-cta">
-                        Demander mon audit Blueprint
+                        Demander mon Blueprint
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                     </a>
-                    <div class="audit-guarantee">+ Intégration au réseau Kanso incluse</div>
+                    <div class="audit-guarantee">La Moisson rembourse le Blueprint dès le 1er mois</div>
                 </div>
             </div>
         </div>
@@ -1023,7 +1100,7 @@
                             <div class="contact-info-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
                             </div>
-                            <a href="mailto:contact@kanso-ops.fr">contact@kanso-ops.fr</a>
+                            <a href="/cdn-cgi/l/email-protection#65060a0b11040611250e040b160a480a15164b0317"><span class="__cf_email__" data-cfemail="3e5d51504a5f5d4a7e555f504d5113514e4d10584c">[email&#160;protected]</span></a>
                         </div>
                         <div class="contact-info-item">
                             <div class="contact-info-icon">
@@ -1139,7 +1216,7 @@
             </div>
         </div>
     </div>
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function acceptCookies(){localStorage.setItem('kanso-cookies','accepted');document.getElementById('cookie-banner').style.display='none';}
         function declineCookies(){localStorage.setItem('kanso-cookies','declined');document.getElementById('cookie-banner').style.display='none';}
         if(!localStorage.getItem('kanso-cookies')){document.getElementById('cookie-banner').style.display='block';}
@@ -1423,12 +1500,4 @@
             else{el.style.textShadow='0 0 40px var(--green-glow)';}
         }
         window.setRoiConf=function(btn){
-            document.querySelectorAll('.roi-conf-btn').forEach(function(b){b.classList.remove('active');});
-            btn.classList.add('active'); roiConf=btn.dataset.value; calcROI();
-        };
-        [rsT,rsH,rsX,rsF].forEach(function(s){s.addEventListener('input',calcROI);});
-        calcROI();
-    })();
-    </script>
-</body>
-</html>
+            document.querySelectorAll('.roi-conf-btn').forEach(function(b){b.classList.remove('act
