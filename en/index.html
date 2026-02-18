@@ -8,7 +8,7 @@
     <!-- [EDIT] Titre du site (onglet navigateur + Google) -->
     <title>KANSO OPS | Your teams waste 2h/day — we get them back</title>
     <!-- [EDIT] Description Google (max ~155 caractères) -->
-    <meta name="description" content="Your teams waste 2h/day on low-value tasks. Calculate what we'll save you. Sovereign AI automation agency based in Lyon, AI Act 2026 compliant.">
+    <meta name="description" content="Your teams waste time, your margin leaks. Sovereign AI agents for industrial SMEs: diagnosis in 15 days, cash recovered in 30. Lyon, France.">
     <meta name="author" content="Sébastien Duc — Kanso-Ops">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://kanso-ops.com/en/">
@@ -26,7 +26,7 @@
     <!-- [EDIT] Titre social preview -->
     <meta property="og:title" content="KANSO OPS — Your teams waste 2h/day — we get them back">
     <!-- [EDIT] Description social preview -->
-    <meta property="og:description" content="Your teams waste 2h/day on low-value tasks. Calculate what we'll save you. Sovereign AI, AI Act 2026 compliant.">
+    <meta property="og:description" content="Sovereign AI agents for industrial SMEs. Diagnosis in 15 days, cash recovered in 30. AI Act 2026 compliant.">
     <meta property="og:image" content="https://kanso-ops.com/images/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -38,7 +38,7 @@
     <!-- ═══ TWITTER CARD ═══ -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="KANSO OPS — Your teams waste 2h/day — we get them back">
-    <meta name="twitter:description" content="Your teams waste 2h/day on low-value tasks. Calculate what we'll save you. Sovereign AI, AI Act 2026 compliant.">
+    <meta name="twitter:description" content="Sovereign AI agents for industrial SMEs. Diagnosis in 15 days, cash recovered in 30. AI Act 2026 compliant.">
     <meta name="twitter:image" content="https://kanso-ops.com/images/og-image.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -453,9 +453,11 @@
             .audit-wrapper { padding: 3rem 2rem; }
             .audit-pricing { text-align: left; }
             .cm-kpis { grid-template-columns: repeat(2, 1fr); }
+            .pillars-grid-timeline { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (max-width: 768px) {
             .pain-cards, .pillars-grid, .intelligence-grid { grid-template-columns: 1fr; }
+            .pillars-grid-timeline { grid-template-columns: 1fr !important; }
             .hero h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
             .mobile-toggle { display: block; }
@@ -736,12 +738,12 @@
         <div class="container">
             <a href="#" class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">KANSO<span>.</span>OPS</a>
             <ul class="nav-links">
+                <li><a href="/en/sprint.html">30-Day Sprint</a></li>
                 <li><a href="#cockpit">Cockpit Kanso</a></li>
                 <li><a href="/en/product.html">Product</a></li>
                 <li><a href="/en/case-studies.html">Use cases</a></li>
-                <li><a href="#audit">Audit Blueprint</a></li>
+                <li><a href="#audit">Blueprint</a></li>
                 <li><a href="/en/resources.html">Resources</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="/index.html" class="nav-lang">FR</a></li>
                 <li><a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="nav-cta">Book a call</a></li>
             </ul>
@@ -754,11 +756,19 @@
         <div class="container">
             <div class="hero-content">
                 <div class="badge">AI Act 2026 Compliant</div>
-                <h1>Your teams waste 2h/day on low-value tasks, <em>we get them back</em></h1>
-                <a href="#roi-calculator" class="hero-cta">
-                    Calculate your missed earnings
+                <h1>Your teams waste time. Your margin leaks. <em>We fix both.</em></h1>
+                <p class="hero-sub">Sovereign AI agents for industrial SMEs. Diagnosis in 15 days once connected to your data, cash recovered within 30. Your data never leaves your servers.</p>
+                <a href="#sprint" class="hero-cta">
+                    Discover the 30-Day Sprint
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" /></svg>
                 </a>
+                <div class="hero-proof">
+                    <span>Built for:</span>
+                    <span>CFO</span><span>·</span>
+                    <span>Procurement Dir.</span><span>·</span>
+                    <span>Supply Chain</span><span>·</span>
+                    <span>General Management</span>
+                </div>
             </div>
         </div>
     </section>
@@ -781,11 +791,6 @@
                     <strong>Multi-site supply chain</strong>
                     <span class="cases-bar-metric">~12h/week · €95,000/yr</span>
                 </a>
-                <a href="/en/case-studies.html#real-estate" class="cases-bar-item">
-                    <span class="cases-bar-tag cases-bar-tag--amber">Real estate</span>
-                    <strong>AI tenant screening</strong>
-                    <span class="cases-bar-metric">35min/file · €51,000/yr</span>
-                </a>
                 <a href="/en/case-studies.html#procurement" class="cases-bar-item">
                     <span class="cases-bar-tag cases-bar-tag--green">Procurement</span>
                     <strong>Supplier panel monitoring</strong>
@@ -807,11 +812,6 @@
                     <strong>Multi-site supply chain</strong>
                     <span class="cases-bar-metric">~12h/week · €95,000/yr</span>
                 </a>
-                <a href="/en/case-studies.html#real-estate" class="cases-bar-item">
-                    <span class="cases-bar-tag cases-bar-tag--amber">Real estate</span>
-                    <strong>AI tenant screening</strong>
-                    <span class="cases-bar-metric">35min/file · €51,000/yr</span>
-                </a>
                 <a href="/en/case-studies.html#procurement" class="cases-bar-item">
                     <span class="cases-bar-tag cases-bar-tag--green">Procurement</span>
                     <strong>Supplier panel monitoring</strong>
@@ -831,9 +831,9 @@
         <div class="container">
             <div class="scale-card reveal">
                 <div class="scale-label">Scale effect</div>
-                <div class="scale-amount">+€264,000/year</div>
-                <div class="scale-desc">That's the direct saving from deploying across just 5 departments. <strong>But the real gain is what your teams do with freed time: winning new clients, catching discrepancies no one had time to spot, negotiating deals that were left on the table.</strong> That ROI has no ceiling.</div>
-                <div class="scale-note">€47k + €95k + €51k + €36k + €35k — base €42/h loaded cost, typical teams</div>
+                <div class="scale-amount">+€215,000/year</div>
+                <div class="scale-desc">That's the direct saving from deploying across just 4 departments. <strong>But the real gain is what your teams do with freed time: winning new clients, catching discrepancies no one had time to spot, negotiating deals that were left on the table.</strong> That ROI has no ceiling.</div>
+                <div class="scale-note">€47k + €95k + €36k + €35k — base €42/h loaded cost, typical industrial teams</div>
             </div>
         </div>
     </section>
@@ -859,10 +859,10 @@
                     <span class="pain-source">European AI Regulation</span>
                 </div>
                 <div class="pain-card reveal reveal-delay-3">
-                    <div class="pain-stat">3.2x</div>
-                    <h3>Observed ROI</h3>
-                    <p>Average return on investment observed when deploying dedicated, sovereign business agents.</p>
-                    <span class="pain-source">Kanso-Ops Case Studies</span>
+                    <div class="pain-stat">3-5%</div>
+                    <h3>Dormant cash in your invoices</h3>
+                    <p>Price discrepancies, billing errors, duplicate payments: thousands of euros leak every month with no one watching.</p>
+                    <span class="pain-source">Average estimate over 24 months of supplier history</span>
                 </div>
             </div>
         </div>
@@ -904,6 +904,73 @@
                     <p>100+ interviews with decision-makers. A simple, centralized cockpit, ready to use. Your teams change nothing about their habits.</p>
                     <span class="pillar-tag pillar-tag--green">100+ leaders consulted</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SPRINT 30 DAYS ═══ -->
+    <section class="pillars" id="sprint">
+        <div class="container">
+            <div class="pillars-header reveal">
+                <div class="section-label">The journey</div>
+                <h2>The 30-Day Sprint</h2>
+                <p>30 days to prove value once connected to your data. Time saved AND cash recovered from the very first month.</p>
+            </div>
+
+            <!-- Timeline 4 steps -->
+            <div class="pillars-grid-timeline reveal" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+                <!-- D+1 Blueprint -->
+                <div style="text-align: center;">
+                    <div style="font-size: 1.2rem; font-weight: 800; color: #a78bfa; margin-bottom: 0.8rem;">D+1</div>
+                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, rgba(139,92,246,0.3), rgba(139,92,246,0.1)); border: 2px solid #a78bfa; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#a78bfa"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5"/></svg>
+                    </div>
+                    <div style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.5rem;">Blueprint</div>
+                    <div style="font-size: 0.82rem; color: var(--white-muted); line-height: 1.5;">Map your workflows over 24 months. Quantified diagnosis. Opportunities identified.</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.72rem; font-weight: 700; color: #a78bfa; background: rgba(139,92,246,0.1); padding: 0.3rem 0.8rem; border-radius: 9999px; display: inline-flex;">15 days</div>
+                </div>
+
+                <!-- D+16 Harvest -->
+                <div style="text-align: center;">
+                    <div style="font-size: 1.2rem; font-weight: 800; color: #60a5fa; margin-bottom: 0.8rem;">D+16</div>
+                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, rgba(59,130,246,0.3), rgba(59,130,246,0.1)); border: 2px solid #60a5fa; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#60a5fa"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33"/></svg>
+                    </div>
+                    <div style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.5rem;">Harvest</div>
+                    <div style="font-size: 0.82rem; color: var(--white-muted); line-height: 1.5;">AI agents activated on your history. Dormant cash recovered. The build pays for itself.</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.72rem; font-weight: 700; color: #60a5fa; background: rgba(59,130,246,0.1); padding: 0.3rem 0.8rem; border-radius: 9999px; display: inline-flex;">Cash recovered</div>
+                </div>
+
+                <!-- D+31 Sentinel -->
+                <div style="text-align: center;">
+                    <div style="font-size: 1.2rem; font-weight: 800; color: var(--green-bright); margin-bottom: 0.8rem;">D+31</div>
+                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, rgba(16,185,129,0.3), rgba(16,185,129,0.1)); border: 2px solid var(--green-bright); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#34d399"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+                    </div>
+                    <div style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.5rem;">Sentinel</div>
+                    <div style="font-size: 0.82rem; color: var(--white-muted); line-height: 1.5;">Continuous monitoring. Active subscription. Measurable ROI every month on your cockpit.</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.72rem; font-weight: 700; color: var(--green-bright); background: var(--green-dim); padding: 0.3rem 0.8rem; border-radius: 9999px; display: inline-flex;">Continuous monitoring</div>
+                </div>
+
+                <!-- 12M+ Scale -->
+                <div style="text-align: center;">
+                    <div style="font-size: 1.2rem; font-weight: 800; color: #fbbf24; margin-bottom: 0.8rem;">12M+</div>
+                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, rgba(245,158,11,0.3), rgba(245,158,11,0.1)); border: 2px solid #fbbf24; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#fbbf24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg>
+                    </div>
+                    <div style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.5rem;">Scale</div>
+                    <div style="font-size: 0.82rem; color: var(--white-muted); line-height: 1.5;">Add modules. Scale up. Complete AI governance.</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.72rem; font-weight: 700; color: #fbbf24; background: rgba(245,158,11,0.1); padding: 0.3rem 0.8rem; border-radius: 9999px; display: inline-flex;">Additional modules</div>
+                </div>
+            </div>
+
+            <!-- Quote -->
+            <div class="reveal" style="max-width: 800px; margin: 0 auto; background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(139,92,246,0.04)); border: 1px solid rgba(16,185,129,0.2); border-radius: var(--radius-xl); padding: 2.5rem; text-align: center; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -1px; left: -1px; right: -1px; height: 3px; background: linear-gradient(90deg, var(--green), var(--purple)); border-radius: var(--radius-xl) var(--radius-xl) 0 0;"></div>
+                <p style="font-family: var(--font-serif); font-size: clamp(1rem, 1.8vw, 1.25rem); font-style: italic; line-height: 1.55; color: var(--white); margin-bottom: 0.8rem;">
+                    "I don't promise there's treasure in every box. I promise to bring the metal detector. If there's gold, we dig it out. If there isn't, you at least have proof your teams are champions."
+                </p>
+                <p style="font-size: 0.75rem; color: var(--green-bright); font-weight: 600;">Sébastien Duc — Founder, Kanso-Ops</p>
             </div>
         </div>
     </section>
@@ -1370,25 +1437,26 @@
             <div class="audit-wrapper reveal">
                 <div>
                     <div class="section-label">Entry Offer</div>
-                    <h2>2 Weeks for Your Battle Plan.</h2>
-                    <p class="audit-subtitle">The Audit Blueprint: your quantified transformation roadmap.</p>
+                    <h2>The Blueprint: your metal detector.</h2>
+                    <p class="audit-subtitle">15 days once connected to your data to map your wasted time and dormant cash.</p>
                     <ul class="audit-items">
                         <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>Complete mapping of your operational workflows.</li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>Exact ROI calculation per module.</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>Quantified estimate: time saved + recoverable cash.</li>
                         <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>AI Act 2026 compliance plan.</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>Personalised 30-Day Sprint roadmap.</li>
                     </ul>
-                    <p class="audit-promise">No commitment beyond the audit. You walk away with your quantified roadmap.</p>
+                    <p class="audit-promise">No commitment beyond the Blueprint. If we find nothing, you leave with proof your teams are champions.</p>
                 </div>
                 <div class="audit-pricing">
                     <div class="audit-price-label">Investment</div>
                     <div class="audit-price">1 990<sup>€ ex. VAT</sup></div>
-                    <div class="audit-duration">Delivered in 2 weeks</div>
+                    <div class="audit-duration">15 days once connected to your data</div>
                     <!-- [LINK] Calendly -->
                     <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="audit-cta">
-                        Request My Audit Blueprint
+                        Request My Blueprint
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                     </a>
-                    <div class="audit-guarantee">+ Integration into Kanso Network included</div>
+                    <div class="audit-guarantee">The Harvest pays back the Blueprint from month 1</div>
                 </div>
             </div>
         </div>
@@ -1448,7 +1516,7 @@
                             <div class="contact-info-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
                             </div>
-                            <a href="mailto:contact@kanso-ops.fr">contact@kanso-ops.fr</a>
+                            <a href="/cdn-cgi/l/email-protection#d0b3bfbea4b1b3a490bbb1bea3bffdbfa0a3feb6a2"><span class="__cf_email__" data-cfemail="d1b2bebfa5b0b2a591bab0bfa2befcbea1a2ffb7a3">[email&#160;protected]</span></a>
                         </div>
                         <div class="contact-info-item">
                             <div class="contact-info-icon">
@@ -1564,7 +1632,7 @@
             </div>
         </div>
     </div>
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function acceptCookies(){localStorage.setItem('kanso-cookies','accepted');document.getElementById('cookie-banner').style.display='none';}
         function declineCookies(){localStorage.setItem('kanso-cookies','declined');document.getElementById('cookie-banner').style.display='none';}
         if(!localStorage.getItem('kanso-cookies')){document.getElementById('cookie-banner').style.display='block';}
@@ -1848,12 +1916,4 @@
             else{el.style.textShadow='0 0 40px var(--green-glow)';}
         }
         window.setRoiConf=function(btn){
-            document.querySelectorAll('.roi-conf-btn').forEach(function(b){b.classList.remove('active');});
-            btn.classList.add('active'); roiConf=btn.dataset.value; calcROI();
-        };
-        [rsT,rsH,rsX,rsF].forEach(function(s){s.addEventListener('input',calcROI);});
-        calcROI();
-    })();
-    </script>
-</body>
-</html>
+            document.querySelectorAll('.roi-conf-btn').forEach(function(b){b.classList.remove('act
