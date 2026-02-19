@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanso-Ops | Portail Client</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --primary-light: #a78bfa;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+            min-height: 100vh;
+            color: var(--gray-100);
+        }
+
+        /* VIEWS MANAGEMENT */
+        #loginView, #dashboardView, #panelView, #companyView {
+            display: none !important;
+        }
+        #loginView.active {
+            display: flex !important;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        #dashboardView.active, #panelView.active, #companyView.active {
+            display: block !important;
+        }
+
+        /* LOGIN */
+        .login-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 3rem;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .login-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+        .logo-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        .logo-text {
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        .logo-text span { color: var(--primary-light); }
+        .login-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .login-subtitle { color: var(--gray-400); font-size: 0.875rem; margin-bottom: 2rem; }
+        .login-form { display: flex; flex-direction: column; gap: 1rem; }
+        .input-group { position: relative; }
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-500);
+            font-size: 1.25rem;
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.875rem 1rem 0.875rem 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(139, 92, 246, 0.1);
+        }
+        .form-input::placeholder { color: var(--gray-500); }
+        .login-error { color: var(--danger); font-size: 0.875rem; display: none; }
+        .login-error.show { display: block; animation: shake 0.5s ease; }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 10px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-300);
+        }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); }
+        .btn-ghost { background: transparent; color: var(--gray-400); padding: 0.5rem 1rem; }
+        .btn-ghost:hover { color: white; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn.loading { position: relative; color: transparent !important; pointer-events: none; }
+        .btn.loading::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* HEADER */
+        .header {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header .logo { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; }
+        .header .logo-icon { width: 40px; height: 40px; font-size: 1.2rem; }
+        .header .logo-text { font-size: 1.25rem; }
+        .header-right { display: flex; align-items: center; gap: 1rem; }
+        .client-badge {
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--primary-light);
+        }
+        .logout-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            color: var(--gray-400);
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .logout-btn:hover {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.3);
+            color: var(--danger);
+        }
+
+        /* MAIN */
+        .main { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .page-header { margin-bottom: 2rem; }
+        .page-header h1 { font-size: 1.875rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .page-header p { color: var(--gray-400); }
+        .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 0.875rem; }
+        .breadcrumb a { color: var(--gray-400); text-decoration: none; cursor: pointer; transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--primary-light); }
+        .breadcrumb span { color: var(--gray-600); }
+        .breadcrumb .current { color: var(--gray-200); }
+
+        /* PRODUCT CARDS */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .product-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .product-card:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .product-card:hover::before { opacity: 1; }
+        .product-card.disabled { opacity: 0.5; pointer-events: none; }
+        .product-main { padding: 1.5rem; }
+        .product-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+        .product-title-row { display: flex; align-items: center; gap: 0.75rem; }
+        .product-icon {
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+        }
+        .product-icon.purple { background: rgba(139, 92, 246, 0.15); }
+        .product-icon.blue { background: rgba(59, 130, 246, 0.15); }
+        .product-icon.green { background: rgba(16, 185, 129, 0.15); }
+        .product-icon.orange { background: rgba(245, 158, 11, 0.15); }
+        .product-info h3 { font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .product-info p { color: var(--gray-400); font-size: 0.8rem; }
+        .product-status { display: flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .status-dot.active { background: var(--success); box-shadow: 0 0 10px var(--success); }
+        .status-dot.inactive { background: var(--gray-500); }
+        .status-dot.coming { background: var(--warning); }
+
+        /* SCHEDULE BADGE */
+        .schedule-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+        }
+        .schedule-icon { font-size: 1.25rem; }
+        .schedule-info { flex: 1; }
+        .schedule-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray-400); margin-bottom: 0.125rem; }
+        .schedule-value { font-size: 0.85rem; color: var(--success); font-weight: 500; }
+        .schedule-next { text-align: right; }
+        .schedule-next .schedule-label { color: var(--gray-500); }
+        .schedule-next .schedule-value { color: var(--gray-300); font-size: 0.8rem; }
+
+        /* KPI */
+        .kpi-row { display: flex; gap: 0.5rem; margin: 1rem 0; }
+        .kpi-mini { flex: 1; background: rgba(0, 0, 0, 0.2); border-radius: 10px; padding: 0.75rem; text-align: center; }
+        .kpi-mini-value { font-size: 1.25rem; font-weight: 700; }
+        .kpi-mini-value.success { color: var(--success); }
+        .kpi-mini-value.danger { color: var(--danger); }
+        .kpi-mini-value.info { color: var(--info); }
+        .kpi-mini-value.warning { color: var(--warning); }
+        .kpi-mini-label { font-size: 0.65rem; color: var(--gray-500); text-transform: uppercase; margin-top: 0.25rem; }
+
+        /* CONFIG PANEL */
+        .config-panel { background: rgba(0, 0, 0, 0.2); border-top: 1px solid rgba(255, 255, 255, 0.05); overflow: hidden; }
+        .config-header { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; cursor: pointer; transition: background 0.2s; }
+        .config-header:hover { background: rgba(255, 255, 255, 0.02); }
+        .config-title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray-400); }
+        .config-toggle { font-size: 0.75rem; color: var(--primary-light); transition: transform 0.3s ease; }
+        .config-toggle.open { transform: rotate(180deg); }
+        .config-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .config-body.open { max-height: 200px; }
+        .config-content { padding: 0 1.5rem 1rem; }
+        .config-row { display: flex; gap: 0.75rem; }
+        .config-field { flex: 1; }
+        .config-label { font-size: 0.7rem; color: var(--gray-500); margin-bottom: 0.25rem; display: block; }
+        .config-input-wrap { position: relative; }
+        .config-input { width: 100%; padding: 0.5rem; padding-right: 1.75rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: white; font-size: 0.875rem; text-align: center; }
+        .config-input:focus { outline: none; border-color: var(--primary); }
+        .config-unit { position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); font-size: 0.75rem; color: var(--gray-500); }
+        .config-hint { font-size: 0.65rem; color: var(--gray-600); margin-top: 0.25rem; text-align: center; }
+
+        /* PRODUCT ACTIONS */
+        .product-actions { display: flex; gap: 0.75rem; padding: 1rem 1.5rem; background: rgba(0, 0, 0, 0.1); border-top: 1px solid rgba(255, 255, 255, 0.05); flex-wrap: wrap; }
+        .product-actions .btn { flex: 1; min-width: 120px; }
+
+        /* SEARCH SECTION */
+        .search-section { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        .search-box { position: relative; margin-bottom: 1rem; }
+        .search-input { width: 100%; padding: 1rem 1rem 1rem 3rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; color: white; font-size: 1rem; font-family: inherit; }
+        .search-input:focus { outline: none; border-color: var(--primary); background: rgba(139, 92, 246, 0.1); }
+        .search-input::placeholder { color: var(--gray-500); }
+        .search-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--gray-500); font-size: 1.1rem; }
+        .filters-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .filter-chip { padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; font-size: 0.8rem; color: var(--gray-300); cursor: pointer; transition: all 0.2s ease; }
+        .filter-chip:hover { background: rgba(255, 255, 255, 0.1); }
+        .filter-chip.active { background: var(--primary); border-color: var(--primary); color: white; }
+        .filter-chip .count { margin-left: 0.25rem; opacity: 0.7; }
+
+        /* SUPPLIER LIST */
+        .supplier-list-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .supplier-count { font-size: 0.875rem; color: var(--gray-400); }
+        .supplier-list { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; overflow: hidden; }
+        .supplier-item { display: flex; align-items: center; padding: 1rem 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); cursor: pointer; transition: background 0.2s ease; }
+        .supplier-item:last-child { border-bottom: none; }
+        .supplier-item:hover { background: rgba(139, 92, 246, 0.1); }
+        .supplier-avatar { width: 44px; height: 44px; border-radius: 10px; background: rgba(59, 130, 246, 0.15); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-right: 1rem; flex-shrink: 0; }
+        .supplier-main { flex: 1; min-width: 0; }
+        .supplier-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .supplier-meta { font-size: 0.75rem; color: var(--gray-500); display: flex; gap: 1rem; flex-wrap: wrap; }
+        .supplier-meta-item { display: flex; align-items: center; gap: 0.25rem; }
+        .supplier-tags { display: flex; gap: 0.5rem; margin: 0 1rem; flex-wrap: wrap; justify-content: flex-end; max-width: 200px; }
+        .tag { padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.65rem; font-weight: 500; }
+        .tag-sector { background: rgba(139, 92, 246, 0.15); color: var(--primary-light); }
+        .tag-family { background: rgba(59, 130, 246, 0.15); color: var(--info); }
+        .supplier-status { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 0.25rem; }
+        .status-badge { padding: 0.375rem 0.75rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
+        .status-badge.ok { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+        .status-badge.alerte { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+        .status-badge.etranger { background: rgba(59, 130, 246, 0.15); color: var(--info); }
+        .status-badge.non_trouve { background: rgba(156, 163, 175, 0.15); color: var(--gray-400); }
+        .status-badge.radie { background: rgba(239, 68, 68, 0.2); color: var(--danger); }
+        .supplier-arrow { margin-left: 1rem; color: var(--gray-500); font-size: 1.25rem; }
+        .no-results { padding: 3rem; text-align: center; color: var(--gray-500); }
+
+        /* COMPANY VIEW */
+        .company-header { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+        .company-avatar { width: 80px; height: 80px; border-radius: 16px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0; }
+        .company-info { flex: 1; }
+        .company-name { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .company-subtitle { color: var(--gray-400); font-size: 0.9rem; margin-bottom: 1rem; }
+        .company-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .company-badge { padding: 0.375rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 500; }
+        .company-badge.status-ok { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+        .company-badge.status-alerte { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+        .company-badge.status-etranger { background: rgba(59, 130, 246, 0.15); color: var(--info); }
+        .company-badge.region { background: rgba(139, 92, 246, 0.15); color: var(--primary-light); }
+        .company-badge.family { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
+        .company-status-action { display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; }
+        .company-sections { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+        .company-section { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.5rem; }
+        .section-title { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray-400); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .info-grid { display: grid; gap: 0.75rem; }
+        .info-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 0.5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .info-row:last-child { border-bottom: none; }
+        .info-label { font-size: 0.8rem; color: var(--gray-500); }
+        .info-value { font-size: 0.875rem; color: var(--gray-200); text-align: right; max-width: 60%; }
+        .info-value.highlight { color: var(--primary-light); font-weight: 500; }
+        .info-value a { color: var(--primary-light); text-decoration: none; }
+        .info-value a:hover { text-decoration: underline; }
+        .tags-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag-item { padding: 0.375rem 0.75rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 20px; font-size: 0.75rem; color: var(--primary-light); }
+        .description-text { font-size: 0.875rem; line-height: 1.6; color: var(--gray-300); }
+        .alert-box { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+        .alert-icon { font-size: 1.5rem; }
+        .alert-content { flex: 1; }
+        .alert-title { font-weight: 600; color: var(--danger); margin-bottom: 0.25rem; }
+        .alert-text { font-size: 0.8rem; color: var(--gray-400); }
+
+        /* QUICK LINKS */
+        .quick-links { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 1.5rem; margin-top: 2rem; }
+        .quick-links h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem; color: var(--gray-300); }
+        .links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.75rem; }
+        .link-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; color: var(--gray-300); text-decoration: none; font-size: 0.85rem; transition: all 0.2s ease; }
+        .link-item:hover { background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3); color: white; }
+
+        /* TOAST */
+        .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--gray-800); border: 1px solid rgba(255, 255, 255, 0.1); padding: 1rem 1.5rem; border-radius: 12px; display: flex; align-items: center; gap: 0.75rem; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); transform: translateY(100px); opacity: 0; transition: all 0.3s ease; z-index: 1000; max-width: 400px; }
+        .toast.show { transform: translateY(0); opacity: 1; }
+        .toast.success { border-left: 3px solid var(--success); }
+        .toast.error { border-left: 3px solid var(--danger); }
+        .toast.warning { border-left: 3px solid var(--warning); }
+
+        /* FOOTER */
+        .footer { text-align: center; padding: 2rem; color: var(--gray-500); font-size: 0.8rem; }
+        .footer a { color: var(--primary-light); text-decoration: none; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; gap: 1rem; }
+            .products-grid { grid-template-columns: 1fr; }
+            .main { padding: 1rem; }
+            .company-header { flex-direction: column; }
+            .company-sections { grid-template-columns: 1fr; }
+            .supplier-item { flex-wrap: wrap; }
+            .supplier-tags { max-width: 100%; margin: 0.5rem 0; }
+            .product-actions { flex-direction: column; }
+            .product-actions .btn { width: 100%; }
+            .toast { left: 1rem; right: 1rem; }
+            .schedule-badge { flex-direction: column; text-align: center; }
+            .schedule-next { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- LOGIN -->
+    <div id="loginView" class="active">
+        <div class="login-card">
+            <div class="login-logo">
+                <div class="logo-icon">K</div>
+                <div class="logo-text">Kanso<span>-Ops</span></div>
+            </div>
+            <h2 class="login-title">Portail Client</h2>
+            <p class="login-subtitle">Entrez votre code d'accès pour continuer</p>
+            <form class="login-form" id="loginForm">
+                <div class="input-group">
+                    <span class="input-icon">🔐</span>
+                    <input type="password" class="form-input" id="passwordInput" placeholder="Code d'accès" autocomplete="off">
+                </div>
+                <button type="button" class="btn btn-primary" id="loginBtn" onclick="handleLogin()">Accéder au portail</button>
+                <p class="login-error" id="loginError">Code d'accès incorrect</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboardView">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo" onclick="navigateTo('dashboard')">
+                    <div class="logo-icon">K</div>
+                    <div class="logo-text">Kanso<span>-Ops</span></div>
+                </div>
+                <div class="header-right">
+                    <div class="client-badge" id="clientBadge">🏢 Client</div>
+                    <button class="logout-btn" onclick="handleLogout()">🚪 Déconnexion</button>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="page-header">
+                <h1 id="welcomeTitle">Bonjour 👋</h1>
+                <p>Pilotez vos automatisations depuis ce tableau de bord</p>
+            </div>
+            <div class="products-grid" id="productsGrid"></div>
+            <div class="quick-links">
+                <h3>📁 Accès rapides</h3>
+                <div class="links-grid" id="linksGrid"></div>
+            </div>
+        </main>
+        <footer class="footer">
+            <p>Propulsé par <a href="https://kanso-ops.fr" target="_blank">Kanso-Ops</a> — Automatisation intelligente</p>
+        </footer>
+    </div>
+
+    <!-- PANEL -->
+    <div id="panelView">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo" onclick="navigateTo('dashboard')">
+                    <div class="logo-icon">K</div>
+                    <div class="logo-text">Kanso<span>-Ops</span></div>
+                </div>
+                <div class="header-right">
+                    <div class="client-badge" id="clientBadge2">🏢 Client</div>
+                    <button class="logout-btn" onclick="handleLogout()">🚪 Déconnexion</button>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="breadcrumb">
+                <a onclick="navigateTo('dashboard')">🏠 Dashboard</a>
+                <span>›</span>
+                <span class="current">🔭 Panel Fournisseurs</span>
+            </div>
+            <div class="page-header">
+                <h1>🔭 Panel Fournisseurs</h1>
+                <p>Recherchez et consultez les fiches de vos fournisseurs</p>
+            </div>
+            <div class="search-section">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Rechercher par nom, SIREN, secteur, tags, ville..." oninput="handleSearch(this.value)">
+                </div>
+                <div class="filters-row" id="filtersRow"></div>
+            </div>
+            <div class="supplier-list-header">
+                <span class="supplier-count" id="supplierCount">0 fournisseurs</span>
+                <a href="#" class="btn btn-secondary" id="excelLink" target="_blank">📊 Ouvrir dans Excel</a>
+            </div>
+            <div class="supplier-list" id="supplierList"></div>
+        </main>
+        <footer class="footer">
+            <p>Propulsé par <a href="https://kanso-ops.fr" target="_blank">Kanso-Ops</a></p>
+        </footer>
+    </div>
+
+    <!-- COMPANY -->
+    <div id="companyView">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo" onclick="navigateTo('dashboard')">
+                    <div class="logo-icon">K</div>
+                    <div class="logo-text">Kanso<span>-Ops</span></div>
+                </div>
+                <div class="header-right">
+                    <div class="client-badge" id="clientBadge3">🏢 Client</div>
+                    <button class="logout-btn" onclick="handleLogout()">🚪 Déconnexion</button>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="breadcrumb">
+                <a onclick="navigateTo('dashboard')">🏠 Dashboard</a>
+                <span>›</span>
+                <a onclick="navigateTo('panel')">🔭 Panel Fournisseurs</a>
+                <span>›</span>
+                <span class="current" id="companyBreadcrumb">Entreprise</span>
+            </div>
+            <div id="companyContent"></div>
+        </main>
+        <footer class="footer">
+            <p>Propulsé par <a href="https://kanso-ops.fr" target="_blank">Kanso-Ops</a></p>
+        </footer>
+    </div>
+
+    <div class="toast" id="toast">
+        <span id="toastIcon">✓</span>
+        <span id="toastMessage">Message</span>
+    </div>
+
+    <script>
+        // ══════════════════════════════════════════════════════════════════════════════
+        // CONFIGURATION CLIENT - MODIFIER CES VALEURS POUR PERSONNALISER
+        // ══════════════════════════════════════════════════════════════════════════════
+        var CLIENT_CONFIG = {
+            name: "Baccarat",
+            password: "demo2024",
+            apiToken: "kanso-secret-123",
+
+            products: [
+                {
+                    id: "supplier-watchtower",
+                    name: "Supplier Watchtower",
+                    description: "Surveillance et enrichissement du panel fournisseurs",
+                    icon: "🔭",
+                    iconColor: "blue",
+                    status: "active",
+                    type: "panel",
+                    webhookUrl: "https://votre-instance.app/webhook/supplier-watchtower",
+                    excelUrl: "https://company.sharepoint.com/:x:/s/Site/Panel_Fournisseurs",
+                    actions: ["trigger", "panel", "excel"]
+                },
+                {
+                    id: "litige-killer",
+                    name: "Litige Killer",
+                    description: "Détection automatique des écarts de facturation",
+                    icon: "🎯",
+                    iconColor: "purple",
+                    status: "active",
+                    type: "workflow",
+                    webhookUrl: "https://votre-instance.app/webhook/litige-killer",
+                    excelUrl: "https://company.sharepoint.com/:x:/s/Site/Suivi_Litiges",
+                    folderUrl: "https://company.sharepoint.com/:f:/s/Site/Litige_Killer",
+                    actions: ["trigger", "excel", "folder"],
+                    schedule: { frequency: "Tous les jours à 6h00", nextRun: "Demain 06:00" },
+                    configurable: true,
+                    config: {
+                        seuilLitige: { label: "Seuil litige", value: 10, unit: "%", hint: "Écart déclenchant alerte" },
+                        seuilGain: { label: "Seuil gain", value: 5, unit: "%", hint: "Gain potentiel détecté" },
+                        tolerance: { label: "Tolérance", value: 1, unit: "%", hint: "Marge acceptée" }
+                    }
+                },
+                {
+                    id: "contract-analyzer",
+                    name: "Contract Analyzer",
+                    description: "Analyse automatique des contrats fournisseurs",
+                    icon: "📝",
+                    iconColor: "orange",
+                    status: "coming",
+                    type: "workflow"
+                }
+            ],
+
+            quickLinks: [
+                { name: "SharePoint", icon: "📁", url: "https://company.sharepoint.com/sites/Site" },
+                { name: "Panel Fournisseurs", icon: "🏭", url: "https://company.sharepoint.com/:x:/s/Site/Panel" },
+                { name: "Base Prix", icon: "💰", url: "https://company.sharepoint.com/:x:/s/Site/Base_Prix" },
+                { name: "Support", icon: "💬", url: "mailto:support@kanso-ops.fr" }
+            ],
+
+            suppliers: [
+                { code_frs: "1764", nom_fournisseur: "C.A.T BRIEY", siren: "775615594", siret: "77561559400592", tva_intra: "FROH775615594", macro_famille: "PACKAGING", nom_famille: "Conditionnement secondaire", adresse: "ZONE INDUSTRIELLE", code_postal: "54154", ville: "BRIEY", region: "Grand Est", pays: "FR", acheteur: "Sébastien", pappers_effectif: "2000-4999 salariés", pappers_ca: null, ia_secteur: "Hébergement médicalisé", ia_tags: "Packaging, Conditionnement", ia_description: "Entreprise située à BRIEY.", audit_statut: "OK", audit_date: "2025-12-17", audit_alerte_details: null, site_web: null },
+                { code_frs: "5097", nom_fournisseur: "DS SMITH KAYSERSBERG", siren: "508031523", siret: "50803152300022", tva_intra: "FR26508031523", macro_famille: "PACKAGING", nom_famille: "Conditionnement secondaire", adresse: "11 ROUTE INDUSTRIELLE", code_postal: "68320", ville: "KUNHEIM", region: "Grand Est", pays: "FR", acheteur: "Sébastien", pappers_effectif: "500-999 salariés", pappers_ca: "178527930", ia_secteur: "Manufacturing", ia_tags: "packaging, cardboard", ia_description: "Fabrication de carton ondulé.", audit_statut: "OK", audit_date: "2025-12-17", audit_alerte_details: null, site_web: "https://www.dssmith.com" },
+                { code_frs: "7930", nom_fournisseur: "RAJA SA", siren: "937080414", siret: "93708041400066", tva_intra: "FR58937080414", macro_famille: "PACKAGING", nom_famille: "Conditionnement secondaire", adresse: "ZI PARIS NORD 2", code_postal: "95977", ville: "ROISSY CDG", region: "Île-de-France", pays: "FR", acheteur: "Sébastien", pappers_effectif: "500-999 salariés", pappers_ca: "295589427", ia_secteur: "Commerce de gros", ia_tags: "emballage, fournitures", ia_description: "Commerce de gros d'emballages.", audit_statut: "OK", audit_date: "2025-12-17", audit_alerte_details: null, site_web: "https://www.raja.fr" },
+                { code_frs: "15432", nom_fournisseur: "VERPACK GMBH", siren: "", siret: "", tva_intra: "DE123456789", macro_famille: "PACKAGING", nom_famille: "Conditionnement secondaire", adresse: "INDUSTRIESTRASSE 15", code_postal: "80331", ville: "MUNICH", region: "", pays: "DE", acheteur: "Sébastien", pappers_effectif: "100-200", pappers_ca: "45000000", ia_secteur: "Packaging", ia_tags: "glass protection, export", ia_description: "German packaging company.", audit_statut: "ETRANGER", audit_date: "2025-12-17", audit_alerte_details: "Vérification manuelle requise", site_web: "https://www.verpack.de" },
+                { code_frs: "18976", nom_fournisseur: "TRANSPORTS MARTIN", siren: "412345678", siret: "41234567800012", tva_intra: "FR41412345678", macro_famille: "PACKAGING", nom_famille: "Conditionnement secondaire", adresse: "12 RUE DE LA GARE", code_postal: "54000", ville: "NANCY", region: "Grand Est", pays: "FR", acheteur: "Sébastien", pappers_effectif: "20-49 salariés", pappers_ca: "3500000", ia_secteur: "Transport", ia_tags: "logistique, livraison", ia_description: "Transport routier Nancy.", audit_statut: "ALERTE", audit_date: "2025-12-17", audit_alerte_details: "Redressement judiciaire en cours", site_web: null },
+                { code_frs: "21543", nom_fournisseur: "CARTON SERVICES", siren: "567890123", siret: "56789012300045", tva_intra: "FR56567890123", macro_famille: "PACKAGING", nom_famille: "Conditionnement secondaire", adresse: "ZA LES PLATANES", code_postal: "69000", ville: "LYON", region: "Auvergne-Rhône-Alpes", pays: "FR", acheteur: "Sébastien", pappers_effectif: "50-99 salariés", pappers_ca: "12000000", ia_secteur: "Packaging", ia_tags: "carton, découpe", ia_description: "Carton ondulé et découpe.", audit_statut: "OK", audit_date: "2025-12-17", audit_alerte_details: null, site_web: "https://www.carton-services.fr" }
+            ]
+        };
+
+        // ══════════════════════════════════════════════════════════════════════════════
+        // STATE
+        // ══════════════════════════════════════════════════════════════════════════════
+        var currentFilter = 'all';
+        var currentSearch = '';
+
+        // ══════════════════════════════════════════════════════════════════════════════
+        // NAVIGATION
+        // ══════════════════════════════════════════════════════════════════════════════
+        function navigateTo(view, data) {
+            document.getElementById('loginView').classList.remove('active');
+            document.getElementById('dashboardView').classList.remove('active');
+            document.getElementById('panelView').classList.remove('active');
+            document.getElementById('companyView').classList.remove('active');
+
+            if (view === 'login') document.getElementById('loginView').classList.add('active');
+            else if (view === 'dashboard') { document.getElementById('dashboardView').classList.add('active'); renderDashboard(); }
+            else if (view === 'panel') { document.getElementById('panelView').classList.add('active'); renderPanel(); }
+            else if (view === 'company' && data) { document.getElementById('companyView').classList.add('active'); renderCompany(data); }
+            window.scrollTo(0, 0);
+        }
+
+        // ══════════════════════════════════════════════════════════════════════════════
+        // AUTH
+        // ══════════════════════════════════════════════════════════════════════════════
+        function handleLogin() {
+            var password = document.getElementById('passwordInput').value;
+            var errorEl = document.getElementById('loginError');
+            if (password === CLIENT_CONFIG.password) {
+                sessionStorage.setItem('kanso_auth', 'ok');
+                navigateTo('dashboard');
+            } else {
+                errorEl.classList.add('show');
+                document.getElementById('passwordInput').value = '';
+                setTimeout(function() { errorEl.classList.remove('show'); }, 3000);
+            }
+        }
+        function handleLogout() { sessionStorage.removeItem('kanso_auth'); navigateTo('login'); }
+        function checkAuth() { if (sessionStorage.getItem('kanso_auth') === 'ok') navigateTo('dashboard'); }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('passwordInput').addEventListener('keypress', function(e) { if (e.key === 'Enter') handleLogin(); });
+            checkAuth();
+        });
+
+        // ══════════════════════════════════════════════════════════════════════════════
+        // DASHBOARD
+        // ══════════════════════════════════════════════════════════════════════════════
+        function renderDashboard() {
+            document.getElementById('clientBadge').textContent = '🏢 ' + CLIENT_CONFIG.name;
+            document.getElementById('welcomeTitle').textContent = 'Bonjour ' + CLIENT_CONFIG.name + ' 👋';
+            renderProducts();
+            renderQuickLinks();
+        }
+
+        function renderProducts() {
+            var grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+            var statusLabels = { 'active': 'Actif', 'inactive': 'Inactif', 'coming': 'Bientôt' };
+
+            CLIENT_CONFIG.products.forEach(function(p) {
+                var card = document.createElement('div');
+                card.className = 'product-card' + (p.status === 'coming' ? ' disabled' : '');
+
+                var kpiHTML = '';
+                if (p.id === 'supplier-watchtower' && p.status === 'active') {
+                    var stats = calculateStats();
+                    kpiHTML = '<div class="kpi-row"><div class="kpi-mini"><div class="kpi-mini-value">' + stats.total + '</div><div class="kpi-mini-label">Total</div></div><div class="kpi-mini"><div class="kpi-mini-value success">' + stats.ok + '</div><div class="kpi-mini-label">✅ Valides</div></div><div class="kpi-mini"><div class="kpi-mini-value danger">' + stats.alerte + '</div><div class="kpi-mini-label">🚨 Alertes</div></div><div class="kpi-mini"><div class="kpi-mini-value info">' + stats.etranger + '</div><div class="kpi-mini-label">🌍 Étrangers</div></div></div>';
+                }
+
+                var scheduleHTML = '';
+                if (p.schedule && p.status === 'active') {
+                    scheduleHTML = '<div class="schedule-badge"><span class="schedule-icon">🕒</span><div class="schedule-info"><div class="schedule-label">Planification</div><div class="schedule-value">' + p.schedule.frequency + '</div></div><div class="schedule-next"><div class="schedule-label">Prochain run</div><div class="schedule-value">' + p.schedule.nextRun + '</div></div></div>';
+                }
+
+                var configHTML = '';
+                if (p.configurable && p.status === 'active') {
+                    var inputs = '';
+                    for (var key in p.config) {
+                        var cfg = p.config[key];
+                        inputs += '<div class="config-field"><label class="config-label">' + cfg.label + '</label><div class="config-input-wrap"><input type="number" class="config-input" value="' + cfg.value + '" data-key="' + key + '"><span class="config-unit">' + cfg.unit + '</span></div><div class="config-hint">' + (cfg.hint || '') + '</div></div>';
+                    }
+                    configHTML = '<div class="config-panel"><div class="config-header" onclick="toggleConfig(this)"><span class="config-title">⚙️ Paramètres des seuils</span><span class="config-toggle">▼</span></div><div class="config-body"><div class="config-content"><div class="config-row">' + inputs + '</div></div></div></div>';
+                }
+
+                var actionsHTML = '<div class="product-actions">';
+                if (p.status === 'active') {
+                    if (p.actions && p.actions.indexOf('trigger') !== -1) actionsHTML += '<button class="btn btn-primary" onclick="triggerWorkflow(\'' + p.id + '\', \'' + p.webhookUrl + '\', this)">▶ Lancer</button>';
+                    if (p.type === 'panel') actionsHTML += '<button class="btn btn-secondary" onclick="navigateTo(\'panel\')">🔍 Voir le Panel</button>';
+                    if (p.actions && p.actions.indexOf('excel') !== -1 && p.excelUrl) actionsHTML += '<a href="' + p.excelUrl + '" target="_blank" class="btn btn-secondary">📊 Résultats</a>';
+                    if (p.actions && p.actions.indexOf('folder') !== -1 && p.folderUrl) actionsHTML += '<a href="' + p.folderUrl + '" target="_blank" class="btn btn-secondary">📁 Dossier</a>';
+                }
+                actionsHTML += '</div>';
+
+                card.innerHTML = '<div class="product-main"><div class="product-header"><div class="product-title-row"><div class="product-icon ' + p.iconColor + '">' + p.icon + '</div><div class="product-info"><h3>' + p.name + '</h3><p>' + p.description + '</p></div></div><div class="product-status"><span class="status-dot ' + p.status + '"></span>' + statusLabels[p.status] + '</div></div>' + kpiHTML + scheduleHTML + '</div>' + configHTML + actionsHTML;
+                grid.appendChild(card);
+            });
+        }
+
+        function toggleConfig(header) { header.nextElementSibling.classList.toggle('open'); header.querySelector('.config-toggle').classList.toggle('open'); }
+
+        function renderQuickLinks() {
+            var grid = document.getElementById('linksGrid');
+            var html = '';
+            CLIENT_CONFIG.quickLinks.forEach(function(l) { html += '<a href="' + l.url + '" target="_blank" class="link-item"><span>' + l.icon + '</span> ' + l.name + '</a>'; });
+            grid.innerHTML = html;
+        }
+
+        // ══════════════════════════════════════════════════════════════════════════════
+        // PANEL
+        // ══════════════════════════════════════════════════════════════════════════════
+        function renderPanel() {
+            document.getElementById('clientBadge2').textContent = '🏢 ' + CLIENT_CONFIG.name;
+            var p = CLIENT_CONFIG.products.find(function(x) { return x.id === 'supplier-watchtower'; });
+            if (p && p.excelUrl) document.getElementById('excelLink').href = p.excelUrl;
+            renderFilters();
+            renderSupplierList();
+        }
+
+        function renderFilters() {
+            var stats = calculateStats();
+            var filters = [{ key: 'all', label: 'Tous', count: stats.total }, { key: 'OK', label: '✅ Valides', count: stats.ok }, { key: 'ALERTE', label: '🚨 Alertes', count: stats.alerte }, { key: 'ETRANGER', label: '🌍 Étrangers', count: stats.etranger }];
+            var html = '';
+            filters.forEach(function(f) { html += '<span class="filter-chip' + (currentFilter === f.key ? ' active' : '') + '" onclick="setFilter(\'' + f.key + '\')">' + f.label + '<span class="count">(' + f.count + ')</span></span>'; });
+            document.getElementById('filtersRow').innerHTML = html;
+        }
+
+        function setFilter(f) { currentFilter = f; renderFilters(); renderSupplierList(); }
+        function handleSearch(v) { currentSearch = v.toLowerCase(); renderSupplierList(); }
+
+        function renderSupplierList() {
+            var list = document.getElementById('supplierList');
+            var filtered = CLIENT_CONFIG.suppliers.filter(function(s) {
+                if (currentFilter !== 'all') { var st = (s.audit_statut || 'NON_TROUVE').toUpperCase(); if (st !== currentFilter) return false; }
+                if (currentSearch) { var sf = [s.nom_fournisseur, s.siren, s.ia_secteur, s.ia_tags, s.ville, s.region].filter(Boolean).join(' ').toLowerCase(); if (sf.indexOf(currentSearch) === -1) return false; }
+                return true;
+            });
+            var order = { 'ALERTE': 0, 'ETRANGER': 1, 'OK': 2 };
+            filtered.sort(function(a, b) { var oA = order[(a.audit_statut || '').toUpperCase()] || 3; var oB = order[(b.audit_statut || '').toUpperCase()] || 3; return oA - oB || a.nom_fournisseur.localeCompare(b.nom_fournisseur); });
+
+            document.getElementById('supplierCount').textContent = filtered.length + ' fournisseur' + (filtered.length > 1 ? 's' : '');
+            if (filtered.length === 0) { list.innerHTML = '<div class="no-results">Aucun fournisseur trouvé</div>'; return; }
+
+            var statusLabels = { 'OK': '✅ Valide', 'ALERTE': '🚨 Alerte', 'ETRANGER': '🌍 Étranger', 'NON_TROUVE': '❓ Non trouvé' };
+            var html = '';
+            filtered.forEach(function(s) {
+                var st = (s.audit_statut || 'NON_TROUVE').toUpperCase();
+                html += '<div class="supplier-item" onclick=\'openCompany(' + JSON.stringify(s).replace(/'/g, "\\'") + ')\'><div class="supplier-avatar">🏭</div><div class="supplier-main"><div class="supplier-name">' + s.nom_fournisseur + '</div><div class="supplier-meta"><span class="supplier-meta-item">📍 ' + (s.ville || '-') + '</span><span class="supplier-meta-item">🌍 ' + s.pays + '</span>' + (s.siren ? '<span class="supplier-meta-item">🔢 ' + s.siren + '</span>' : '') + '</div></div><div class="supplier-tags">' + (s.ia_secteur ? '<span class="tag tag-sector">' + s.ia_secteur.substring(0, 20) + '</span>' : '') + '</div><div class="supplier-status"><span class="status-badge ' + st.toLowerCase() + '">' + (statusLabels[st] || st) + '</span></div><span class="supplier-arrow">›</span></div>';
+            });
+            list.innerHTML = html;
+        }
+
+        function openCompany(s) { navigateTo('company', s); }
+
+        // ══════════════════════════════════════════════════════════════════════════════
+        // COMPANY
+        // ══════════════════════════════════════════════════════════════════════════════
+        function renderCompany(s) {
+            document.getElementById('clientBadge3').textContent = '🏢 ' + CLIENT_CONFIG.name;
+            document.getElementById('companyBreadcrumb').textContent = s.nom_fournisseur;
+            var st = (s.audit_statut || 'NON_TROUVE').toUpperCase();
+            var statusLabels = { 'OK': '✅ Valide', 'ALERTE': '🚨 Alerte', 'ETRANGER': '🌍 Étranger', 'NON_TROUVE': '❓ Non trouvé' };
+            var ca = '-'; if (s.pappers_ca) { var c = parseFloat(s.pappers_ca); ca = c >= 1e9 ? (c / 1e9).toFixed(1) + ' Mrd €' : c >= 1e6 ? (c / 1e6).toFixed(1) + ' M €' : c.toLocaleString('fr-FR') + ' €'; }
+            var tags = (s.ia_tags || '').split(',').map(function(t) { return t.trim(); }).filter(function(t) { return t; });
+            var alertHTML = st === 'ALERTE' && s.audit_alerte_details ? '<div class="alert-box"><span class="alert-icon">🚨</span><div class="alert-content"><div class="alert-title">Alerte détectée</div><div class="alert-text">' + s.audit_alerte_details + '</div></div></div>' : '';
+            var tagsHTML = tags.length ? '<div class="info-row" style="flex-direction:column;align-items:flex-start"><span class="info-label" style="margin-bottom:0.5rem">Tags</span><div class="tags-list">' + tags.map(function(t) { return '<span class="tag-item">' + t + '</span>'; }).join('') + '</div></div>' : '';
+
+            document.getElementById('companyContent').innerHTML = alertHTML +
+                '<div class="company-header"><div class="company-avatar">🏭</div><div class="company-info"><h1 class="company-name">' + s.nom_fournisseur + '</h1><p class="company-subtitle">' + [s.adresse, s.code_postal, s.ville, s.pays].filter(Boolean).join(' ') + '</p><div class="company-badges"><span class="company-badge status-' + st.toLowerCase() + '">' + (statusLabels[st] || st) + '</span>' + (s.region ? '<span class="company-badge region">📍 ' + s.region + '</span>' : '') + (s.macro_famille ? '<span class="company-badge family">📦 ' + s.macro_famille + '</span>' : '') + '</div></div><div class="company-status-action">' + (s.site_web ? '<a href="' + s.site_web + '" target="_blank" class="btn btn-secondary">🌐 Site web</a>' : '') + '<button class="btn btn-ghost" onclick="navigateTo(\'panel\')">← Retour</button></div></div>' +
+                '<div class="company-sections">' +
+                '<div class="company-section"><h3 class="section-title">🏢 Identification</h3><div class="info-grid"><div class="info-row"><span class="info-label">Code fournisseur</span><span class="info-value highlight">' + s.code_frs + '</span></div><div class="info-row"><span class="info-label">SIREN</span><span class="info-value">' + (s.siren || '-') + '</span></div><div class="info-row"><span class="info-label">SIRET</span><span class="info-value">' + (s.siret || '-') + '</span></div><div class="info-row"><span class="info-label">TVA Intra</span><span class="info-value">' + (s.tva_intra || '-') + '</span></div></div></div>' +
+                '<div class="company-section"><h3 class="section-title">📊 Données Pappers</h3><div class="info-grid"><div class="info-row"><span class="info-label">Chiffre d\'affaires</span><span class="info-value highlight">' + ca + '</span></div><div class="info-row"><span class="info-label">Effectif</span><span class="info-value">' + (s.pappers_effectif || '-') + '</span></div><div class="info-row"><span class="info-label">Statut audit</span><span class="info-value">' + (statusLabels[st] || st) + '</span></div><div class="info-row"><span class="info-label">Date audit</span><span class="info-value">' + (s.audit_date || '-') + '</span></div></div></div>' +
+                '<div class="company-section"><h3 class="section-title">📦 Classification</h3><div class="info-grid"><div class="info-row"><span class="info-label">Macro famille</span><span class="info-value">' + (s.macro_famille || '-') + '</span></div><div class="info-row"><span class="info-label">Famille</span><span class="info-value">' + (s.nom_famille || '-') + '</span></div><div class="info-row"><span class="info-label">Acheteur</span><span class="info-value highlight">' + (s.acheteur || '-') + '</span></div></div></div>' +
+                '<div class="company-section"><h3 class="section-title">🤖 Enrichissement IA</h3><div class="info-grid"><div class="info-row"><span class="info-label">Secteur</span><span class="info-value">' + (s.ia_secteur || '-') + '</span></div>' + tagsHTML + '</div>' + (s.ia_description ? '<div style="margin-top:1rem"><span class="info-label" style="display:block;margin-bottom:0.5rem">Description</span><p class="description-text">' + s.ia_description + '</p></div>' : '') + '</div>' +
+                '<div class="company-section"><h3 class="section-title">📍 Coordonnées</h3><div class="info-grid"><div class="info-row"><span class="info-label">Adresse</span><span class="info-value">' + (s.adresse || '-') + '</span></div><div class="info-row"><span class="info-label">Ville</span><span class="info-value">' + (s.ville || '-') + '</span></div><div class="info-row"><span class="info-label">Région</span><span class="info-value">' + (s.region || '-') + '</span></div><div class="info-row"><span class="info-label">Site web</span><span class="info-value">' + (s.site_web ? '<a href="' + s.site_web + '" target="_blank">' + s.site_web + '</a>' : '-') + '</span></div></div></div>' +
+                '</div>';
+        }
+
+        // ══════════════════════════════════════════════════════════════════════════════
+        // UTILS
+        // ══════════════════════════════════════════════════════════════════════════════
+        function calculateStats() {
+            var s = { total: 0, ok: 0, alerte: 0, etranger: 0, nonTrouve: 0 };
+            CLIENT_CONFIG.suppliers.forEach(function(x) {
+                s.total++;
+                var st = (x.audit_statut || 'NON_TROUVE').toUpperCase();
+                if (st === 'OK') s.ok++; else if (st === 'ALERTE') s.alerte++; else if (st === 'ETRANGER') s.etranger++; else s.nonTrouve++;
+            });
+            return s;
+        }
+
+        function triggerWorkflow(productId, webhookUrl, btn) {
+            if (!webhookUrl) { showToast('Webhook non configuré', 'error'); return; }
+            btn.classList.add('loading');
+            var url = webhookUrl + (webhookUrl.indexOf('?') === -1 ? '?' : '&') + 'token=' + CLIENT_CONFIG.apiToken;
+            if (productId === 'litige-killer') {
+                document.querySelectorAll('.config-input').forEach(function(i) { var k = i.getAttribute('data-key'); if (k) url += '&' + k + '=' + i.value; });
+            }
+            fetch(url, { method: 'GET', mode: 'no-cors' }).then(function() { showToast('Workflow déclenché !', 'success'); }).catch(function() { showToast('Erreur de connexion', 'error'); }).finally(function() { btn.classList.remove('loading'); });
+        }
+
+        function showToast(msg, type) {
+            var t = document.getElementById('toast');
+            t.className = 'toast ' + type;
+            document.getElementById('toastIcon').textContent = type === 'success' ? '✓' : type === 'error' ? '✕' : '⚠';
+            document.getElementById('toastMessage').textContent = msg;
+            t.classList.add('show');
+            setTimeout(function() { t.classList.remove('show'); }, 4000);
+        }
+    </script>
+</body>
+</html>
