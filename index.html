@@ -1,0 +1,2259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KANSO OPS | Recovery Automation — Récupérez le cash dormant chez vos fournisseurs</title>
+  <meta name="description" content="Flash Audit gratuit : identifiez les surcharges fournisseurs de votre ETI. Dossiers de preuve automatisés, récupération en 6 semaines. PME & ETI industrielles 10-250M€ CA.">
+  <meta name="author" content="Sébastien Duc — Kanso-Ops">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="KANSO OPS | Recovery Automation — Récupérez le cash dormant">
+  <meta property="og:description" content="Flash Audit gratuit : identifiez les surcharges fournisseurs. Dossiers de preuve automatisés, récupération en 6 semaines.">
+  <meta property="og:image" content="https://kanso-ops.com/og-image.png">
+  <meta property="og:url" content="https://kanso-ops.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kanso-Ops">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="canonical" href="https://kanso-ops.com/">
+  <link rel="alternate" hreflang="fr" href="https://kanso-ops.com/">
+  <link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/">
+
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta name="theme-color" content="#0c1222">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles/index.css">
+
+  <style>
+    :root {
+      --bg-primary: #0c1222;
+      --bg-secondary: #16213e;
+      --bg-deep: #080e1e;
+      --green: #10b981;
+      --purple: #8b5cf6;
+      --blue: #3b82f6;
+      --red: #ef4444;
+      --amber: #f59e0b;
+      --text-primary: #f0f4f8;
+      --text-secondary: #cbd5e1;
+      --border-color: rgba(148, 163, 184, 0.15);
+    }
+
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(8,14,30,0.8) 0%, rgba(22,33,62,0.5) 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 24px;
+      letter-spacing: 0.8px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.2;
+      margin-bottom: 24px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      font-weight: 400;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--green);
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .hero-cta:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+
+    .proof-bar {
+      margin-top: 56px;
+      padding: 24px;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .proof-bar-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green);
+      letter-spacing: 0.5px;
+    }
+
+    .proof-bar-stats {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .proof-bar-stats strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    .pain {
+      padding: 80px 20px;
+      background: var(--bg-primary);
+    }
+
+    .pain-header {
+      text-align: center;
+      margin-bottom: 56px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pain-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--amber);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .pain h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.3;
+      margin-bottom: 16px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .pain h2 em {
+      font-style: italic;
+      color: var(--red);
+    }
+
+    .pain-subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .pain-card {
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(22,33,62,0.4) 0%, rgba(16,33,48,0.2) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .pain-card:hover {
+      border-color: rgba(148, 163, 184, 0.3);
+      background: linear-gradient(135deg, rgba(22,33,62,0.6) 0%, rgba(16,33,48,0.4) 100%);
+      transform: translateY(-4px);
+    }
+
+    .pain-stat {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--red);
+      margin-bottom: 8px;
+    }
+
+    .pain-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .pain-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .pain-source {
+      font-size: 12px;
+      color: var(--amber);
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    .pillars {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, rgba(8,14,30,0.8) 0%, rgba(22,33,62,0.4) 100%);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .pillars-header {
+      text-align: center;
+      margin-bottom: 56px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pillars-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--purple);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .pillars h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.3;
+      margin-bottom: 16px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .pillars h2 em {
+      font-style: italic;
+      color: var(--purple);
+    }
+
+    .pillars-subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .pillar {
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(22,33,62,0.4) 0%, rgba(16,33,48,0.2) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .pillar:hover {
+      border-color: rgba(148, 163, 184, 0.3);
+      background: linear-gradient(135deg, rgba(22,33,62,0.6) 0%, rgba(16,33,48,0.4) 100%);
+      transform: translateY(-4px);
+    }
+
+    .pillar--star {
+      border-color: rgba(16, 185, 129, 0.3);
+      background: linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(16,185,129,0.02) 100%);
+    }
+
+    .pillar--star:hover {
+      border-color: rgba(16, 185, 129, 0.5);
+      background: linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(16,185,129,0.08) 100%);
+    }
+
+    .pillar-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .pillar-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .pillar h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .pillar p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .pillar-tag {
+      display: inline-block;
+      padding: 6px 12px;
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--purple);
+    }
+
+    .pillar--star .pillar-tag {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.3);
+      color: var(--green);
+    }
+
+    .cockpit {
+      padding: 80px 20px;
+      background: var(--bg-primary);
+    }
+
+    .cockpit-header {
+      text-align: center;
+      margin-bottom: 56px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cockpit-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .cockpit h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.3;
+      margin-bottom: 16px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .cockpit h2 em {
+      font-style: italic;
+      color: var(--blue);
+    }
+
+    .cockpit-intro {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .cockpit-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cockpit-features {
+      display: grid;
+      gap: 24px;
+    }
+
+    .cockpit-feature {
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(22,33,62,0.4) 0%, rgba(16,33,48,0.2) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .cockpit-feature:hover {
+      border-color: rgba(148, 163, 184, 0.3);
+      background: linear-gradient(135deg, rgba(22,33,62,0.6) 0%, rgba(16,33,48,0.4) 100%);
+      transform: translateX(4px);
+    }
+
+    .cockpit-feature-icon {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .cockpit-feature-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .cockpit-feature-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .cockpit-mockup {
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(22,33,62,0.5) 0%, rgba(16,33,48,0.3) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .cockpit-kpis {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .cockpit-kpi {
+      padding: 16px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 8px;
+    }
+
+    .cockpit-kpi-value {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .cockpit-kpi-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .cockpit-chart {
+      flex: 1;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .cockpit-bar {
+      height: 60%;
+      width: 30px;
+      background: var(--blue);
+      border-radius: 4px 4px 0 0;
+      opacity: 0.7;
+    }
+
+    .cockpit-bar:nth-child(2) { height: 75%; }
+    .cockpit-bar:nth-child(3) { height: 85%; }
+
+    .cockpit-agents {
+      padding: 16px;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: 8px;
+    }
+
+    .cockpit-agents-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .cockpit-agent-item {
+      font-size: 12px;
+      color: var(--text-secondary);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .cockpit-agent-item:last-child {
+      border-bottom: none;
+    }
+
+    .cockpit-agent-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .roi-section {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, rgba(8,14,30,0.8) 0%, rgba(22,33,62,0.4) 100%);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .roi-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .roi-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .roi-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .roi-sliders {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    .roi-slider-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .roi-slider-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .roi-slider-input {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(139, 92, 246, 0.2);
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .roi-slider-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--purple);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .roi-slider-input::-webkit-slider-thumb:hover {
+      background: var(--blue);
+      transform: scale(1.2);
+    }
+
+    .roi-slider-input::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--purple);
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .roi-slider-input::-moz-range-thumb:hover {
+      background: var(--blue);
+      transform: scale(1.2);
+    }
+
+    .roi-slider-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--purple);
+      text-align: right;
+    }
+
+    .roi-confidence {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .roi-confidence-btn {
+      flex: 1;
+      padding: 10px;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 6px;
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .roi-confidence-btn.active {
+      background: var(--purple);
+      color: white;
+      border-color: var(--purple);
+    }
+
+    .roi-results {
+      background: linear-gradient(135deg, rgba(22,33,62,0.6) 0%, rgba(16,33,48,0.4) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 32px;
+    }
+
+    .roi-main-result {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--green);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .roi-breakdown {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .roi-breakdown-item {
+      padding: 16px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 8px;
+    }
+
+    .roi-breakdown-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    .roi-breakdown-value {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    .roi-strategic {
+      padding: 16px;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .roi-strategic-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .roi-strategic-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--blue);
+      line-height: 1.5;
+    }
+
+    .roi-cta {
+      text-align: center;
+    }
+
+    .roi-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--green);
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .roi-cta-btn:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+
+    .parcours {
+      padding: 80px 20px;
+      background: var(--bg-primary);
+    }
+
+    .parcours-header {
+      text-align: center;
+      margin-bottom: 56px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .parcours-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .parcours h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.3;
+      margin-bottom: 16px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .parcours h2 em {
+      font-style: italic;
+      color: var(--blue);
+    }
+
+    .parcours-subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .parcours-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      max-width: 1100px;
+      margin: 0 auto 56px;
+    }
+
+    .parcours-card {
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(22,33,62,0.4) 0%, rgba(16,33,48,0.2) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      border-top: 3px solid var(--blue);
+      transition: all 0.3s ease;
+    }
+
+    .parcours-card:nth-child(2) {
+      border-top-color: var(--blue);
+    }
+
+    .parcours-card:nth-child(3) {
+      border-top-color: var(--purple);
+    }
+
+    .parcours-card:nth-child(1) {
+      border-top-color: var(--green);
+    }
+
+    .parcours-card:hover {
+      border-color: rgba(148, 163, 184, 0.3);
+      background: linear-gradient(135deg, rgba(22,33,62,0.6) 0%, rgba(16,33,48,0.4) 100%);
+      transform: translateY(-4px);
+    }
+
+    .parcours-phase {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 12px;
+    }
+
+    .parcours-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .parcours-price {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .parcours-duration {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .parcours-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .parcours-note {
+      font-size: 12px;
+      color: var(--amber);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .roi-callout {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px;
+      background: linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(16,185,129,0.02) 100%);
+      border: 2px solid rgba(16, 185, 129, 0.4);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .roi-callout-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .roi-callout-result {
+      font-size: 14px;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .equiv-ca {
+      padding: 60px 20px;
+      background: linear-gradient(135deg, rgba(8,14,30,0.8) 0%, rgba(22,33,62,0.4) 100%);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .equiv-ca-card {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(22,33,62,0.6) 0%, rgba(16,33,48,0.4) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .equiv-ca-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .equiv-ca-highlight {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .equiv-ca-bottom {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .about {
+      padding: 80px 20px;
+      background: var(--bg-primary);
+    }
+
+    .about-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .about-philosophy {
+      font-size: 14px;
+      color: var(--purple);
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+    }
+
+    .about-philosophy-cjk {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-right: 12px;
+    }
+
+    .about-philosophy-text {
+      font-size: 16px;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, rgba(22,33,62,0.4) 0%, rgba(16,33,48,0.2) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      color: var(--text-secondary);
+    }
+
+    .about-content h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .about-content p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .about-logos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .about-logo {
+      padding: 12px;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    .about-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .about-link:hover {
+      gap: 12px;
+      color: var(--blue);
+    }
+
+    .audit {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, rgba(8,14,30,0.8) 0%, rgba(22,33,62,0.4) 100%);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .audit-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .audit-content h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.3;
+      margin-bottom: 16px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .audit-content h2 em {
+      font-style: italic;
+      color: var(--green);
+    }
+
+    .audit-subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .audit-items {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .audit-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .audit-item-check {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      background: var(--green);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg-primary);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .audit-item-text {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .audit-promise {
+      font-size: 13px;
+      color: var(--amber);
+      font-weight: 500;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .audit-card {
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(22,33,62,0.6) 0%, rgba(16,33,48,0.4) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .audit-card-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .audit-card-price {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .audit-card-duration {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      font-weight: 500;
+    }
+
+    .audit-card-cta {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--green);
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      margin-bottom: 24px;
+    }
+
+    .audit-card-cta:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+
+    .audit-card-guarantee {
+      font-size: 11px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .contact {
+      padding: 80px 20px;
+      background: var(--bg-primary);
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .contact-content h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.3;
+      margin-bottom: 16px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .contact-content h2 em {
+      font-style: italic;
+      color: var(--blue);
+    }
+
+    .contact-intro {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .contact-info-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .contact-info-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .contact-info-text a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info-text a:hover {
+      color: var(--purple);
+    }
+
+    .contact-cta {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .contact-cta:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+
+    .contact-form {
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(22,33,62,0.4) 0%, rgba(16,33,48,0.2) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .contact-form-group {
+      display: grid;
+      gap: 8px;
+    }
+
+    .contact-form-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .contact-form-input,
+    .contact-form-select,
+    .contact-form-textarea {
+      padding: 12px;
+      background: rgba(22, 33, 62, 0.3);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 6px;
+      color: var(--text-primary);
+      font-family: Inter, sans-serif;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form-input:focus,
+    .contact-form-select:focus,
+    .contact-form-textarea:focus {
+      outline: none;
+      border-color: rgba(139, 92, 246, 0.5);
+      background: rgba(22, 33, 62, 0.5);
+    }
+
+    .contact-form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-form-submit {
+      padding: 14px 28px;
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form-submit:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+
+    .footer-cta {
+      padding: 60px 20px;
+      background: linear-gradient(135deg, rgba(8,14,30,0.8) 0%, rgba(22,33,62,0.4) 100%);
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .footer-cta h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+
+    .footer-cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--green);
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .footer-cta-link:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+
+    /* ═══ BANDE DÉFILANTE ═══ */
+    .ticker {
+      overflow: hidden;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(8, 14, 30, 0.6);
+      padding: 16px 0;
+      position: relative;
+    }
+    .ticker::before,
+    .ticker::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .ticker::before {
+      left: 0;
+      background: linear-gradient(90deg, rgba(8,14,30,1), transparent);
+    }
+    .ticker::after {
+      right: 0;
+      background: linear-gradient(270deg, rgba(8,14,30,1), transparent);
+    }
+    .ticker-track {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      animation: tickerScroll 30s linear infinite;
+      width: max-content;
+    }
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+    .ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+    }
+    .ticker-item strong {
+      color: var(--text-primary);
+      font-weight: 800;
+    }
+    .ticker-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(148, 163, 184, 0.4);
+      flex-shrink: 0;
+    }
+    @keyframes tickerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (max-width: 768px) {
+      .ticker-item { font-size: 12px; }
+      .ticker-track { gap: 32px; }
+    }
+
+    /* ═══ GRADUATION DIPLOMATIQUE ═══ */
+    .graduation { padding: 80px 0; border-top: 1px solid var(--border-color); }
+    .graduation-header { text-align: center; max-width: 660px; margin: 0 auto 48px; }
+    .graduation-header h2 { font-size: 32px; font-weight: 900; margin-bottom: 12px; }
+    .graduation-header p { color: var(--text-secondary); font-size: 16px; line-height: 1.6; }
+    .graduation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 960px; margin: 0 auto; }
+    .graduation-step { background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); border-radius: 16px; padding: 32px 24px; text-align: center; position: relative; transition: all 0.3s; }
+    .graduation-step:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.18); }
+    .graduation-step-num { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+    .graduation-step h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+    .graduation-step-rate { font-size: 42px; font-weight: 900; line-height: 1; margin-bottom: 8px; }
+    .graduation-step-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+    .graduation-step--green { border-color: rgba(16,185,129,0.25); }
+    .graduation-step--green .graduation-step-num { color: var(--green); }
+    .graduation-step--green .graduation-step-rate { color: var(--green); }
+    .graduation-step--amber { border-color: rgba(245,158,11,0.25); }
+    .graduation-step--amber .graduation-step-num { color: #f59e0b; }
+    .graduation-step--amber .graduation-step-rate { color: #f59e0b; }
+    .graduation-step--red { border-color: rgba(239,68,68,0.25); }
+    .graduation-step--red .graduation-step-num { color: #ef4444; }
+    .graduation-step--red .graduation-step-rate { color: #ef4444; }
+    .graduation-result { text-align: center; margin-top: 32px; font-size: 15px; font-weight: 700; color: var(--green); }
+
+    /* ═══ EXOSQUELETTE / PROFIT MANAGER ═══ */
+    .exoskeleton { padding: 80px 0; border-top: 1px solid var(--border-color); }
+    .exoskeleton-header { text-align: center; max-width: 660px; margin: 0 auto 48px; }
+    .exoskeleton-header h2 { font-size: 32px; font-weight: 900; margin-bottom: 12px; }
+    .exoskeleton-header p { color: var(--text-secondary); font-size: 16px; line-height: 1.6; }
+    .exoskeleton-table { max-width: 800px; margin: 0 auto; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); }
+    .exo-row { display: grid; grid-template-columns: 200px 1fr 1fr; border-bottom: 1px solid var(--border-color); }
+    .exo-row:last-child { border-bottom: none; }
+    .exo-cell { padding: 16px 20px; font-size: 14px; color: var(--text-secondary); }
+    .exo-head { background: rgba(255,255,255,0.04); }
+    .exo-head .exo-cell { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-primary); }
+    .exo-cell--label { font-weight: 600; color: var(--text-primary); background: rgba(255,255,255,0.02); }
+    .exo-cell--before { color: #ef4444; }
+    .exo-cell--after { color: var(--green); font-weight: 600; }
+
+    @media (max-width: 768px) {
+      .graduation-grid { grid-template-columns: 1fr; }
+      .exo-row { grid-template-columns: 1fr; }
+      .exo-head { display: none; }
+      .exo-cell { padding: 10px 16px; }
+      .exo-cell--label { background: rgba(255,255,255,0.06); font-size: 13px; }
+      .exo-cell::before { content: attr(data-label); display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 4px; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .cockpit-wrapper,
+      .about-grid,
+      .audit-wrapper,
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .roi-sliders {
+        grid-template-columns: 1fr;
+      }
+
+      .cockpit-mockup {
+        min-height: 300px;
+      }
+
+      .proof-bar {
+        flex-direction: column;
+      }
+
+      .about-logos {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">KANSO<span>OPS</span></div>
+      <div class="nav-menu">
+        <a href="#produit" class="nav-link">Produit</a>
+        <a href="#recovery" class="nav-link">Recovery</a>
+        <a href="#about" class="nav-link">À propos</a>
+        <a href="/en/" class="nav-link">EN</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </div>
+      <div class="nav-toggle" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-badge">Recovery Automation</div>
+      <h1>Des écarts de facturation passent inaperçus. <em>On les identifie et on récupère le cash.</em></h1>
+      <p class="hero-subtitle">KANSO-OPS identifie les surcharges contractuelles dans vos factures fournisseurs, monte les dossiers de preuve et récupère le cash dormant. Flash Audit gratuit. Résultats en 6 semaines.</p>
+      <a href="#flash-audit" class="hero-cta">Demander un Flash Audit gratuit →</a>
+
+      <div class="proof-bar">
+        <div class="proof-bar-label">Données issues d'un audit terrain</div>
+        <div class="proof-bar-stats">
+          <strong>204K€ identifiés</strong> · <strong>2 951 lignes</strong> · <strong>+290% écart max</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BANDE DÉFILANTE ═══ -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <div class="ticker-item"><strong>204 367€</strong> surcharges identifiées</div>
+      <div class="ticker-dot"></div>
+      <div class="ticker-item"><strong>2 951</strong> lignes non contrôlées</div>
+      <div class="ticker-dot"></div>
+      <div class="ticker-item"><strong>+290%</strong> écart prix max constaté</div>
+      <div class="ticker-dot"></div>
+      <div class="ticker-item"><strong>45 min → 30 sec</strong> par dossier de preuve</div>
+      <div class="ticker-dot"></div>
+      <div class="ticker-item"><strong>ROI 2,9×</strong> sur le Diagnostic & Récupération</div>
+      <div class="ticker-dot"></div>
+      <div class="ticker-item"><strong>6 semaines</strong> du Flash Audit au cash</div>
+      <div class="ticker-dot"></div>
+      <div class="ticker-item"><strong>8h</strong> temps client total</div>
+      <div class="ticker-dot"></div>
+      <div class="ticker-item">Zero-Copy · RGPD · AI Act</div>
+      <div class="ticker-dot"></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="ticker-item"><strong>204 367€</strong> surcharges identifiées</div>
+      <div class="ticker-dot"></div>
+      <div class="ticker-item"><strong>2 951</strong> lignes non contrôlées</div>
+      <div class="ticker-dot"></div>
+      <div class="ticker-item"><strong>+290%</strong> écart prix max constaté</div>
+      <div class="ticker-dot"></div>
+      <div class="ticker-item"><strong>45 min → 30 sec</strong> par dossier de preuve</div>
+      <div class="ticker-dot"></div>
+      <div class="ticker-item"><strong>ROI 2,9×</strong> sur le Diagnostic & Récupération</div>
+      <div class="ticker-dot"></div>
+      <div class="ticker-item"><strong>6 semaines</strong> du Flash Audit au cash</div>
+      <div class="ticker-dot"></div>
+      <div class="ticker-item"><strong>8h</strong> temps client total</div>
+      <div class="ticker-dot"></div>
+      <div class="ticker-item">Zero-Copy · RGPD · AI Act</div>
+      <div class="ticker-dot"></div>
+    </div>
+  </div>
+
+  <section class="pain reveal" id="problem">
+    <div class="container">
+      <div class="pain-header">
+        <div class="pain-label">LE PROBLÈME</div>
+        <h2>Le <em>Recouvrement Fantôme</em> coûte plus que vous ne pensez</h2>
+      </div>
+
+      <div class="pain-grid">
+        <div class="pain-card reveal">
+          <div class="pain-stat">90%</div>
+          <div class="pain-title">Lignes jamais contrôlées</div>
+          <p class="pain-text">Sur 2 951 lignes de litiges documentés, 90% restaient au statut « ? » — identifiées mais jamais recouvrées.</p>
+          <div class="pain-source">Données réelles — ETI industrielle, 80-200M€ CA</div>
+        </div>
+
+        <div class="pain-card reveal">
+          <div class="pain-stat">45min</div>
+          <div class="pain-title">Par dossier de preuve</div>
+          <p class="pain-text">Monter un 3-way match (devis, bon de commande, facture) prend 45 minutes. Pour un écart de 50€, le coût RH dépasse le gain.</p>
+          <div class="pain-source">Données réelles — ETI industrielle, 80-200M€ CA</div>
+        </div>
+
+        <div class="pain-card reveal">
+          <div class="pain-stat">+290%</div>
+          <div class="pain-title">Écart non détecté</div>
+          <p class="pain-text">321€ contracté, 1 250€ facturé chez le fournisseur n°2 du panel (~4M€ CA). Personne n'avait réclamé.</p>
+          <div class="pain-source">Données réelles — ETI industrielle, 80-200M€ CA</div>
+        </div>
+
+        <div class="pain-card reveal">
+          <div class="pain-stat">85%</div>
+          <div class="pain-title">CLM utilisés comme classeurs</div>
+          <p class="pain-text">85% des entreprises équipées d'un CLM (Coupa, Ivalua, SAP Ariba) ne croisent jamais les clauses tarifaires avec les factures. Le three-way matching vérifie le bon de commande, pas le prix contractuel.</p>
+          <div class="pain-source">Angle mort structurel — Contract Lifecycle Management</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pillars reveal" id="solution">
+    <div class="container">
+      <div class="pillars-header">
+        <div class="pillars-label">LA SOLUTION</div>
+        <h2>De la détection à la <em>résolution</em></h2>
+        <p class="pillars-subtitle">KANSO-OPS ne détecte pas seulement les anomalies. Nous montons le dossier, envoyons la réclamation et suivons le recouvrement jusqu'à l'avoir.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar reveal">
+          <div class="pillar-icon">📄</div>
+          <div class="pillar-label">Dispute-Factory</div>
+          <h3>Dossier de preuve automatisé</h3>
+          <p>Pour chaque écart, génération d'une liasse de preuve complète : référence contrat, facture analysée par IA Vision, calcul détaillé, courrier de réclamation. 45 minutes → 30 secondes.</p>
+          <span class="pillar-tag">×90 plus rapide</span>
+        </div>
+
+        <div class="pillar reveal">
+          <div class="pillar-icon">🛡️</div>
+          <div class="pillar-label">Diplomatie Bad Cop</div>
+          <h3>La relation préservée</h3>
+          <p>L'IA endosse le rôle technique. Le fournisseur reçoit un dossier structuré, pas un email vindicatif. L'acheteur peut compatir : « C'est le système qui a détecté l'écart. »</p>
+          <span class="pillar-tag">Taux récupération 100%</span>
+        </div>
+
+        <div class="pillar pillar--star reveal">
+          <div class="pillar-icon">📈</div>
+          <div class="pillar-label">Sentinel</div>
+          <h3>Veille marché en continu</h3>
+          <p>Indices matières premières, énergie, transport : quand un fournisseur annonce +15% « à cause du bois », votre Sentinel montre que le bois n'a monté que de 3%.</p>
+          <span class="pillar-tag">10 indices clés</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ GRADUATION DIPLOMATIQUE ═══ -->
+  <section class="graduation reveal">
+    <div class="container">
+      <div class="graduation-header">
+        <h2>Graduation Diplomatique</h2>
+        <p>Trois niveaux d'escalade calibrés pour maximiser le taux de récupération tout en préservant la relation fournisseur. Taux cumulé : 100%.</p>
+      </div>
+      <div class="graduation-grid">
+        <div class="graduation-step graduation-step--green reveal">
+          <div class="graduation-step-num">Niveau 1</div>
+          <h3>Soft Check</h3>
+          <div class="graduation-step-rate">~90%</div>
+          <div class="graduation-step-desc">Liasse de preuve automatique envoyée au fournisseur. Décision IA. Résolution dans 90% des cas sans intervention humaine.</div>
+        </div>
+        <div class="graduation-step graduation-step--amber reveal">
+          <div class="graduation-step-num">Niveau 2</div>
+          <h3>Alerte</h3>
+          <div class="graduation-step-rate">~8%</div>
+          <div class="graduation-step-desc">Silence à J+15. Notification à l'acheteur. Intervention humaine ciblée sur les cas résistants.</div>
+        </div>
+        <div class="graduation-step graduation-step--red reveal">
+          <div class="graduation-step-num">Niveau 3</div>
+          <h3>Compensation</h3>
+          <div class="graduation-step-rate">~2%</div>
+          <div class="graduation-step-desc">Silence persistant. Déduction sur facture suivante, validée par la DAF. Dernier recours, traçabilité complète.</div>
+        </div>
+      </div>
+      <div class="graduation-result">Taux de récupération cumulé : 100% — L'irréfutabilité des dossiers rend le blocage impossible.</div>
+    </div>
+  </section>
+
+  <!-- ═══ EXOSQUELETTE / PROFIT MANAGER ═══ -->
+  <section class="exoskeleton reveal">
+    <div class="container">
+      <div class="exoskeleton-header">
+        <h2>Exosquelette, pas censeur</h2>
+        <p>KANSO-OPS ne remplace pas votre équipe achats. Il lui donne les munitions qu'elle n'a pas le temps de fabriquer. L'assistante submergée devient Profit Manager.</p>
+      </div>
+      <div class="exoskeleton-table">
+        <div class="exo-row exo-head">
+          <div class="exo-cell"></div>
+          <div class="exo-cell">Avant KANSO-OPS</div>
+          <div class="exo-cell">Avec KANSO-OPS</div>
+        </div>
+        <div class="exo-row">
+          <div class="exo-cell exo-cell--label">Rôle</div>
+          <div class="exo-cell exo-cell--before" data-label="Avant">Assistante submergée</div>
+          <div class="exo-cell exo-cell--after" data-label="Avec KANSO-OPS">Profit Manager</div>
+        </div>
+        <div class="exo-row">
+          <div class="exo-cell exo-cell--label">3-way match</div>
+          <div class="exo-cell exo-cell--before" data-label="Avant">Manuel : 45 min/litige</div>
+          <div class="exo-cell exo-cell--after" data-label="Avec KANSO-OPS">Automatisé : 30 sec</div>
+        </div>
+        <div class="exo-row">
+          <div class="exo-cell exo-cell--label">Micro-litiges (&lt;500€)</div>
+          <div class="exo-cell exo-cell--before" data-label="Avant">Abandonnés</div>
+          <div class="exo-cell exo-cell--after" data-label="Avec KANSO-OPS">Traités en batch</div>
+        </div>
+        <div class="exo-row">
+          <div class="exo-cell exo-cell--label">Relation fournisseur</div>
+          <div class="exo-cell exo-cell--before" data-label="Avant">Acheteur assume la réclamation</div>
+          <div class="exo-cell exo-cell--after" data-label="Avec KANSO-OPS">Bouclier IA assume</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cockpit reveal" id="produit">
+    <div class="container">
+      <div class="cockpit-header">
+        <div class="cockpit-label">PLATEFORME</div>
+        <h2>Un cockpit. <em>Cinq agents.</em></h2>
+        <p class="cockpit-intro">Chaque agent surveille un axe de votre performance achats. Vous gardez le contrôle : trois boutons — Réclamer, Ignorer, Escalader.</p>
+      </div>
+
+      <div class="cockpit-wrapper">
+        <div class="cockpit-features">
+          <div class="cockpit-feature reveal">
+            <div class="cockpit-feature-icon">⚡</div>
+            <div class="cockpit-feature-title">Litige Killer</div>
+            <div class="cockpit-feature-desc">Détection écarts prix factures vs contrats. Génération automatique des dossiers de réclamation.</div>
+          </div>
+
+          <div class="cockpit-feature reveal">
+            <div class="cockpit-feature-icon">👁️</div>
+            <div class="cockpit-feature-title">Supplier Watchtower</div>
+            <div class="cockpit-feature-desc">Enrichissement panel fournisseurs, scoring santé financière, alertes conformité.</div>
+          </div>
+
+          <div class="cockpit-feature reveal">
+            <div class="cockpit-feature-icon">🔍</div>
+            <div class="cockpit-feature-title">Invoice Watchdog</div>
+            <div class="cockpit-feature-desc">Monitoring continu des factures entrantes vs référentiels prix contractuels.</div>
+          </div>
+
+          <div class="cockpit-feature reveal">
+            <div class="cockpit-feature-icon">💡</div>
+            <div class="cockpit-feature-title">Éclaireur IA</div>
+            <div class="cockpit-feature-desc">RAG sur vos documents internes croisé avec la veille marché. Réponses sourcées en 30 secondes.</div>
+          </div>
+        </div>
+
+        <div class="cockpit-mockup reveal">
+          <div class="cockpit-kpis">
+            <div class="cockpit-kpi">
+              <div class="cockpit-kpi-value">204K€</div>
+              <div class="cockpit-kpi-label">Récupéré</div>
+            </div>
+            <div class="cockpit-kpi">
+              <div class="cockpit-kpi-value">2 951</div>
+              <div class="cockpit-kpi-label">Lignes</div>
+            </div>
+            <div class="cockpit-kpi">
+              <div class="cockpit-kpi-value">99.2%</div>
+              <div class="cockpit-kpi-label">Conformité</div>
+            </div>
+            <div class="cockpit-kpi">
+              <div class="cockpit-kpi-value">5</div>
+              <div class="cockpit-kpi-label">Agents</div>
+            </div>
+          </div>
+
+          <div class="cockpit-chart">
+            <div class="cockpit-bar"></div>
+            <div class="cockpit-bar"></div>
+            <div class="cockpit-bar"></div>
+          </div>
+
+          <div class="cockpit-agents">
+            <div class="cockpit-agents-title">Agents actifs</div>
+            <div class="cockpit-agent-item"><span class="cockpit-agent-dot"></span>Litige Killer</div>
+            <div class="cockpit-agent-item"><span class="cockpit-agent-dot"></span>Supplier Watchtower</div>
+            <div class="cockpit-agent-item"><span class="cockpit-agent-dot"></span>Invoice Watchdog</div>
+            <div class="cockpit-agent-item"><span class="cockpit-agent-dot"></span>Éclaireur IA</div>
+            <div class="cockpit-agent-item"><span class="cockpit-agent-dot"></span>Sentinel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="roi-section reveal" id="roi">
+    <div class="roi-container">
+      <div class="roi-header">
+        <h2>Calculez votre ROI</h2>
+      </div>
+
+      <div class="roi-sliders">
+        <div class="roi-slider-group">
+          <label class="roi-slider-label">CA annuel (millions €)</label>
+          <input type="range" class="roi-slider-input" id="caSlider" min="10" max="250" value="50" step="5">
+          <div class="roi-slider-value" id="caValue">50M€</div>
+        </div>
+
+        <div class="roi-slider-group">
+          <label class="roi-slider-label">% de dépenses fournisseurs</label>
+          <input type="range" class="roi-slider-input" id="spendSlider" min="20" max="70" value="40" step="5">
+          <div class="roi-slider-value" id="spendValue">40%</div>
+        </div>
+
+        <div class="roi-slider-group">
+          <label class="roi-slider-label">Marge EBITDA (%)</label>
+          <input type="range" class="roi-slider-input" id="marginSlider" min="2" max="15" value="5" step="1">
+          <div class="roi-slider-value" id="marginValue">5%</div>
+        </div>
+
+        <div class="roi-slider-group">
+          <label class="roi-slider-label">Potentiel de récupération (%)</label>
+          <input type="range" class="roi-slider-input" id="recoverySlider" min="0.5" max="5" value="1.5" step="0.1">
+          <div class="roi-slider-value" id="recoveryValue">1.5%</div>
+        </div>
+      </div>
+
+      <div class="roi-confidence">
+        <button class="roi-confidence-btn active" data-confidence="pessimiste">Pessimiste</button>
+        <button class="roi-confidence-btn" data-confidence="realiste">Réaliste</button>
+        <button class="roi-confidence-btn" data-confidence="optimiste">Optimiste</button>
+      </div>
+
+      <div class="roi-results">
+        <div class="roi-main-result" id="roiResult">+30 500€</div>
+
+        <div class="roi-breakdown">
+          <div class="roi-breakdown-item">
+            <div class="roi-breakdown-label">Cash récupéré</div>
+            <div class="roi-breakdown-value" id="cashRecovered">30 500€</div>
+          </div>
+          <div class="roi-breakdown-item">
+            <div class="roi-breakdown-label">Coût D&R</div>
+            <div class="roi-breakdown-value" id="costDR">10 500€</div>
+          </div>
+          <div class="roi-breakdown-item">
+            <div class="roi-breakdown-label">Gain net</div>
+            <div class="roi-breakdown-value" id="netGain">20 000€</div>
+          </div>
+        </div>
+
+        <div class="roi-strategic">
+          <div class="roi-strategic-label">Équivalent EBITDA</div>
+          <div class="roi-strategic-value" id="ebitdaEquiv">3,9× mois de EBITDA</div>
+        </div>
+      </div>
+
+      <div class="roi-cta">
+        <a href="#flash-audit" class="roi-cta-btn">Demander mon Flash Audit gratuit</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="parcours reveal" id="journey">
+    <div class="container">
+      <div class="parcours-header">
+        <div class="parcours-label">PARCOURS CLIENT</div>
+        <h2>Du Flash Audit au cash en <em>6 semaines</em></h2>
+        <p class="parcours-subtitle">Chaque phase finance la suivante. Vous voyez les résultats avant de vous engager.</p>
+      </div>
+
+      <div class="parcours-grid">
+        <div class="parcours-card reveal">
+          <div class="parcours-phase">Phase 1</div>
+          <div class="parcours-title">Flash Audit</div>
+          <div class="parcours-price">Gratuit</div>
+          <div class="parcours-duration">3-5 jours</div>
+          <p class="parcours-desc">One-pager stratégique : potentiel récupérable, top indices marché, % hors contrat, feuille de route chiffrée.</p>
+          <div class="parcours-note">✓ Aucun engagement</div>
+        </div>
+
+        <div class="parcours-card reveal">
+          <div class="parcours-phase">Phase 2</div>
+          <div class="parcours-title">Diagnostic & Récupération</div>
+          <div class="parcours-price">3 500-10 000€ + 20% SF</div>
+          <div class="parcours-duration">6 semaines</div>
+          <p class="parcours-desc">2 semaines de diagnostic. 30 jours de récupération intensive. Success fee uniquement sur montants encaissés.</p>
+          <div class="parcours-note">✓ Payé par le cash récupéré</div>
+        </div>
+
+        <div class="parcours-card reveal">
+          <div class="parcours-phase">Phase 3</div>
+          <div class="parcours-title">Agents IA</div>
+          <div class="parcours-price">490-1 490€/mois</div>
+          <div class="parcours-duration">Continu</div>
+          <p class="parcours-desc">3 à 5 agents en monitoring permanent. Zéro success fee. L'IA surveille, l'humain décide.</p>
+          <div class="parcours-note">✓ 5× moins cher qu'un acheteur</div>
+        </div>
+      </div>
+
+      <div class="roi-callout reveal">
+        <div class="roi-callout-text">Investissement D&R : 10 500€ → Cash récupéré : 30 000€</div>
+        <div class="roi-callout-result">→ Gain net : +19 500€ (ROI 2,9×)</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="equiv-ca reveal">
+    <div class="container">
+      <div class="equiv-ca-card">
+        <div class="equiv-ca-title">Récupérer 30K€ d'EBITDA par la voie commerciale ?</div>
+        <div class="equiv-ca-highlight">C'est 600 000€ de CA supplémentaire à 5% de marge.</div>
+        <div class="equiv-ca-bottom">KANSO-OPS le fait en 6 semaines pour 10 500€, avec 8 heures de votre temps.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about reveal" id="about">
+    <div class="container">
+      <div class="about-header">
+        <div class="about-philosophy">
+          <span class="about-philosophy-cjk">簡素</span>
+          <span class="about-philosophy-text">— Kanso</span>
+        </div>
+        <p style="font-size: 16px; color: var(--text-secondary); font-style: italic; margin: 0;">La simplicité radicale comme méthode.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-photo reveal">👤</div>
+
+        <div class="about-content reveal">
+          <h3>« Personne ne monte les dossiers. L'argent s'évapore. J'ai construit l'outil qui règle ça. »</h3>
+          <p>Ex-KPMG (conseil SI achats — certifié Coupa, Ivalua, SAP Ariba), Nestlé (supply chain), Baccarat (transformation digitale). KEDGE Business School, emlyon. KANSO-OPS est né d'un constat terrain : la détection existe, la résolution non.</p>
+
+          <div class="about-logos">
+            <div class="about-logo">KPMG</div>
+            <div class="about-logo">NESTLÉ</div>
+            <div class="about-logo">BACCARAT</div>
+            <div class="about-logo">KEDGE</div>
+          </div>
+
+          <a href="#" class="about-link">LinkedIn →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="audit reveal" id="flash-audit">
+    <div class="container">
+      <div class="audit-wrapper">
+        <div class="audit-content">
+          <h2>Flash Audit <em>gratuit</em></h2>
+          <p class="audit-subtitle">Le premier diagnostic est offert. S'il n'y a rien à récupérer, on vous le dit.</p>
+
+          <div class="audit-items">
+            <div class="audit-item reveal">
+              <div class="audit-item-check">✓</div>
+              <div class="audit-item-text">Potentiel récupérable chiffré sur 24 mois</div>
+            </div>
+            <div class="audit-item reveal">
+              <div class="audit-item-check">✓</div>
+              <div class="audit-item-text">Top 10 indices marché impactant votre business</div>
+            </div>
+            <div class="audit-item reveal">
+              <div class="audit-item-check">✓</div>
+              <div class="audit-item-text">Cartographie des flux à risque</div>
+            </div>
+            <div class="audit-item reveal">
+              <div class="audit-item-check">✓</div>
+              <div class="audit-item-text">Feuille de route chiffrée vers la Phase 2</div>
+            </div>
+          </div>
+
+          <p class="audit-promise">Aucun engagement. Aucune donnée exportée. Audit sur votre SharePoint.</p>
+        </div>
+
+        <div class="audit-card reveal">
+          <div class="audit-card-label">FLASH AUDIT</div>
+          <div class="audit-card-price">0€</div>
+          <div class="audit-card-duration">3-5 jours · Zéro engagement</div>
+          <a href="#contact" class="audit-card-cta">Planifier mon Flash Audit</a>
+          <div class="audit-card-guarantee">Conforme RGPD & AI Act — Architecture Zero-Copy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact reveal" id="contact">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-content">
+          <h2>Échangeons <em>30 minutes</em></h2>
+          <p class="contact-intro">Un appel pour comprendre votre contexte, vos fournisseurs, vos volumes. Si le Flash Audit est pertinent, on démarre sous 48h.</p>
+
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📧</div>
+              <div class="contact-info-text">
+                <a href="mailto:sebastien@kanso-ops.com">sebastien@kanso-ops.com</a>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📞</div>
+              <div class="contact-info-text">
+                <a href="tel:+33612345678">+33 6 12 34 56 78</a>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📍</div>
+              <div class="contact-info-text">Lyon, France</div>
+            </div>
+          </div>
+
+          <a href="#" class="contact-cta">Calendly</a>
+        </div>
+
+        <div class="contact-form reveal">
+          <form id="contactForm">
+            <div class="contact-form-group">
+              <label class="contact-form-label">Nom</label>
+              <input type="text" class="contact-form-input" name="nom" required>
+            </div>
+
+            <div class="contact-form-group">
+              <label class="contact-form-label">Email</label>
+              <input type="email" class="contact-form-input" name="email" required>
+            </div>
+
+            <div class="contact-form-group">
+              <label class="contact-form-label">Entreprise</label>
+              <input type="text" class="contact-form-input" name="entreprise" required>
+            </div>
+
+            <div class="contact-form-group">
+              <label class="contact-form-label">CA annuel</label>
+              <select class="contact-form-select" name="ca" required>
+                <option value="">Sélectionnez</option>
+                <option value="10-30">10-30M€</option>
+                <option value="30-100">30-100M€</option>
+                <option value="100-250">100-250M€</option>
+              </select>
+            </div>
+
+            <div class="contact-form-group">
+              <label class="contact-form-label">Message</label>
+              <textarea class="contact-form-textarea" name="message"></textarea>
+            </div>
+
+            <button type="submit" class="contact-form-submit">Demander mon Flash Audit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer-cta reveal">
+    <div class="container">
+      <h2>Prêt à récupérer votre cash dormant ?</h2>
+      <a href="#flash-audit" class="footer-cta-link">Planifier un Flash Audit gratuit →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 Kanso-Ops · <a href="#">Mentions légales</a> · <a href="#">Politique de confidentialité</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    navToggle?.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-link, .nav-cta').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('shrink');
+      } else {
+        navbar.classList.remove('shrink');
+      }
+    });
+
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      observer.observe(el);
+    });
+
+    const caSlider = document.getElementById('caSlider');
+    const spendSlider = document.getElementById('spendSlider');
+    const marginSlider = document.getElementById('marginSlider');
+    const recoverySlider = document.getElementById('recoverySlider');
+
+    const caValue = document.getElementById('caValue');
+    const spendValue = document.getElementById('spendValue');
+    const marginValue = document.getElementById('marginValue');
+    const recoveryValue = document.getElementById('recoveryValue');
+
+    const roiResult = document.getElementById('roiResult');
+    const cashRecovered = document.getElementById('cashRecovered');
+    const costDR = document.getElementById('costDR');
+    const netGain = document.getElementById('netGain');
+    const ebitdaEquiv = document.getElementById('ebitdaEquiv');
+
+    let confidenceMultiplier = 1;
+
+    function updateROI() {
+      const ca = parseInt(caSlider.value);
+      const spend = parseInt(spendSlider.value) / 100;
+      const margin = parseInt(marginSlider.value) / 100;
+      const recovery = parseFloat(recoverySlider.value) / 100;
+
+      caValue.textContent = ca + 'M€';
+      spendValue.textContent = parseInt(spendSlider.value) + '%';
+      marginValue.textContent = parseInt(marginSlider.value) + '%';
+      recoveryValue.textContent = parseFloat(recoverySlider.value).toFixed(1) + '%';
+
+      const totalSpend = ca * 1000000 * spend;
+      const cashRec = Math.round(totalSpend * recovery * confidenceMultiplier);
+      const cost = 10500;
+      const gain = cashRec - cost;
+      const ebitda = ca * 1000000 * margin;
+      const ebitdaMonths = (gain / (ebitda / 12)).toFixed(1);
+
+      cashRecovered.textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0 }).format(cashRec);
+      costDR.textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0 }).format(cost);
+      netGain.textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0 }).format(gain);
+      roiResult.textContent = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0 }).format(gain);
+      ebitdaEquiv.textContent = ebitdaMonths + '× mois de EBITDA';
+    }
+
+    caSlider.addEventListener('input', updateROI);
+    spendSlider.addEventListener('input', updateROI);
+    marginSlider.addEventListener('input', updateROI);
+    recoverySlider.addEventListener('input', updateROI);
+
+    document.querySelectorAll('.roi-confidence-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.roi-confidence-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const confidence = btn.getAttribute('data-confidence');
+        confidenceMultiplier = confidence === 'pessimiste' ? 0.6 : confidence === 'realiste' ? 1 : 1.4;
+        updateROI();
+      });
+    });
+
+    updateROI();
+
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
+
+        if (!data.nom || !data.email || !data.entreprise) {
+          alert('Veuillez remplir tous les champs obligatoires.');
+          return;
+        }
+
+        fetch('https://formspree.io/f/YOUR_FORM_ID', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(() => {
+          alert('Message envoyé avec succès !');
+          contactForm.reset();
+        }).catch(() => {
+          alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
+        });
+      });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && (e.shiftKey && e.key === 'I' || e.key === 'F12')) {
+        e.preventDefault();
+      }
+    });
+
+    function initCookieBanner() {
+      if (!localStorage.getItem('cookie-consent')) {
+        const banner = document.createElement('div');
+        banner.style.cssText = `
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(12, 18, 34, 0.95);
+          border-top: 1px solid rgba(148, 163, 184, 0.2);
+          padding: 20px;
+          font-size: 14px;
+          color: var(--text-secondary);
+          z-index: 9999;
+          backdrop-filter: blur(10px);
+        `;
+        banner.innerHTML = `
+          <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+            <p style="margin: 0;">Nous utilisons des cookies pour améliorer votre expérience.</p>
+            <button id="acceptCookies" style="padding: 10px 20px; background: var(--green); color: var(--bg-primary); border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">Accepter</button>
+          </div>
+        `;
+        document.body.appendChild(banner);
+
+        document.getElementById('acceptCookies').addEventListener('click', () => {
+          localStorage.setItem('cookie-consent', 'true');
+          banner.remove();
+        });
+      }
+    }
+
+    initCookieBanner();
+  </script>
+
+</body>
+</html>
