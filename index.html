@@ -803,51 +803,200 @@
 
     
 
-    <!-- ═══ ANALOGIE LEGO + SÉCURITÉ ═══ -->
-    <section class="pillars" id="architecture" style="border-top: 1px solid var(--border);">
+    <!-- ═══ ARCHITECTURE PYRAMIDE ═══ -->
+    <section id="architecture" style="padding: 6rem 0; border-top: 1px solid var(--border); position: relative;">
         <div class="container">
             <div class="pillars-header reveal">
-                <div class="section-label">L'architecture</div>
+                <div class="section-label">L'architecture KANSO</div>
                 <h2>Pensée comme un jeu de <em>LEGO</em></h2>
-                <p>Un socle solide, des briques métier spécialisées, un montage sans code. Opérationnel en 5 jours.</p>
+                <p>Un socle solide, des briques métier personnalisables, un cockpit pour tout piloter.</p>
             </div>
-            <div class="pillars-grid">
-                <div class="pillar reveal reveal-delay-1">
-                    <div class="pillar-icon pillar-icon--green">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375"/></svg>
+
+            <!-- PYRAMIDE -->
+            <div class="reveal" style="max-width: 800px; margin: 0 auto;">
+                <style>
+                    .pyramid { position: relative; width: 100%; padding-bottom: 2rem; }
+                    .pyr-row { display: flex; justify-content: center; margin-bottom: 0.5rem; position: relative; z-index: 1; }
+
+                    /* Top: Cockpit */
+                    .pyr-top {
+                        width: 280px; padding: 1.4rem 1.5rem; text-align: center;
+                        background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(139,92,246,0.04));
+                        border: 1.5px solid rgba(139,92,246,0.35); border-radius: var(--radius-md);
+                        position: relative; cursor: default; transition: all 0.3s;
+                    }
+                    .pyr-top:hover { border-color: rgba(139,92,246,0.6); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(139,92,246,0.15); }
+                    .pyr-top::before { content: ''; position: absolute; top: -1px; left: -1px; right: -1px; height: 3px; background: linear-gradient(90deg, #8b5cf6, #a78bfa); border-radius: var(--radius-md) var(--radius-md) 0 0; }
+                    .pyr-top-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #a78bfa; margin-bottom: 0.4rem; }
+                    .pyr-top h3 { font-size: 1rem; font-weight: 800; margin-bottom: 0.25rem; }
+                    .pyr-top p { font-size: 0.72rem; color: var(--white-muted); line-height: 1.45; }
+
+                    /* Connector lines */
+                    .pyr-connector { display: flex; justify-content: center; margin: 0.3rem 0; }
+                    .pyr-line { width: 2px; height: 20px; background: linear-gradient(180deg, rgba(139,92,246,0.4), rgba(59,130,246,0.4)); border-radius: 2px; }
+                    .pyr-lines-down { display: flex; justify-content: center; gap: 80px; margin: 0.2rem 0; }
+                    .pyr-line-branch { width: 2px; height: 16px; border-radius: 2px; }
+                    .pyr-line-branch:nth-child(1) { background: rgba(59,130,246,0.3); }
+                    .pyr-line-branch:nth-child(2) { background: rgba(16,185,129,0.3); }
+                    .pyr-line-branch:nth-child(3) { background: rgba(245,158,11,0.3); }
+
+                    /* Middle: Briques métier */
+                    .pyr-mid { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+                    .pyr-brick {
+                        padding: 0.9rem 1.1rem; text-align: center; width: 150px;
+                        background: var(--bg-card); border: 1px solid var(--border);
+                        border-radius: var(--radius-sm); cursor: default; transition: all 0.3s;
+                        position: relative; overflow: hidden;
+                    }
+                    .pyr-brick:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+                    .pyr-brick-icon { font-size: 1.2rem; margin-bottom: 0.3rem; }
+                    .pyr-brick-name { font-size: 0.72rem; font-weight: 700; margin-bottom: 0.15rem; }
+                    .pyr-brick-desc { font-size: 0.6rem; color: var(--white-muted); line-height: 1.3; }
+                    .pyr-brick--blue { border-color: rgba(59,130,246,0.2); }
+                    .pyr-brick--blue:hover { border-color: rgba(59,130,246,0.5); box-shadow: 0 4px 15px rgba(59,130,246,0.1); }
+                    .pyr-brick--blue .pyr-brick-name { color: #60a5fa; }
+                    .pyr-brick--green { border-color: rgba(16,185,129,0.2); }
+                    .pyr-brick--green:hover { border-color: rgba(16,185,129,0.5); box-shadow: 0 4px 15px rgba(16,185,129,0.1); }
+                    .pyr-brick--green .pyr-brick-name { color: #34d399; }
+                    .pyr-brick--amber { border-color: rgba(245,158,11,0.2); }
+                    .pyr-brick--amber:hover { border-color: rgba(245,158,11,0.5); box-shadow: 0 4px 15px rgba(245,158,11,0.1); }
+                    .pyr-brick--amber .pyr-brick-name { color: #fbbf24; }
+                    .pyr-brick--red { border-color: rgba(239,68,68,0.2); }
+                    .pyr-brick--red:hover { border-color: rgba(239,68,68,0.5); box-shadow: 0 4px 15px rgba(239,68,68,0.1); }
+                    .pyr-brick--red .pyr-brick-name { color: #f87171; }
+                    .pyr-brick--purple { border-color: rgba(139,92,246,0.2); }
+                    .pyr-brick--purple:hover { border-color: rgba(139,92,246,0.5); box-shadow: 0 4px 15px rgba(139,92,246,0.1); }
+                    .pyr-brick--purple .pyr-brick-name { color: #a78bfa; }
+
+                    /* Ghost bricks (future modules) */
+                    .pyr-brick--ghost { border-style: dashed; opacity: 0.5; }
+                    .pyr-brick--ghost:hover { opacity: 0.75; }
+
+                    /* Middle label row */
+                    .pyr-mid-label { text-align: center; margin: 0.6rem 0 0.3rem; }
+                    .pyr-mid-label span { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-dim); }
+
+                    /* Bottom: Socle */
+                    .pyr-base {
+                        width: 100%; padding: 1.5rem 2rem; text-align: center;
+                        background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(16,185,129,0.02));
+                        border: 1.5px solid rgba(16,185,129,0.25); border-radius: var(--radius-lg);
+                        position: relative; cursor: default; transition: all 0.3s;
+                    }
+                    .pyr-base:hover { border-color: rgba(16,185,129,0.5); box-shadow: 0 8px 30px rgba(16,185,129,0.1); }
+                    .pyr-base::before { content: ''; position: absolute; bottom: -1px; left: -1px; right: -1px; height: 3px; background: linear-gradient(90deg, var(--green), #34d399, var(--green)); border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+                    .pyr-base-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 0.5rem; }
+                    .pyr-base h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.3rem; }
+                    .pyr-base p { font-size: 0.78rem; color: var(--white-muted); line-height: 1.5; max-width: 520px; margin: 0 auto; }
+                    .pyr-base-engines { display: flex; justify-content: center; gap: 0.8rem; margin-top: 0.8rem; flex-wrap: wrap; }
+                    .pyr-engine { font-size: 0.6rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px; letter-spacing: 0.04em; }
+                    .pyr-engine--g { background: var(--green-dim); color: var(--green-bright); }
+                    .pyr-engine--b { background: rgba(59,130,246,0.1); color: #60a5fa; }
+                    .pyr-engine--r { background: rgba(239,68,68,0.1); color: #f87171; }
+                    .pyr-engine--a { background: rgba(245,158,11,0.1); color: #fbbf24; }
+                    .pyr-engine--p { background: rgba(139,92,246,0.1); color: #a78bfa; }
+
+                    .pyr-base-security { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem; }
+                    .pyr-sec-tag { font-size: 0.58rem; font-weight: 600; color: var(--white-dim); display: flex; align-items: center; gap: 0.3rem; }
+
+                    @media (max-width: 768px) {
+                        .pyr-top { width: 90%; }
+                        .pyr-brick { width: 130px; padding: 0.7rem 0.8rem; }
+                        .pyr-lines-down { gap: 40px; }
+                        .pyr-base-engines { gap: 0.4rem; }
+                    }
+                </style>
+
+                <div class="pyramid">
+                    <!-- TOP: Cockpit DAF -->
+                    <div class="pyr-row">
+                        <div class="pyr-top">
+                            <div class="pyr-top-label">🎯 Le tableau de bord</div>
+                            <h3>Cockpit DAF</h3>
+                            <p>Vue stratégique direction. KPIs agrégés, rapports mensuels PDF automatiques. Votre DAF pilote tout d'un coup d'œil.</p>
+                        </div>
                     </div>
-                    <div class="pillar-label">Le socle — Data Vault</div>
-                    <h3>Infrastructure Zero-Copy</h3>
-                    <p>Un seul point d'ingestion pour tous vos documents. L'IA classe et indexe automatiquement. Les données restent sur votre SharePoint — aucune copie chez Kanso. Jamais. RGPD natif.</p>
-                    <span class="pillar-tag pillar-tag--green">Souveraineté totale</span>
-                </div>
-                <div class="pillar reveal reveal-delay-2">
-                    <div class="pillar-icon pillar-icon--blue">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3"/></svg>
+
+                    <!-- Connector -->
+                    <div class="pyr-connector"><div class="pyr-line"></div></div>
+
+                    <!-- MIDDLE: Briques métier personnalisables -->
+                    <div class="pyr-mid-label"><span>Briques métier — personnalisables selon votre entreprise</span></div>
+                    <div class="pyr-row">
+                        <div class="pyr-mid">
+                            <div class="pyr-brick pyr-brick--blue">
+                                <div class="pyr-brick-icon">⚔️</div>
+                                <div class="pyr-brick-name">Litige Killer</div>
+                                <div class="pyr-brick-desc">Cash dormant & écarts</div>
+                            </div>
+                            <div class="pyr-brick pyr-brick--red">
+                                <div class="pyr-brick-icon">🔍</div>
+                                <div class="pyr-brick-name">Invoice Watchdog</div>
+                                <div class="pyr-brick-desc">Contrôle pré-paiement</div>
+                            </div>
+                            <div class="pyr-brick pyr-brick--amber">
+                                <div class="pyr-brick-icon">📡</div>
+                                <div class="pyr-brick-name">Watchtower</div>
+                                <div class="pyr-brick-desc">Scoring fournisseurs</div>
+                            </div>
+                            <div class="pyr-brick pyr-brick--purple">
+                                <div class="pyr-brick-icon">📊</div>
+                                <div class="pyr-brick-name">Sentinel</div>
+                                <div class="pyr-brick-desc">Indices de marché</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pillar-label">Les briques — Modules métier</div>
-                    <h3>5 Digital Workers Achats & Finance</h3>
-                    <p>Litige Killer, Invoice Watchdog, Supplier Watchtower, Sentinel, Cockpit DAF. Activez celles dont vous avez besoin. Extensible vers Qualité & Supply Chain.</p>
-                    <span class="pillar-tag pillar-tag--blue">Achats & Finance</span>
-                </div>
-                <div class="pillar pillar--star reveal reveal-delay-3">
-                    <div class="pillar-icon pillar-icon--purple">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17l-5.658 3.286a.75.75 0 01-1.087-.826l1.51-6.316-4.9-4.257a.75.75 0 01.427-1.316l6.486-.547 2.554-6.04a.75.75 0 011.372 0l2.554 6.04 6.486.547a.75.75 0 01.427 1.316l-4.9 4.257 1.51 6.316a.75.75 0 01-1.087.826l-5.658-3.286z"/></svg>
+                    <!-- Future bricks row -->
+                    <div class="pyr-mid-label"><span>Extensible — prochaines briques</span></div>
+                    <div class="pyr-row">
+                        <div class="pyr-mid">
+                            <div class="pyr-brick pyr-brick--ghost pyr-brick--green">
+                                <div class="pyr-brick-icon">🔬</div>
+                                <div class="pyr-brick-name">Qualité</div>
+                                <div class="pyr-brick-desc">QC réception & production</div>
+                            </div>
+                            <div class="pyr-brick pyr-brick--ghost pyr-brick--blue">
+                                <div class="pyr-brick-icon">🚛</div>
+                                <div class="pyr-brick-name">Supply Chain</div>
+                                <div class="pyr-brick-desc">Flux & logistique</div>
+                            </div>
+                            <div class="pyr-brick pyr-brick--ghost pyr-brick--amber">
+                                <div class="pyr-brick-icon">🌱</div>
+                                <div class="pyr-brick-name">Carbone</div>
+                                <div class="pyr-brick-desc">Scope 3 Catégorie 1</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="pillar-label">Le montage — Sans code</div>
-                    <h3>Configuration en 5 jours</h3>
-                    <p>Ajouter une règle, un indice, un objectif = modifier un fichier. Pas une ligne de code. Votre IT configure un export ERP en 30 minutes — on gère le reste.</p>
-                    <span class="pillar-tag pillar-tag--purple">Pas de projet IT</span>
+
+                    <!-- Connector -->
+                    <div class="pyr-connector"><div class="pyr-line" style="height: 24px; background: linear-gradient(180deg, rgba(59,130,246,0.3), rgba(16,185,129,0.4));"></div></div>
+
+                    <!-- BOTTOM: Socle commun -->
+                    <div class="pyr-row">
+                        <div class="pyr-base">
+                            <div class="pyr-base-label">🏗️ Socle commun — Data Vault</div>
+                            <h3>Infrastructure Zero-Copy</h3>
+                            <p>Un seul point d'ingestion pour tous vos documents. L'IA classe et indexe automatiquement. Les données restent sur votre SharePoint — aucune copie chez Kanso. Jamais.</p>
+                            <div class="pyr-base-engines">
+                                <span class="pyr-engine pyr-engine--g">Extracteur</span>
+                                <span class="pyr-engine pyr-engine--b">Comparateur</span>
+                                <span class="pyr-engine pyr-engine--r">Gardien</span>
+                                <span class="pyr-engine pyr-engine--a">Relanceur</span>
+                                <span class="pyr-engine pyr-engine--p">Vigie</span>
+                            </div>
+                            <div class="pyr-base-security">
+                                <span class="pyr-sec-tag">🔒 Zero-Copy</span>
+                                <span class="pyr-sec-tag">🛡️ RGPD natif</span>
+                                <span class="pyr-sec-tag">⚡ IA Act 2026</span>
+                                <span class="pyr-sec-tag">🏗️ 1 instance / client</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="reveal" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem 2.5rem; max-width: 800px; margin: 3rem auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                <div>
-                    <div style="font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); margin-bottom: 0.5rem;">🔒 Souveraineté</div>
-                    <p style="font-size: 0.82rem; color: var(--white-muted); line-height: 1.6;">1 instance isolée par client. Chiffrement TLS 1.3. Audits mensuels automatiques. Vos données ne quittent jamais votre SharePoint.</p>
-                </div>
-                <div>
-                    <div style="font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); margin-bottom: 0.5rem;">🛡️ Conforme IA Act 2026</div>
-                    <p style="font-size: 0.82rem; color: var(--white-muted); line-height: 1.6;">Registre IA intégré. Traçabilité complète. Validation humaine obligatoire sur les décisions critiques. On ne touche pas à votre ERP.</p>
+
+                <!-- Nota bene -->
+                <div style="text-align: center; margin-top: 1.5rem; font-size: 0.72rem; color: var(--white-dim);">
+                    Chaque brique s'active indépendamment. Ajouter un module = modifier un fichier de configuration. Pas de code, pas de consultant, pas de projet IT de 6 mois. <strong style="color: var(--white-muted);">Opérationnel en 5 jours.</strong>
                 </div>
             </div>
         </div>
@@ -1400,4 +1549,14 @@
             else{el.style.textShadow='0 0 40px var(--green-glow)';}
         }
         window.setRoiConf=function(btn){
-            document.querySelectorAll('.roi-conf-btn').forEach(function(b){b.classList.remove('act
+            document.querySelectorAll('.roi-conf-btn').forEach(function(b){b.classList.remove('active');});
+            btn.classList.add('active');
+            roiConf=btn.dataset.value;
+            calcROI();
+        };
+        [rsT,rsH,rsX,rsF].forEach(function(s){ if(s) s.addEventListener('input',calcROI); });
+        calcROI();
+    })();
+    </script>
+</body>
+</html>
