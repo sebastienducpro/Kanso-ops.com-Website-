@@ -8,7 +8,7 @@
     <!-- [EDIT] Titre du site (onglet navigateur + Google) -->
     <title>Ressources | Kanso-Ops — guides pratiques pour décider et automatiser juste</title>
     <!-- [EDIT] Description Google (max ~155 caractères) -->
-    <meta name="description" content="Guides et analyses pour dirigeants industriels : décider où l'automatisation a du sens, cadrer l'usage de l'IA et éviter de créer une usine à gaz.">
+    <meta name="description" content="Notes, guides et veille terrain pour dirigeants industriels : décider où l'automatisation a du sens, cadrer l'usage de l'IA et éviter de créer une usine à gaz.">
     <meta name="author" content="Sébastien Duc — Kanso-Ops">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://kanso-ops.com/ressources.html">
@@ -26,7 +26,7 @@
     <!-- [EDIT] Titre social preview -->
     <meta property="og:title" content="Ressources | Kanso-Ops — guides pratiques pour décider et automatiser juste">
     <!-- [EDIT] Description social preview -->
-    <meta property="og:description" content="Guides et analyses pour dirigeants industriels : décider où l'automatisation a du sens, cadrer l'usage de l'IA et éviter de créer une usine à gaz.">
+    <meta property="og:description" content="Notes, guides et veille terrain pour dirigeants industriels : décider où l'automatisation a du sens, cadrer l'usage de l'IA et éviter de créer une usine à gaz.">
     <meta property="og:image" content="https://kanso-ops.com/images/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -38,7 +38,7 @@
     <!-- ═══ TWITTER CARD ═══ -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ressources | Kanso-Ops — guides pratiques pour décider et automatiser juste">
-    <meta name="twitter:description" content="Guides et analyses pour dirigeants industriels : décider où l'automatisation a du sens, cadrer l'usage de l'IA et éviter de créer une usine à gaz.">
+    <meta name="twitter:description" content="Notes, guides et veille terrain pour dirigeants industriels : décider où l'automatisation a du sens, cadrer l'usage de l'IA et éviter de créer une usine à gaz.">
     <meta name="twitter:image" content="https://kanso-ops.com/images/og-image.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -129,7 +129,8 @@
         .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
         .nav-links a { color: var(--white-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
         .nav-links a:hover { color: var(--purple); }
-        .nav-links a.active { color: var(--purple); }
+        .nav-links a.active-page,
+        .nav-links a.active { color: var(--white); }
         .nav-cta {
             padding: 0.55rem 1.4rem !important;
             background: linear-gradient(135deg, var(--purple) 0%, #7c3aed 100%) !important;
@@ -333,13 +334,12 @@
     <!-- ═══ NAV ═══ -->
     <nav>
         <div class="container">
-            <a href="index.html" class="logo">KANSO<span>.</span>OPS</a>
+            <a href="/" class="logo">KANSO<span>.</span>OPS</a>
             <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="produit.html">Produit</a></li>
-                <li><a href="cas-usage.html">Cas d'usage</a></li>
-                <li><a href="ressources.html" class="active-page">Ressources</a></li>
-                <li><a href="index.html#contact" class="nav-cta">Diagnostic flash gratuit</a></li>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/cas-usage.html">Cas d'usage</a></li>
+                <li><a href="/ressources.html" class="active-page">Ressources</a></li>
+                <li><a href="/score/" class="nav-cta">Score gratuit</a></li>
             </ul>
             <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
         </div>
@@ -348,9 +348,9 @@
     <!-- ═══ PAGE HERO ═══ -->
     <section class="page-hero">
         <div class="container">
-            <div class="badge badge--green">Guides et analyses</div>
+            <div class="badge badge--green">Guides, veille et retours terrain</div>
             <h1>Comprendre pour mieux <em>décider.</em></h1>
-            <p>Quelques repères pour décider où l'automatisation a du sens, cadrer l'usage de l'IA et éviter de créer une usine à gaz dans votre organisation.</p>
+            <p>Cette rubrique a vocation à devenir le média de Kanso-Ops : notes terrain, décryptages simples, signaux utiles et retours d'expérience pour décider où automatiser sans complexifier votre organisation.</p>
         </div>
     </section>
 
