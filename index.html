@@ -473,15 +473,15 @@
         <div class="container">
             <div class="hero-layout">
                 <div class="hero-content">
-                    <div class="badge">PME industrielles · on relie l'existant</div>
-                    <h1>On connecte l'existant.<br><em>Vous pilotez plus vite.</em></h1>
-                    <p class="hero-sub">Kanso-Ops relie vos fichiers, vos relances, vos statuts et vos suivis pour vous redonner une vue simple de l'activité. Moins de temps perdu à chercher, ressaisir et relancer. Plus de fluidité dans les opérations, plus de visibilité pour décider, et moins de marge qui fuit dans le quotidien.</p>
+                    <div class="badge">PME industrielles · moins de charge, plus de contrôle</div>
+                    <h1>Vos équipes courent après les suivis.<br><em>Kanso les remet sous contrôle.</em></h1>
+                    <p class="hero-sub">Kanso-Ops relie vos fichiers, vos mails, votre ERP et vos dossiers partagés pour fiabiliser les relances, les litiges, les devis et les suivis fournisseurs. Moins de ressaisie, moins d'oublis, moins de marge perdue dans le quotidien.</p>
                     <a href="/score/" class="hero-cta">
                         Recevoir mon score gratuit
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" /></svg>
                     </a>
                     <div class="hero-proof">
-                        <span>On s'appuie sur ce que vous utilisez déjà</span>
+                        <span>Pas besoin d'être une grosse boîte pour s'y mettre</span>
                         <div class="proof-logos">
                             <span>Excel</span>
                             <div class="proof-separator"></div>
@@ -988,216 +988,41 @@
 
     
 
-    <!-- ═══ ARCHITECTURE PYRAMIDE ═══ -->
-    <section id="architecture" style="padding: 6rem 0; border-top: 1px solid var(--border); position: relative;">
+    <!-- ═══ MÉTHODE SIMPLE ═══ -->
+    <section class="pillars" id="architecture">
         <div class="container">
             <div class="pillars-header reveal">
-                <div class="section-label">L'architecture Kanso</div>
-                <h2>Pensée comme un jeu de <em>LEGO</em></h2>
-                <p>Un socle solide, des briques métier configurables, et une vue de pilotage simple pour suivre l'essentiel.</p>
+                <div class="section-label">La méthode Kanso</div>
+                <h2>Une première brique utile.<br><em>Puis seulement la suite.</em></h2>
+                <p>On commence par le suivi qui déborde le plus. Une fois le résultat visible, on étend seulement ce qui apporte un vrai gain à l'équipe.</p>
             </div>
-
-            <!-- PYRAMIDE -->
-            <div class="reveal" style="max-width: 800px; margin: 0 auto;">
-                <style>
-                    .pyramid { position: relative; width: 100%; padding-bottom: 2rem; }
-                    .pyr-row { display: flex; justify-content: center; margin-bottom: 0.5rem; position: relative; z-index: 1; }
-
-                    /* Top: Cockpit */
-                    .pyr-top {
-                        width: 280px; padding: 1.4rem 1.5rem; text-align: center;
-                        background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(139,92,246,0.04));
-                        border: 1.5px solid rgba(139,92,246,0.35); border-radius: var(--radius-md);
-                        position: relative; cursor: default; transition: all 0.3s;
-                    }
-                    .pyr-top:hover { border-color: rgba(139,92,246,0.6); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(139,92,246,0.15); }
-                    .pyr-top::before { content: ''; position: absolute; top: -1px; left: -1px; right: -1px; height: 3px; background: linear-gradient(90deg, #8b5cf6, #a78bfa); border-radius: var(--radius-md) var(--radius-md) 0 0; }
-                    .pyr-top-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.03em; text-transform: none; color: #a78bfa; margin-bottom: 0.4rem; }
-                    .pyr-top h3 { font-size: 1rem; font-weight: 800; margin-bottom: 0.25rem; }
-                    .pyr-top p { font-size: 0.72rem; color: var(--white-muted); line-height: 1.45; }
-
-                    /* Connector lines */
-                    .pyr-connector { display: flex; justify-content: center; margin: 0.3rem 0; }
-                    .pyr-line { width: 2px; height: 20px; background: linear-gradient(180deg, rgba(139,92,246,0.4), rgba(59,130,246,0.4)); border-radius: 2px; }
-                    .pyr-lines-down { display: flex; justify-content: center; gap: 80px; margin: 0.2rem 0; }
-                    .pyr-line-branch { width: 2px; height: 16px; border-radius: 2px; }
-                    .pyr-line-branch:nth-child(1) { background: rgba(59,130,246,0.3); }
-                    .pyr-line-branch:nth-child(2) { background: rgba(16,185,129,0.3); }
-                    .pyr-line-branch:nth-child(3) { background: rgba(245,158,11,0.3); }
-
-                    /* Middle: Briques métier */
-                    .pyr-mid { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
-                    .pyr-brick {
-                        padding: 0.9rem 1.1rem; text-align: center; width: 150px;
-                        background: var(--bg-card); border: 1px solid var(--border);
-                        border-radius: var(--radius-sm); cursor: default; transition: all 0.3s;
-                        position: relative; overflow: hidden;
-                    }
-                    .pyr-brick:hover { border-color: var(--border-hover); transform: translateY(-2px); }
-                    .pyr-brick-icon { font-size: 1.2rem; margin-bottom: 0.3rem; }
-                    .pyr-brick-name { font-size: 0.72rem; font-weight: 700; margin-bottom: 0.15rem; }
-                    .pyr-brick-desc { font-size: 0.6rem; color: var(--white-muted); line-height: 1.3; }
-                    .pyr-brick--blue { border-color: rgba(59,130,246,0.2); }
-                    .pyr-brick--blue:hover { border-color: rgba(59,130,246,0.5); box-shadow: 0 4px 15px rgba(59,130,246,0.1); }
-                    .pyr-brick--blue .pyr-brick-name { color: #60a5fa; }
-                    .pyr-brick--green { border-color: rgba(16,185,129,0.2); }
-                    .pyr-brick--green:hover { border-color: rgba(16,185,129,0.5); box-shadow: 0 4px 15px rgba(16,185,129,0.1); }
-                    .pyr-brick--green .pyr-brick-name { color: #34d399; }
-                    .pyr-brick--amber { border-color: rgba(245,158,11,0.2); }
-                    .pyr-brick--amber:hover { border-color: rgba(245,158,11,0.5); box-shadow: 0 4px 15px rgba(245,158,11,0.1); }
-                    .pyr-brick--amber .pyr-brick-name { color: #fbbf24; }
-                    .pyr-brick--red { border-color: rgba(239,68,68,0.2); }
-                    .pyr-brick--red:hover { border-color: rgba(239,68,68,0.5); box-shadow: 0 4px 15px rgba(239,68,68,0.1); }
-                    .pyr-brick--red .pyr-brick-name { color: #f87171; }
-                    .pyr-brick--purple { border-color: rgba(139,92,246,0.2); }
-                    .pyr-brick--purple:hover { border-color: rgba(139,92,246,0.5); box-shadow: 0 4px 15px rgba(139,92,246,0.1); }
-                    .pyr-brick--purple .pyr-brick-name { color: #a78bfa; }
-
-                    /* Ghost bricks (future modules) */
-                    .pyr-brick--ghost { border-style: dashed; opacity: 0.5; }
-                    .pyr-brick--ghost:hover { opacity: 0.75; }
-
-                    /* Middle label row */
-                    .pyr-mid-label { text-align: center; margin: 0.6rem 0 0.3rem; }
-                    .pyr-mid-label span { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.03em; text-transform: none; color: var(--white-dim); }
-
-                    /* Bottom: Socle */
-                    .pyr-base {
-                        width: 100%; padding: 1.5rem 2rem; text-align: center;
-                        background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(16,185,129,0.02));
-                        border: 1.5px solid rgba(16,185,129,0.25); border-radius: var(--radius-lg);
-                        position: relative; cursor: default; transition: all 0.3s;
-                    }
-                    .pyr-base:hover { border-color: rgba(16,185,129,0.5); box-shadow: 0 8px 30px rgba(16,185,129,0.1); }
-                    .pyr-base::before { content: ''; position: absolute; bottom: -1px; left: -1px; right: -1px; height: 3px; background: linear-gradient(90deg, var(--green), #34d399, var(--green)); border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
-                    .pyr-base-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.03em; text-transform: none; color: var(--green-bright); margin-bottom: 0.5rem; }
-                    .pyr-base h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.3rem; }
-                    .pyr-base p { font-size: 0.78rem; color: var(--white-muted); line-height: 1.5; max-width: 520px; margin: 0 auto; }
-                    .pyr-base-engines { display: flex; justify-content: center; gap: 0.8rem; margin-top: 0.8rem; flex-wrap: wrap; }
-                    .pyr-engine { font-size: 0.6rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px; letter-spacing: 0.04em; }
-                    .pyr-engine--g { background: var(--green-dim); color: var(--green-bright); }
-                    .pyr-engine--b { background: rgba(59,130,246,0.1); color: #60a5fa; }
-                    .pyr-engine--r { background: rgba(239,68,68,0.1); color: #f87171; }
-                    .pyr-engine--a { background: rgba(245,158,11,0.1); color: #fbbf24; }
-                    .pyr-engine--p { background: rgba(139,92,246,0.1); color: #a78bfa; }
-
-                    .pyr-base-security { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem; }
-                    .pyr-sec-tag { font-size: 0.58rem; font-weight: 600; color: var(--white-dim); display: flex; align-items: center; gap: 0.3rem; }
-
-                    @media (max-width: 768px) {
-                        .pyr-top { width: 90%; }
-                        .pyr-brick { width: 130px; padding: 0.7rem 0.8rem; }
-                        .pyr-lines-down { gap: 40px; }
-                        .pyr-base-engines { gap: 0.4rem; }
-                    }
-                </style>
-
-                <div class="pyramid">
-                    <!-- TOP: Cockpit -->
-                    <div class="pyr-row">
-                        <div class="pyr-top">
-                            <div class="pyr-top-label">🎯 Vous pilotez ici</div>
-                            <h3>Vue dirigeant</h3>
-                            <p>Votre vue unifiée. KPIs, écarts, relances, risques et points bloquants remontent ici. Vous décidez, les modules exécutent le travail répétitif.</p>
-                        </div>
+            <div class="pillars-grid">
+                <div class="pillar reveal reveal-delay-1">
+                    <div class="pillar-icon pillar-icon--blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5m-16.5 5.25h16.5m-16.5 5.25h10.5" /></svg>
                     </div>
-
-                    <!-- Connector -->
-                    <div class="pyr-connector"><div class="pyr-line"></div></div>
-
-                    <!-- MIDDLE: Briques métier personnalisables -->
-                    <div class="pyr-mid-label"><span>Vos briques métier — construites sur mesure pour votre entreprise</span></div>
-                    <div class="pyr-row">
-                        <div class="pyr-mid">
-                            <div class="pyr-brick pyr-brick--blue">
-                                <div class="pyr-brick-icon">⚔️</div>
-                                <div class="pyr-brick-name">Litige Killer</div>
-                                <div class="pyr-brick-desc">Vos règles de détection, vos seuils, vos fournisseurs</div>
-                            </div>
-                            <div class="pyr-brick pyr-brick--red">
-                                <div class="pyr-brick-icon">🔍</div>
-                                <div class="pyr-brick-name">Invoice Watchdog</div>
-                                <div class="pyr-brick-desc">Vos contrats, vos grilles tarifaires, vos workflows de validation</div>
-                            </div>
-                            <div class="pyr-brick pyr-brick--amber">
-                                <div class="pyr-brick-icon">📡</div>
-                                <div class="pyr-brick-name">Watchtower</div>
-                                <div class="pyr-brick-desc">Votre panel, vos certifs, vos critères de scoring</div>
-                            </div>
-                            <div class="pyr-brick pyr-brick--purple">
-                                <div class="pyr-brick-icon">📊</div>
-                                <div class="pyr-brick-name">Sentinel</div>
-                                <div class="pyr-brick-desc">Vos indices, vos clauses de révision, vos catégories d'achat</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Customization note -->
-                    <div style="text-align:center; margin: 0.8rem 0 0.5rem;">
-                        <div style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; color: var(--white-muted); background: var(--bg-card); border: 1px solid var(--border); border-radius: 9999px; padding: 0.4rem 1rem;">
-                            <span style="color: var(--green);">⚙️</span> Les 5 moteurs sont communs. La configuration est unique à chaque entreprise.
-                        </div>
-                    </div>
-                    <!-- Future bricks row -->
-                    <div class="pyr-mid-label"><span>Extensible selon vos besoins — prochains domaines</span></div>
-                    <div class="pyr-row">
-                        <div class="pyr-mid">
-                            <div class="pyr-brick pyr-brick--ghost pyr-brick--green">
-                                <div class="pyr-brick-icon">🔬</div>
-                                <div class="pyr-brick-name">Qualité</div>
-                                <div class="pyr-brick-desc">QC réception & production</div>
-                            </div>
-                            <div class="pyr-brick pyr-brick--ghost pyr-brick--blue">
-                                <div class="pyr-brick-icon">🚛</div>
-                                <div class="pyr-brick-name">Supply Chain</div>
-                                <div class="pyr-brick-desc">Flux & logistique</div>
-                            </div>
-                            <div class="pyr-brick pyr-brick--ghost pyr-brick--amber">
-                                <div class="pyr-brick-icon">🌱</div>
-                                <div class="pyr-brick-name">Carbone</div>
-                                <div class="pyr-brick-desc">Scope 3 Catégorie 1</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Connector -->
-                    <div class="pyr-connector"><div class="pyr-line" style="height: 24px; background: linear-gradient(180deg, rgba(59,130,246,0.3), rgba(16,185,129,0.4));"></div></div>
-
-                    <!-- BOTTOM: Socle — IT Confidence -->
-                    <div class="pyr-row">
-                        <div class="pyr-base">
-                            <div class="pyr-base-label">🏗️ Socle commun — Data Vault</div>
-                            <h3>Votre infrastructure. Vos serveurs. Notre technologie.</h3>
-                            <p>Toutes les briques reposent sur le même socle sécurisé. Un seul point d'ingestion, classification IA automatique, 5 moteurs d'exécution partagés. Les données ne sortent jamais de chez vous.</p>
-                            <div class="pyr-base-engines">
-                                <span class="pyr-engine pyr-engine--g">Extracteur</span>
-                                <span class="pyr-engine pyr-engine--b">Comparateur</span>
-                                <span class="pyr-engine pyr-engine--r">Gardien</span>
-                                <span class="pyr-engine pyr-engine--a">Relanceur</span>
-                                <span class="pyr-engine pyr-engine--p">Vigie</span>
-                            </div>
-                            <!-- Security shield: IT confidence -->
-                            <div style="margin-top: 1.2rem; padding: 1rem 1.2rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(16,185,129,0.15); border-radius: var(--radius-sm);">
-                                <div style="font-size: 0.62rem; font-weight: 700; letter-spacing: 0.03em; color: var(--green-bright); margin-bottom: 0.6rem; text-align: center;">Conçu pour rassurer votre DSI</div>
-                                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem;">
-                                    <span class="pyr-sec-tag">🔒 Zero-Copy</span>
-                                    <span class="pyr-sec-tag">🇫🇷 Hébergé en France</span>
-                                    <span class="pyr-sec-tag">🔐 Chiffrement TLS 1.3</span>
-                                    <span class="pyr-sec-tag">🏗️ 1 instance / client</span>
-                                    <span class="pyr-sec-tag">🔑 Authentification chiffrée</span>
-                                    <span class="pyr-sec-tag">🛡️ RGPD natif</span>
-                                    <span class="pyr-sec-tag">⚖️ Gouvernance IA cadrée</span>
-                                    <span class="pyr-sec-tag">📋 Audits mensuels auto</span>
-                                    <span class="pyr-sec-tag">🚫 Zéro cloud public</span>
-                                    <span class="pyr-sec-tag">🗄️ SharePoint client uniquement</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="pillar-label">01 — Partir du réel</div>
+                    <h3>On garde vos outils et vos habitudes utiles</h3>
+                    <p>Le point de départ n'est pas un système parfait. C'est votre réalité: Excel, mails, ERP simple, dossiers partagés, relances manuelles. On regarde où le suivi casse et où l'argent fuit.</p>
+                    <span class="pillar-tag pillar-tag--blue">Pas d'usine à gaz</span>
                 </div>
-
-                <!-- Nota bene -->
-                <div style="text-align: center; margin-top: 1.5rem; font-size: 0.72rem; color: var(--white-dim);">
-                    Chaque brique s'active indépendamment. Pas de projet IT de 6 mois, pas d'usine à gaz. <strong style="color: var(--white-muted);">Cadrage → paramétrage → mise en service rapide.</strong>
+                <div class="pillar reveal reveal-delay-2">
+                    <div class="pillar-icon pillar-icon--purple">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                    </div>
+                    <div class="pillar-label">02 — Poser une première brique</div>
+                    <h3>Un besoin clair, un module bien cadré</h3>
+                    <p>Relances, litiges, devis, accusés de réception, suivi fournisseurs ou veille marché: on choisit un seul sujet, on le rend fiable, puis on mesure le soulagement opérationnel obtenu.</p>
+                    <span class="pillar-tag pillar-tag--purple">Un besoin, un module</span>
+                </div>
+                <div class="pillar pillar--star reveal reveal-delay-3">
+                    <div class="pillar-icon pillar-icon--green">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 15.75L9 10.5l3.75 3.75L20.25 6.75" /><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6.75h3.75V10.5" /></svg>
+                    </div>
+                    <div class="pillar-label">03 — Étendre si la valeur est prouvée</div>
+                    <h3>On ajoute ensuite seulement ce qui sert vraiment</h3>
+                    <p>Quand la première brique fonctionne, on peut brancher la suivante côté achats, opérations, commerce ou finance. Même logique, même cadre, même recherche de simplicité.</p>
+                    <span class="pillar-tag pillar-tag--green">Croissance mesurée</span>
                 </div>
             </div>
         </div>
