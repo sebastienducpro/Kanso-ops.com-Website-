@@ -47,7 +47,7 @@
         .badge {
             display: inline-flex; align-items: center; gap: 0.4rem;
             padding: 0.35rem 0.9rem; border-radius: 9999px;
-            font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+            font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em; text-transform: none;
             background: var(--green-dim); color: var(--green);
             border: 1px solid rgba(16, 185, 129, 0.25);
         }
@@ -59,8 +59,8 @@
         @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
         .section-label {
-            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
-            text-transform: uppercase; color: var(--purple); margin-bottom: 1.5rem;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.03em;
+            text-transform: none; color: var(--purple); margin-bottom: 1.5rem;
         }
 
         /* NAV */
@@ -134,7 +134,7 @@
         .hero-proof { display: flex; align-items: center; gap: 1.2rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
         .hero-proof > span { font-size: 0.78rem; color: var(--white-muted); }
         .proof-logos { display: flex; align-items: center; gap: 1.5rem; }
-        .proof-logos span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white-dim); }
+        .proof-logos span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em; text-transform: none; color: var(--white-dim); }
         .proof-separator { width: 1px; height: 16px; background: rgba(255,255,255,0.12); }
 
         /* PAIN */
@@ -173,7 +173,7 @@
         .pillar-icon--purple svg { color: #a78bfa; }
         .pillar-icon--blue svg { color: #60a5fa; }
         .pillar-icon--green svg { color: var(--green-bright); }
-        .pillar-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-muted); margin-bottom: 0.6rem; }
+        .pillar-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.03em; text-transform: none; color: var(--white-muted); margin-bottom: 0.6rem; }
         .pillar h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.01em; }
         .pillar p { font-size: 0.88rem; color: var(--white-muted); line-height: 1.65; }
         .pillar-tag { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 1.5rem; font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.7rem; border-radius: 9999px; }
@@ -209,7 +209,7 @@
         .cm-dot:nth-child(1) { background: #FF5F57; }
         .cm-dot:nth-child(2) { background: #FEBC2E; }
         .cm-dot:nth-child(3) { background: var(--green); }
-        .cm-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-muted); }
+        .cm-title { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.03em; text-transform: none; color: var(--white-muted); }
         .cm-status { display: flex; align-items: center; gap: 0.35rem; font-size: 0.6rem; color: var(--green); font-weight: 600; }
         .cm-status::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--green); animation: pulse-dot 2s infinite; }
 
@@ -219,11 +219,11 @@
         .cm-kpi-value--green { color: var(--green-bright); }
         .cm-kpi-value--purple { color: #a78bfa; }
         .cm-kpi-value--blue { color: #60a5fa; }
-        .cm-kpi-label { font-size: 0.55rem; color: var(--white-muted); margin-top: 0.1rem; text-transform: uppercase; letter-spacing: 0.04em; }
+        .cm-kpi-label { font-size: 0.58rem; color: var(--white-muted); margin-top: 0.1rem; text-transform: none; letter-spacing: 0.02em; }
 
         .cm-charts { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1rem; }
         .cm-chart { background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; }
-        .cm-chart-title { font-size: 0.6rem; color: var(--white-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.8rem; font-weight: 600; }
+        .cm-chart-title { font-size: 0.62rem; color: var(--white-muted); text-transform: none; letter-spacing: 0.02em; margin-bottom: 0.8rem; font-weight: 600; }
         .cm-bars { display: flex; align-items: flex-end; gap: 4px; height: 60px; }
         .cm-bar { flex: 1; border-radius: 3px 3px 0 0; transition: all 0.3s; min-width: 8px; }
         .cm-bar--purple { background: linear-gradient(to top, rgba(139,92,246,0.3), rgba(139,92,246,0.7)); }
@@ -293,7 +293,7 @@
         .dm-dot:nth-child(1) { background: #FF5F57; }
         .dm-dot:nth-child(2) { background: #FEBC2E; }
         .dm-dot:nth-child(3) { background: var(--green); }
-        .dm-title { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-muted); }
+        .dm-title { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.02em; text-transform: none; color: var(--white-muted); }
         .dm-status { display: flex; align-items: center; gap: 0.35rem; font-size: 0.6rem; font-weight: 600; }
         .dm-status::before { content: ''; width: 5px; height: 5px; border-radius: 50%; animation: pulse-dot 2s infinite; }
 
@@ -315,10 +315,10 @@
         .dm-card:nth-child(4) { animation-delay: 0.35s; }
         .dm-card:nth-child(5) { animation-delay: 0.45s; }
         @keyframes dmSlideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-        .dm-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white-dim); margin-bottom: 0.25rem; }
+        .dm-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.02em; text-transform: none; color: var(--white-dim); margin-bottom: 0.25rem; }
         .dm-value { font-size: 0.82rem; font-weight: 600; color: var(--white); }
         .dm-badge {
-            display: inline-flex; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+            display: inline-flex; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.02em; text-transform: none;
             padding: 0.2rem 0.55rem; border-radius: 9999px;
         }
         .dm-topbar {
@@ -332,7 +332,7 @@
         .dm-grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
         .dm-stat { text-align: center; padding: 0.7rem; background: rgba(0,0,0,0.15); border: 1px solid var(--border); border-radius: var(--radius-sm); }
         .dm-stat-val { font-size: 1.2rem; font-weight: 900; }
-        .dm-stat-lbl { font-size: 0.52rem; color: var(--white-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.1rem; }
+        .dm-stat-lbl { font-size: 0.54rem; color: var(--white-muted); text-transform: none; letter-spacing: 0.02em; margin-top: 0.1rem; }
         .dm-bar-wrap { flex: 1; height: 4px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
         .dm-bar-fill { height: 100%; border-radius: 4px; width: 0; }
         .dm-bar-fill.animate { animation: dmFillBar 1.2s ease forwards; }
@@ -442,7 +442,7 @@
         .audit-items li svg { flex-shrink: 0; width: 18px; height: 18px; color: var(--green); margin-top: 2px; }
         .audit-promise { font-size: 0.82rem; color: var(--white-muted); font-style: italic; padding-top: 1rem; border-top: 1px solid var(--border); }
         .audit-pricing { text-align: center; position: relative; z-index: 1; }
-        .audit-price-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-muted); margin-bottom: 0.5rem; }
+        .audit-price-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; text-transform: none; color: var(--white-muted); margin-bottom: 0.5rem; }
         .audit-price { font-size: 4rem; font-weight: 900; letter-spacing: -0.04em; color: var(--white); line-height: 1; }
         .audit-price sup { font-size: 0.4em; vertical-align: super; color: var(--white-muted); }
         .audit-duration { font-size: 0.85rem; color: var(--white-muted); margin-top: 0.4rem; margin-bottom: 2rem; }
@@ -475,7 +475,7 @@
         .about-quote { font-family: var(--font-serif); font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-style: italic; line-height: 1.45; margin-bottom: 1.5rem; color: var(--white); padding-left: 1.5rem; border-left: 2px solid var(--purple); }
         .about-bio { font-size: 0.92rem; color: var(--white-muted); line-height: 1.7; margin-bottom: 2.5rem; }
         .about-logos { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
-        .about-logos span { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white-dim); padding: 0.45rem 0.9rem; border: 1px solid var(--border); border-radius: var(--radius-sm); transition: all 0.2s; }
+        .about-logos span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em; text-transform: none; color: var(--white-dim); padding: 0.45rem 0.9rem; border: 1px solid var(--border); border-radius: var(--radius-sm); transition: all 0.2s; }
         .about-logos span:hover { border-color: var(--border-hover); color: var(--white-muted); }
         .about-linkedin { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-size: 0.82rem; font-weight: 600; color: var(--purple); text-decoration: none; transition: color 0.2s; }
         .about-linkedin:hover { color: #a78bfa; }
@@ -509,7 +509,7 @@
         .contact-form { display: flex; flex-direction: column; gap: 1.2rem; position: relative; z-index: 1; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-        .form-group label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white-muted); }
+        .form-group label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; text-transform: none; color: var(--white-muted); }
         .form-group input, .form-group textarea, .form-group select {
             background: rgba(0,0,0,0.25); border: 1px solid var(--border); border-radius: var(--radius-sm);
             padding: 0.8rem 1rem; color: var(--white); font-family: var(--font-sans); font-size: 0.88rem;
@@ -619,7 +619,7 @@
         .roi-slider-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.6rem; }
         .roi-slider-name {
             font-size: 0.75rem; font-weight: 600; color: var(--white-muted);
-            text-transform: uppercase; letter-spacing: 0.06em;
+            text-transform: none; letter-spacing: 0.02em;
         }
         .roi-slider-val {
             font-size: 1rem; font-weight: 700; font-variant-numeric: tabular-nums; transition: color 0.2s;
@@ -669,7 +669,7 @@
         .roi-confidence { margin-bottom: 2rem; }
         .roi-conf-label {
             font-size: 0.75rem; font-weight: 600; color: var(--white-muted);
-            text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem;
+            text-transform: none; letter-spacing: 0.02em; margin-bottom: 0.75rem;
         }
         .roi-conf-options { display: flex; gap: 0.6rem; }
         .roi-conf-btn {
@@ -694,8 +694,8 @@
         /* Results */
         .roi-results { text-align: center; }
         .roi-results-label {
-            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
-            text-transform: uppercase; color: var(--purple); margin-bottom: 0.5rem;
+            font-size: 0.74rem; font-weight: 700; letter-spacing: 0.03em;
+            text-transform: none; color: var(--purple); margin-bottom: 0.5rem;
         }
         .roi-ebitda {
             font-size: 3rem; font-weight: 900; color: var(--green); line-height: 1;
@@ -721,8 +721,8 @@
             pointer-events: none;
         }
         .roi-strategy-title {
-            font-size: 0.7rem; font-weight: 700; color: #f59e0b;
-            text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.4rem;
+            font-size: 0.74rem; font-weight: 700; color: #f59e0b;
+            text-transform: none; letter-spacing: 0.03em; margin-bottom: 0.4rem;
         }
         .roi-strategy-val {
             font-size: 1.8rem; font-weight: 800; color: #f59e0b;
