@@ -108,7 +108,7 @@
         @keyframes fadeInMenu { from { opacity: 0; } to { opacity: 1; } }
 
         /* HERO */
-        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 5rem; position: relative; overflow: hidden; }
+        .hero { min-height: auto; display: block; padding: 8.5rem 0 4.5rem; position: relative; overflow: hidden; }
         .hero::before {
             content: ''; position: absolute; top: -40%; right: -20%; width: 70vw; height: 70vw; border-radius: 50%;
             background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, rgba(16,185,129,0.03) 40%, transparent 70%);

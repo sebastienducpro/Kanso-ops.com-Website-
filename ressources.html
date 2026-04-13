@@ -8,7 +8,7 @@
     <!-- [EDIT] Titre du site (onglet navigateur + Google) -->
     <title>Ressources | KANSO OPS — Intelligence & Gouvernance IA</title>
     <!-- [EDIT] Description Google (max ~155 caractères) -->
-    <meta name="description" content="Analyses et ressources pour naviguer l'ère de l'IA industrielle : IA Act 2026, Shadow IA, et l'industrie agentique. Par Kanso-Ops, Lyon.">
+    <meta name="description" content="Analyses et ressources pour naviguer l'ère de l'IA industrielle : gouvernance, shadow IA et industrie agentique. Par Kanso-Ops, France.">
     <meta name="author" content="Sébastien Duc — Kanso-Ops">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://kanso-ops.com/ressources.html">
@@ -662,7 +662,7 @@
                         La différence Kanso-Ops
                     </h3>
                     <!-- [EDIT] Contenu différence -->
-                    <p>Nos Digital Workers sont souverains : hébergés sur votre infrastructure (Zero-Copy), conformes RGPD et IA Act 2026. Ils sont reliés au Cockpit pour une supervision en temps réel. Vous voyez ce qu'ils font, combien ils récupèrent, et vous gardez le contrôle total. <a href="cas-usage.html#achats" style="color:#22d3ee;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(34,211,238,0.3);">Voir un exemple concret : surveillance du panel fournisseurs →</a></p>
+                    <p>Nos Digital Workers sont souverains : hébergés sur votre infrastructure (Zero-Copy), cadrés dans une logique RGPD et gouvernance IA. Ils sont reliés au Cockpit pour une supervision en temps réel. Vous voyez ce qu'ils font, combien ils récupèrent, et vous gardez le contrôle total. <a href="cas-usage.html#achats" style="color:#22d3ee;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(34,211,238,0.3);">Voir un exemple concret : surveillance du panel fournisseurs →</a></p>
                 </div>
             </div>
 
@@ -696,7 +696,7 @@
                 </a>
             </div>
             <div class="footer-bottom">
-                <span class="footer-copy">© 2026 KANSO-OPS — Lyon, France. Digital Workers, pas logiciels.</span>
+                <span class="footer-copy">© 2026 KANSO-OPS — France. Digital Workers, pas logiciels.</span>
                 <div class="footer-links">
                     <!-- [LINK] LinkedIn personnel -->
                     <a href="https://www.linkedin.com/in/sebastienduc05" target="_blank">LinkedIn</a>
@@ -770,60 +770,5 @@
         });
     </script>
 
-    <!-- ═══════════════════════════════════════════════ -->
-    <!-- 🔒 ANTI-INSPECT PROTECTION                     -->
-    <!-- Mot de passe pour débloquer la console :        -->
-    <!-- rendezlecerveau                                 -->
-    <!-- ═══════════════════════════════════════════════ -->
-    <script>
-    (function(){
-        const _k = 'rendezlecerveau';
-        let _unlocked = false;
-
-        // Block right-click
-        document.addEventListener('contextmenu', function(e) {
-            if (!_unlocked) e.preventDefault();
-        });
-
-        // Block F12, Ctrl+Shift+I/J/C, Ctrl+U
-        document.addEventListener('keydown', function(e) {
-            if (_unlocked) return;
-            if (e.key === 'F12') { e.preventDefault(); return; }
-            if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['I','i','J','j','C','c'].includes(e.key)) { e.preventDefault(); return; }
-            if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U')) { e.preventDefault(); return; }
-        });
-
-        // DevTools detection + console cleaner
-        const _clear = function() {
-            if (_unlocked) return;
-            console.clear();
-            console.log('%c🔒 Console verrouillée — KANSO-OPS', 'color:#8b5cf6;font-size:18px;font-weight:900;');
-            console.log('%cTapez le mot de passe pour débloquer :', 'color:#9ca3af;font-size:13px;');
-        };
-        _clear();
-        setInterval(_clear, 800);
-
-        // Password prompt via console
-        Object.defineProperty(window, '_unlock', {
-            set: function(v) {
-                if (v === _k) {
-                    _unlocked = true;
-                    console.clear();
-                    console.log('%c✅ Console déverrouillée. Bienvenue.', 'color:#10b981;font-size:16px;font-weight:700;');
-                } else {
-                    console.log('%c❌ Mot de passe incorrect.', 'color:#ef4444;font-size:14px;font-weight:600;');
-                }
-            },
-            get: function() { return '🔒'; }
-        });
-
-        // Instructions in console
-        setTimeout(function() {
-            if (!_unlocked) {
-                console.log('%c→ _unlock = "votre_mot_de_passe"', 'color:#fbbf24;font-size:12px;');
-            }
-        }, 1200);
-    })();
-    </script>
 </body>
 </html>

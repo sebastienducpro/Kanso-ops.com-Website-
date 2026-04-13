@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score achats gratuit | KANSO OPS</title>
+    <meta name="description" content="Recevez sous 48h un score de risque achats gratuit pour identifier les principales dérives qui pèsent sur votre marge, même si vous fonctionnez encore beaucoup sous Excel.">
+    <meta name="author" content="Sébastien Duc — Kanso-Ops">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kanso-ops.com/score/">
+    <link rel="alternate" hreflang="fr" href="https://kanso-ops.com/score/">
+
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#0c1222">
+
+    <meta property="og:title" content="Score achats gratuit | KANSO OPS">
+    <meta property="og:description" content="Même si vous fonctionnez encore beaucoup sous Excel, recevez en 48h un premier score de risque achats pour savoir si votre marge fuit.">
+    <meta property="og:image" content="https://kanso-ops.com/images/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Score achats gratuit — Kanso-Ops">
+    <meta property="og:url" content="https://kanso-ops.com/score/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kanso-Ops">
+    <meta property="og:locale" content="fr_FR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Score achats gratuit | KANSO OPS">
+    <meta name="twitter:description" content="Même si vous fonctionnez encore beaucoup sous Excel, recevez en 48h un premier score de risque achats.">
+    <meta name="twitter:image" content="https://kanso-ops.com/images/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/index.css">
+
+    <style>
+        .score-page { padding-top: 5.5rem; }
+        .score-hero {
+            padding: 4.5rem 0 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .score-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 42rem;
+            height: 42rem;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(139,92,246,0.14) 0%, rgba(16,185,129,0.06) 35%, transparent 70%);
+            pointer-events: none;
+        }
+        .score-shell {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .score-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(320px, 420px);
+            gap: 2rem;
+            align-items: center;
+        }
+        .score-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.95rem;
+            border-radius: 999px;
+            border: 1px solid rgba(16,185,129,0.22);
+            background: rgba(16,185,129,0.12);
+            color: var(--green-bright);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1.4rem;
+        }
+        .score-badge::before {
+            content: '';
+            width: 0.45rem;
+            height: 0.45rem;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 10px rgba(16,185,129,0.35);
+        }
+        .score-title {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.06;
+            letter-spacing: -0.035em;
+            margin-bottom: 1.25rem;
+        }
+        .score-title em {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 600;
+            color: var(--amber);
+        }
+        .score-lead {
+            max-width: 700px;
+            color: var(--white-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.8rem;
+        }
+        .score-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .score-primary-btn,
+        .score-secondary-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+        }
+        .score-primary-btn {
+            padding: 1rem 1.4rem;
+            background: linear-gradient(135deg, var(--green), #059669);
+            color: white;
+            box-shadow: 0 8px 30px rgba(16,185,129,0.18);
+        }
+        .score-primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 34px rgba(16,185,129,0.28);
+        }
+        .score-secondary-btn {
+            padding: 0.95rem 1.3rem;
+            color: var(--white);
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+        }
+        .score-secondary-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--border-hover);
+        }
+        .score-actions-note {
+            font-size: 0.82rem;
+            color: var(--white-dim);
+        }
+        .score-mini-proof {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 1.2rem;
+        }
+        .score-pill {
+            padding: 0.55rem 0.8rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+            color: var(--white-muted);
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+        .score-side-card,
+        .score-card,
+        .score-form-card,
+        .score-founder-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+        }
+        .score-side-card {
+            padding: 1.4rem;
+            box-shadow: var(--shadow-lg);
+        }
+        .score-side-card h2 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+        .score-side-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+        .score-side-item {
+            padding: 0.95rem 1rem;
+            border-radius: var(--radius-md);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .score-side-item strong {
+            display: block;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+        .score-side-item span {
+            display: block;
+            color: var(--white-muted);
+            font-size: 0.82rem;
+            line-height: 1.55;
+        }
+        .score-section {
+            padding: 1.5rem 0 4rem;
+        }
+        .score-section-header {
+            max-width: 720px;
+            margin-bottom: 2rem;
+        }
+        .score-section-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 0.85rem;
+        }
+        .score-section h2 {
+            font-size: clamp(1.6rem, 3vw, 2.3rem);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.8rem;
+        }
+        .score-section p {
+            color: var(--white-muted);
+            line-height: 1.7;
+        }
+        .score-proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+        .score-card {
+            padding: 1.4rem;
+        }
+        .score-card-index {
+            font-family: "Space Mono", monospace;
+            font-size: 0.72rem;
+            color: var(--blue);
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+        }
+        .score-card-value {
+            font-family: "Space Mono", monospace;
+            font-size: 1.9rem;
+            color: var(--amber);
+            font-weight: 700;
+            margin-bottom: 0.45rem;
+        }
+        .score-card-title {
+            color: var(--white);
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+        .score-card-desc {
+            color: var(--white-muted);
+            font-size: 0.86rem;
+            line-height: 1.6;
+        }
+        .score-steps {
+            display: grid;
+            gap: 1rem;
+        }
+        .score-step {
+            display: grid;
+            grid-template-columns: 64px 1fr;
+            gap: 1rem;
+            padding: 1.1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .score-step:last-child {
+            border-bottom: none;
+        }
+        .score-step-num {
+            width: 64px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Space Mono", monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--blue);
+            background: rgba(59,130,246,0.08);
+            border: 1px solid rgba(59,130,246,0.16);
+        }
+        .score-step h3 {
+            font-size: 1rem;
+            margin-bottom: 0.35rem;
+        }
+        .score-founder-card {
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            gap: 1rem;
+            align-items: start;
+        }
+        .score-founder-badge {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(139,92,246,0.12);
+            border: 1px solid rgba(139,92,246,0.2);
+            color: var(--purple);
+            font-family: "Space Mono", monospace;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .score-founder-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+        .score-form-wrap {
+            max-width: 560px;
+        }
+        .score-form-card {
+            padding: 1.6rem;
+            box-shadow: var(--shadow-lg);
+        }
+        .score-form-grid {
+            display: grid;
+            gap: 0.9rem;
+        }
+        .score-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.9rem;
+        }
+        .score-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+        .score-field label {
+            font-size: 0.82rem;
+            color: var(--white-muted);
+            font-weight: 600;
+        }
+        .score-field input,
+        .score-field select {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            background: rgba(0,0,0,0.18);
+            color: var(--white);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .score-field input::placeholder {
+            color: var(--white-dim);
+        }
+        .score-field input:focus,
+        .score-field select:focus {
+            border-color: rgba(59,130,246,0.4);
+            box-shadow: 0 0 0 4px rgba(59,130,246,0.08);
+        }
+        .score-field.error input,
+        .score-field.error select {
+            border-color: rgba(239,68,68,0.5);
+            box-shadow: 0 0 0 4px rgba(239,68,68,0.08);
+        }
+        .score-submit {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: none;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, var(--blue), #1d4ed8);
+            color: white;
+            font-size: 0.96rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.25s, opacity 0.25s;
+        }
+        .score-submit:hover {
+            transform: translateY(-2px);
+        }
+        .score-submit:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .score-form-note,
+        .score-form-error {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            text-align: center;
+            color: var(--white-dim);
+        }
+        .score-form-error {
+            color: #f87171;
+        }
+        .score-success {
+            display: none;
+        }
+        .score-success.show {
+            display: block;
+        }
+        .score-success-card {
+            text-align: center;
+            padding: 2rem 1.6rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(16,185,129,0.2);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+        .score-success-mark {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Space Mono", monospace;
+            background: rgba(16,185,129,0.1);
+            border: 1px solid rgba(16,185,129,0.2);
+            color: var(--green-bright);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .score-success-card h3 {
+            font-size: 1.45rem;
+            margin-bottom: 0.8rem;
+        }
+        .score-success-card p {
+            color: var(--white-muted);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .score-success-box {
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            background: rgba(59,130,246,0.08);
+            border: 1px solid rgba(59,130,246,0.16);
+            color: var(--white-muted);
+            text-align: left;
+            font-size: 0.88rem;
+            line-height: 1.65;
+        }
+        .score-footer {
+            padding: 2rem 0 3rem;
+            border-top: 1px solid var(--border);
+            margin-top: 1rem;
+        }
+        .score-footer-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .score-footer-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+        .score-footer-copy {
+            color: var(--white-dim);
+            font-size: 0.82rem;
+        }
+        .score-footer-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .score-footer-links a {
+            color: var(--white-muted);
+            text-decoration: none;
+            font-size: 0.82rem;
+        }
+        .score-footer-links a:hover {
+            color: var(--white);
+        }
+        @media (max-width: 900px) {
+            .score-hero-grid,
+            .score-proof-grid {
+                grid-template-columns: 1fr;
+            }
+            .score-side-card {
+                order: 2;
+            }
+            .score-form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .score-shell { padding: 0 1.25rem; }
+            .score-page { padding-top: 4.8rem; }
+            .score-hero { padding: 3.5rem 0 2rem; }
+            .score-lead { font-size: 0.96rem; }
+            .score-founder-card {
+                grid-template-columns: 1fr;
+            }
+            .score-founder-badge {
+                width: 60px;
+                height: 60px;
+            }
+            .score-step {
+                grid-template-columns: 1fr;
+                gap: 0.7rem;
+            }
+            .score-step-num {
+                width: 56px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/index.html" class="logo">KANSO<span>.</span>OPS</a>
+            <ul class="nav-links">
+                <li><a href="/produit.html">Produit</a></li>
+                <li><a href="/cas-usage.html">Cas d'usage</a></li>
+                <li><a href="/ressources.html">Ressources</a></li>
+                <li><a href="/score/" class="nav-cta">Score Achats Gratuit</a></li>
+            </ul>
+            <button class="mobile-toggle" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="score-page">
+        <section class="score-hero">
+            <div class="score-shell">
+                <div class="score-hero-grid">
+                    <div>
+                        <div class="score-badge">PME industrielles · même si vous êtes encore sur Excel</div>
+                        <h1 class="score-title">Votre marge achats fuit-elle <br><em>sans que vous le sachiez ?</em></h1>
+                        <p class="score-lead">
+                            Vous n'avez pas besoin d'être une grosse structure ni d'avoir un ERP parfait pour commencer. En 48h, KANSO-OPS vous envoie un premier <strong style="color:var(--white);">score de risque achats</strong>
+                            pour faire ressortir les dérives les plus fréquentes de votre contexte: écarts de prix, conditions non appliquées,
+                            erreurs de facturation et zones de vigilance à surveiller en priorité.
+                        </p>
+                        <div class="score-actions">
+                            <a href="#score-form" class="score-primary-btn">Recevoir mon score achats</a>
+                            <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" rel="noopener" class="score-secondary-btn">Parler à Sébastien</a>
+                            <span class="score-actions-note">6 champs · aucun document requis · pas de projet IT à lancer</span>
+                        </div>
+                        <div class="score-mini-proof">
+                            <span class="score-pill">PME & ETI industrielles</span>
+                            <span class="score-pill">Achats 5 à 250 M€ de CA</span>
+                            <span class="score-pill">Première lecture rapide et fiable</span>
+                        </div>
+                    </div>
+
+                    <aside class="score-side-card">
+                        <h2>Ce que vous recevez</h2>
+                        <div class="score-side-list">
+                            <div class="score-side-item">
+                                <strong>3 risques prioritaires</strong>
+                                <span>Les zones d'écart les plus plausibles au regard de votre secteur et de votre fonction.</span>
+                            </div>
+                            <div class="score-side-item">
+                                <strong>1 lecture de potentiel</strong>
+                                <span>Une première estimation de l'intérêt à pousser vers un Flash Audit ou non.</span>
+                            </div>
+                            <div class="score-side-item">
+                                <strong>1 recommandation claire</strong>
+                                <span>Continuer, auditer, ou simplement surveiller. Pas de blabla, une orientation utile.</span>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="score-section">
+            <div class="score-shell">
+                <div class="score-section-header">
+                    <div class="score-section-label">Résultats constatés</div>
+                    <h2>Ce que nos analyses détectent le plus souvent</h2>
+                    <p>Le but n'est pas de survendre. Le but est de faire remonter rapidement un signal crédible pour savoir s'il y a matière à creuser.</p>
+                </div>
+                <div class="score-proof-grid">
+                    <article class="score-card">
+                        <div class="score-card-index">01</div>
+                        <div class="score-card-value">47 000 €</div>
+                        <div class="score-card-title">récupérés sur un seul dossier</div>
+                        <div class="score-card-desc">Industriel packaging, 8 mois de factures analysées, avec écarts récurrents passés sous le radar.</div>
+                    </article>
+                    <article class="score-card">
+                        <div class="score-card-index">02</div>
+                        <div class="score-card-value">2 à 5 %</div>
+                        <div class="score-card-title">du volume achats typiquement à risque</div>
+                        <div class="score-card-desc">Ordre de grandeur observé sur des contextes industriels où les contrôles sont manuels ou partiels.</div>
+                    </article>
+                    <article class="score-card">
+                        <div class="score-card-index">03</div>
+                        <div class="score-card-value">48 h</div>
+                        <div class="score-card-title">pour recevoir votre score</div>
+                        <div class="score-card-desc">Sans document à fournir à ce stade, juste un premier cadrage rapide pour objectiver le sujet.</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="score-section">
+            <div class="score-shell">
+                <div class="score-section-header">
+                    <div class="score-section-label">Comment ça marche</div>
+                    <h2>3 étapes, 0 friction</h2>
+                </div>
+                <div class="score-steps">
+                    <div class="score-step">
+                        <div class="score-step-num">01</div>
+                        <div>
+                            <h3>Vous remplissez le formulaire</h3>
+                            <p>Secteur, fonction, société, email. On ne vous demande pas de documents ni d'accès ERP à ce stade.</p>
+                        </div>
+                    </div>
+                    <div class="score-step">
+                        <div class="score-step-num">02</div>
+                        <div>
+                            <h3>On croise vos signaux sectoriels</h3>
+                            <p>Contexte industriel, patterns d'écarts fréquents, benchmarks de vigilance et signaux métier observés sur le terrain.</p>
+                        </div>
+                    </div>
+                    <div class="score-step">
+                        <div class="score-step-num">03</div>
+                        <div>
+                            <h3>Vous recevez votre score sous 48h</h3>
+                            <p>Avec une première lecture claire: faible signal, sujet à surveiller, ou vrai intérêt à pousser vers un audit flash.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="score-section">
+            <div class="score-shell">
+                <div class="score-founder-card">
+                    <div class="score-founder-badge">SD</div>
+                    <div>
+                        <div class="score-founder-title">Sébastien Duc — Fondateur, KANSO-OPS</div>
+                        <p>
+                            Chaque score est préparé par KANSO-OPS, fondé par un ancien consultant achats chez KPMG,
+                            passé par Nestlé Waters et Baccarat. L'objectif n'est pas de vous vendre un audit à tout prix,
+                            mais de vous dire honnêtement si le sujet mérite d'aller plus loin.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="score-section" id="score-form">
+            <div class="score-shell">
+                <div class="score-form-wrap">
+                    <div class="score-section-header">
+                        <div class="score-section-label">Votre score en 2 minutes</div>
+                        <h2>Demandez votre score de risque achats</h2>
+                        <p>Vos informations servent uniquement à produire votre score et à vous recontacter à son sujet.</p>
+                    </div>
+
+                    <div class="score-success" id="score-success">
+                        <div class="score-success-card">
+                            <div class="score-success-mark">✓</div>
+                            <h3>Demande enregistrée</h3>
+                            <p>Vous recevrez votre score de risque achats sous 48h par email.</p>
+                            <div class="score-success-box">
+                                Si vous voulez aller plus vite, répondez simplement à l'email de confirmation avec votre principal enjeu achats du moment.
+                                Je vous dirai si le sujet mérite un Flash Audit.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="score-form-card" id="score-form-card">
+                        <form id="score-lead-form">
+                            <input type="text" name="honeypot" style="display:none;" tabindex="-1" autocomplete="off">
+                            <div class="score-form-grid">
+                                <div class="score-form-row">
+                                    <div class="score-field" data-field="prenom">
+                                        <label for="score-prenom">Prénom</label>
+                                        <input id="score-prenom" name="prenom" type="text" placeholder="Jean" required>
+                                    </div>
+                                    <div class="score-field" data-field="nom">
+                                        <label for="score-nom">Nom</label>
+                                        <input id="score-nom" name="nom" type="text" placeholder="Dupont" required>
+                                    </div>
+                                </div>
+
+                                <div class="score-field" data-field="societe">
+                                    <label for="score-societe">Société</label>
+                                    <input id="score-societe" name="societe" type="text" placeholder="Votre entreprise" required>
+                                </div>
+
+                                <div class="score-field" data-field="email">
+                                    <label for="score-email">Email professionnel</label>
+                                    <input id="score-email" name="email" type="email" placeholder="jean.dupont@entreprise.fr" required>
+                                </div>
+
+                                <div class="score-field" data-field="secteur">
+                                    <label for="score-secteur">Secteur d'activité</label>
+                                    <select id="score-secteur" name="secteur" required>
+                                        <option value="">Sélectionnez votre secteur</option>
+                                        <option value="Packaging / Emballage">Packaging / Emballage</option>
+                                        <option value="Métallurgie / Sidérurgie">Métallurgie / Sidérurgie</option>
+                                        <option value="Chimie / Pétrochimie">Chimie / Pétrochimie</option>
+                                        <option value="Agroalimentaire">Agroalimentaire</option>
+                                        <option value="Verre / Céramique">Verre / Céramique</option>
+                                        <option value="Plasturgie / Composites">Plasturgie / Composites</option>
+                                        <option value="Mécanique / Usinage">Mécanique / Usinage</option>
+                                        <option value="Électronique / Câblage">Électronique / Câblage</option>
+                                        <option value="Bois / Papier / Carton">Bois / Papier / Carton</option>
+                                        <option value="Pharmacie / Cosmétique">Pharmacie / Cosmétique</option>
+                                        <option value="Autre industrie">Autre industrie</option>
+                                    </select>
+                                </div>
+
+                                <div class="score-field" data-field="fonction">
+                                    <label for="score-fonction">Fonction</label>
+                                    <select id="score-fonction" name="fonction" required>
+                                        <option value="">Sélectionnez votre fonction</option>
+                                        <option value="DAF / Directeur Financier">DAF / Directeur Financier</option>
+                                        <option value="Directeur Général / DG">Directeur Général / DG</option>
+                                        <option value="Directeur Achats / CPO">Directeur Achats / CPO</option>
+                                        <option value="Directeur Opérations / COO">Directeur Opérations / COO</option>
+                                        <option value="Directeur Supply Chain">Directeur Supply Chain</option>
+                                        <option value="Responsable Achats">Responsable Achats</option>
+                                        <option value="Contrôleur de Gestion">Contrôleur de Gestion</option>
+                                        <option value="Autre">Autre</option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="score-submit">Recevoir mon score achats</button>
+                                <p class="score-form-error" id="score-form-error" style="display:none;"></p>
+                                <p class="score-form-note">En soumettant ce formulaire, vous acceptez d'être recontacté à propos de votre score. Voir <a href="/mentions-legales.html" style="color:var(--white-muted);">la politique de confidentialité</a>.</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="score-footer">
+            <div class="score-shell">
+                <div class="score-footer-row">
+                    <div>
+                        <div class="score-footer-title">KANSO-OPS</div>
+                        <div class="score-footer-copy">Performance achats · récupération de marge · modules opérationnels pour industriels</div>
+                    </div>
+                    <div class="score-footer-links">
+                        <a href="/index.html">Accueil</a>
+                        <a href="/produit.html">Produit</a>
+                        <a href="/mentions-legales.html">Mentions légales</a>
+                        <a href="mailto:sebastien.duc@kanso-ops.fr">sebastien.duc@kanso-ops.fr</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        var toggle = document.querySelector('.mobile-toggle');
+        var navLinks = document.querySelector('.nav-links');
+        if (toggle && navLinks) {
+            toggle.addEventListener('click', function() {
+                toggle.classList.toggle('active');
+                navLinks.classList.toggle('open');
+                document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+            });
+            navLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    toggle.classList.remove('active');
+                    navLinks.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+
+        var _e = [
+            'aHR0cHM6Ly9rYW5zby1jbGllbnQxLXU2Mjgw',
+            'OS52bS5lbGVzdGlvLmFwcC93ZWJob29rL2Nv',
+            'bnRhY3Qta2Fuc28='
+        ];
+        var SCORE_WEBHOOK_URL = atob(_e.join(''));
+        var SCORE_COOLDOWN_MS = 5 * 60 * 1000;
+        var scoreFormLoadTime = Date.now();
+        var scoreForm = document.getElementById('score-lead-form');
+        var scoreFormCard = document.getElementById('score-form-card');
+        var scoreSuccess = document.getElementById('score-success');
+        var scoreError = document.getElementById('score-form-error');
+
+        function setFieldError(name, hasError) {
+            var field = document.querySelector('[data-field="' + name + '"]');
+            if (!field) return;
+            if (hasError) field.classList.add('error');
+            else field.classList.remove('error');
+        }
+
+        function validateScoreForm() {
+            var values = {
+                prenom: document.getElementById('score-prenom').value.trim(),
+                nom: document.getElementById('score-nom').value.trim(),
+                societe: document.getElementById('score-societe').value.trim(),
+                email: document.getElementById('score-email').value.trim(),
+                secteur: document.getElementById('score-secteur').value,
+                fonction: document.getElementById('score-fonction').value
+            };
+
+            var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email);
+            var errors = {
+                prenom: !values.prenom,
+                nom: !values.nom,
+                societe: !values.societe,
+                email: !values.email || !emailOk,
+                secteur: !values.secteur,
+                fonction: !values.fonction
+            };
+
+            Object.keys(errors).forEach(function(key) {
+                setFieldError(key, errors[key]);
+            });
+
+            var hasError = Object.keys(errors).some(function(key) { return errors[key]; });
+            return { valid: !hasError, values: values };
+        }
+
+        if (scoreForm) {
+            ['score-prenom','score-nom','score-societe','score-email','score-secteur','score-fonction'].forEach(function(id) {
+                var input = document.getElementById(id);
+                if (input) {
+                    input.addEventListener('input', function() {
+                        var key = id.replace('score-','');
+                        setFieldError(key, false);
+                        if (scoreError) {
+                            scoreError.style.display = 'none';
+                            scoreError.textContent = '';
+                        }
+                    });
+                }
+            });
+
+            scoreForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                var submitBtn = scoreForm.querySelector('.score-submit');
+                var originalText = submitBtn.textContent;
+
+                if (scoreForm.querySelector('[name="honeypot"]').value) return;
+                if (Date.now() - scoreFormLoadTime < 3000) {
+                    if (scoreError) {
+                        scoreError.style.display = 'block';
+                        scoreError.textContent = 'Un instant, puis réessayez.';
+                    }
+                    return;
+                }
+
+                var lastSent = sessionStorage.getItem('kanso-score-sent');
+                if (lastSent && Date.now() - parseInt(lastSent, 10) < SCORE_COOLDOWN_MS) {
+                    var minutesLeft = Math.ceil((SCORE_COOLDOWN_MS - (Date.now() - parseInt(lastSent, 10))) / 60000);
+                    if (scoreError) {
+                        scoreError.style.display = 'block';
+                        scoreError.textContent = 'Patientez ' + minutesLeft + ' min avant de renvoyer.';
+                    }
+                    return;
+                }
+
+                var result = validateScoreForm();
+                if (!result.valid) {
+                    if (scoreError) {
+                        scoreError.style.display = 'block';
+                        scoreError.textContent = 'Merci de compléter correctement les champs requis.';
+                    }
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Envoi en cours...';
+                if (scoreError) {
+                    scoreError.style.display = 'none';
+                    scoreError.textContent = '';
+                }
+
+                var values = result.values;
+                var payload = {
+                    nom: values.prenom + ' ' + values.nom,
+                    email: values.email,
+                    telephone: '',
+                    entreprise: values.societe,
+                    sujet: 'Demande de score de risque achats',
+                    message: 'Demande de score de risque achats. Secteur : ' + values.secteur + '. Fonction : ' + values.fonction + '.',
+                    source: 'kanso-ops.com/score',
+                    date: new Date().toISOString(),
+                    prenom: values.prenom,
+                    secteur: values.secteur,
+                    fonction: values.fonction,
+                    page: window.location.href
+                };
+
+                try {
+                    var res = await fetch(SCORE_WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!res.ok) throw new Error('HTTP ' + res.status);
+
+                    sessionStorage.setItem('kanso-score-sent', Date.now().toString());
+                    scoreForm.reset();
+                    if (scoreFormCard) scoreFormCard.style.display = 'none';
+                    if (scoreSuccess) scoreSuccess.classList.add('show');
+                } catch (err) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                    if (scoreError) {
+                        scoreError.style.display = 'block';
+                        scoreError.textContent = 'Une erreur est survenue. Réessayez ou écrivez à sebastien.duc@kanso-ops.fr';
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
