@@ -1,6 +1,21 @@
 {
   "redirects": [
     {
+      "source": "/produit",
+      "destination": "/cas-usage.html",
+      "permanent": true
+    },
+    {
+      "source": "/produit.html",
+      "destination": "/cas-usage.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/product.html",
+      "destination": "/en/case-studies.html",
+      "permanent": true
+    },
+    {
       "source": "/:path(.*)",
       "has": [{ "type": "host", "value": "www.kanso-ops.com" }],
       "destination": "https://kanso-ops.com/:path",

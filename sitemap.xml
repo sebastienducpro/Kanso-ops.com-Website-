@@ -12,16 +12,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/"/>
   </url>
 
-  <!-- Page Produit FR -->
-  <url>
-    <loc>https://kanso-ops.com/produit.html</loc>
-    <lastmod>2026-02-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://kanso-ops.com/produit.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/product.html"/>
-  </url>
-
   <!-- Page Ressources FR -->
   <url>
     <loc>https://kanso-ops.com/ressources.html</loc>
@@ -50,16 +40,6 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://kanso-ops.com/"/>
-  </url>
-
-  <!-- Page Produit EN -->
-  <url>
-    <loc>https://kanso-ops.com/en/product.html</loc>
-    <lastmod>2026-02-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/product.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://kanso-ops.com/produit.html"/>
   </url>
 
   <!-- Page Resources EN -->
