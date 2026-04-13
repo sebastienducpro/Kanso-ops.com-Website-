@@ -1,0 +1,92 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lineA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34D399" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.18"/>
+    </linearGradient>
+    <linearGradient id="lineB" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#34D399" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="cardStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34D399" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.12"/>
+    </linearGradient>
+    <radialGradient id="glowGreen" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1210 220) rotate(90) scale(280 320)">
+      <stop stop-color="#34D399" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#34D399" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowPurple" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1400 540) rotate(90) scale(260 300)">
+      <stop stop-color="#8B5CF6" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blurSoft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="#0B1325"/>
+  <rect width="1600" height="900" fill="url(#glowGreen)"/>
+  <rect width="1600" height="900" fill="url(#glowPurple)"/>
+
+  <g opacity="0.22">
+    <path d="M910 180H1110L1180 250H1380" stroke="url(#lineA)" stroke-width="2"/>
+    <path d="M1000 320H1190L1260 380H1460" stroke="url(#lineB)" stroke-width="2"/>
+    <path d="M920 500H1080L1140 560H1340" stroke="url(#lineA)" stroke-width="2"/>
+    <path d="M860 670H1060L1125 730H1325" stroke="url(#lineB)" stroke-width="2"/>
+    <path d="M1180 250V380" stroke="url(#lineA)" stroke-width="2"/>
+    <path d="M1140 560V730" stroke="url(#lineB)" stroke-width="2"/>
+  </g>
+
+  <g opacity="0.3">
+    <circle cx="910" cy="180" r="7" fill="#34D399"/>
+    <circle cx="1180" cy="250" r="7" fill="#60A5FA"/>
+    <circle cx="1380" cy="250" r="7" fill="#8B5CF6"/>
+    <circle cx="1000" cy="320" r="7" fill="#34D399"/>
+    <circle cx="1260" cy="380" r="7" fill="#60A5FA"/>
+    <circle cx="1460" cy="380" r="7" fill="#34D399"/>
+    <circle cx="920" cy="500" r="7" fill="#60A5FA"/>
+    <circle cx="1140" cy="560" r="7" fill="#8B5CF6"/>
+    <circle cx="1340" cy="560" r="7" fill="#34D399"/>
+    <circle cx="860" cy="670" r="7" fill="#34D399"/>
+    <circle cx="1125" cy="730" r="7" fill="#60A5FA"/>
+    <circle cx="1325" cy="730" r="7" fill="#8B5CF6"/>
+  </g>
+
+  <g opacity="0.22">
+    <rect x="1020" y="118" width="202" height="98" rx="18" fill="#0F1A33" stroke="url(#cardStroke)"/>
+    <rect x="1088" y="150" width="95" height="10" rx="5" fill="#34D399" fill-opacity="0.55"/>
+    <rect x="1060" y="174" width="120" height="8" rx="4" fill="#8B5CF6" fill-opacity="0.3"/>
+    <rect x="1060" y="192" width="70" height="8" rx="4" fill="#60A5FA" fill-opacity="0.24"/>
+
+    <rect x="1272" y="282" width="220" height="118" rx="22" fill="#0F1A33" stroke="url(#cardStroke)"/>
+    <rect x="1302" y="314" width="68" height="58" rx="14" fill="#0D203A" stroke="#34D399" stroke-opacity="0.18"/>
+    <rect x="1392" y="314" width="68" height="10" rx="5" fill="#34D399" fill-opacity="0.45"/>
+    <rect x="1392" y="336" width="50" height="8" rx="4" fill="#60A5FA" fill-opacity="0.26"/>
+    <rect x="1392" y="356" width="76" height="8" rx="4" fill="#8B5CF6" fill-opacity="0.24"/>
+
+    <rect x="968" y="456" width="232" height="124" rx="24" fill="#0F1A33" stroke="url(#cardStroke)"/>
+    <rect x="1000" y="492" width="44" height="52" rx="12" fill="#0D203A" stroke="#60A5FA" stroke-opacity="0.2"/>
+    <rect x="1060" y="498" width="104" height="9" rx="4.5" fill="#60A5FA" fill-opacity="0.34"/>
+    <rect x="1060" y="520" width="82" height="8" rx="4" fill="#34D399" fill-opacity="0.24"/>
+    <rect x="1060" y="540" width="120" height="8" rx="4" fill="#8B5CF6" fill-opacity="0.22"/>
+
+    <rect x="1208" y="630" width="244" height="128" rx="24" fill="#0F1A33" stroke="url(#cardStroke)"/>
+    <rect x="1240" y="664" width="160" height="9" rx="4.5" fill="#34D399" fill-opacity="0.32"/>
+    <rect x="1240" y="686" width="120" height="8" rx="4" fill="#60A5FA" fill-opacity="0.22"/>
+    <rect x="1240" y="706" width="142" height="8" rx="4" fill="#8B5CF6" fill-opacity="0.22"/>
+    <rect x="1240" y="728" width="96" height="8" rx="4" fill="#34D399" fill-opacity="0.18"/>
+  </g>
+
+  <g opacity="0.14" filter="url(#blurSoft)">
+    <rect x="1188" y="124" width="184" height="64" rx="22" fill="#34D399"/>
+    <rect x="1000" y="508" width="182" height="72" rx="24" fill="#8B5CF6"/>
+  </g>
+
+  <g opacity="0.12">
+    <path d="M778 0V900" stroke="url(#lineB)" stroke-width="1"/>
+    <path d="M840 0V900" stroke="url(#lineB)" stroke-width="1"/>
+    <path d="M0 200H1600" stroke="url(#lineB)" stroke-width="1"/>
+    <path d="M0 640H1600" stroke="url(#lineB)" stroke-width="1"/>
+  </g>
+</svg>
