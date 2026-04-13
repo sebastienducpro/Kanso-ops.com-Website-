@@ -355,11 +355,13 @@
 
             /* HERO */
             .hero { padding: 7rem 0 3rem !important; min-height: auto !important; }
-            .hero-content { max-width: 100% !important; text-align: center; }
+            .hero-layout { grid-template-columns: 1fr !important; }
+            .hero-content { max-width: 100% !important; text-align: center; margin: 0 auto; }
             .hero-sub { max-width: 100% !important; font-size: 0.92rem !important; }
             .hero h1 { font-size: clamp(1.8rem, 7vw, 2.4rem) !important; }
             .hero-cta { font-size: 0.85rem; padding: 0.9rem 1.8rem; }
             .hero-proof { flex-direction: column; align-items: center; gap: 0.6rem; }
+            .hero-visual { display: none !important; }
             .proof-logos { flex-wrap: wrap; justify-content: center; gap: 0.4rem; }
             .badge { font-size: 0.62rem; padding: 0.3rem 0.7rem; }
 
@@ -469,26 +471,85 @@
     <!-- ═══ HERO ═══ -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content" style="max-width:780px;">
-                <div class="badge">PME industrielles · on part de votre existant</div>
-                <h1>Moins de suivi manuel. Moins d'oublis.<br><em>Plus de marge.</em></h1>
-                <p class="hero-sub" style="max-width:640px;">Kanso-Ops aide les PME industrielles à reprendre le contrôle des suivis qui débordent et des pertes invisibles qu'ils créent. Achats, opérations, commerce : on part d'un problème concret, on installe une première brique utile, puis seulement ce qui rapporte. Sans projet IT lourd, sans refonte du SI, sans changer vos habitudes du jour au lendemain.</p>
-                <a href="/score/" class="hero-cta">
-                    Recevoir mon score gratuit
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" /></svg>
-                </a>
-                <div class="hero-proof">
-                    <span>On part de votre existant</span>
-                    <div class="proof-logos">
-                        <span>Excel</span>
-                        <div class="proof-separator"></div>
-                        <span>Sage / Cegid</span>
-                        <div class="proof-separator"></div>
-                        <span>Dossiers partagés</span>
-                        <div class="proof-separator"></div>
-                        <span>SharePoint</span>
-                        <div class="proof-separator"></div>
-                        <span>Process manuels</span>
+            <div class="hero-layout">
+                <div class="hero-content">
+                    <div class="badge">PME industrielles · on relie l'existant</div>
+                    <h1>On connecte l'existant.<br><em>Vous pilotez plus vite.</em></h1>
+                    <p class="hero-sub">Kanso-Ops relie vos fichiers, vos relances, vos statuts et vos suivis pour vous redonner une vue simple de l'activité. Moins de temps perdu à chercher, ressaisir et relancer. Plus de fluidité dans les opérations, plus de visibilité pour décider, et moins de marge qui fuit dans le quotidien.</p>
+                    <a href="/score/" class="hero-cta">
+                        Recevoir mon score gratuit
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" /></svg>
+                    </a>
+                    <div class="hero-proof">
+                        <span>On s'appuie sur ce que vous utilisez déjà</span>
+                        <div class="proof-logos">
+                            <span>Excel</span>
+                            <div class="proof-separator"></div>
+                            <span>Sage / Cegid</span>
+                            <div class="proof-separator"></div>
+                            <span>Outlook</span>
+                            <div class="proof-separator"></div>
+                            <span>SharePoint</span>
+                            <div class="proof-separator"></div>
+                            <span>Process manuels</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="hero-system">
+                        <div class="hero-system-label">Du suivi dispersé à la vue claire</div>
+
+                        <div class="hero-source hero-source--excel">
+                            <span class="hero-source-kicker">Excel achats</span>
+                            <strong>Prix, litiges, avoirs</strong>
+                            <div class="hero-source-meta">fichier séparé</div>
+                        </div>
+
+                        <div class="hero-source hero-source--mail">
+                            <span class="hero-source-kicker">Mails et relances</span>
+                            <strong>Devis, AR, fournisseurs</strong>
+                            <div class="hero-source-meta">boîte de réception</div>
+                        </div>
+
+                        <div class="hero-source hero-source--planning">
+                            <span class="hero-source-kicker">Planning et statuts</span>
+                            <strong>Atelier, priorités, suivi</strong>
+                            <div class="hero-source-meta">mise à jour manuelle</div>
+                        </div>
+
+                        <span class="hero-link hero-link--one"></span>
+                        <span class="hero-link hero-link--two"></span>
+                        <span class="hero-link hero-link--three"></span>
+
+                        <div class="hero-cockpit">
+                            <div class="hero-cockpit-head">
+                                <span class="hero-cockpit-kicker">Cockpit Kanso</span>
+                                <span class="hero-cockpit-status">Vue claire</span>
+                            </div>
+                            <div class="hero-cockpit-grid">
+                                <div class="hero-metric">
+                                    <span>Écarts à traiter</span>
+                                    <strong>4</strong>
+                                </div>
+                                <div class="hero-metric">
+                                    <span>Relances utiles</span>
+                                    <strong>12</strong>
+                                </div>
+                                <div class="hero-metric">
+                                    <span>Décisions du jour</span>
+                                    <strong>3</strong>
+                                </div>
+                                <div class="hero-metric">
+                                    <span>Flux sous contrôle</span>
+                                    <strong>92%</strong>
+                                </div>
+                            </div>
+                            <div class="hero-cockpit-list">
+                                <div><span class="hero-dot hero-dot--green"></span>Priorités visibles</div>
+                                <div><span class="hero-dot hero-dot--blue"></span>Suivis connectés</div>
+                                <div><span class="hero-dot hero-dot--purple"></span>Charge admin réduite</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
