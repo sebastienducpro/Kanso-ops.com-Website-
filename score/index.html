@@ -1126,7 +1126,7 @@
                     submitBtn.textContent = originalText;
                     if (scoreError) {
                         scoreError.style.display = 'block';
-                        scoreError.textContent = 'Une erreur est survenue. Réessayez ou écrivez à sebastien.duc@kanso-ops.fr';
+                        scoreError.textContent = err && err.message ? err.message : 'Une erreur est survenue. Réessayez ou écrivez à sebastien.duc@kanso-ops.fr';
                     }
                 }
             });
