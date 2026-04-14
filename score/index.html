@@ -376,6 +376,46 @@
             border-color: rgba(239,68,68,0.5);
             box-shadow: 0 0 0 4px rgba(239,68,68,0.08);
         }
+        .score-checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.7rem;
+        }
+        .score-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            min-height: 52px;
+            padding: 0.85rem 0.95rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            background: rgba(0,0,0,0.18);
+            color: var(--white);
+            font-size: 0.92rem;
+            line-height: 1.45;
+            cursor: pointer;
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+        .score-checkbox:hover {
+            border-color: rgba(59,130,246,0.26);
+            background: rgba(59,130,246,0.05);
+        }
+        .score-checkbox input {
+            width: 16px;
+            height: 16px;
+            margin: 0;
+            accent-color: #3b82f6;
+            flex: 0 0 auto;
+        }
+        .score-field.error .score-checkbox {
+            border-color: rgba(239,68,68,0.5);
+            box-shadow: 0 0 0 4px rgba(239,68,68,0.06);
+        }
+        .score-checkbox-note {
+            font-size: 0.78rem;
+            line-height: 1.55;
+            color: var(--white-dim);
+        }
         .score-submit {
             width: 100%;
             padding: 1rem 1.2rem;
@@ -500,6 +540,9 @@
             .score-form-row {
                 grid-template-columns: 1fr;
             }
+            .score-checkbox-grid {
+                grid-template-columns: 1fr;
+            }
         }
         @media (max-width: 768px) {
             .score-shell { padding: 0 1.25rem; }
@@ -571,7 +614,7 @@
                         <div class="score-side-list">
                             <div class="score-side-item">
                                 <strong>3 risques prioritaires</strong>
-                                <span>Les zones d'écart les plus plausibles au regard de votre secteur, de votre fonction et du type de score demandé.</span>
+                                <span>Les zones d'écart les plus plausibles au regard de votre secteur, de votre fonction et du périmètre métier concerné.</span>
                             </div>
                             <div class="score-side-item">
                                 <strong>1 lecture de potentiel</strong>
@@ -628,7 +671,7 @@
                         <div class="score-step-num">01</div>
                         <div>
                             <h3>Vous remplissez le formulaire</h3>
-                            <p>Secteur, fonction, façon de suivre aujourd'hui, nombre d'outils ou supports et temps consacré chaque semaine. On ne vous demande pas de documents ni d'accès ERP à ce stade.</p>
+                            <p>Secteur, fonction, périmètre concerné, façon de suivre aujourd'hui et outils vraiment dans la boucle. On ne vous demande pas de documents ni d'accès ERP à ce stade.</p>
                         </div>
                     </div>
                     <div class="score-step">
@@ -711,12 +754,19 @@
                                     <input id="score-email" name="email" type="email" placeholder="jean.dupont@entreprise.fr" required>
                                 </div>
 
-                                <div class="score-field" data-field="type">
-                                    <label for="score-type">Type de score</label>
-                                    <select id="score-type" name="type" required>
-                                        <option value="">Sélectionnez un angle</option>
-                                        <option value="Achats">Achats</option>
-                                        <option value="Opérations">Opérations</option>
+                                <div class="score-field" data-field="business_area">
+                                    <label for="score-business-area">Quel périmètre est surtout concerné aujourd'hui ?</label>
+                                    <select id="score-business-area" name="business_area" required>
+                                        <option value="">Sélectionnez un périmètre</option>
+                                        <option value="Achats / fournisseurs">Achats / fournisseurs</option>
+                                        <option value="Finance / comptabilité">Finance / comptabilité</option>
+                                        <option value="Commerce / ADV">Commerce / ADV</option>
+                                        <option value="Supply chain / logistique">Supply chain / logistique</option>
+                                        <option value="Qualité / QHSE">Qualité / QHSE</option>
+                                        <option value="RH">RH</option>
+                                        <option value="Administratif / back-office">Administratif / back-office</option>
+                                        <option value="Production / exploitation">Production / exploitation</option>
+                                        <option value="Direction générale">Direction générale</option>
                                         <option value="Je ne sais pas encore">Je ne sais pas encore</option>
                                     </select>
                                 </div>
@@ -755,7 +805,7 @@
                                 </div>
 
                                 <div class="score-field" data-field="tracking_stack">
-                                    <label for="score-tracking-stack">Où vivent surtout vos suivis aujourd'hui ?</label>
+                                    <label for="score-tracking-stack">Quel support fait foi aujourd'hui quand il faut vérifier ?</label>
                                     <select id="score-tracking-stack" name="tracking_stack" required>
                                         <option value="">Sélectionnez votre mode de suivi</option>
                                         <option value="ERP bien tenu">ERP bien tenu</option>
@@ -767,18 +817,22 @@
                                     </select>
                                 </div>
 
-                                <div class="score-form-row">
-                                    <div class="score-field" data-field="monthly_volume">
-                                        <label for="score-monthly-volume">Combien d'outils ou supports utilisez-vous pour suivre ce sujet ?</label>
-                                        <select id="score-monthly-volume" name="monthly_volume" required>
-                                            <option value="">Sélectionnez un ordre de grandeur</option>
-                                            <option value="1 outil / support">1 outil / support</option>
-                                            <option value="2 outils / supports">2 outils / supports</option>
-                                            <option value="3 outils / supports">3 outils / supports</option>
-                                            <option value="4 à 5 outils / supports">4 à 5 outils / supports</option>
-                                            <option value="6 outils / supports ou plus">6 outils / supports ou plus</option>
-                                        </select>
+                                <div class="score-field" data-field="tools_used">
+                                    <label>Quels outils ou supports entrent vraiment dans la boucle aujourd'hui ?</label>
+                                    <div class="score-checkbox-grid">
+                                        <label class="score-checkbox"><input type="checkbox" name="tools_used" value="ERP"> ERP</label>
+                                        <label class="score-checkbox"><input type="checkbox" name="tools_used" value="Excel"> Excel</label>
+                                        <label class="score-checkbox"><input type="checkbox" name="tools_used" value="Outlook / mails"> Outlook / mails</label>
+                                        <label class="score-checkbox"><input type="checkbox" name="tools_used" value="SharePoint / dossiers partagés"> SharePoint / dossiers partagés</label>
+                                        <label class="score-checkbox"><input type="checkbox" name="tools_used" value="Outil métier"> Outil métier</label>
+                                        <label class="score-checkbox"><input type="checkbox" name="tools_used" value="Papier / saisie manuelle"> Papier / saisie manuelle</label>
+                                        <label class="score-checkbox"><input type="checkbox" name="tools_used" value="Téléphone / messagerie"> Téléphone / messagerie</label>
+                                        <label class="score-checkbox"><input type="checkbox" name="tools_used" value="BI / reporting"> BI / reporting</label>
                                     </div>
+                                    <div class="score-checkbox-note">Cochez tout ce qui entre réellement dans le suivi du sujet, même si ce n'est qu'une partie du flux.</div>
+                                </div>
+
+                                <div class="score-form-row">
                                     <div class="score-field" data-field="weekly_time_loss">
                                         <label for="score-weekly-time-loss">Temps consacré chaque semaine à alimenter, chercher, vérifier ou relancer</label>
                                         <select id="score-weekly-time-loss" name="weekly_time_loss" required>
@@ -895,17 +949,23 @@
             else field.classList.remove('error');
         }
 
+        function getCheckedValues(name) {
+            return Array.prototype.slice.call(document.querySelectorAll('input[name="' + name + '"]:checked'))
+                .map(function(input) { return input.value; })
+                .filter(Boolean);
+        }
+
         function validateScoreForm() {
             var values = {
                 prenom: document.getElementById('score-prenom').value.trim(),
                 nom: document.getElementById('score-nom').value.trim(),
                 societe: document.getElementById('score-societe').value.trim(),
                 email: document.getElementById('score-email').value.trim(),
-                type: document.getElementById('score-type').value,
+                business_area: document.getElementById('score-business-area').value,
                 secteur: document.getElementById('score-secteur').value,
                 fonction: document.getElementById('score-fonction').value,
                 tracking_stack: document.getElementById('score-tracking-stack').value,
-                monthly_volume: document.getElementById('score-monthly-volume').value,
+                tools_used: getCheckedValues('tools_used'),
                 weekly_time_loss: document.getElementById('score-weekly-time-loss').value
             };
 
@@ -915,11 +975,11 @@
                 nom: !values.nom,
                 societe: !values.societe,
                 email: !values.email || !emailOk,
-                type: !values.type,
+                business_area: !values.business_area,
                 secteur: !values.secteur,
                 fonction: !values.fonction,
                 tracking_stack: !values.tracking_stack,
-                monthly_volume: !values.monthly_volume,
+                tools_used: values.tools_used.length === 0,
                 weekly_time_loss: !values.weekly_time_loss
             };
 
@@ -932,7 +992,7 @@
         }
 
         if (scoreForm) {
-            ['score-prenom','score-nom','score-societe','score-email','score-type','score-secteur','score-fonction','score-tracking-stack','score-monthly-volume','score-weekly-time-loss'].forEach(function(id) {
+            ['score-prenom','score-nom','score-societe','score-email','score-business-area','score-secteur','score-fonction','score-tracking-stack','score-weekly-time-loss'].forEach(function(id) {
                 var input = document.getElementById(id);
                 if (input) {
                     input.addEventListener('input', function() {
@@ -944,6 +1004,16 @@
                         }
                     });
                 }
+            });
+
+            document.querySelectorAll('input[name="tools_used"]').forEach(function(input) {
+                input.addEventListener('change', function() {
+                    setFieldError('tools_used', false);
+                    if (scoreError) {
+                        scoreError.style.display = 'none';
+                        scoreError.textContent = '';
+                    }
+                });
             });
 
             scoreForm.addEventListener('submit', async function(e) {
@@ -994,16 +1064,16 @@
                     email: values.email,
                     telephone: '',
                     entreprise: values.societe,
-                    sujet: 'Demande de score gratuit — ' + values.type,
-                    message: 'Demande de score gratuit. Angle : ' + values.type + '. Secteur : ' + values.secteur + '. Fonction : ' + values.fonction + '. Support principal : ' + values.tracking_stack + '. Outils / supports utilisés : ' + values.monthly_volume + '. Temps consacré / semaine : ' + values.weekly_time_loss + '.',
+                    sujet: 'Demande de score gratuit — ' + values.business_area,
+                    message: 'Demande de score gratuit. Périmètre concerné : ' + values.business_area + '. Secteur : ' + values.secteur + '. Fonction : ' + values.fonction + '. Support principal : ' + values.tracking_stack + '. Outils / supports dans la boucle : ' + values.tools_used.join(', ') + '. Temps consacré / semaine : ' + values.weekly_time_loss + '.',
                     source: 'kanso-ops.com/score',
                     date: new Date().toISOString(),
                     prenom: values.prenom,
-                    type: values.type,
+                    business_area: values.business_area,
                     secteur: values.secteur,
                     fonction: values.fonction,
                     tracking_stack: values.tracking_stack,
-                    monthly_volume: values.monthly_volume,
+                    tools_used: values.tools_used.join(', '),
                     weekly_time_loss: values.weekly_time_loss,
                     page: window.location.href,
                     landing_page: scoreAttribution.landing_page || window.location.href,
