@@ -557,7 +557,7 @@
                         <div class="score-actions">
                             <a href="#score-form" class="score-primary-btn">Recevoir mon score gratuit</a>
                             <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" rel="noopener" class="score-secondary-btn">Parler à Sébastien</a>
-                            <span class="score-actions-note">Quelques champs · aucun document requis · pas de projet IT à lancer</span>
+                            <span class="score-actions-note">2 minutes · aucun document requis · pas de projet IT à lancer</span>
                         </div>
                         <div class="score-mini-proof">
                             <span class="score-pill">PME & ETI industrielles</span>
@@ -628,7 +628,7 @@
                         <div class="score-step-num">01</div>
                         <div>
                             <h3>Vous remplissez le formulaire</h3>
-                            <p>Secteur, fonction, société, email. On ne vous demande pas de documents ni d'accès ERP à ce stade.</p>
+                            <p>Secteur, fonction, façon de suivre aujourd'hui, volume approximatif et temps perdu. On ne vous demande pas de documents ni d'accès ERP à ce stade.</p>
                         </div>
                     </div>
                     <div class="score-step">
@@ -754,6 +754,44 @@
                                     </select>
                                 </div>
 
+                                <div class="score-field" data-field="tracking_stack">
+                                    <label for="score-tracking-stack">Où vivent surtout vos suivis aujourd'hui ?</label>
+                                    <select id="score-tracking-stack" name="tracking_stack" required>
+                                        <option value="">Sélectionnez votre mode de suivi</option>
+                                        <option value="ERP bien tenu">ERP bien tenu</option>
+                                        <option value="ERP + Excel">ERP + Excel</option>
+                                        <option value="Excel + mails">Excel + mails</option>
+                                        <option value="Dossiers partagés / SharePoint">Dossiers partagés / SharePoint</option>
+                                        <option value="Mélange difficile à piloter">Mélange difficile à piloter</option>
+                                        <option value="Outil métier dédié">Outil métier dédié</option>
+                                    </select>
+                                </div>
+
+                                <div class="score-form-row">
+                                    <div class="score-field" data-field="monthly_volume">
+                                        <label for="score-monthly-volume">Volume concerné chaque mois</label>
+                                        <select id="score-monthly-volume" name="monthly_volume" required>
+                                            <option value="">Sélectionnez un ordre de grandeur</option>
+                                            <option value="< 50 éléments">&lt; 50 éléments</option>
+                                            <option value="50 à 200 éléments">50 à 200 éléments</option>
+                                            <option value="200 à 500 éléments">200 à 500 éléments</option>
+                                            <option value="500 à 2 000 éléments">500 à 2 000 éléments</option>
+                                            <option value="2 000+ éléments">2 000+ éléments</option>
+                                        </select>
+                                    </div>
+                                    <div class="score-field" data-field="weekly_time_loss">
+                                        <label for="score-weekly-time-loss">Temps perdu chaque semaine</label>
+                                        <select id="score-weekly-time-loss" name="weekly_time_loss" required>
+                                            <option value="">Sélectionnez un ordre de grandeur</option>
+                                            <option value="< 2 h">&lt; 2 h</option>
+                                            <option value="2 à 5 h">2 à 5 h</option>
+                                            <option value="5 à 10 h">5 à 10 h</option>
+                                            <option value="10 à 20 h">10 à 20 h</option>
+                                            <option value="20 h+">20 h+</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <button type="submit" class="score-submit">Recevoir mon score gratuit</button>
                                 <p class="score-form-error" id="score-form-error" style="display:none;"></p>
                                 <p class="score-form-note">En soumettant ce formulaire, vous acceptez d'être recontacté à propos de votre score. Voir <a href="/mentions-legales.html" style="color:var(--white-muted);">la politique de confidentialité</a>.</p>
@@ -865,7 +903,10 @@
                 email: document.getElementById('score-email').value.trim(),
                 type: document.getElementById('score-type').value,
                 secteur: document.getElementById('score-secteur').value,
-                fonction: document.getElementById('score-fonction').value
+                fonction: document.getElementById('score-fonction').value,
+                tracking_stack: document.getElementById('score-tracking-stack').value,
+                monthly_volume: document.getElementById('score-monthly-volume').value,
+                weekly_time_loss: document.getElementById('score-weekly-time-loss').value
             };
 
             var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email);
@@ -876,7 +917,10 @@
                 email: !values.email || !emailOk,
                 type: !values.type,
                 secteur: !values.secteur,
-                fonction: !values.fonction
+                fonction: !values.fonction,
+                tracking_stack: !values.tracking_stack,
+                monthly_volume: !values.monthly_volume,
+                weekly_time_loss: !values.weekly_time_loss
             };
 
             Object.keys(errors).forEach(function(key) {
@@ -888,11 +932,11 @@
         }
 
         if (scoreForm) {
-            ['score-prenom','score-nom','score-societe','score-email','score-type','score-secteur','score-fonction'].forEach(function(id) {
+            ['score-prenom','score-nom','score-societe','score-email','score-type','score-secteur','score-fonction','score-tracking-stack','score-monthly-volume','score-weekly-time-loss'].forEach(function(id) {
                 var input = document.getElementById(id);
                 if (input) {
                     input.addEventListener('input', function() {
-                        var key = id.replace('score-','');
+                        var key = id.replace('score-','').replace(/-/g, '_');
                         setFieldError(key, false);
                         if (scoreError) {
                             scoreError.style.display = 'none';
@@ -951,13 +995,16 @@
                     telephone: '',
                     entreprise: values.societe,
                     sujet: 'Demande de score gratuit — ' + values.type,
-                    message: 'Demande de score gratuit. Angle : ' + values.type + '. Secteur : ' + values.secteur + '. Fonction : ' + values.fonction + '.',
+                    message: 'Demande de score gratuit. Angle : ' + values.type + '. Secteur : ' + values.secteur + '. Fonction : ' + values.fonction + '. Suivis actuels : ' + values.tracking_stack + '. Volume mensuel : ' + values.monthly_volume + '. Temps perdu : ' + values.weekly_time_loss + '.',
                     source: 'kanso-ops.com/score',
                     date: new Date().toISOString(),
                     prenom: values.prenom,
                     type: values.type,
                     secteur: values.secteur,
                     fonction: values.fonction,
+                    tracking_stack: values.tracking_stack,
+                    monthly_volume: values.monthly_volume,
+                    weekly_time_loss: values.weekly_time_loss,
                     page: window.location.href,
                     landing_page: scoreAttribution.landing_page || window.location.href,
                     page_path: scoreAttribution.page_path || window.location.pathname,
