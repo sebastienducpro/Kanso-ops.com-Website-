@@ -943,6 +943,8 @@
                 }
 
                 var values = result.values;
+                var honeypotValue = scoreForm.querySelector('[name="honeypot"]').value || '';
+                var elapsedMs = Date.now() - scoreFormLoadTime;
                 var payload = {
                     nom: values.prenom + ' ' + values.nom,
                     email: values.email,
@@ -965,7 +967,9 @@
                     utm_campaign: scoreAttribution.utm_campaign || '',
                     utm_content: scoreAttribution.utm_content || '',
                     utm_term: scoreAttribution.utm_term || '',
-                    first_seen_at: scoreAttribution.first_seen_at || ''
+                    first_seen_at: scoreAttribution.first_seen_at || '',
+                    honeypot: honeypotValue,
+                    elapsed_ms: elapsedMs
                 };
 
                 try {
@@ -974,7 +978,17 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
                     });
-                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                    var responseJson = null;
+                    try {
+                        responseJson = await res.json();
+                    } catch (jsonErr) {
+                        responseJson = null;
+                    }
+
+                    if (!res.ok) {
+                        var blockedMessage = (responseJson && responseJson.message) || 'Demande bloquée. Merci de réessayer dans quelques minutes.';
+                        throw new Error((res.status === 429 || res.status === 403 || res.status === 400) ? blockedMessage : ('HTTP ' + res.status));
+                    }
 
                     sessionStorage.setItem('kanso-score-sent', Date.now().toString());
                     scoreForm.reset();
