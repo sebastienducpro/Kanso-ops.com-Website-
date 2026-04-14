@@ -821,6 +821,34 @@
         var scoreFormCard = document.getElementById('score-form-card');
         var scoreSuccess = document.getElementById('score-success');
         var scoreError = document.getElementById('score-form-error');
+        var scoreAttribution = (function() {
+            var params = new URLSearchParams(window.location.search || '');
+            var current = {
+                landing_page: window.location.href,
+                page_path: window.location.pathname,
+                referrer: document.referrer || '',
+                utm_source: params.get('utm_source') || '',
+                utm_medium: params.get('utm_medium') || '',
+                utm_campaign: params.get('utm_campaign') || '',
+                utm_content: params.get('utm_content') || '',
+                utm_term: params.get('utm_term') || ''
+            };
+
+            try {
+                var existing = JSON.parse(sessionStorage.getItem('kanso-score-attribution') || '{}');
+                var merged = Object.assign({}, existing);
+                Object.keys(current).forEach(function(key) {
+                    if (current[key]) merged[key] = current[key];
+                    else if (!(key in merged)) merged[key] = '';
+                });
+                if (!merged.first_seen_at) merged.first_seen_at = new Date().toISOString();
+                sessionStorage.setItem('kanso-score-attribution', JSON.stringify(merged));
+                return merged;
+            } catch (err) {
+                current.first_seen_at = new Date().toISOString();
+                return current;
+            }
+        })();
 
         function setFieldError(name, hasError) {
             var field = document.querySelector('[data-field="' + name + '"]');
@@ -928,7 +956,16 @@
                     type: values.type,
                     secteur: values.secteur,
                     fonction: values.fonction,
-                    page: window.location.href
+                    page: window.location.href,
+                    landing_page: scoreAttribution.landing_page || window.location.href,
+                    page_path: scoreAttribution.page_path || window.location.pathname,
+                    referrer: scoreAttribution.referrer || '',
+                    utm_source: scoreAttribution.utm_source || '',
+                    utm_medium: scoreAttribution.utm_medium || '',
+                    utm_campaign: scoreAttribution.utm_campaign || '',
+                    utm_content: scoreAttribution.utm_content || '',
+                    utm_term: scoreAttribution.utm_term || '',
+                    first_seen_at: scoreAttribution.first_seen_at || ''
                 };
 
                 try {
