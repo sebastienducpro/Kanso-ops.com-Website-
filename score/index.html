@@ -605,7 +605,7 @@
                         <div class="score-card-index">02</div>
                         <div class="score-card-value">2 à 5 %</div>
                         <div class="score-card-title">du volume achats typiquement à risque</div>
-                        <div class="score-card-desc">Ordre de grandeur observé quand les contrôles sont manuels ou partiels. Côté opérations, le signal porte plus souvent sur le temps perdu et les relances non tenues.</div>
+                        <div class="score-card-desc">Ordre de grandeur observé quand les contrôles sont manuels ou partiels. Côté opérations, le signal porte plus souvent sur la dispersion des suivis, la multiplication des supports et les relances non tenues.</div>
                     </article>
                     <article class="score-card">
                         <div class="score-card-index">03</div>
@@ -628,7 +628,7 @@
                         <div class="score-step-num">01</div>
                         <div>
                             <h3>Vous remplissez le formulaire</h3>
-                            <p>Secteur, fonction, façon de suivre aujourd'hui, volume approximatif et temps perdu. On ne vous demande pas de documents ni d'accès ERP à ce stade.</p>
+                            <p>Secteur, fonction, façon de suivre aujourd'hui, nombre d'outils ou supports et temps consacré chaque semaine. On ne vous demande pas de documents ni d'accès ERP à ce stade.</p>
                         </div>
                     </div>
                     <div class="score-step">
@@ -769,18 +769,18 @@
 
                                 <div class="score-form-row">
                                     <div class="score-field" data-field="monthly_volume">
-                                        <label for="score-monthly-volume">Volume concerné chaque mois</label>
+                                        <label for="score-monthly-volume">Combien d'outils ou supports utilisez-vous pour suivre ce sujet ?</label>
                                         <select id="score-monthly-volume" name="monthly_volume" required>
                                             <option value="">Sélectionnez un ordre de grandeur</option>
-                                            <option value="< 50 éléments">&lt; 50 éléments</option>
-                                            <option value="50 à 200 éléments">50 à 200 éléments</option>
-                                            <option value="200 à 500 éléments">200 à 500 éléments</option>
-                                            <option value="500 à 2 000 éléments">500 à 2 000 éléments</option>
-                                            <option value="2 000+ éléments">2 000+ éléments</option>
+                                            <option value="1 outil / support">1 outil / support</option>
+                                            <option value="2 outils / supports">2 outils / supports</option>
+                                            <option value="3 outils / supports">3 outils / supports</option>
+                                            <option value="4 à 5 outils / supports">4 à 5 outils / supports</option>
+                                            <option value="6 outils / supports ou plus">6 outils / supports ou plus</option>
                                         </select>
                                     </div>
                                     <div class="score-field" data-field="weekly_time_loss">
-                                        <label for="score-weekly-time-loss">Temps perdu chaque semaine</label>
+                                        <label for="score-weekly-time-loss">Temps consacré chaque semaine à alimenter, chercher, vérifier ou relancer</label>
                                         <select id="score-weekly-time-loss" name="weekly_time_loss" required>
                                             <option value="">Sélectionnez un ordre de grandeur</option>
                                             <option value="< 2 h">&lt; 2 h</option>
@@ -995,7 +995,7 @@
                     telephone: '',
                     entreprise: values.societe,
                     sujet: 'Demande de score gratuit — ' + values.type,
-                    message: 'Demande de score gratuit. Angle : ' + values.type + '. Secteur : ' + values.secteur + '. Fonction : ' + values.fonction + '. Suivis actuels : ' + values.tracking_stack + '. Volume mensuel : ' + values.monthly_volume + '. Temps perdu : ' + values.weekly_time_loss + '.',
+                    message: 'Demande de score gratuit. Angle : ' + values.type + '. Secteur : ' + values.secteur + '. Fonction : ' + values.fonction + '. Support principal : ' + values.tracking_stack + '. Outils / supports utilisés : ' + values.monthly_volume + '. Temps consacré / semaine : ' + values.weekly_time_loss + '.',
                     source: 'kanso-ops.com/score',
                     date: new Date().toISOString(),
                     prenom: values.prenom,
