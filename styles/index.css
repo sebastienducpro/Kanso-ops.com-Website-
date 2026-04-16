@@ -201,6 +201,7 @@
             transition: transform 0.25s, border-color 0.25s, background 0.25s;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            min-height: 100%;
         }
         .entry-point-card:hover {
             transform: translateY(-2px);
@@ -236,6 +237,23 @@
             font-size: 0.82rem;
             color: var(--white-muted);
             line-height: 1.6;
+        }
+        .entry-point-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin-top: 0.85rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+        .entry-point-action::after {
+            content: '→';
+            color: currentColor;
+            transition: transform 0.2s ease;
+        }
+        .entry-point-card:hover .entry-point-action::after {
+            transform: translateX(3px);
         }
 
         .hero-visual {
