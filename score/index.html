@@ -635,28 +635,28 @@
         <section class="score-section">
             <div class="score-shell">
                 <div class="score-section-header">
-                    <div class="score-section-label">Résultats constatés</div>
-                    <h2>Ce que nos analyses détectent le plus souvent</h2>
-                    <p>Le but n'est pas de survendre. Le but est de faire remonter rapidement un signal crédible pour savoir s'il y a matière à creuser.</p>
+                    <div id="score-proof-label" class="score-section-label">Résultats constatés</div>
+                    <h2 id="score-proof-title">Ce que nos analyses détectent le plus souvent</h2>
+                    <p id="score-proof-lead">Le but n'est pas de survendre. Le but est de faire remonter rapidement un signal crédible pour savoir s'il y a matière à creuser.</p>
                 </div>
                 <div class="score-proof-grid">
                     <article class="score-card">
-                        <div class="score-card-index">01</div>
-                        <div class="score-card-value">47 000 €</div>
-                        <div class="score-card-title">remontés sur un seul dossier</div>
-                        <div class="score-card-desc">Industriel packaging, 8 mois de factures analysées, avec écarts récurrents passés sous le radar.</div>
+                        <div id="score-proof-card1-index" class="score-card-index">01</div>
+                        <div id="score-proof-card1-value" class="score-card-value">47 000 €</div>
+                        <div id="score-proof-card1-title" class="score-card-title">remontés sur un seul dossier</div>
+                        <div id="score-proof-card1-desc" class="score-card-desc">Industriel packaging, 8 mois de factures analysées, avec écarts récurrents passés sous le radar.</div>
                     </article>
                     <article class="score-card">
-                        <div class="score-card-index">02</div>
-                        <div class="score-card-value">2 à 5 %</div>
-                        <div class="score-card-title">du volume achats typiquement à risque</div>
-                        <div class="score-card-desc">Ordre de grandeur observé quand les contrôles sont manuels ou partiels. Côté opérations, le signal porte plus souvent sur la dispersion des suivis, la multiplication des supports et les relances non tenues.</div>
+                        <div id="score-proof-card2-index" class="score-card-index">02</div>
+                        <div id="score-proof-card2-value" class="score-card-value">2 à 5 %</div>
+                        <div id="score-proof-card2-title" class="score-card-title">du volume achats typiquement à risque</div>
+                        <div id="score-proof-card2-desc" class="score-card-desc">Ordre de grandeur observé quand les contrôles sont manuels ou partiels. Côté opérations, le signal porte plus souvent sur la dispersion des suivis, la multiplication des supports et les relances non tenues.</div>
                     </article>
                     <article class="score-card">
-                        <div class="score-card-index">03</div>
-                        <div class="score-card-value">48 h</div>
-                        <div class="score-card-title">pour recevoir votre pré-diagnostic</div>
-                        <div class="score-card-desc">Sans document à fournir à ce stade, juste un premier cadrage rapide pour objectiver le sujet.</div>
+                        <div id="score-proof-card3-index" class="score-card-index">03</div>
+                        <div id="score-proof-card3-value" class="score-card-value">48 h</div>
+                        <div id="score-proof-card3-title" class="score-card-title">pour recevoir votre pré-diagnostic</div>
+                        <div id="score-proof-card3-desc" class="score-card-desc">Sans document à fournir à ce stade, juste un premier cadrage rapide pour objectiver le sujet.</div>
                     </article>
                 </div>
             </div>
@@ -966,6 +966,18 @@
             var toolsUsedNote = document.getElementById('score-tools-used-note');
             var weeklyTimeLabel = document.getElementById('score-weekly-time-label');
             var submitBtn = document.getElementById('score-submit-btn');
+            var proofLabel = document.getElementById('score-proof-label');
+            var proofTitle = document.getElementById('score-proof-title');
+            var proofLead = document.getElementById('score-proof-lead');
+            var proofCard1Value = document.getElementById('score-proof-card1-value');
+            var proofCard1Title = document.getElementById('score-proof-card1-title');
+            var proofCard1Desc = document.getElementById('score-proof-card1-desc');
+            var proofCard2Value = document.getElementById('score-proof-card2-value');
+            var proofCard2Title = document.getElementById('score-proof-card2-title');
+            var proofCard2Desc = document.getElementById('score-proof-card2-desc');
+            var proofCard3Value = document.getElementById('score-proof-card3-value');
+            var proofCard3Title = document.getElementById('score-proof-card3-title');
+            var proofCard3Desc = document.getElementById('score-proof-card3-desc');
 
             function setSelectOptions(selectEl, options, placeholder) {
                 if (!selectEl || !Array.isArray(options) || !options.length) return;
@@ -1010,7 +1022,19 @@
                     toolsLabel: 'Quels outils ou supports entrent vraiment dans la boucle de contrôle achats ?',
                     toolsNote: 'Cochez tout ce qui intervient réellement lorsqu’il faut vérifier un prix, un litige, un avoir ou un écart fournisseur.',
                     weeklyLabel: 'Temps consacré chaque semaine à vérifier prix, litiges, avoirs ou écarts fournisseurs',
-                    submitLabel: 'Recevoir mon pré-diagnostic achats'
+                    submitLabel: 'Recevoir mon pré-diagnostic achats',
+                    proofSectionLabel: 'Signaux achats constatés',
+                    proofSectionTitle: 'Ce que les pré-diagnostics achats font remonter le plus souvent',
+                    proofSectionLead: 'Le but n’est pas de promettre du cash partout. Le but est de faire ressortir rapidement un signal crédible sur les prix, litiges, avoirs et dérives fournisseurs avant d’aller plus loin.',
+                    proofCard1Value: '47 000 €',
+                    proofCard1Title: 'remontés sur un seul dossier',
+                    proofCard1Desc: 'Industriel packaging, 8 mois de factures analysées, avec écarts récurrents passés sous le radar.',
+                    proofCard2Value: '2 à 5 %',
+                    proofCard2Title: 'du volume achats souvent à risque',
+                    proofCard2Desc: 'Ordre de grandeur observé quand les contrôles de prix, avoirs et litiges reposent encore sur des vérifications manuelles ou partielles.',
+                    proofCard3Value: '48 h',
+                    proofCard3Title: 'pour savoir si le signal mérite un Flash Audit',
+                    proofCard3Desc: 'Sans extraction ni accès ERP à ce stade, juste un premier cadrage rapide pour objectiver le sujet.'
                 },
                 process: {
                     badge: 'PME industrielles · porte d’entrée process',
@@ -1045,7 +1069,19 @@
                     toolsLabel: 'Quels outils ou supports entrent vraiment dans la boucle du process aujourd’hui ?',
                     toolsNote: 'Cochez tout ce qui entre réellement dans le suivi du sujet, même si ce n’est qu’une partie du flux.',
                     weeklyLabel: 'Temps consacré chaque semaine à alimenter, chercher, vérifier, relancer ou ressaisir',
-                    submitLabel: 'Recevoir mon pré-diagnostic process'
+                    submitLabel: 'Recevoir mon pré-diagnostic process',
+                    proofSectionLabel: 'Signaux process constatés',
+                    proofSectionTitle: 'Ce que les pré-diagnostics process font remonter le plus souvent',
+                    proofSectionLead: 'Le but n’est pas de dramatiser l’administratif. Le but est de faire remonter vite un signal crédible sur la dispersion des suivis, les ressaisies et la charge cachée avant de lancer un audit process.',
+                    proofCard1Value: '3 à 5 supports',
+                    proofCard1Title: 'dans la boucle d’un même suivi',
+                    proofCard1Desc: 'ERP, Excel, mails, dossiers partagés, téléphone : un même sujet circule souvent sur plusieurs supports avant d’être tranché.',
+                    proofCard2Value: '2 à 10 h',
+                    proofCard2Title: 'par semaine absorbées par vérifications et relances',
+                    proofCard2Desc: 'Ordre de grandeur fréquent quand les statuts, accusés de réception, devis ou contrôles tiennent encore en partie à la main.',
+                    proofCard3Value: '48 h',
+                    proofCard3Title: 'pour savoir si le process mérite un Flash Audit',
+                    proofCard3Desc: 'Sans document à fournir à ce stade, juste un premier cadrage rapide pour voir s’il y a matière à remettre sous contrôle.'
                 }
             };
 
@@ -1093,6 +1129,18 @@
             if (toolsUsedNote && entry.toolsNote) toolsUsedNote.textContent = entry.toolsNote;
             if (weeklyTimeLabel && entry.weeklyLabel) weeklyTimeLabel.textContent = entry.weeklyLabel;
             if (submitBtn && entry.submitLabel) submitBtn.textContent = entry.submitLabel;
+            if (proofLabel && entry.proofSectionLabel) proofLabel.textContent = entry.proofSectionLabel;
+            if (proofTitle && entry.proofSectionTitle) proofTitle.textContent = entry.proofSectionTitle;
+            if (proofLead && entry.proofSectionLead) proofLead.textContent = entry.proofSectionLead;
+            if (proofCard1Value && entry.proofCard1Value) proofCard1Value.textContent = entry.proofCard1Value;
+            if (proofCard1Title && entry.proofCard1Title) proofCard1Title.textContent = entry.proofCard1Title;
+            if (proofCard1Desc && entry.proofCard1Desc) proofCard1Desc.textContent = entry.proofCard1Desc;
+            if (proofCard2Value && entry.proofCard2Value) proofCard2Value.textContent = entry.proofCard2Value;
+            if (proofCard2Title && entry.proofCard2Title) proofCard2Title.textContent = entry.proofCard2Title;
+            if (proofCard2Desc && entry.proofCard2Desc) proofCard2Desc.textContent = entry.proofCard2Desc;
+            if (proofCard3Value && entry.proofCard3Value) proofCard3Value.textContent = entry.proofCard3Value;
+            if (proofCard3Title && entry.proofCard3Title) proofCard3Title.textContent = entry.proofCard3Title;
+            if (proofCard3Desc && entry.proofCard3Desc) proofCard3Desc.textContent = entry.proofCard3Desc;
             if (businessAreaFieldWrap) {
                 if (entry.businessAreaHidden) businessAreaFieldWrap.classList.add('is-hidden');
                 else businessAreaFieldWrap.classList.remove('is-hidden');
