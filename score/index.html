@@ -665,29 +665,29 @@
         <section class="score-section">
             <div class="score-shell">
                 <div class="score-section-header">
-                    <div class="score-section-label">Comment ça marche</div>
-                    <h2>3 étapes, 0 friction</h2>
+                    <div id="score-steps-label" class="score-section-label">Comment ça marche</div>
+                    <h2 id="score-steps-title">3 étapes, 0 friction</h2>
                 </div>
                 <div class="score-steps">
                     <div class="score-step">
                         <div class="score-step-num">01</div>
                         <div>
-                            <h3>Vous remplissez le formulaire</h3>
-                            <p>Secteur, fonction, périmètre concerné, façon de suivre aujourd'hui et outils vraiment dans la boucle. On ne vous demande pas de documents ni d'accès ERP à ce stade.</p>
+                            <h3 id="score-step1-title">Vous remplissez le formulaire</h3>
+                            <p id="score-step1-desc">Secteur, fonction, périmètre concerné, façon de suivre aujourd'hui et outils vraiment dans la boucle. On ne vous demande pas de documents ni d'accès ERP à ce stade.</p>
                         </div>
                     </div>
                     <div class="score-step">
                         <div class="score-step-num">02</div>
                         <div>
-                            <h3>On croise vos signaux sectoriels</h3>
-                            <p>Contexte industriel, patterns d'écarts fréquents, points de friction opérationnelle et signaux métier observés sur le terrain.</p>
+                            <h3 id="score-step2-title">On croise vos signaux sectoriels</h3>
+                            <p id="score-step2-desc">Contexte industriel, patterns d'écarts fréquents, points de friction opérationnelle et signaux métier observés sur le terrain.</p>
                         </div>
                     </div>
                     <div class="score-step">
                         <div class="score-step-num">03</div>
                         <div>
-                            <h3>Vous recevez votre pré-diagnostic sous 48h</h3>
-                            <p>Avec une première lecture claire : faible signal, sujet à surveiller, ou vrai intérêt à pousser vers un diagnostic flash.</p>
+                            <h3 id="score-step3-title">Vous recevez votre pré-diagnostic sous 48h</h3>
+                            <p id="score-step3-desc">Avec une première lecture claire : faible signal, sujet à surveiller, ou vrai intérêt à pousser vers un diagnostic flash.</p>
                         </div>
                     </div>
                 </div>
@@ -978,6 +978,14 @@
             var proofCard3Value = document.getElementById('score-proof-card3-value');
             var proofCard3Title = document.getElementById('score-proof-card3-title');
             var proofCard3Desc = document.getElementById('score-proof-card3-desc');
+            var stepsLabel = document.getElementById('score-steps-label');
+            var stepsTitle = document.getElementById('score-steps-title');
+            var step1Title = document.getElementById('score-step1-title');
+            var step1Desc = document.getElementById('score-step1-desc');
+            var step2Title = document.getElementById('score-step2-title');
+            var step2Desc = document.getElementById('score-step2-desc');
+            var step3Title = document.getElementById('score-step3-title');
+            var step3Desc = document.getElementById('score-step3-desc');
 
             function setSelectOptions(selectEl, options, placeholder) {
                 if (!selectEl || !Array.isArray(options) || !options.length) return;
@@ -1034,7 +1042,15 @@
                     proofCard2Desc: 'Ordre de grandeur observé quand les contrôles de prix, avoirs et litiges reposent encore sur des vérifications manuelles ou partielles.',
                     proofCard3Value: '48 h',
                     proofCard3Title: 'pour savoir si le signal mérite un Flash Audit',
-                    proofCard3Desc: 'Sans extraction ni accès ERP à ce stade, juste un premier cadrage rapide pour objectiver le sujet.'
+                    proofCard3Desc: 'Sans extraction ni accès ERP à ce stade, juste un premier cadrage rapide pour objectiver le sujet.',
+                    stepsLabel: 'Parcours achats',
+                    stepsTitle: '3 étapes pour objectiver un sujet achats',
+                    step1Title: 'Vous cadrez votre contexte achats',
+                    step1Desc: 'Secteur, fonction, façon de vérifier un prix, un litige ou un avoir, et outils réellement dans la boucle. On ne vous demande ni export, ni contrat, ni accès ERP à ce stade.',
+                    step2Title: 'On croise vos signaux achats',
+                    step2Desc: 'Contexte industriel, patterns d’écarts fréquents, fragilité du contrôle fournisseur et points où du cash peut déjà fuir sans être vu.',
+                    step3Title: 'Vous savez s’il faut pousser en Flash Audit achats',
+                    step3Desc: 'Avec une première lecture claire : faible signal, simple point de vigilance, ou vrai sujet à objectiver avec un audit ciblé.'
                 },
                 process: {
                     badge: 'PME industrielles · porte d’entrée process',
@@ -1081,7 +1097,15 @@
                     proofCard2Desc: 'Ordre de grandeur fréquent quand les statuts, accusés de réception, devis ou contrôles tiennent encore en partie à la main.',
                     proofCard3Value: '48 h',
                     proofCard3Title: 'pour savoir si le process mérite un Flash Audit',
-                    proofCard3Desc: 'Sans document à fournir à ce stade, juste un premier cadrage rapide pour voir s’il y a matière à remettre sous contrôle.'
+                    proofCard3Desc: 'Sans document à fournir à ce stade, juste un premier cadrage rapide pour voir s’il y a matière à remettre sous contrôle.',
+                    stepsLabel: 'Parcours process',
+                    stepsTitle: '3 étapes pour objectiver un sujet process',
+                    step1Title: 'Vous décrivez le process qui fatigue vos équipes',
+                    step1Desc: 'Périmètre concerné, rôle, support qui fait foi, outils en circulation et ordre de grandeur du temps absorbé. Aucun document ni accès SI à fournir à ce stade.',
+                    step2Title: 'On croise vos signaux process',
+                    step2Desc: 'Dispersion des supports, relances, ressaisies, coordination manuelle et points où l’administratif ralentit déjà l’opérationnel.',
+                    step3Title: 'Vous savez s’il faut pousser en Flash Audit process',
+                    step3Desc: 'Avec une première lecture claire : faible signal, process à surveiller, ou vrai sujet à remettre sous contrôle avec un audit ciblé.'
                 }
             };
 
@@ -1141,6 +1165,14 @@
             if (proofCard3Value && entry.proofCard3Value) proofCard3Value.textContent = entry.proofCard3Value;
             if (proofCard3Title && entry.proofCard3Title) proofCard3Title.textContent = entry.proofCard3Title;
             if (proofCard3Desc && entry.proofCard3Desc) proofCard3Desc.textContent = entry.proofCard3Desc;
+            if (stepsLabel && entry.stepsLabel) stepsLabel.textContent = entry.stepsLabel;
+            if (stepsTitle && entry.stepsTitle) stepsTitle.textContent = entry.stepsTitle;
+            if (step1Title && entry.step1Title) step1Title.textContent = entry.step1Title;
+            if (step1Desc && entry.step1Desc) step1Desc.textContent = entry.step1Desc;
+            if (step2Title && entry.step2Title) step2Title.textContent = entry.step2Title;
+            if (step2Desc && entry.step2Desc) step2Desc.textContent = entry.step2Desc;
+            if (step3Title && entry.step3Title) step3Title.textContent = entry.step3Title;
+            if (step3Desc && entry.step3Desc) step3Desc.textContent = entry.step3Desc;
             if (businessAreaFieldWrap) {
                 if (entry.businessAreaHidden) businessAreaFieldWrap.classList.add('is-hidden');
                 else businessAreaFieldWrap.classList.remove('is-hidden');
