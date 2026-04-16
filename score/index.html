@@ -376,6 +376,9 @@
             border-color: rgba(239,68,68,0.5);
             box-shadow: 0 0 0 4px rgba(239,68,68,0.08);
         }
+        .score-field.is-hidden {
+            display: none;
+        }
         .score-checkbox-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -754,7 +757,7 @@
                                 </div>
 
                                 <div class="score-field" data-field="business_area">
-                                    <label for="score-business-area">Quel périmètre est surtout concerné aujourd'hui ?</label>
+                                    <label id="score-business-area-label" for="score-business-area">Quel périmètre est surtout concerné aujourd'hui ?</label>
                                     <select id="score-business-area" name="business_area" required>
                                         <option value="">Sélectionnez un périmètre</option>
                                         <option value="Achats / fournisseurs">Achats / fournisseurs</option>
@@ -814,7 +817,7 @@
                                 </div>
 
                                 <div class="score-field" data-field="tracking_stack">
-                                    <label for="score-tracking-stack">Quel support fait foi aujourd'hui quand il faut vérifier ?</label>
+                                    <label id="score-tracking-stack-label" for="score-tracking-stack">Quel support fait foi aujourd'hui quand il faut vérifier ?</label>
                                     <select id="score-tracking-stack" name="tracking_stack" required>
                                         <option value="">Sélectionnez votre mode de suivi</option>
                                         <option value="ERP bien tenu">ERP bien tenu</option>
@@ -827,7 +830,7 @@
                                 </div>
 
                                 <div class="score-field" data-field="tools_used">
-                                    <label>Quels outils ou supports entrent vraiment dans la boucle aujourd'hui ?</label>
+                                    <label id="score-tools-used-label">Quels outils ou supports entrent vraiment dans la boucle aujourd'hui ?</label>
                                     <div class="score-checkbox-grid">
                                         <label class="score-checkbox"><input type="checkbox" name="tools_used" value="ERP"> ERP</label>
                                         <label class="score-checkbox"><input type="checkbox" name="tools_used" value="Excel"> Excel</label>
@@ -838,12 +841,12 @@
                                         <label class="score-checkbox"><input type="checkbox" name="tools_used" value="Téléphone / messagerie"> Téléphone / messagerie</label>
                                         <label class="score-checkbox"><input type="checkbox" name="tools_used" value="BI / reporting"> BI / reporting</label>
                                     </div>
-                                    <div class="score-checkbox-note">Cochez tout ce qui entre réellement dans le suivi du sujet, même si ce n'est qu'une partie du flux.</div>
+                                    <div id="score-tools-used-note" class="score-checkbox-note">Cochez tout ce qui entre réellement dans le suivi du sujet, même si ce n'est qu'une partie du flux.</div>
                                 </div>
 
                                 <div class="score-form-row">
                                     <div class="score-field" data-field="weekly_time_loss">
-                                        <label for="score-weekly-time-loss">Temps consacré chaque semaine à alimenter, chercher, vérifier ou relancer</label>
+                                        <label id="score-weekly-time-label" for="score-weekly-time-loss">Temps consacré chaque semaine à alimenter, chercher, vérifier ou relancer</label>
                                         <select id="score-weekly-time-loss" name="weekly_time_loss" required>
                                             <option value="">Sélectionnez un ordre de grandeur</option>
                                             <option value="< 2 h">&lt; 2 h</option>
@@ -855,7 +858,7 @@
                                     </div>
                                 </div>
 
-                                <button type="submit" class="score-submit">Recevoir mon pré-diagnostic</button>
+                                <button id="score-submit-btn" type="submit" class="score-submit">Recevoir mon pré-diagnostic</button>
                                 <p class="score-form-error" id="score-form-error" style="display:none;"></p>
                                 <p class="score-form-note">En soumettant ce formulaire, vous acceptez d'être recontacté à propos de votre pré-diagnostic. Voir <a href="/mentions-legales.html" style="color:var(--white-muted);">la politique de confidentialité</a>.</p>
                             </div>
@@ -956,6 +959,22 @@
             var params = new URLSearchParams(window.location.search || '');
             var requestedEntry = (params.get('entry') || '').toLowerCase();
             var businessAreaField = document.getElementById('score-business-area');
+            var businessAreaFieldWrap = document.querySelector('[data-field="business_area"]');
+            var businessAreaLabel = document.getElementById('score-business-area-label');
+            var trackingStackLabel = document.getElementById('score-tracking-stack-label');
+            var toolsUsedLabel = document.getElementById('score-tools-used-label');
+            var toolsUsedNote = document.getElementById('score-tools-used-note');
+            var weeklyTimeLabel = document.getElementById('score-weekly-time-label');
+            var submitBtn = document.getElementById('score-submit-btn');
+
+            function setSelectOptions(selectEl, options, placeholder) {
+                if (!selectEl || !Array.isArray(options) || !options.length) return;
+                var firstOptionLabel = placeholder || 'Sélectionnez une option';
+                selectEl.innerHTML = '<option value="">' + firstOptionLabel + '</option>' + options.map(function(option) {
+                    return '<option value="' + option.value + '">' + option.label + '</option>';
+                }).join('');
+            }
+
             var entryMap = {
                 achats: {
                     badge: 'PME industrielles · porte d’entrée achats',
@@ -974,7 +993,24 @@
                     formKicker: 'Votre pré-diagnostic achats en 2 minutes',
                     formTitle: 'Demandez votre pré-diagnostic achats',
                     formLead: 'Vos informations servent uniquement à produire votre pré-diagnostic achats et à vous recontacter à son sujet.',
-                    businessArea: 'Achats / fournisseurs'
+                    businessArea: 'Achats / fournisseurs',
+                    businessAreaHidden: true,
+                    businessAreaLabel: 'Périmètre concerné',
+                    trackingLabel: 'Quel support fait foi aujourd’hui quand il faut vérifier un prix, un litige ou un avoir ?',
+                    trackingPlaceholder: 'Sélectionnez votre mode de contrôle achats',
+                    trackingOptions: [
+                        { value: 'ERP / commandes', label: 'ERP / commandes' },
+                        { value: 'ERP + Excel', label: 'ERP + Excel' },
+                        { value: 'Excel + mails', label: 'Excel + mails' },
+                        { value: 'Tarifs PDF + Excel', label: 'Tarifs PDF + Excel' },
+                        { value: 'Dossiers partagés / SharePoint', label: 'Dossiers partagés / SharePoint' },
+                        { value: 'Comptabilité / factures', label: 'Comptabilité / factures' },
+                        { value: 'Mélange difficile à piloter', label: 'Mélange difficile à piloter' }
+                    ],
+                    toolsLabel: 'Quels outils ou supports entrent vraiment dans la boucle de contrôle achats ?',
+                    toolsNote: 'Cochez tout ce qui intervient réellement lorsqu’il faut vérifier un prix, un litige, un avoir ou un écart fournisseur.',
+                    weeklyLabel: 'Temps consacré chaque semaine à vérifier prix, litiges, avoirs ou écarts fournisseurs',
+                    submitLabel: 'Recevoir mon pré-diagnostic achats'
                 },
                 process: {
                     badge: 'PME industrielles · porte d’entrée process',
@@ -993,7 +1029,23 @@
                     formKicker: 'Votre pré-diagnostic process en 2 minutes',
                     formTitle: 'Demandez votre pré-diagnostic process',
                     formLead: 'Vos informations servent uniquement à produire votre pré-diagnostic process et à vous recontacter à son sujet.',
-                    businessArea: ''
+                    businessArea: '',
+                    businessAreaHidden: false,
+                    businessAreaLabel: 'Quel périmètre est surtout encombré aujourd’hui ?',
+                    trackingLabel: 'Quel support fait foi aujourd’hui quand il faut vérifier un statut, une relance ou un dossier ?',
+                    trackingPlaceholder: 'Sélectionnez votre mode de suivi',
+                    trackingOptions: [
+                        { value: 'ERP bien tenu', label: 'ERP bien tenu' },
+                        { value: 'ERP + Excel', label: 'ERP + Excel' },
+                        { value: 'Excel + mails', label: 'Excel + mails' },
+                        { value: 'Dossiers partagés / SharePoint', label: 'Dossiers partagés / SharePoint' },
+                        { value: 'Mélange difficile à piloter', label: 'Mélange difficile à piloter' },
+                        { value: 'Outil métier dédié', label: 'Outil métier dédié' }
+                    ],
+                    toolsLabel: 'Quels outils ou supports entrent vraiment dans la boucle du process aujourd’hui ?',
+                    toolsNote: 'Cochez tout ce qui entre réellement dans le suivi du sujet, même si ce n’est qu’une partie du flux.',
+                    weeklyLabel: 'Temps consacré chaque semaine à alimenter, chercher, vérifier, relancer ou ressaisir',
+                    submitLabel: 'Recevoir mon pré-diagnostic process'
                 }
             };
 
@@ -1035,6 +1087,18 @@
             if (formTitle) formTitle.textContent = entry.formTitle;
             if (formLead) formLead.textContent = entry.formLead;
             if (businessAreaField && entry.businessArea) businessAreaField.value = entry.businessArea;
+            if (businessAreaLabel && entry.businessAreaLabel) businessAreaLabel.textContent = entry.businessAreaLabel;
+            if (trackingStackLabel && entry.trackingLabel) trackingStackLabel.textContent = entry.trackingLabel;
+            if (toolsUsedLabel && entry.toolsLabel) toolsUsedLabel.textContent = entry.toolsLabel;
+            if (toolsUsedNote && entry.toolsNote) toolsUsedNote.textContent = entry.toolsNote;
+            if (weeklyTimeLabel && entry.weeklyLabel) weeklyTimeLabel.textContent = entry.weeklyLabel;
+            if (submitBtn && entry.submitLabel) submitBtn.textContent = entry.submitLabel;
+            if (businessAreaFieldWrap) {
+                if (entry.businessAreaHidden) businessAreaFieldWrap.classList.add('is-hidden');
+                else businessAreaFieldWrap.classList.remove('is-hidden');
+            }
+            if (businessAreaField && !entry.businessAreaHidden && !entry.businessArea) businessAreaField.value = '';
+            setSelectOptions(document.getElementById('score-tracking-stack'), entry.trackingOptions, entry.trackingPlaceholder);
         }
 
         applyScoreEntryContext();
