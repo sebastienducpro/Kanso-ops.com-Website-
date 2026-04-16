@@ -184,11 +184,37 @@
         .proof-logos { display: flex; align-items: center; gap: 1.5rem; }
         .proof-logos span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em; text-transform: none; color: var(--white-dim); }
         .proof-separator { width: 1px; height: 16px; background: rgba(255,255,255,0.12); }
+        .audit-entry-section {
+            position: relative;
+            padding: 2.8rem 0 1.2rem;
+            scroll-margin-top: 7rem;
+        }
+        .audit-entry-header {
+            max-width: 760px;
+            margin-bottom: 1.4rem;
+        }
+        .audit-entry-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            margin-top: 0.9rem;
+            margin-bottom: 0.85rem;
+        }
+        .audit-entry-header h2 em {
+            font-style: italic;
+            font-family: var(--font-serif);
+            font-weight: 600;
+            color: var(--green-bright);
+        }
+        .audit-entry-header p {
+            color: var(--white-muted);
+            line-height: 1.72;
+            max-width: 720px;
+        }
         .entry-points {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.9rem;
-            margin-top: 1.6rem;
+            gap: 1.1rem;
         }
         .entry-point-card {
             display: block;
@@ -197,16 +223,19 @@
             background: rgba(8, 14, 30, 0.58);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
-            padding: 1rem 1.05rem;
-            transition: transform 0.25s, border-color 0.25s, background 0.25s;
+            padding: 1.2rem 1.2rem 1.1rem;
+            transition: transform 0.25s, border-color 0.25s, background 0.25s, box-shadow 0.25s;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             min-height: 100%;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+            cursor: pointer;
         }
         .entry-point-card:hover {
-            transform: translateY(-2px);
+            transform: translateY(-4px);
             border-color: var(--border-hover);
             background: rgba(255,255,255,0.05);
+            box-shadow: 0 18px 42px rgba(0,0,0,0.22);
         }
         .entry-point-kicker {
             display: inline-flex;
@@ -242,10 +271,14 @@
             display: inline-flex;
             align-items: center;
             gap: 0.45rem;
-            margin-top: 0.85rem;
+            margin-top: 1rem;
             font-size: 0.78rem;
             font-weight: 700;
             color: var(--white);
+            padding: 0.55rem 0.8rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.04);
         }
         .entry-point-action::after {
             content: '→';
@@ -302,6 +335,8 @@
         @media (max-width: 768px) {
             .hero-actions { justify-content: center; }
             .hero-cta-note { max-width: 100%; margin: 0 auto; text-align: center; }
+            .audit-entry-section { padding-top: 2rem; }
+            .audit-entry-header { text-align: center; margin-left: auto; margin-right: auto; }
             .entry-points { grid-template-columns: 1fr; }
         }
         .hero-system {
