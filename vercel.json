@@ -2,7 +2,27 @@
   "redirects": [
     {
       "source": "/produit",
-      "destination": "/produit.html",
+      "destination": "/cas-usage.html",
+      "permanent": true
+    },
+    {
+      "source": "/produit.html",
+      "destination": "/cas-usage.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/product.html",
+      "destination": "/en/case-studies.html",
+      "permanent": true
+    },
+    {
+      "source": "/automatisation-achats-p2p-s2p.html",
+      "destination": "/cas-usage.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/procurement-automation-p2p-s2p.html",
+      "destination": "/en/case-studies.html",
       "permanent": true
     },
     {
