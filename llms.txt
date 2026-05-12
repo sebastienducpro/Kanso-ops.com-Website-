@@ -4,7 +4,6 @@ Kanso-Ops helps SMEs and mid-sized companies put one costly operational flow und
 
 Updated: 2026-05-12
 Primary language: French
-Secondary language: English
 Website: https://kanso-ops.com/
 
 ## Summary
@@ -23,9 +22,6 @@ Website: https://kanso-ops.com/
 - Use cases (FR): https://kanso-ops.com/cas-usage.html
 - Resources (FR): https://kanso-ops.com/ressources.html
 - Self-assessment (FR): https://kanso-ops.com/score/
-- Home (EN): https://kanso-ops.com/en/
-- Use cases (EN): https://kanso-ops.com/en/case-studies.html
-- Resources (EN): https://kanso-ops.com/en/resources.html
 
 ## Preferred framing
 
