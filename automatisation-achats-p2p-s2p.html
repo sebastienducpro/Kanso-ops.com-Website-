@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatisation achats, P2P et S2P | Kanso-Ops</title>
+    <meta name="description" content="Kanso-Ops aide les PME et ETI à automatiser les suivis achats autour de l'ERP : procurement, P2P, S2P, fournisseurs, litiges et productivité opérationnelle.">
+    <meta name="author" content="Sébastien Duc - Kanso-Ops">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kanso-ops.com/automatisation-achats-p2p-s2p.html">
+    <link rel="alternate" hreflang="fr" href="https://kanso-ops.com/automatisation-achats-p2p-s2p.html">
+    <link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/procurement-automation-p2p-s2p.html">
+    <link rel="alternate" hreflang="x-default" href="https://kanso-ops.com/automatisation-achats-p2p-s2p.html">
+
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#0c1222">
+
+    <meta property="og:title" content="Automatisation achats, P2P et S2P | Kanso-Ops">
+    <meta property="og:description" content="Une couche opérationnelle pour rendre vos flux achats plus visibles, plus productifs et mieux suivis autour de l'ERP.">
+    <meta property="og:image" content="https://kanso-ops.com/images/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Kanso-Ops - automatisation achats, P2P et S2P">
+    <meta property="og:url" content="https://kanso-ops.com/automatisation-achats-p2p-s2p.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kanso-Ops">
+    <meta property="og:locale" content="fr_FR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Automatisation achats, P2P et S2P | Kanso-Ops">
+    <meta name="twitter:description" content="Procurement, ERP achats, P2P, S2P : Kanso-Ops remet du contrôle sur les suivis qui échappent aux suites achats.">
+    <meta name="twitter:image" content="https://kanso-ops.com/images/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary:#0c1222;
+            --bg-secondary:#16213e;
+            --bg-deep:#080e1e;
+            --bg-nav:#0f172a;
+            --bg-card:rgba(255,255,255,0.05);
+            --white:#f3f4f6;
+            --white-muted:#9ca3af;
+            --white-dim:rgba(255,255,255,0.48);
+            --green:#10b981;
+            --green-bright:#34d399;
+            --purple:#8b5cf6;
+            --blue:#38bdf8;
+            --amber:#f59e0b;
+            --border:rgba(255,255,255,0.11);
+            --border-accent:#2a3a5c;
+            --radius-sm:8px;
+            --radius-md:12px;
+            --radius-lg:16px;
+            --font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+            --font-serif:'Source Serif 4',Georgia,serif;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden;}
+        body{font-family:var(--font-sans);background:linear-gradient(135deg,var(--bg-deep) 0%,var(--bg-secondary) 52%,var(--bg-deep) 100%);background-attachment:fixed;color:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+        a{color:inherit;}
+        .container{max-width:1180px;margin:0 auto;padding:0 2rem;}
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 0;background:rgba(15,23,42,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-accent);}
+        nav .container{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;}
+        .logo{font-size:1.05rem;font-weight:900;letter-spacing:0.15em;text-transform:uppercase;color:var(--white);text-decoration:none;white-space:nowrap;}
+        .logo span{color:var(--purple);}
+        .nav-links{display:flex;align-items:center;gap:1.7rem;list-style:none;}
+        .nav-links a{color:var(--white-muted);text-decoration:none;font-size:0.78rem;font-weight:600;transition:color 0.2s;}
+        .nav-links a:hover,.nav-links a.active-page{color:var(--white);}
+        .nav-cta{padding:0.55rem 1.2rem;background:linear-gradient(135deg,var(--green),#059669);color:white!important;border-radius:var(--radius-sm);font-weight:800!important;}
+        .mobile-toggle{display:none;background:none;border:0;cursor:pointer;padding:0.5rem;}
+        .mobile-toggle span{display:block;width:22px;height:2px;background:var(--white);margin:5px 0;border-radius:2px;}
+
+        .hero{padding:10rem 0 5rem;position:relative;}
+        .hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,0.95fr);gap:4rem;align-items:center;}
+        .eyebrow{font-size:0.78rem;font-weight:800;color:var(--green-bright);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1.2rem;}
+        h1{font-size:clamp(2.4rem,4.8vw,4.6rem);line-height:1.02;font-weight:900;margin-bottom:1.4rem;}
+        h1 em{font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--green-bright);}
+        .hero-lead{font-size:1.08rem;color:var(--white-muted);max-width:650px;margin-bottom:2rem;}
+        .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+        .btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0.78rem 1.25rem;border-radius:var(--radius-sm);font-weight:800;font-size:0.86rem;text-decoration:none;border:1px solid transparent;}
+        .btn-primary{background:linear-gradient(135deg,var(--green),#059669);color:white;}
+        .btn-secondary{border-color:var(--border);color:var(--white);background:rgba(255,255,255,0.04);}
+        .signal-panel{border:1px solid var(--border);border-radius:var(--radius-lg);background:rgba(255,255,255,0.04);padding:1.4rem;}
+        .signal-title{font-weight:900;font-size:1rem;margin-bottom:1rem;}
+        .signal-list{display:grid;gap:0.75rem;}
+        .signal{display:grid;grid-template-columns:110px 1fr;gap:1rem;padding:0.85rem 0;border-top:1px solid rgba(255,255,255,0.08);}
+        .signal:first-child{border-top:0;}
+        .signal strong{font-size:0.75rem;color:var(--blue);text-transform:uppercase;}
+        .signal span{font-size:0.9rem;color:var(--white-muted);}
+
+        section{padding:4.5rem 0;border-top:1px solid rgba(255,255,255,0.07);}
+        .section-head{max-width:760px;margin-bottom:2rem;}
+        .section-head h2{font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.12;font-weight:900;margin-bottom:0.8rem;}
+        .section-head p{color:var(--white-muted);}
+        .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;}
+        .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;}
+        .card{border:1px solid var(--border);border-radius:var(--radius-md);background:rgba(255,255,255,0.045);padding:1.35rem;min-height:100%;}
+        .card h3{font-size:1rem;margin-bottom:0.65rem;}
+        .card p,.card li{font-size:0.92rem;color:var(--white-muted);}
+        .card ul{list-style:none;display:grid;gap:0.55rem;}
+        .tag-row{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1.2rem;}
+        .tag{font-size:0.76rem;font-weight:800;color:var(--white);border:1px solid var(--border);border-radius:999px;padding:0.38rem 0.65rem;background:rgba(255,255,255,0.045);}
+        .comparison{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+        .comparison h3{font-size:1.05rem;margin-bottom:0.7rem;}
+        .comparison .suite{border-color:rgba(56,189,248,0.28);}
+        .comparison .kanso{border-color:rgba(16,185,129,0.35);}
+        .faq{display:grid;gap:0.9rem;}
+        details{border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 1.1rem;background:rgba(255,255,255,0.04);}
+        summary{cursor:pointer;font-weight:800;}
+        details p{margin-top:0.7rem;color:var(--white-muted);font-size:0.94rem;}
+        .cta-band{display:flex;justify-content:space-between;align-items:center;gap:2rem;border:1px solid rgba(16,185,129,0.35);border-radius:var(--radius-lg);padding:2rem;background:linear-gradient(135deg,rgba(16,185,129,0.12),rgba(56,189,248,0.06));}
+        .cta-band h2{font-size:1.6rem;margin-bottom:0.45rem;}
+        .cta-band p{color:var(--white-muted);}
+        footer{padding:3rem 0;border-top:1px solid var(--border);}
+        .footer-bottom{display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap;color:var(--white-muted);font-size:0.82rem;}
+        .footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;}
+        .footer-links a{text-decoration:none;color:var(--white-muted);}
+        .footer-links a:hover{color:var(--white);}
+
+        @media (max-width:920px){
+            .hero-grid,.grid-3,.grid-2,.comparison{grid-template-columns:1fr;}
+            .nav-links{display:none;}
+            .mobile-toggle{display:block;}
+            .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg-nav);padding:1.2rem 2rem;border-bottom:1px solid var(--border);}
+            .cta-band{align-items:flex-start;flex-direction:column;}
+        }
+        @media (max-width:560px){
+            .container{padding:0 1.2rem;}
+            .hero{padding:8rem 0 3.5rem;}
+            .signal{grid-template-columns:1fr;gap:0.25rem;}
+            .hero-actions{flex-direction:column;}
+            .btn{width:100%;}
+        }
+    </style>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Service",
+                    "@id": "https://kanso-ops.com/automatisation-achats-p2p-s2p.html#service",
+                    "name": "Automatisation achats, procurement, P2P et S2P",
+                    "url": "https://kanso-ops.com/automatisation-achats-p2p-s2p.html",
+                    "description": "Kanso-Ops aide les PME et ETI a automatiser les suivis achats autour de leur ERP: procurement, P2P, S2P, fournisseurs, litiges, relances et productivite operationnelle.",
+                    "serviceType": [
+                        "Automatisation achats",
+                        "ERP achats",
+                        "Procurement",
+                        "Procure-to-Pay",
+                        "P2P",
+                        "Source-to-Pay",
+                        "S2P",
+                        "Spend visibility",
+                        "Productivite achats"
+                    ],
+                    "areaServed": {
+                        "@type": "Country",
+                        "name": "France"
+                    },
+                    "provider": {
+                        "@type": "Organization",
+                        "@id": "https://kanso-ops.com/#organization",
+                        "name": "Kanso-Ops",
+                        "url": "https://kanso-ops.com/"
+                    }
+                },
+                {
+                    "@type": "FAQPage",
+                    "@id": "https://kanso-ops.com/automatisation-achats-p2p-s2p.html#faq",
+                    "mainEntity": [
+                        {
+                            "@type": "Question",
+                            "name": "Kanso-Ops remplace-t-il un ERP achats ou une suite Source-to-Pay ?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Non. Kanso-Ops intervient comme une couche operationnelle legere autour de l'existant pour rendre visibles les suivis, relances, litiges, fournisseurs critiques et plans d'action qui restent souvent entre ERP, Excel, mails et SharePoint."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Quels flux P2P ou S2P Kanso-Ops peut-il automatiser ?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Kanso-Ops cible d'abord les flux a fort impact et faible complexite: relances fournisseurs, suivi des accusés de reception, litiges, demandes de devis, plans d'action, pieces manquantes, retards et indicateurs de productivite achats."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Pourquoi parler de procurement et de productivite achats ?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Parce que le sujet n'est pas seulement logiciel. Le gain vient de la productivite des equipes achats, de la reduction des suivis manuels, de la visibilite sur les depenses et du controle des risques fournisseurs."
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">KANSO<span>.</span>OPS</a>
+            <ul class="nav-links">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/automatisation-achats-p2p-s2p.html" class="active-page">Achats & P2P</a></li>
+                <li><a href="/produit.html">Produit</a></li>
+                <li><a href="/cas-usage.html">Cas d'usage</a></li>
+                <li><a href="/ressources.html">Ressources</a></li>
+                <li><a href="/score/" class="nav-cta">Faire le point</a></li>
+            </ul>
+            <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <main>
+        <header class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <div class="eyebrow">Automatisation achats - ERP achats - Procurement</div>
+                    <h1>Productivite achats, P2P et S2P: <em>reprendre le controle sans grand projet ERP.</em></h1>
+                    <p class="hero-lead">Les suites achats parlent Source-to-Pay, Procure-to-Pay, spend management et workflows automatises. Kanso-Ops part du meme vocabulaire, mais commence par ce qui coince vraiment dans vos equipes: relances, fournisseurs critiques, litiges, pieces manquantes, devis et plans d'action.</p>
+                    <div class="hero-actions">
+                        <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" rel="noopener" class="btn btn-primary">Identifier un flux achats</a>
+                        <a href="/score/" class="btn btn-secondary">Faire le point</a>
+                    </div>
+                    <div class="tag-row" aria-label="Mots cles achats">
+                        <span class="tag">Automatisation achats</span>
+                        <span class="tag">ERP achats</span>
+                        <span class="tag">Procurement</span>
+                        <span class="tag">P2P</span>
+                        <span class="tag">S2P</span>
+                        <span class="tag">Source-to-Pay</span>
+                    </div>
+                </div>
+                <aside class="signal-panel" aria-label="Signaux achats couverts par Kanso-Ops">
+                    <div class="signal-title">Ce que Kanso rend visible autour de l'ERP</div>
+                    <div class="signal-list">
+                        <div class="signal"><strong>Intake</strong><span>Demandes, devis et pieces attendues qui se perdent entre mails, fichiers et habitudes d'equipe.</span></div>
+                        <div class="signal"><strong>P2P</strong><span>Relances fournisseurs, accusés de réception, litiges, retards, factures ou preuves a retrouver.</span></div>
+                        <div class="signal"><strong>S2P</strong><span>Plans d'action sourcing, fournisseurs critiques, suivi de consultation et decisions en attente.</span></div>
+                        <div class="signal"><strong>Productivite</strong><span>Temps passe a compiler, relancer, verifier, consolider et prouver que le sujet avance.</span></div>
+                    </div>
+                </aside>
+            </div>
+        </header>
+
+        <section>
+            <div class="container">
+                <div class="section-head">
+                    <h2>Le probleme n'est pas toujours l'ERP achats.</h2>
+                    <p>Un ERP, un outil procurement ou une suite Source-to-Pay peut structurer les transactions. Mais beaucoup de pertes restent dans les interstices: statuts flous, relances manuelles, pieces non recues, litiges ouverts, fournisseurs sensibles et actions sans responsable clair.</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card">
+                        <h3>Visibilite des depenses et des risques</h3>
+                        <p>Suivre les fournisseurs critiques, les sujets ouverts, les montants exposes, les retards et les actions sans attendre une refonte SI.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Automatisation des workflows achats</h3>
+                        <p>Automatiser les relances, alertes, preuves, statuts et escalades sur un flux cible avant de generaliser.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Productivite procurement</h3>
+                        <p>Reduire le temps passe a chercher l'information, relancer a la main et reconstruire un reporting pour chaque reunion.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-head">
+                    <h2>Suite S2P ou couche operationnelle Kanso: deux roles differents.</h2>
+                    <p>Les solutions comme les grandes suites achats structurent le cycle complet. Kanso-Ops se place sur les flux qui doivent etre remis sous controle vite, avec un perimetre court, mesurable et connecte a votre realite terrain.</p>
+                </div>
+                <div class="comparison">
+                    <article class="card suite">
+                        <h3>Ce que couvre une suite achats</h3>
+                        <ul>
+                            <li>Source-to-Pay, Procure-to-Pay et spend management end-to-end.</li>
+                            <li>Processus achats standardises, catalogues, contrats, commandes, factures et paiements.</li>
+                            <li>Gouvernance structurante pour les organisations deja pretes a deployer large.</li>
+                        </ul>
+                    </article>
+                    <article class="card kanso">
+                        <h3>Ce que Kanso apporte autour de l'existant</h3>
+                        <ul>
+                            <li>Un flux critique sous controle en 30 jours, sans remplacer l'ERP.</li>
+                            <li>Des relances, alertes, statuts, preuves et responsables visibles au quotidien.</li>
+                            <li>Une logique ROI: on automatise d'abord ce qui coute deja du temps, du risque ou de la marge.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-head">
+                    <h2>Les requetes sur lesquelles Kanso doit devenir visible.</h2>
+                    <p>Cette page sert de socle semantique pour capter les recherches proches du procurement moderne, tout en gardant une promesse claire pour les PME et ETI.</p>
+                </div>
+                <div class="grid-2">
+                    <article class="card">
+                        <h3>Cluster ERP achats et automatisation</h3>
+                        <ul>
+                            <li>automatisation achats PME</li>
+                            <li>ERP achats et suivi fournisseurs</li>
+                            <li>automatiser les relances achats</li>
+                            <li>workflow achats sans projet ERP lourd</li>
+                            <li>productivite equipes achats</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <h3>Cluster procurement, P2P et S2P</h3>
+                        <ul>
+                            <li>procurement automation France</li>
+                            <li>procure-to-pay PME ETI</li>
+                            <li>source-to-pay fournisseurs critiques</li>
+                            <li>P2P workflow automation</li>
+                            <li>S2P operational control</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-head">
+                    <h2>Questions frequentes.</h2>
+                    <p>Les moteurs generatifs et les acheteurs ont besoin de definitions simples. Kanso doit repondre directement aux questions du marche.</p>
+                </div>
+                <div class="faq">
+                    <details>
+                        <summary>Kanso-Ops remplace-t-il un ERP achats ou une suite Source-to-Pay ?</summary>
+                        <p>Non. Kanso-Ops intervient comme une couche operationnelle autour de l'existant. L'objectif est de rendre visibles et actionnables les suivis qui restent souvent hors ERP: relances, litiges, fournisseurs critiques, pieces manquantes et plans d'action.</p>
+                    </details>
+                    <details>
+                        <summary>Quels flux P2P ou S2P peut-on automatiser en premier ?</summary>
+                        <p>Les meilleurs premiers cas sont les flux simples, recurrents et mesurables: accusés de réception fournisseur, relances de documents, suivi des litiges, devis en attente, retards, plans d'action achats et tableaux de bord de productivite.</p>
+                    </details>
+                    <details>
+                        <summary>Pourquoi parler de productivite achats ?</summary>
+                        <p>Parce qu'une grande partie du ROI vient du temps recupere par les equipes: moins de recherche d'information, moins de relances manuelles, moins de reporting reconstruit, plus de decisions visibles et partagees.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="cta-band">
+                    <div>
+                        <h2>Partons d'un flux achats reel.</h2>
+                        <p>En 30 minutes, on identifie si le sujet releve d'un ERP, d'une suite achats, ou d'une couche de controle Kanso plus rapide a activer.</p>
+                    </div>
+                    <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" rel="noopener" class="btn btn-primary">Echanger 30 minutes</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <span>© 2026 Kanso-Ops - France. Automatisation achats, P2P, S2P et controle operationnel.</span>
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/sebastienduc05" target="_blank">LinkedIn</a>
+                    <a href="https://www.linkedin.com/company/kanso-ops/" target="_blank">Kanso-Ops</a>
+                    <a href="/produit.html">Produit</a>
+                    <a href="/cas-usage.html">Cas d'usage</a>
+                    <a href="/mentions-legales.html">Mentions legales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.querySelector('.mobile-toggle');
+        const links = document.querySelector('.nav-links');
+        if (toggle && links) {
+            toggle.addEventListener('click', () => links.classList.toggle('open'));
+        }
+    </script>
+</body>
+</html>

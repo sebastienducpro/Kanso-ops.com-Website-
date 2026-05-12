@@ -7,5 +7,8 @@ Allow: /
 # Sitemap
 Sitemap: https://kanso-ops.com/sitemap.xml
 
+# Machine-readable summary for LLMs
+# See https://kanso-ops.com/llms.txt
+
 # Security contact
 # See https://kanso-ops.com/.well-known/security.txt

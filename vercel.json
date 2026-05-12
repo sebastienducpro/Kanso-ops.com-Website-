@@ -2,17 +2,7 @@
   "redirects": [
     {
       "source": "/produit",
-      "destination": "/cas-usage.html",
-      "permanent": true
-    },
-    {
-      "source": "/produit.html",
-      "destination": "/cas-usage.html",
-      "permanent": true
-    },
-    {
-      "source": "/en/product.html",
-      "destination": "/en/case-studies.html",
+      "destination": "/produit.html",
       "permanent": true
     },
     {
