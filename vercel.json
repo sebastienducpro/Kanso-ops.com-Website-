@@ -12,37 +12,17 @@
     },
     {
       "source": "/en",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/en/",
-      "destination": "/",
+      "destination": "/en/",
       "permanent": true
     },
     {
       "source": "/en/index.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/en/case-studies.html",
-      "destination": "/cas-usage.html",
-      "permanent": true
-    },
-    {
-      "source": "/en/resources.html",
-      "destination": "/ressources.html",
-      "permanent": true
-    },
-    {
-      "source": "/en/legal.html",
-      "destination": "/mentions-legales.html",
+      "destination": "/en/",
       "permanent": true
     },
     {
       "source": "/en/product.html",
-      "destination": "/cas-usage.html",
+      "destination": "/en/case-studies.html",
       "permanent": true
     },
     {
@@ -52,12 +32,7 @@
     },
     {
       "source": "/en/procurement-automation-p2p-s2p.html",
-      "destination": "/cas-usage.html",
-      "permanent": true
-    },
-    {
-      "source": "/en/:path(.*)",
-      "destination": "/",
+      "destination": "/en/case-studies.html",
       "permanent": true
     },
     {
