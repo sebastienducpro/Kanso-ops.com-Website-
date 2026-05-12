@@ -218,11 +218,11 @@
         .chat-input-btn svg{width:16px;height:16px;color:white;}
 
         /* ═══ 5 MOTEURS — EXEMPLES PAR SECTEUR ═══ */
-        .moteurs{padding:8rem 0;border-top:1px solid var(--border);}
-        .moteurs-header{text-align:center;max-width:700px;margin:0 auto 3.5rem;}
-        .moteurs h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:1rem;}
-        .moteurs h2 em{font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--green-bright);}
-        .moteurs-header p{color:var(--white-muted);font-size:1rem;line-height:1.6;}
+        .briques{padding:8rem 0;border-top:1px solid var(--border);}
+        .briques-header{text-align:center;max-width:700px;margin:0 auto 3.5rem;}
+        .briques h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:1rem;}
+        .briques h2 em{font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--green-bright);}
+        .briques-header p{color:var(--white-muted);font-size:1rem;line-height:1.6;}
         .engine-tabs{display:flex;gap:0.6rem;margin-bottom:2rem;overflow-x:auto;padding-bottom:0.5rem;}
         .engine-tab{flex:1;min-width:130px;padding:1rem 1rem;border-radius:var(--radius-md);background:var(--bg-card);border:1px solid var(--border);cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;text-align:center;}
         .engine-tab::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--engine-color,var(--purple));transform:scaleX(0);transition:transform 0.4s;transform-origin:center;}
@@ -445,7 +445,7 @@
                 <div class="p-hero-text reveal">
                     <div class="section-label">Le produit</div>
                     <h1>Un flux critique sous contrôle<br><em>puis un run qui tient</em></h1>
-                    <p class="p-hero-sub">Kanso-Ops n'entre pas dans une ancienne catégorie. C'est un système de contrôle des pertes invisibles pour PME/ETI : Kanso Flow Control remet un flux critique sous contrôle en 30 jours, et Supplier Watchtower suit les fournisseurs stratégiques sans lancer une évaluation 360° dès le départ.</p>
+                    <p class="p-hero-sub">Kanso-Ops met sous contrôle un premier flux critique en 30 jours. Supplier Watchtower suit vos fournisseurs sensibles. Flow Control fiabilise vos relances, litiges, devis et actions.</p>
                     <a href="index.html#contact" class="p-hero-cta">
                         Réserver une qualification ROI
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
@@ -656,13 +656,13 @@
         </div>
     </section>
 
-    <!-- ═══ LES 5 MOTEURS PROPRIÉTAIRES ═══ -->
-    <section class="moteurs" id="moteurs" style="padding:7rem 0;border-top:1px solid var(--border);">
+    <!-- ═══ LES 5 BRIQUES DE CONTRÔLE ═══ -->
+    <section class="briques" id="briques" style="padding:7rem 0;border-top:1px solid var(--border);">
         <div class="container">
-            <div class="moteurs-header reveal" style="text-align:center;max-width:700px;margin:0 auto 3.5rem;">
+            <div class="briques-header reveal" style="text-align:center;max-width:700px;margin:0 auto 3.5rem;">
                 <div class="section-label">Le cœur du produit</div>
                 <h2 style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:1rem;">5 briques de contrôle<br><em style="font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--green-bright);">Un déploiement progressif</em></h2>
-                <p style="color:var(--white-muted);font-size:1rem;line-height:1.6;">Chaque brique exécute une mission précise sur vos données : lire, comparer, surveiller, relancer, alerter. Elles servent une même promesse : rendre visibles les statuts, responsables, échéances, preuves et impacts qui se perdent entre ERP, Excel et mails.</p>
+                <p style="color:var(--white-muted);font-size:1rem;line-height:1.6;">Chaque brique fait une chose simple : lire, comparer, surveiller, relancer ou alerter. Le but : rendre visibles les statuts, responsables, échéances et impacts.</p>
             </div>
 
             <!-- 5 Engine Tabs -->
@@ -670,27 +670,27 @@
                 <div class="engine-tab active" data-engine="extracteur" style="--engine-color:#10b981;--engine-bg:rgba(16,185,129,0.1);--engine-glow:rgba(16,185,129,0.3);">
                     <div class="engine-tab-icon">👁️</div>
                     <div class="engine-tab-name">Vision</div>
-                    <div class="engine-tab-role">Extraction</div>
+                    <div class="engine-tab-role">Lecture</div>
                 </div>
                 <div class="engine-tab" data-engine="comparateur" style="--engine-color:#3b82f6;--engine-bg:rgba(59,130,246,0.1);--engine-glow:rgba(59,130,246,0.3);">
                     <div class="engine-tab-icon">⚖️</div>
                     <div class="engine-tab-name">Matching</div>
-                    <div class="engine-tab-role">Comparaison</div>
+                    <div class="engine-tab-role">Écarts</div>
                 </div>
                 <div class="engine-tab" data-engine="gardien" style="--engine-color:#ef4444;--engine-bg:rgba(239,68,68,0.1);--engine-glow:rgba(239,68,68,0.3);">
                     <div class="engine-tab-icon">📡</div>
                     <div class="engine-tab-name">Vigilance</div>
-                    <div class="engine-tab-role">Watchtower</div>
+                    <div class="engine-tab-role">Suivi</div>
                 </div>
                 <div class="engine-tab" data-engine="relanceur" style="--engine-color:#f59e0b;--engine-bg:rgba(245,158,11,0.1);--engine-glow:rgba(245,158,11,0.3);">
                     <div class="engine-tab-icon">⚔️</div>
                     <div class="engine-tab-name">Relance</div>
-                    <div class="engine-tab-role">Litige Killer</div>
+                    <div class="engine-tab-role">Litiges</div>
                 </div>
                 <div class="engine-tab" data-engine="vigie" style="--engine-color:#8b5cf6;--engine-bg:rgba(139,92,246,0.1);--engine-glow:rgba(139,92,246,0.3);">
                     <div class="engine-tab-icon">📊</div>
                     <div class="engine-tab-name">Veille</div>
-                    <div class="engine-tab-role">Sentinel</div>
+                    <div class="engine-tab-role">Signaux</div>
                 </div>
             </div>
 
@@ -699,56 +699,56 @@
 
             <!-- Engine contents -->
             <div class="engine-content active" data-engine="extracteur">
-                <div class="eng-base"><span class="eng-base-tag" style="background:rgba(16,185,129,0.12);color:#34d399;">Moteur de Vision</span> Lit n'importe quel document — facture PDF, scan BL, photo bon de commande — et en extrait les données structurées en quelques secondes. Même les mises en page complexes, multi-colonnes, multi-pages.</div>
+                <div class="eng-base"><span class="eng-base-tag" style="background:rgba(16,185,129,0.12);color:#34d399;">Vision</span> Lit vos documents et en sort les données utiles : factures, BL, bons de commande, photos, contrats.</div>
                 <div class="eng-examples" style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.8rem;margin-bottom:1.2rem;">
-                    <div class="eng-ex"><div class="eng-ex-icon">📄</div><div><div class="eng-ex-sector">Factures fournisseurs</div><div class="eng-ex-desc">Extraction des lignes, montants HT/TTC, références, conditions de paiement — quelle que soit la mise en page</div></div></div>
-                    <div class="eng-ex"><div class="eng-ex-icon">📦</div><div><div class="eng-ex-sector">Bons de livraison</div><div class="eng-ex-desc">Lecture des quantités, numéros de lot, dates de réception — même scannés à la main</div></div></div>
-                    <div class="eng-ex"><div class="eng-ex-icon">📋</div><div><div class="eng-ex-sector">Contrats & avenants</div><div class="eng-ex-desc">Identification des clauses de prix, indices de révision, dates d'échéance, conditions particulières</div></div></div>
-                    <div class="eng-ex"><div class="eng-ex-icon">🏷️</div><div><div class="eng-ex-sector">Bons de commande</div><div class="eng-ex-desc">Extraction des références produit, prix unitaires, quantités commandées pour rapprochement</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">📄</div><div><div class="eng-ex-sector">Factures fournisseurs</div><div class="eng-ex-desc">Lignes, montants, références, conditions.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">📦</div><div><div class="eng-ex-sector">Bons de livraison</div><div class="eng-ex-desc">Quantités, lots, dates de réception.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">📋</div><div><div class="eng-ex-sector">Contrats & avenants</div><div class="eng-ex-desc">Prix, indices, échéances, clauses.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">🏷️</div><div><div class="eng-ex-sector">Bons de commande</div><div class="eng-ex-desc">Références, prix, quantités.</div></div></div>
                 </div>
                 <div class="eng-custom" style="text-align:center;padding:1rem;font-size:0.85rem;color:var(--white-muted);font-style:italic;border-top:1px solid var(--border);"><strong style="color:var(--white);font-style:normal;">Impact concret :</strong> chaque donnée capturée sans ressaisie évite un contrôle oublié.</div>
             </div>
 
             <div class="engine-content" data-engine="comparateur">
-                <div class="eng-base"><span class="eng-base-tag" style="background:rgba(59,130,246,0.12);color:#60a5fa;">Moteur de Matching</span> Compare ligne à ligne — facture vs contrat vs bon de commande vs bon de livraison. Détecte les écarts de prix, les erreurs de virgule, les doublons, les quantités non conformes. Rien ne passe entre les mailles.</div>
+                <div class="eng-base"><span class="eng-base-tag" style="background:rgba(59,130,246,0.12);color:#60a5fa;">Matching</span> Compare facture, contrat, bon de commande et livraison. Les écarts importants remontent.</div>
                 <div class="eng-examples" style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.8rem;margin-bottom:1.2rem;">
-                    <div class="eng-ex"><div class="eng-ex-icon">💰</div><div><div class="eng-ex-sector">Écarts de prix</div><div class="eng-ex-desc">Prix facturé vs prix contractuel : chaque centime d'écart détecté = marge nette récupérée</div></div></div>
-                    <div class="eng-ex"><div class="eng-ex-icon">🔢</div><div><div class="eng-ex-sector">Erreurs de virgule</div><div class="eng-ex-desc">12,50€ facturé au lieu de 1,25€ — les erreurs de virgule qui coûtent des milliers d'euros</div></div></div>
-                    <div class="eng-ex"><div class="eng-ex-icon">📑</div><div><div class="eng-ex-sector">Doublons de facturation</div><div class="eng-ex-desc">Même prestation facturée deux fois, même BDC décliné en double — bloqué avant paiement</div></div></div>
-                    <div class="eng-ex"><div class="eng-ex-icon">📐</div><div><div class="eng-ex-sector">Grilles tarifaires</div><div class="eng-ex-desc">Comparaison avec vos référentiels de prix, par fournisseur, par période de validité</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">💰</div><div><div class="eng-ex-sector">Écarts de prix</div><div class="eng-ex-desc">Prix facturé vs prix contrat.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">🔢</div><div><div class="eng-ex-sector">Erreurs de virgule</div><div class="eng-ex-desc">Les virgules qui coûtent cher.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">📑</div><div><div class="eng-ex-sector">Doublons de facturation</div><div class="eng-ex-desc">Même prestation facturée deux fois.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">📐</div><div><div class="eng-ex-sector">Grilles tarifaires</div><div class="eng-ex-desc">Prix de référence par fournisseur.</div></div></div>
                 </div>
-                <div class="eng-custom" style="text-align:center;padding:1rem;font-size:0.85rem;color:var(--white-muted);font-style:italic;border-top:1px solid var(--border);"><strong style="color:var(--white);font-style:normal;">Impact concret :</strong> selon la qualité des données et le niveau de contrôle, les écarts détectables peuvent représenter un enjeu significatif sur le volume achat.</div>
+                <div class="eng-custom" style="text-align:center;padding:1rem;font-size:0.85rem;color:var(--white-muted);font-style:italic;border-top:1px solid var(--border);"><strong style="color:var(--white);font-style:normal;">Impact concret :</strong> les écarts de prix, doublons et erreurs remontent avant de devenir des pertes.</div>
             </div>
 
             <div class="engine-content" data-engine="gardien">
-                <div class="eng-base"><span class="eng-base-tag" style="background:rgba(239,68,68,0.12);color:#f87171;">Supplier Watchtower</span> Met sous contrôle un périmètre volontairement limité de fournisseurs stratégiques et critiques : criticité, retards, relances, litiges prioritaires, responsables et plans d'action. Le scoring complet vient ensuite, si la gouvernance est prête.</div>
+                <div class="eng-base"><span class="eng-base-tag" style="background:rgba(239,68,68,0.12);color:#f87171;">Supplier Watchtower</span> Suit un petit périmètre de fournisseurs sensibles : retards, litiges, relances, responsables et plans d'action.</div>
                 <div class="eng-examples" style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.8rem;margin-bottom:1.2rem;">
-                    <div class="eng-ex"><div class="eng-ex-icon">🎯</div><div><div class="eng-ex-sector">20 à 50 fournisseurs</div><div class="eng-ex-desc">On commence par les fournisseurs stratégiques/critiques, pas par tout le panel.</div></div></div>
-                    <div class="eng-ex"><div class="eng-ex-icon">⏱️</div><div><div class="eng-ex-sector">Retards & relances</div><div class="eng-ex-desc">Suivi des retards, relances, échéances et réponses attendues avec responsables identifiés.</div></div></div>
-                    <div class="eng-ex"><div class="eng-ex-icon">⚠️</div><div><div class="eng-ex-sector">Litiges prioritaires</div><div class="eng-ex-desc">Les litiges fournisseur importants restent visibles jusqu'à résolution ou arbitrage.</div></div></div>
-                    <div class="eng-ex"><div class="eng-ex-icon">📋</div><div><div class="eng-ex-sector">Plans d'action</div><div class="eng-ex-desc">Chaque sujet critique a un statut, une prochaine action, une échéance et une preuve.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">🎯</div><div><div class="eng-ex-sector">20 à 50 fournisseurs</div><div class="eng-ex-desc">On commence petit, par les plus sensibles.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">⏱️</div><div><div class="eng-ex-sector">Retards & relances</div><div class="eng-ex-desc">Retards, échéances, réponses attendues.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">⚠️</div><div><div class="eng-ex-sector">Litiges prioritaires</div><div class="eng-ex-desc">Visibles jusqu'à résolution.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">📋</div><div><div class="eng-ex-sector">Plans d'action</div><div class="eng-ex-desc">Un statut, une échéance, un responsable.</div></div></div>
                 </div>
                 <div class="eng-custom" style="text-align:center;padding:1rem;font-size:0.85rem;color:var(--white-muted);font-style:italic;border-top:1px solid var(--border);"><strong style="color:var(--white);font-style:normal;">Impact concret :</strong> un fournisseur stratégique mal suivi peut créer du retard, du litige, de la charge et une décision trop tardive.</div>
             </div>
 
             <div class="engine-content" data-engine="relanceur">
-                <div class="eng-base"><span class="eng-base-tag" style="background:rgba(245,158,11,0.12);color:#fbbf24;">Moteur de Relance</span> Graduation diplomatique des réclamations selon vos règles. Du rappel courtois à l'escalade DAF, en passant par la compensation sur facture. Chaque litige est suivi jusqu'à sa résolution — avoir reçu = litige prêt à clôturer.</div>
+                <div class="eng-base"><span class="eng-base-tag" style="background:rgba(245,158,11,0.12);color:#fbbf24;">Relance</span> Prépare les relances et escalades selon vos règles. Chaque litige reste suivi jusqu'à clôture.</div>
                 <div class="eng-examples" style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.8rem;margin-bottom:1.2rem;">
-                    <div class="eng-ex"><div class="eng-ex-icon">📧</div><div><div class="eng-ex-sector">Soft Check</div><div class="eng-ex-desc">Premier contact courtois — "Nous avons constaté un écart de X€ sur la facture Y, merci de vérifier"</div></div></div>
-                    <div class="eng-ex"><div class="eng-ex-icon">📨</div><div><div class="eng-ex-sector">Relance formelle</div><div class="eng-ex-desc">Deuxième contact structuré avec preuve documentaire — contrat, BDC, facture comparés</div></div></div>
-                    <div class="eng-ex"><div class="eng-ex-icon">⚡</div><div><div class="eng-ex-sector">Escalade DAF</div><div class="eng-ex-desc">Passage au niveau direction financière — demande de compensation ou d'avoir sous 15 jours</div></div></div>
-                    <div class="eng-ex"><div class="eng-ex-icon">✅</div><div><div class="eng-ex-sector">Clôture guidée</div><div class="eng-ex-desc">Un avoir arrive dans le Data Vault → le litige est rapproché et présenté à validation. Zéro perte de suivi</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">📧</div><div><div class="eng-ex-sector">Relance simple</div><div class="eng-ex-desc">Premier contact clair et tracé.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">📨</div><div><div class="eng-ex-sector">Relance formelle</div><div class="eng-ex-desc">Preuves documentaires jointes.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">⚡</div><div><div class="eng-ex-sector">Escalade</div><div class="eng-ex-desc">Le bon niveau est alerté au bon moment.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">✅</div><div><div class="eng-ex-sector">Clôture guidée</div><div class="eng-ex-desc">Avoir rapproché, validation proposée.</div></div></div>
                 </div>
                 <div class="eng-custom" style="text-align:center;padding:1rem;font-size:0.85rem;color:var(--white-muted);font-style:italic;border-top:1px solid var(--border);"><strong style="color:var(--white);font-style:normal;">Impact concret :</strong> chaque euro réclamé et récupéré protège directement la marge.</div>
             </div>
 
             <div class="engine-content" data-engine="vigie">
-                <div class="eng-base"><span class="eng-base-tag" style="background:var(--purple-dim);color:#a78bfa;">Moteur de Veille</span> Collecte les indices de marché (INSEE, Eurostat, Banque de France), extrait les clauses de révision de vos contrats, simule l'écart entre hausse demandée et hausse justifiable. Vous ne négociez plus à l'aveugle.</div>
+                <div class="eng-base"><span class="eng-base-tag" style="background:var(--purple-dim);color:#a78bfa;">Veille</span> Surveille les indices, clauses et signaux utiles. Vous négociez avec des faits, pas au ressenti.</div>
                 <div class="eng-examples" style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.8rem;margin-bottom:1.2rem;">
-                    <div class="eng-ex"><div class="eng-ex-icon">📈</div><div><div class="eng-ex-sector">Indices de marché</div><div class="eng-ex-desc">Acier, énergie, polymères, transport — collecte multi-sources, multi-pays</div></div></div>
-                    <div class="eng-ex"><div class="eng-ex-icon">📜</div><div><div class="eng-ex-sector">Clauses de révision</div><div class="eng-ex-desc">Extraction IA des formules contractuelles — validation humaine obligatoire avant tout calcul</div></div></div>
-                    <div class="eng-ex"><div class="eng-ex-icon">🧮</div><div><div class="eng-ex-sector">Simulation hausse</div><div class="eng-ex-desc">"Mon fournisseur demande +8%, est-ce justifié ?" — réponse chiffrée en un clic</div></div></div>
-                    <div class="eng-ex"><div class="eng-ex-icon">🌡️</div><div><div class="eng-ex-sector">Pression prix</div><div class="eng-ex-desc">Vue macro par catégorie d'achat : chaud, tiède, froid, baisse — vous anticipez au lieu de subir</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">📈</div><div><div class="eng-ex-sector">Indices de marché</div><div class="eng-ex-desc">Acier, énergie, polymères, transport.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">📜</div><div><div class="eng-ex-sector">Clauses de révision</div><div class="eng-ex-desc">Formules contractuelles à valider.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">🧮</div><div><div class="eng-ex-sector">Hausse demandée</div><div class="eng-ex-desc">Ce qui est justifié, ce qui ne l'est pas.</div></div></div>
+                    <div class="eng-ex"><div class="eng-ex-icon">🌡️</div><div><div class="eng-ex-sector">Pression prix</div><div class="eng-ex-desc">Ce qui monte, baisse ou chauffe.</div></div></div>
                 </div>
                 <div class="eng-custom" style="text-align:center;padding:1rem;font-size:0.85rem;color:var(--white-muted);font-style:italic;border-top:1px solid var(--border);"><strong style="color:var(--white);font-style:normal;">Impact concret :</strong> écart moyen constaté de 2 à 4 points entre hausse demandée et hausse justifiable.</div>
             </div>
@@ -760,8 +760,8 @@
         <div class="container">
             <div style="text-align:center;max-width:650px;margin:0 auto 3rem;" class="reveal">
                 <div class="section-label">L'architecture</div>
-                <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:0.8rem;">La Pyramide de <em style="font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--green-bright);">Performance</em></h2>
-                <p style="color:var(--white-muted);font-size:0.95rem;line-height:1.6;">Un socle commun ultra-sécurisé. Des briques métier configurées pour votre entreprise. Une vue de pilotage simple pour suivre ce qui compte.</p>
+                <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:0.8rem;">Une architecture <em style="font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--green-bright);">simple</em></h2>
+                <p style="color:var(--white-muted);font-size:0.95rem;line-height:1.6;">Un socle sécurisé. Des briques utiles. Une vue claire pour suivre ce qui compte.</p>
             </div>
 
             <div style="max-width:800px;margin:0 auto;" class="reveal">
@@ -781,22 +781,22 @@
                 <div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:0.6rem;">
                     <div style="padding:0.8rem 1rem;text-align:center;width:145px;background:var(--bg-card);border:1px solid rgba(59,130,246,0.2);border-radius:var(--radius-sm);">
                         <div style="font-size:1rem;margin-bottom:0.2rem;">⚔️</div>
-                        <div style="font-size:0.72rem;font-weight:700;color:#60a5fa;">Litige Killer</div>
+                        <div style="font-size:0.72rem;font-weight:700;color:#60a5fa;">Relances & litiges</div>
                         <div style="font-size:0.58rem;color:var(--white-muted);">Vos règles, vos seuils</div>
                     </div>
                     <div style="padding:0.8rem 1rem;text-align:center;width:145px;background:var(--bg-card);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius-sm);">
                         <div style="font-size:1rem;margin-bottom:0.2rem;">🔍</div>
-                        <div style="font-size:0.72rem;font-weight:700;color:#f87171;">Watchdog</div>
+                        <div style="font-size:0.72rem;font-weight:700;color:#f87171;">Écarts & contrats</div>
                         <div style="font-size:0.58rem;color:var(--white-muted);">Vos contrats, vos prix</div>
                     </div>
                     <div style="padding:0.8rem 1rem;text-align:center;width:145px;background:var(--bg-card);border:1px solid rgba(245,158,11,0.2);border-radius:var(--radius-sm);">
                         <div style="font-size:1rem;margin-bottom:0.2rem;">📡</div>
-                        <div style="font-size:0.72rem;font-weight:700;color:#fbbf24;">Watchtower</div>
+                        <div style="font-size:0.72rem;font-weight:700;color:#fbbf24;">Suivi fournisseurs</div>
                         <div style="font-size:0.58rem;color:var(--white-muted);">Votre panel, vos certifs</div>
                     </div>
                     <div style="padding:0.8rem 1rem;text-align:center;width:145px;background:var(--bg-card);border:1px solid rgba(139,92,246,0.2);border-radius:var(--radius-sm);">
                         <div style="font-size:1rem;margin-bottom:0.2rem;">📊</div>
-                        <div style="font-size:0.72rem;font-weight:700;color:#a78bfa;">Sentinel</div>
+                        <div style="font-size:0.72rem;font-weight:700;color:#a78bfa;">Veille prix</div>
                         <div style="font-size:0.58rem;color:var(--white-muted);">Vos indices, vos clauses</div>
                     </div>
                 </div>
@@ -817,9 +817,9 @@
                 <!-- SOCLE (base) -->
                 <div style="width:100%;padding:1.8rem 2rem;text-align:center;background:linear-gradient(135deg,rgba(16,185,129,0.06),rgba(16,185,129,0.02));border:1.5px solid rgba(16,185,129,0.2);border-radius:var(--radius-lg);position:relative;">
                     <div style="position:absolute;bottom:-1px;left:-1px;right:-1px;height:3px;background:linear-gradient(90deg,var(--green),#34d399,var(--green));border-radius:0 0 var(--radius-lg) var(--radius-lg);"></div>
-                    <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.03em;color:var(--green-bright);margin-bottom:0.5rem;">🏗️ Socle commun — Data Vault</div>
-                    <div style="font-size:1.1rem;font-weight:800;margin-bottom:0.3rem;">Votre infrastructure, vos données, un cadre simple.</div>
-                    <div style="font-size:0.78rem;color:var(--white-muted);line-height:1.5;max-width:520px;margin:0 auto 1rem;">Le socle gère l'ingestion, la classification, la traçabilité et la sécurité. Les données ne sortent jamais de chez vous.</div>
+                    <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.03em;color:var(--green-bright);margin-bottom:0.5rem;">🏗️ Socle commun sécurisé</div>
+                    <div style="font-size:1.1rem;font-weight:800;margin-bottom:0.3rem;">Vos données restent chez vous. Le suivi devient clair.</div>
+                    <div style="font-size:0.78rem;color:var(--white-muted);line-height:1.5;max-width:520px;margin:0 auto 1rem;">Le socle lit, classe, trace et sécurise. Les données ne sortent jamais de votre environnement.</div>
                     <div style="display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.8rem;">
                         <span style="font-size:0.6rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:9999px;background:var(--green-dim);color:var(--green-bright);">Vision</span>
                         <span style="font-size:0.6rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:9999px;background:rgba(59,130,246,0.1);color:#60a5fa;">Matching</span>
@@ -831,14 +831,14 @@
                     <div style="padding:1rem 1.2rem;background:rgba(0,0,0,0.2);border:1px solid rgba(16,185,129,0.15);border-radius:var(--radius-sm);">
                         <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.03em;color:var(--green-bright);margin-bottom:0.6rem;">Conçu pour rassurer votre DSI</div>
                         <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.4rem;">
-                            <span style="font-size:0.58rem;font-weight:600;color:var(--white-dim);display:flex;align-items:center;gap:0.3rem;">🔒 Zero-Copy</span>
+                            <span style="font-size:0.58rem;font-weight:600;color:var(--white-dim);display:flex;align-items:center;gap:0.3rem;">🔒 Données non copiées</span>
                             <span style="font-size:0.58rem;font-weight:600;color:var(--white-dim);display:flex;align-items:center;gap:0.3rem;">🇫🇷 Hébergé en France</span>
                             <span style="font-size:0.58rem;font-weight:600;color:var(--white-dim);display:flex;align-items:center;gap:0.3rem;">🔐 Chiffrement TLS 1.3</span>
                             <span style="font-size:0.58rem;font-weight:600;color:var(--white-dim);display:flex;align-items:center;gap:0.3rem;">🏗️ 1 instance / client</span>
                             <span style="font-size:0.58rem;font-weight:600;color:var(--white-dim);display:flex;align-items:center;gap:0.3rem;">🔑 Authentification chiffrée</span>
                             <span style="font-size:0.58rem;font-weight:600;color:var(--white-dim);display:flex;align-items:center;gap:0.3rem;">🛡️ RGPD natif</span>
                             <span style="font-size:0.58rem;font-weight:600;color:var(--white-dim);display:flex;align-items:center;gap:0.3rem;">⚖️ Gouvernance IA cadrée</span>
-                            <span style="font-size:0.58rem;font-weight:600;color:var(--white-dim);display:flex;align-items:center;gap:0.3rem;">📋 Audits mensuels auto</span>
+                            <span style="font-size:0.58rem;font-weight:600;color:var(--white-dim);display:flex;align-items:center;gap:0.3rem;">📋 Audits mensuels</span>
                             <span style="font-size:0.58rem;font-weight:600;color:var(--white-dim);display:flex;align-items:center;gap:0.3rem;">🚫 Zéro cloud public</span>
                             <span style="font-size:0.58rem;font-weight:600;color:var(--white-dim);display:flex;align-items:center;gap:0.3rem;">🗄️ SharePoint client uniquement</span>
                         </div>
@@ -868,32 +868,32 @@
         <div class="container">
             <div class="solutions-header reveal" style="text-align:center;max-width:650px;margin:0 auto 3rem;">
                 <div class="section-label">Personnalisation</div>
-                <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:0.8rem;">Mêmes moteurs.<br>Votre <em style="font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--green-bright);">configuration.</em></h2>
-                <p style="color:var(--white-muted);font-size:0.95rem;line-height:1.6;">Les briques de contrôle sont réutilisables. Ce qui change : vos règles, vos seuils, vos fournisseurs, votre ERP, vos fichiers et votre niveau de maturité. On commence par un périmètre utile, puis on enrichit seulement si la valeur est prouvée.</p>
+                <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;letter-spacing:-0.02em;margin-bottom:0.8rem;">Vos règles.<br>Votre <em style="font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--green-bright);">configuration.</em></h2>
+                <p style="color:var(--white-muted);font-size:0.95rem;line-height:1.6;">Les briques sont simples. Ce qui change : vos règles, vos fournisseurs, vos fichiers et vos seuils. On commence petit, puis on enrichit si la valeur est prouvée.</p>
             </div>
             <div class="solutions-grid">
                 <div class="sol-card reveal" style="--sol-color:#3b82f6;">
                     <div class="sol-icon" style="background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.3);">🏭</div>
                     <h3>PME / ETI avec flux critique</h3>
-                    <p>Un ERP, des fichiers Excel, des mails, des relances et un sujet qui déborde. Cadrage, accès aux données, règles métier avec vos équipes : une première boucle de contrôle peut être mise en service en 30 jours.</p>
+                    <p>Un ERP, Excel, des mails et un sujet qui déborde. Une première boucle peut être mise en service en 30 jours.</p>
                     <div class="sol-tag" style="color:#60a5fa;background:rgba(59,130,246,0.12);">Activation 30 jours</div>
                 </div>
                 <div class="sol-card reveal reveal-delay-1" style="--sol-color:#8b5cf6;">
                     <div class="sol-icon" style="background:var(--purple-dim);border:1px solid rgba(139,92,246,0.3);">🏛️</div>
                     <h3>Fournisseurs stratégiques / critiques</h3>
-                    <p>20 à 50 fournisseurs à suivre vraiment : criticité, retards, relances, litiges prioritaires et plans d'action. On discipline d'abord le périmètre, puis on enrichit qualité, finance ou multi-sites si nécessaire.</p>
+                    <p>20 à 50 fournisseurs à suivre vraiment : retards, relances, litiges et plans d'action.</p>
                     <div class="sol-tag" style="color:#a78bfa;background:var(--purple-dim);">Supplier Watchtower</div>
                 </div>
                 <div class="sol-card reveal" style="--sol-color:#f59e0b;">
                     <div class="sol-icon" style="background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);">🎯</div>
                     <h3>Achats / Supply / Operations</h3>
-                    <p>Sortez du mode pompier. Les modules Kanso reprennent les suivis répétitifs : relances, retards, litiges, demandes internes, actions et preuves. Vous reprenez du temps pour piloter.</p>
+                    <p>Sortez du mode pompier. Les relances, retards, litiges, actions et preuves restent visibles jusqu'au bout.</p>
                     <div class="sol-tag" style="color:#fbbf24;background:rgba(245,158,11,0.12);">Contrôle opérationnel</div>
                 </div>
                 <div class="sol-card reveal reveal-delay-1" style="--sol-color:#f59e0b;">
                     <div class="sol-icon" style="background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);">🔑</div>
                     <h3>DAF / DG</h3>
-                    <p>Vous voulez savoir ce qui coûte vraiment : temps perdu, retards, litiges, actions non suivies, risques fournisseurs. Le Diagnostic ROI transforme le flou en périmètre activable.</p>
+                    <p>Vous voulez savoir ce qui coûte vraiment. On transforme le flou en périmètre clair.</p>
                     <div class="sol-tag" style="color:#fbbf24;background:rgba(245,158,11,0.12);">Diagnostic ROI</div>
                 </div>
                 <div class="sol-card reveal" style="--sol-color:#10b981;">
@@ -931,7 +931,7 @@
                     <div style="font-size:1.5rem;margin-bottom:0.5rem;">🔒</div>
                     <div style="font-size:2.5rem;font-weight:900;color:#fbbf24;letter-spacing:-0.04em;">0</div>
                     <div style="font-size:0.85rem;font-weight:600;margin-top:0.3rem;margin-bottom:0.8rem;">données chez Kanso</div>
-                    <div style="font-size:0.82rem;color:var(--white-muted);line-height:1.5;">Zero-Copy. Tout reste sur votre SharePoint. Hébergé en France. Gouvernance RGPD et IA cadrée.</div>
+                    <div style="font-size:0.82rem;color:var(--white-muted);line-height:1.5;">Rien n'est copié chez Kanso. Tout reste sur votre SharePoint. Hébergé en France. RGPD et IA cadrée.</div>
                 </div>
             </div>
             <div style="text-align:center;max-width:600px;margin:2.5rem auto 0;padding:1.5rem;background:linear-gradient(135deg,rgba(16,185,129,0.06),rgba(139,92,246,0.04));border:1px solid rgba(16,185,129,0.15);border-radius:var(--radius-lg);" class="reveal">
@@ -945,7 +945,7 @@
         <div class="container">
             <div class="reveal" style="max-width:700px;margin:0 auto;text-align:center;padding:3rem 2.5rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);">
                 <h2 style="font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:900;margin-bottom:1rem;">Prêt à identifier une perte invisible ?</h2>
-                <p style="color:var(--white-muted);font-size:0.92rem;line-height:1.6;margin-bottom:2rem;">On prend un sujet concret, on regarde ce qui bloque, ce qui coûte, et ce qu'il serait raisonnable de mettre sous contrôle. Si le ROI n'est pas défendable, on s'arrête proprement.</p>
+                <p style="color:var(--white-muted);font-size:0.92rem;line-height:1.6;margin-bottom:2rem;">On prend un sujet concret. On regarde ce qui bloque, ce que ça coûte, et si ça vaut le coup. Sinon, on s'arrête.</p>
                 <a href="index.html#contact" style="display:inline-flex;align-items:center;gap:0.7rem;padding:1.1rem 2.5rem;background:linear-gradient(135deg,var(--green),#059669);color:white;text-decoration:none;font-weight:700;font-size:0.95rem;border-radius:var(--radius-sm);transition:all 0.25s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 30px rgba(16,185,129,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
                     Réserver une qualification ROI
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
@@ -1055,7 +1055,7 @@
         // ═══ 3 ÉTAPES — PIPELINE + MOCKUP ROTATION ═══
         (function() {
             const steps = ['depot','trait','resti'];
-            const titles = { depot:'Réception des documents', trait:'Traitement par les 5 moteurs', resti:'Vue de pilotage — résultats' };
+            const titles = { depot:'Réception des documents', trait:'Traitement par les briques', resti:'Vue de pilotage — résultats' };
             const colors = { depot:'#a78bfa', trait:'#60a5fa', resti:'#34d399' };
             const gradients = { depot:'linear-gradient(90deg,#8b5cf6,#a78bfa)', trait:'linear-gradient(90deg,#3b82f6,#60a5fa)', resti:'linear-gradient(90deg,#10b981,#34d399)' };
             const flowNodes = document.querySelectorAll('.flow-node[data-step]');
@@ -1152,7 +1152,7 @@
             function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
 
             tabs.forEach((t, i) => { t.addEventListener('click', () => { goTo(i); startAuto(); }); });
-            const mSection = document.querySelector('.moteurs');
+            const mSection = document.querySelector('.briques');
             if (mSection) {
                 mSection.addEventListener('mouseenter', () => { paused = true; });
                 mSection.addEventListener('mouseleave', () => { paused = false; });
