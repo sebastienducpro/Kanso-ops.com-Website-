@@ -1090,15 +1090,22 @@
             .audit-wrapper { padding: 3rem 2rem; }
             .audit-pricing { text-align: left; }
             .cm-kpis { grid-template-columns: repeat(2, 1fr); }
-            .hero-layout { display: block; min-height: auto; }
-            .hero-content { max-width: 760px; }
+            .hero-layout {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-height: auto;
+                gap: 1.75rem;
+            }
+            .hero-content { max-width: 760px; text-align: center; }
             .hero-visual {
                 position: relative;
+                order: -1;
                 top: auto;
                 right: auto;
                 transform: none;
                 width: min(100%, 760px);
-                margin: 2rem auto 0;
+                margin: 0 auto;
             }
             .hero-video-frame::after {
                 background:
@@ -1117,8 +1124,13 @@
             }
             .nav-links { display: none; }
             .mobile-toggle { display: block; }
-            .hero-proof { flex-direction: column; align-items: flex-start; }
-            .hero-visual { display: none; }
+            .hero-proof { flex-direction: column; align-items: center; }
+            .hero-visual {
+                display: block;
+                width: min(100%, 680px);
+                margin-bottom: 0.5rem;
+            }
+            .hero-video-frame { border-radius: 18px; }
             .about-grid { grid-template-columns: 1fr; }
             .about-visual { order: -1; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }

@@ -325,6 +325,28 @@
             .pyr-mid { flex-wrap: wrap !important; }
             .dm-screen { min-height: auto !important; }
             .contact-grid { grid-template-columns: 1fr !important; }
+            .hero-layout {
+                display: flex !important;
+                flex-direction: column;
+                align-items: center;
+                min-height: auto !important;
+                gap: 1.75rem;
+            }
+            .hero-content {
+                max-width: 760px !important;
+                text-align: center;
+                margin: 0 auto;
+            }
+            .hero-visual {
+                display: block !important;
+                position: relative !important;
+                order: -1;
+                top: auto !important;
+                right: auto !important;
+                transform: none !important;
+                width: min(100%, 760px) !important;
+                margin: 0 auto !important;
+            }
         }
 
         /* ═══════════════════════════════════════════════════ */
@@ -355,13 +377,24 @@
 
             /* HERO */
             .hero { padding: 7rem 0 3rem !important; min-height: auto !important; }
-            .hero-layout { display: block !important; min-height: auto !important; }
+            .hero-layout {
+                display: flex !important;
+                flex-direction: column;
+                min-height: auto !important;
+                gap: 1.25rem;
+            }
             .hero-content { max-width: 100% !important; text-align: center; margin: 0 auto; }
             .hero-sub { max-width: 100% !important; font-size: 0.92rem !important; }
             .hero h1 { font-size: clamp(1.8rem, 7vw, 2.4rem) !important; }
             .hero-cta { font-size: 0.85rem; padding: 0.9rem 1.8rem; }
             .hero-proof { flex-direction: column; align-items: center; gap: 0.6rem; }
-            .hero-visual { display: none !important; }
+            .hero-visual {
+                display: block !important;
+                order: -1;
+                width: min(100%, 680px) !important;
+                margin: 0 auto 0.5rem !important;
+            }
+            .hero-video-frame { border-radius: 18px !important; }
             .proof-logos { flex-wrap: wrap; justify-content: center; gap: 0.4rem; }
             .badge { font-size: 0.62rem; padding: 0.3rem 0.7rem; }
 
@@ -548,35 +581,35 @@
             <div class="risk-roi-panel reveal">
                 <div class="risk-roi-head">
                     <div>
-                        <div class="section-label">Ce que ça évite</div>
-                        <h2>Le ROI vient des problèmes<br><em>qui ne traînent plus</em></h2>
+                        <div class="section-label">Avant le mode pompier</div>
+                        <h2>On agit avant<br><em>que ça bloque</em></h2>
                     </div>
-                    <p class="risk-roi-note">Lean et orienté ROI. Petit périmètre, preuve rapide, gain mesurable. Si le sujet ne porte pas assez de valeur, on ne le lance pas.</p>
+                    <p class="risk-roi-note">Kanso-Ops détecte les signaux faibles, relance la bonne personne et garde chaque risque visible jusqu'à décision.</p>
                 </div>
                 <div class="risk-roi-grid">
                     <div class="risk-roi-card">
-                        <div class="risk-roi-kicker">Délais & service client</div>
-                        <h3>Commandes bloquées avant livraison</h3>
-                        <p>AR manquant, transport non réservé, composant court ou certificat expiré : le risque remonte avant le client.</p>
-                        <span class="risk-roi-tag">ROI : pénalités évitées, urgence réduite, temps gagné</span>
+                        <div class="risk-roi-kicker">Stock & couverture</div>
+                        <h3>Rupture ou surstock détecté tôt</h3>
+                        <p>Couverture trop courte, stock dormant, composant critique : Kanso signale l'écart, priorise l'action et évite l'arbitrage trop tardif.</p>
+                        <span class="risk-roi-tag">Impact : cash libéré, ruptures évitées, achats priorisés</span>
                     </div>
                     <div class="risk-roi-card">
-                        <div class="risk-roi-kicker">Cash & litiges</div>
-                        <h3>Factures, avoirs et écarts qui restent ouverts</h3>
-                        <p>Écarts prix, litiges, avoirs, relances oubliées : chaque dossier a un statut, un montant et une prochaine action.</p>
-                        <span class="risk-roi-tag">ROI : cash récupéré, litiges clôturés, encours réduit</span>
+                        <div class="risk-roi-kicker">Fournisseurs & contrats</div>
+                        <h3>Contrats absents, conditions à revoir</h3>
+                        <p>Fournisseur stratégique sans contrat, délai de paiement négociable, conditions obsolètes : le sujet ne reste plus perdu dans un mail.</p>
+                        <span class="risk-roi-tag">Impact : risque réduit, cash amélioré, conditions sécurisées</span>
+                    </div>
+                    <div class="risk-roi-card">
+                        <div class="risk-roi-kicker">Certificats & lots</div>
+                        <h3>Certificat manquant avant blocage</h3>
+                        <p>Certificat absent, expiré ou non conforme : la relance part avant de bloquer une production, une expédition ou une libération de lot.</p>
+                        <span class="risk-roi-tag">Impact : lots sécurisés, relances tracées, urgence évitée</span>
                     </div>
                     <div class="risk-roi-card">
                         <div class="risk-roi-kicker">Qualité & réclamations</div>
-                        <h3>Réclamations fournisseur envoyées plus vite</h3>
-                        <p>La photo est reliée au code article. Le rapport est préparé, puis validé avant envoi.</p>
-                        <span class="risk-roi-tag">ROI : temps contrôle réduit, preuve prête, réclamation immédiate</span>
-                    </div>
-                    <div class="risk-roi-card">
-                        <div class="risk-roi-kicker">Marge & commerce</div>
-                        <h3>Devis qui sortent plus vite, avec moins d'erreurs</h3>
-                        <p>Coût obsolète, transport oublié, devis sans réponse : les alertes protègent la marge.</p>
-                        <span class="risk-roi-tag">ROI : marge protégée, cycle devis raccourci, conversion améliorée</span>
+                        <h3>Rapport fournisseur prêt à envoyer</h3>
+                        <p>Une photo, un code article, le référentiel esthétique : le rapport de contrôle est prérempli, validé par l'opérateur, puis envoyé vite.</p>
+                        <span class="risk-roi-tag">Impact : preuve prête, réclamation immédiate, temps contrôle réduit</span>
                     </div>
                 </div>
             </div>
