@@ -333,9 +333,26 @@
                 gap: 0;
             }
             .hero-content {
+                width: min(100%, 760px) !important;
                 max-width: 760px !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 text-align: center;
                 margin: 0 auto;
+            }
+            .hero-sub,
+            .hero-cta-note {
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            .hero-actions,
+            .hero-proof,
+            .proof-logos {
+                justify-content: center;
+            }
+            .hero-proof {
+                flex-wrap: wrap;
             }
             .hero-visual {
                 display: block !important;
@@ -395,7 +412,9 @@
             .hero-sub { max-width: 100% !important; font-size: 0.92rem !important; }
             .hero h1 { font-size: clamp(1.8rem, 7vw, 2.4rem) !important; }
             .hero-cta { font-size: 0.85rem; padding: 0.9rem 1.8rem; }
-            .hero-proof { flex-direction: column; align-items: center; gap: 0.6rem; }
+            .hero-actions { width: 100%; }
+            .hero-proof { flex-direction: column; align-items: center; gap: 0.6rem; text-align: center; }
+            .proof-logos { flex-wrap: wrap; }
             .hero-visual {
                 display: block !important;
                 position: absolute !important;
@@ -599,32 +618,32 @@
                         <div class="section-label">Avant le mode pompier</div>
                         <h2>On agit avant<br><em>que ça bloque</em></h2>
                     </div>
-                    <p class="risk-roi-note">Kanso-Ops détecte les signaux faibles, relance la bonne personne et garde chaque risque visible jusqu'à décision.</p>
+                    <p class="risk-roi-note">Commandes, stock, certificats, litiges, qualité, devis : Kanso-Ops détecte les signaux faibles, relance la bonne personne et garde chaque risque visible jusqu'à décision.</p>
                 </div>
                 <div class="risk-roi-grid">
                     <div class="risk-roi-card">
-                        <div class="risk-roi-kicker">Stock & couverture</div>
-                        <h3>Rupture ou surstock détecté tôt</h3>
-                        <p>Couverture trop courte, stock dormant, composant critique : Kanso signale l'écart, priorise l'action et évite l'arbitrage trop tardif.</p>
-                        <span class="risk-roi-tag">Impact : cash libéré, ruptures évitées, achats priorisés</span>
+                        <div class="risk-roi-kicker">Délais, stock & service client</div>
+                        <h3>Commande ou lot bloqué avant livraison</h3>
+                        <p>AR manquant, transport non réservé, couverture trop courte, composant critique ou certificat expiré : le risque remonte avant le client.</p>
+                        <span class="risk-roi-tag">Impact : pénalités évitées, ruptures réduites, urgence maîtrisée</span>
                     </div>
                     <div class="risk-roi-card">
-                        <div class="risk-roi-kicker">Fournisseurs & contrats</div>
-                        <h3>Contrats absents, conditions à revoir</h3>
-                        <p>Fournisseur stratégique sans contrat, délai de paiement négociable, conditions obsolètes : le sujet ne reste plus perdu dans un mail.</p>
-                        <span class="risk-roi-tag">Impact : risque réduit, cash amélioré, conditions sécurisées</span>
-                    </div>
-                    <div class="risk-roi-card">
-                        <div class="risk-roi-kicker">Certificats & lots</div>
-                        <h3>Certificat manquant avant blocage</h3>
-                        <p>Certificat absent, expiré ou non conforme : la relance part avant de bloquer une production, une expédition ou une libération de lot.</p>
-                        <span class="risk-roi-tag">Impact : lots sécurisés, relances tracées, urgence évitée</span>
+                        <div class="risk-roi-kicker">Cash, litiges & contrats</div>
+                        <h3>Factures, avoirs et contrats qui restent ouverts</h3>
+                        <p>Écarts prix, litiges, avoirs, fournisseur sans contrat, délais de paiement négociables : chaque dossier a un statut et une prochaine action.</p>
+                        <span class="risk-roi-tag">Impact : cash récupéré, litiges clôturés, conditions sécurisées</span>
                     </div>
                     <div class="risk-roi-card">
                         <div class="risk-roi-kicker">Qualité & réclamations</div>
-                        <h3>Rapport fournisseur prêt à envoyer</h3>
-                        <p>Une photo, un code article, le référentiel esthétique : le rapport de contrôle est prérempli, validé par l'opérateur, puis envoyé vite.</p>
+                        <h3>Réclamation fournisseur envoyée plus vite</h3>
+                        <p>Une photo, un code article, le référentiel esthétique : le rapport de contrôle est prérempli, validé par l'opérateur, puis envoyé sans délai.</p>
                         <span class="risk-roi-tag">Impact : preuve prête, réclamation immédiate, temps contrôle réduit</span>
+                    </div>
+                    <div class="risk-roi-card">
+                        <div class="risk-roi-kicker">Marge & commerce</div>
+                        <h3>Devis plus rapides, avec moins d'erreurs</h3>
+                        <p>Coût obsolète, transport oublié, devis sans réponse, conditions fournisseur non répercutées : les alertes protègent la marge.</p>
+                        <span class="risk-roi-tag">Impact : marge protégée, cycle devis raccourci, conversion améliorée</span>
                     </div>
                 </div>
             </div>
