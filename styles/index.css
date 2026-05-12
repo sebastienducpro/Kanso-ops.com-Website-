@@ -213,7 +213,7 @@
         }
         .entry-points {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 1.1rem;
         }
         .entry-point-card {
@@ -255,6 +255,10 @@
         }
         .entry-point-card--blue .entry-point-kicker::before { background: var(--blue); }
         .entry-point-card--purple .entry-point-kicker::before { background: var(--purple); }
+        .entry-point-card--green .entry-point-kicker::before { background: var(--green-bright); }
+        .entry-point-card--orange .entry-point-kicker::before { background: #f59e0b; }
+        .entry-point-card--red .entry-point-kicker::before { background: #f97316; }
+        .entry-point-card--teal .entry-point-kicker::before { background: #14b8a6; }
         .entry-point-title {
             font-size: 1rem;
             font-weight: 800;
