@@ -327,10 +327,10 @@
             .contact-grid { grid-template-columns: 1fr !important; }
             .hero-layout {
                 display: flex !important;
-                flex-direction: column;
                 align-items: center;
-                min-height: auto !important;
-                gap: 1.75rem;
+                justify-content: center;
+                min-height: 620px !important;
+                gap: 0;
             }
             .hero-content {
                 max-width: 760px !important;
@@ -339,13 +339,22 @@
             }
             .hero-visual {
                 display: block !important;
-                position: relative !important;
-                order: -1;
-                top: auto !important;
-                right: auto !important;
+                position: absolute !important;
+                inset: 0 !important;
                 transform: none !important;
-                width: min(100%, 760px) !important;
-                margin: 0 auto !important;
+                width: 100% !important;
+                height: 100% !important;
+                margin: 0 !important;
+                opacity: 0.66;
+            }
+            .hero-video-frame {
+                height: 100% !important;
+                aspect-ratio: auto !important;
+            }
+            .hero-video-frame::after {
+                background:
+                    linear-gradient(90deg, rgba(8,14,30,0.9) 0%, rgba(8,14,30,0.64) 42%, rgba(8,14,30,0.78) 100%) !important,
+                    linear-gradient(180deg, rgba(8,14,30,0.24) 0%, rgba(8,14,30,0.72) 100%) !important;
             }
         }
 
@@ -379,9 +388,8 @@
             .hero { padding: 7rem 0 3rem !important; min-height: auto !important; }
             .hero-layout {
                 display: flex !important;
-                flex-direction: column;
-                min-height: auto !important;
-                gap: 1.25rem;
+                min-height: 620px !important;
+                gap: 0;
             }
             .hero-content { max-width: 100% !important; text-align: center; margin: 0 auto; }
             .hero-sub { max-width: 100% !important; font-size: 0.92rem !important; }
@@ -390,11 +398,18 @@
             .hero-proof { flex-direction: column; align-items: center; gap: 0.6rem; }
             .hero-visual {
                 display: block !important;
-                order: -1;
-                width: min(100%, 680px) !important;
-                margin: 0 auto 0.5rem !important;
+                position: absolute !important;
+                inset: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                margin: 0 !important;
+                opacity: 0.48;
             }
-            .hero-video-frame { border-radius: 18px !important; }
+            .hero-video-frame {
+                height: 100% !important;
+                aspect-ratio: auto !important;
+                border-radius: 22px !important;
+            }
             .proof-logos { flex-wrap: wrap; justify-content: center; gap: 0.4rem; }
             .badge { font-size: 0.62rem; padding: 0.3rem 0.7rem; }
 
