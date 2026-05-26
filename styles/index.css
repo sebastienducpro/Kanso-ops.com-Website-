@@ -179,11 +179,134 @@
             line-height: 1.55;
             max-width: 620px;
         }
+        .hero-explainer {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.75rem;
+            max-width: 680px;
+            margin: 1.4rem 0 1.2rem;
+        }
+        .hero-explainer-item {
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: var(--radius-sm);
+            background: rgba(255,255,255,0.04);
+            padding: 0.85rem;
+            min-height: 118px;
+        }
+        .hero-explainer-item span {
+            display: block;
+            font-size: 0.66rem;
+            font-weight: 800;
+            color: var(--green-bright);
+            margin-bottom: 0.45rem;
+            letter-spacing: 0.03em;
+        }
+        .hero-explainer-item strong {
+            display: block;
+            font-size: 0.82rem;
+            line-height: 1.45;
+            color: var(--white);
+            font-weight: 700;
+        }
         .hero-proof { display: flex; align-items: center; gap: 1.2rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
         .hero-proof > span { font-size: 0.78rem; color: var(--white-muted); }
         .proof-logos { display: flex; align-items: center; gap: 1.5rem; }
         .proof-logos span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em; text-transform: none; color: var(--white-dim); }
         .proof-separator { width: 1px; height: 16px; background: rgba(255,255,255,0.12); }
+        .before-after-section {
+            padding: 1.2rem 0 2.2rem;
+        }
+        .before-after-panel {
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: var(--radius-lg);
+            background:
+                linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.02)),
+                rgba(8, 14, 30, 0.68);
+            padding: 1.45rem;
+            box-shadow: 0 18px 50px rgba(0,0,0,0.16);
+        }
+        .before-after-head {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+            gap: 1.4rem;
+            align-items: end;
+            margin-bottom: 1.2rem;
+        }
+        .before-after-head h2 {
+            font-size: clamp(1.85rem, 3.4vw, 2.7rem);
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            margin-top: 0.8rem;
+        }
+        .before-after-head h2 em {
+            font-style: italic;
+            font-family: var(--font-serif);
+            font-weight: 600;
+            color: var(--green-bright);
+        }
+        .before-after-head p {
+            color: var(--white-muted);
+            line-height: 1.68;
+            font-size: 0.92rem;
+            border-left: 2px solid var(--green-bright);
+            padding-left: 1rem;
+        }
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+        .before-after-card {
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-sm);
+            padding: 1.15rem;
+            background: rgba(255,255,255,0.035);
+        }
+        .before-after-card--after {
+            border-color: rgba(52,211,153,0.24);
+            background: rgba(52,211,153,0.055);
+        }
+        .before-after-kicker {
+            font-size: 0.68rem;
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            color: var(--white-dim);
+            margin-bottom: 0.55rem;
+            text-transform: uppercase;
+        }
+        .before-after-card--after .before-after-kicker {
+            color: var(--green-bright);
+        }
+        .before-after-card h3 {
+            font-size: 1rem;
+            line-height: 1.32;
+            margin-bottom: 0.8rem;
+        }
+        .before-after-card ul {
+            list-style: none;
+            display: grid;
+            gap: 0.55rem;
+        }
+        .before-after-card li {
+            position: relative;
+            padding-left: 1rem;
+            color: var(--white-muted);
+            font-size: 0.83rem;
+            line-height: 1.55;
+        }
+        .before-after-card li::before {
+            content: '';
+            position: absolute;
+            top: 0.7em;
+            left: 0;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--white-dim);
+        }
+        .before-after-card--after li::before {
+            background: var(--green-bright);
+        }
         .audit-entry-section {
             position: relative;
             padding: 2.8rem 0 1.2rem;
@@ -1116,6 +1239,15 @@
             .proof-logos {
                 justify-content: center;
             }
+            .hero-explainer {
+                width: min(100%, 720px);
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .before-after-head {
+                grid-template-columns: 1fr;
+                align-items: start;
+            }
             .hero-proof {
                 flex-wrap: wrap;
             }
@@ -1150,6 +1282,16 @@
             .nav-links { display: none; }
             .mobile-toggle { display: block; }
             .hero-actions { width: 100%; }
+            .hero-explainer,
+            .before-after-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-explainer-item {
+                min-height: auto;
+            }
+            .before-after-panel {
+                padding: 1.15rem;
+            }
             .hero-proof { flex-direction: column; align-items: center; text-align: center; }
             .proof-logos { flex-wrap: wrap; }
             .hero-visual {
