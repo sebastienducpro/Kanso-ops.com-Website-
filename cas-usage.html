@@ -210,6 +210,87 @@
             .footer-bottom{flex-direction:column;text-align:center;}
             .footer-links{justify-content:center;}
         }
+
+        /* ═══ CAB CATALOGUE (familles de solutions) ═══ */
+        .cab{padding:4rem 0 1rem;}
+        .cab-head{text-align:center;max-width:760px;margin:0 auto 2.5rem;}
+        .cab-head h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;letter-spacing:-0.02em;margin:0.6rem 0 0.8rem;}
+        .cab-head h2 em{font-style:normal;color:var(--green);}
+        .cab-head p{color:var(--white-muted);font-size:0.95rem;line-height:1.6;}
+        .cab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;}
+        .cab-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.8rem;transition:all .25s;}
+        .cab-card:hover{border-color:var(--border-hover);background:var(--bg-card-hover);transform:translateY(-3px);}
+        .cab-badge{display:inline-block;padding:0.3rem 0.85rem;border-radius:9999px;font-size:0.72rem;font-weight:700;letter-spacing:0.03em;margin-bottom:0.8rem;}
+        .cab-badge--green{background:var(--green-dim);color:var(--green-bright);}
+        .cab-badge--blue{background:rgba(59,130,246,0.15);color:#60a5fa;}
+        .cab-badge--purple{background:var(--purple-dim);color:#a78bfa;}
+        .cab-card h3{font-size:1.15rem;font-weight:800;margin-bottom:0.5rem;color:var(--white);}
+        .cab-irritant{color:var(--white-muted);font-style:italic;font-size:0.86rem;line-height:1.5;margin-bottom:1.1rem;border-left:2px solid var(--border-accent);padding-left:0.8rem;}
+        .cab-cols{display:grid;grid-template-columns:1fr;gap:0.9rem;}
+        .cab-block-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.35rem;}
+        .cab-c{color:var(--blue);}.cab-a{color:#a78bfa;}.cab-b{color:var(--green-bright);}
+        .cab-block ul{list-style:none;display:flex;flex-direction:column;gap:0.25rem;}
+        .cab-block li{font-size:0.84rem;color:var(--white-muted);line-height:1.45;padding-left:1rem;position:relative;}
+        .cab-block li::before{content:'→';position:absolute;left:0;color:var(--white-dim);}
+        .cab-b li{color:var(--white);}
+        .cab-position{max-width:860px;margin:0 auto 1.8rem;padding:1.1rem 1.5rem;background:var(--green-dim);border:1px solid rgba(16,185,129,0.25);border-radius:var(--radius-md);text-align:center;font-size:0.92rem;line-height:1.65;color:var(--white-muted);}
+        .cab-position strong{color:#fff;}
+        .cab-position em{font-style:normal;color:var(--green-bright);font-weight:700;}
+        .cab-disclaimer{text-align:center;color:var(--white-dim);font-size:0.78rem;font-style:italic;margin:1.8rem auto 0;max-width:720px;}
+        .cab-filters{display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;margin:0 auto 2rem;max-width:920px;position:sticky;top:70px;z-index:50;padding:0.7rem;background:rgba(8,14,30,0.82);backdrop-filter:blur(10px);border-radius:14px;border:1px solid var(--border);}
+        .cab-filter{padding:0.45rem 1rem;border-radius:9999px;border:1px solid var(--border);background:var(--bg-card);color:var(--white-muted);font-size:0.78rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit;}
+        .cab-filter:hover{border-color:var(--border-hover);color:var(--white);}
+        .cab-filter.active{background:linear-gradient(135deg,var(--purple) 0%,#7c3aed 100%);color:#fff;border-color:transparent;}
+        .cab-examples{margin-top:1.2rem;border-top:1px solid var(--border);padding-top:1rem;display:flex;flex-direction:column;gap:0.7rem;}
+        .cab-examples-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--white-dim);margin-bottom:0.1rem;}
+        .cab-ex{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:var(--radius-sm);padding:0.7rem 0.9rem;}
+        .cab-ex-who{font-size:0.8rem;font-weight:700;color:var(--white);margin-bottom:0.4rem;}
+        .cab-ex-line{font-size:0.82rem;color:var(--white-muted);line-height:1.5;margin-bottom:0.2rem;}
+        .cab-av,.cab-now{display:inline-block;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;padding:0.12rem 0.45rem;border-radius:4px;margin-right:0.45rem;}
+        .cab-av{background:rgba(248,113,113,0.15);color:#f87171;}
+        .cab-now{background:var(--green-dim);color:var(--green-bright);}
+        /* ═══ QUADRANT leviers de productivité ═══ */
+        .quad{padding:4.5rem 0 2rem;}
+        .quad-head{text-align:center;max-width:760px;margin:0 auto 1.6rem;}
+        .quad-head h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;letter-spacing:-0.02em;margin:0.6rem 0 0.8rem;}
+        .quad-head h2 em{font-style:normal;color:var(--green);}
+        .quad-head p{color:var(--white-muted);font-size:0.95rem;line-height:1.6;}
+        .quad-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;margin-bottom:1.6rem;}
+        .quad-tab{padding:0.45rem 1.1rem;border-radius:9999px;border:1px solid var(--border);background:var(--bg-card);color:var(--white-muted);font-size:0.8rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;}
+        .quad-tab:hover{color:var(--white);border-color:var(--border-hover);}
+        .quad-tab.active{background:linear-gradient(135deg,var(--purple) 0%,#7c3aed 100%);color:#fff;border-color:transparent;}
+        .quad-row{display:flex;align-items:stretch;gap:0.6rem;max-width:800px;margin:0 auto;}
+        .quad-axisy{writing-mode:vertical-rl;transform:rotate(180deg);font-size:0.72rem;color:var(--white-muted);font-weight:600;display:flex;align-items:center;justify-content:center;}
+        .quad-plot{flex:1;position:relative;aspect-ratio:1.5/1;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;}
+        .quad-plot::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border);}
+        .quad-plot::after{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border);}
+        .quad-qlabel{position:absolute;font-size:0.64rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--white-dim);z-index:1;}
+        .quad-q-tr{top:10px;right:14px;color:var(--green-bright);}
+        .quad-q-tl{top:10px;left:14px;}
+        .quad-q-br{bottom:10px;right:14px;}
+        .quad-q-bl{bottom:10px;left:14px;}
+        .quad-bubble{position:absolute;transform:translate(-50%,50%);transition:left .55s cubic-bezier(.4,0,.2,1),bottom .55s cubic-bezier(.4,0,.2,1),opacity .35s ease;display:flex;align-items:center;gap:0.3rem;z-index:2;}
+        .quad-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;box-shadow:0 0 0 3px rgba(255,255,255,0.05);}
+        .quad-blabel{font-size:0.64rem;color:var(--white);white-space:nowrap;background:rgba(8,14,30,0.8);padding:1px 5px;border-radius:4px;}
+        .quad-bubble.lleft{flex-direction:row-reverse;}
+        .quad-bubble.dim{opacity:0.16;}
+        .quad-bubble.hot{z-index:6;}
+        .quad-bubble.hot .quad-dot{animation:quadPulse 1.15s ease-in-out infinite;}
+        .quad-bubble.hot .quad-blabel{background:rgba(124,58,237,0.92);color:#fff;font-weight:700;box-shadow:0 0 0 1px rgba(167,139,250,0.55),0 0 12px rgba(124,58,237,0.5);}
+        @keyframes quadPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 3px rgba(167,139,250,0.22),0 0 6px 1px rgba(167,139,250,0.35);}50%{transform:scale(1.4);box-shadow:0 0 0 5px rgba(167,139,250,0.10),0 0 16px 6px rgba(167,139,250,0.8);}}
+        .quad-profile-cap{text-align:center;font-size:0.7rem;color:var(--white-dim);text-transform:uppercase;letter-spacing:0.07em;font-weight:700;margin-bottom:0.5rem;}
+        .cab-subcap{text-align:center;font-size:0.82rem;color:var(--white-muted);max-width:720px;margin:3rem auto 1.8rem;padding-top:2rem;border-top:1px solid var(--border);}
+        .cab-subcap strong{color:var(--white);}
+        .quad-axisx{text-align:center;font-size:0.72rem;color:var(--white-muted);font-weight:600;margin-top:0.5rem;}
+        .quad-note{text-align:center;color:var(--white-dim);font-size:0.78rem;font-style:italic;margin:1.4rem auto 0;max-width:700px;}
+        @media(max-width:600px){
+            .quad-blabel{font-size:0.58rem;}
+            .quad-plot{aspect-ratio:1/1;}
+            .cab-filters{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;gap:0.4rem;padding:0.55rem 0.65rem;top:62px;scrollbar-width:none;}
+            .cab-filters::-webkit-scrollbar{display:none;}
+            .cab-filter{flex:0 0 auto;white-space:nowrap;}
+        }
+        @media(max-width:760px){.cab-grid{grid-template-columns:1fr;}}
     </style>
 </head>
 <body>
@@ -453,6 +534,160 @@
         </div>
     </section>
 
+    <!-- ═══ QUADRANT LEVIERS ═══ -->
+    <section class="quad">
+        <div class="container">
+            <div class="quad-head reveal">
+                <div class="section-label">Où sont les gains</div>
+                <h2>Vos plus grands leviers de productivité, <em>selon votre profil.</em></h2>
+                <p>Une lecture en matrice de priorisation. Plus on va à droite, plus l'impact est fort ; plus on monte, plus c'est simple à mettre en place. Le coin haut-droite = vos quick wins. <strong>Cliquez une catégorie</strong> : elle s'allume dans le quadrant et filtre le détail plus bas. <strong>Changez de profil</strong> et les priorités se déplacent. (Un échantillon de nos solutions, pas la liste complète.)</p>
+            </div>
+            <div class="cab-filters reveal">
+                <button class="cab-filter active" data-filter="all">Tous</button>
+                <button class="cab-filter" data-filter="Trésorerie">Trésorerie</button>
+                <button class="cab-filter" data-filter="Achats / Stock">Achats / Stock</button>
+                <button class="cab-filter" data-filter="Production">Production</button>
+                <button class="cab-filter" data-filter="Qualité">Qualité</button>
+                <button class="cab-filter" data-filter="Fournisseurs">Fournisseurs</button>
+                <button class="cab-filter" data-filter="Bureau d'études">Bureau d'études</button>
+                <button class="cab-filter" data-filter="Charge mentale">Charge mentale</button>
+                <button class="cab-filter" data-filter="Commercial">Commercial</button>
+                <button class="cab-filter" data-filter="Direction">Direction</button>
+            </div>
+            <div class="quad-profile-cap">Votre profil :</div>
+            <div class="quad-tabs reveal">
+                <button class="quad-tab" data-typ="Artisan / TPE">Artisan / TPE</button>
+                <button class="quad-tab active" data-typ="PME industrielle">PME industrielle</button>
+                <button class="quad-tab" data-typ="PME services / négoce">PME services / négoce</button>
+                <button class="quad-tab" data-typ="ETI">ETI</button>
+                </div>
+            <div class="quad-row reveal">
+                <div class="quad-axisy">Facilité de mise en œuvre ↑</div>
+                <div class="quad-plot" id="quad-plot">
+                    <span class="quad-qlabel quad-q-tr">★ Quick wins</span>
+                    <span class="quad-qlabel quad-q-tl">Gains faciles</span>
+                    <span class="quad-qlabel quad-q-br">Gros chantiers</span>
+                    <span class="quad-qlabel quad-q-bl">Faible priorité</span>
+                </div>
+            </div>
+            <div class="quad-axisx">Impact →</div>
+            <p class="quad-note">Échantillon illustratif — pas la liste complète, et ce n'est pas une étude : c'est notre propre cadre de priorisation. Les positions dépendent de votre profil ET de votre contexte (taille, systèmes, données) : un quick win pour l'un peut être un chantier pour l'autre. Tout est confirmé et chiffré au Blueprint, sur votre cas réel.</p>
+            <div class="cab-subcap reveal">Le détail, famille par famille — <strong>filtré selon la catégorie choisie au-dessus</strong></div>
+            <div class="cab-position reveal"><strong>KANSO n'est pas un ERP de plus.</strong> Votre ERP calcule, vos tableurs affichent — <em>KANSO fait avancer.</em> On se branche sur vos outils existants et on <strong>agit</strong> : relancer, alerter, contrôler, fermer la boucle — là où aujourd'hui ça repose sur quelqu'un. On ne remplace rien : on met en mouvement ce qui dort.</div>
+            <div class="cab-grid">
+
+                <div class="cab-card reveal">
+                    <span class="cab-badge cab-badge--green">Trésorerie</span>
+                    <h3>Relances & encours clients</h3>
+                    <p class="cab-irritant">« Les relances reposent sur la mémoire d'une personne — et chaque oubli, c'est de la trésorerie qui dort chez le client. »</p>
+                    <div class="cab-cols">
+                        <div class="cab-block"><div class="cab-block-label cab-c">Ce qu'on met en place</div><ul><li>Suivi automatique des échéances</li><li>Relances déclenchées au bon moment</li><li>Détection des écarts et des avoirs non réclamés</li><li>Cockpit de l'encours</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-a">Ce que ça change</div><ul><li>Plus rien ne dépend d'une seule tête</li><li>Les retards sont vus avant qu'ils coûtent</li><li>L'argent dû finit par rentrer</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-b">Ce que vous y gagnez</div><ul><li>Vous ne pensez plus aux relances</li><li>Votre bras droit respire</li><li>La trésorerie se tend moins</li></ul></div>
+                    </div>
+                    <div class="cab-examples"><div class="cab-examples-label">Concrètement, sur le terrain</div><div class="cab-ex"><div class="cab-ex-who">Martine · comptabilité</div><div class="cab-ex-line"><span class="cab-av">Avant</span>relançait de mémoire et en oubliait, le factor pénalisait.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>le système relance au bon moment, elle suit l'encours d'un coup d'œil.</div></div><div class="cab-ex"><div class="cab-ex-who">Sophie · DAF</div><div class="cab-ex-line"><span class="cab-av">Avant</span>découvrait les agios en fin de mois, trop tard.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>elle est alertée avant l'échéance et agit à temps.</div></div></div>
+                </div>
+
+                <div class="cab-card reveal reveal-delay-1">
+                    <span class="cab-badge cab-badge--blue">Achats / Stock</span>
+                    <h3>Pièces critiques & stock vivant</h3>
+                    <p class="cab-irritant">« On découvre la rupture une fois en production — pendant que du stock dort ailleurs. »</p>
+                    <div class="cab-cols">
+                        <div class="cab-block"><div class="cab-block-label cab-c">Ce qu'on met en place</div><ul><li>Alertes de seuils et d'obsolescence</li><li>Suivi des accusés de réception</li><li>Détection du stock dormant</li><li>Magasin tracé</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-a">Ce que ça change</div><ul><li>On anticipe au lieu de subir</li><li>Moins d'achats en urgence</li><li>Le besoin en fonds de roulement s'allège</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-b">Ce que vous y gagnez</div><ul><li>Plus de production à l'arrêt pour une pièce manquante</li><li>La sérénité d'avoir ce qu'il faut, quand il faut</li></ul></div>
+                    </div>
+                    <div class="cab-examples"><div class="cab-examples-label">Concrètement, sur le terrain</div><div class="cab-ex"><div class="cab-ex-who">Thierry · maintenance</div><div class="cab-ex-line"><span class="cab-av">Avant</span>découvrait la rupture en pleine panne, machine à l'arrêt.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>il est alerté au seuil et commande avant que ça casse.</div></div><div class="cab-ex"><div class="cab-ex-who">Karim · magasin</div><div class="cab-ex-line"><span class="cab-av">Avant</span>un stock préventif qui dormait, jamais trié.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>le stock dormant ressort, le magasin et la trésorerie respirent.</div></div></div>
+                </div>
+
+                <div class="cab-card reveal">
+                    <span class="cab-badge cab-badge--purple">Production</span>
+                    <h3>Atelier & capacité</h3>
+                    <p class="cab-irritant">« Les aléas remontent trop tard, le TRS affiché est faux, le planning tient sur un Excel. »</p>
+                    <div class="cab-cols">
+                        <div class="cab-block"><div class="cab-block-label cab-c">Ce qu'on met en place</div><ul><li>Capture des aléas en temps réel</li><li>Mesure du TRS</li><li>Cockpit pied de ligne</li><li>Planning partagé</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-a">Ce que ça change</div><ul><li>On voit ce qui se passe vraiment</li><li>La capacité dormante apparaît</li><li>L'équipe agit sur des faits</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-b">Ce que vous y gagnez</div><ul><li>Moins de mode pompier</li><li>Un atelier lisible</li><li>Des décisions prises à temps</li></ul></div>
+                    </div>
+                    <div class="cab-examples"><div class="cab-examples-label">Concrètement, sur le terrain</div><div class="cab-ex"><div class="cab-ex-who">Philippe · chef d'atelier</div><div class="cab-ex-line"><span class="cab-av">Avant</span>apprenait les aléas 6h après, quand c'était trop tard.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>il les voit en temps réel sur l'écran de ligne.</div></div><div class="cab-ex"><div class="cab-ex-who">Nadia · responsable prod</div><div class="cab-ex-line"><span class="cab-av">Avant</span>pilotait sur un TRS déclaré à 75 % (en réalité 55 %).</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>un TRS mesuré, la capacité dormante devient visible.</div></div></div>
+                </div>
+
+                <div class="cab-card reveal reveal-delay-1">
+                    <span class="cab-badge cab-badge--green">Qualité</span>
+                    <h3>Qualité & réclamations</h3>
+                    <p class="cab-irritant">« Les réclamations partent trop tard, les preuves sont éparpillées, les non-conformités jamais clôturées. »</p>
+                    <div class="cab-cols">
+                        <div class="cab-block"><div class="cab-block-label cab-c">Ce qu'on met en place</div><ul><li>Dossier réclamation centralisé</li><li>Preuves rassemblées (OCR)</li><li>8D digital + suivi des délais de clôture</li><li>Coût de non-qualité visible</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-a">Ce que ça change</div><ul><li>On traite vite et proprement</li><li>On agit là où ça coûte</li><li>Rien ne reste ouvert</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-b">Ce que vous y gagnez</div><ul><li>La marge et l'image client préservées</li><li>La qualité pilotée, plus subie</li></ul></div>
+                    </div>
+                    <div class="cab-examples"><div class="cab-examples-label">Concrètement, sur le terrain</div><div class="cab-ex"><div class="cab-ex-who">Sandrine · qualité</div><div class="cab-ex-line"><span class="cab-av">Avant</span>montait un dossier réclamation en plusieurs jours, preuves dispersées.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>le dossier est prêt en quelques heures, preuves rassemblées.</div></div><div class="cab-ex"><div class="cab-ex-who">Marc · responsable qualité</div><div class="cab-ex-line"><span class="cab-av">Avant</span>des non-conformités qui restaient ouvertes des mois.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>chaque NC est suivie jusqu'à sa clôture.</div></div></div>
+                </div>
+
+                <div class="cab-card reveal">
+                    <span class="cab-badge cab-badge--blue">Fournisseurs</span>
+                    <h3>Fournisseurs & dépendances</h3>
+                    <p class="cab-irritant">« Des hausses subies, des retards sans pénalité, des dépendances jamais challengées. »</p>
+                    <div class="cab-cols">
+                        <div class="cab-block"><div class="cab-block-label cab-c">Ce qu'on met en place</div><ul><li>Suivi des livraisons et des retards</li><li>Veille sur les révisions de prix</li><li>Scoring fournisseurs</li><li>Suivi des contrats</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-a">Ce que ça change</div><ul><li>On reprend la main sur les hausses</li><li>Les pénalités s'appliquent</li><li>Les dépendances deviennent visibles</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-b">Ce que vous y gagnez</div><ul><li>Moins de marge qui fuit par inertie</li><li>Des achats pilotés, pas subis</li></ul></div>
+                    </div>
+                    <div class="cab-examples"><div class="cab-examples-label">Concrètement, sur le terrain</div><div class="cab-ex"><div class="cab-ex-who">Hélène · achats</div><div class="cab-ex-line"><span class="cab-av">Avant</span>subissait les hausses par inertie, sans réagir.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>elle est alertée et négocie sur des faits.</div></div><div class="cab-ex"><div class="cab-ex-who">Bruno · DAF</div><div class="cab-ex-line"><span class="cab-av">Avant</span>des retards fournisseurs jamais pénalisés.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>les retards sont tracés, les pénalités s'appliquent.</div></div></div>
+                </div>
+
+                <div class="cab-card reveal reveal-delay-1">
+                    <span class="cab-badge cab-badge--purple">Bureau d'études</span>
+                    <h3>BE & cotation</h3>
+                    <p class="cab-irritant">« Le BE recrée ce qui existe déjà, cote lentement, refait la doc à la main. »</p>
+                    <div class="cab-cols">
+                        <div class="cab-block"><div class="cab-block-label cab-c">Ce qu'on met en place</div><ul><li>Catalogue intelligent de composants</li><li>Auto-cotation depuis le brief</li><li>Génération de documentation technique</li><li>Remontée structurée de l'atelier</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-a">Ce que ça change</div><ul><li>On réutilise au lieu de recréer</li><li>La cotation accélère</li><li>Le BE conçoit au lieu de ressaisir</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-b">Ce que vous y gagnez</div><ul><li>Plus de nouveautés livrées à équipe constante</li><li>Un BE qui respire</li></ul></div>
+                    </div>
+                    <div class="cab-examples"><div class="cab-examples-label">Concrètement, sur le terrain</div><div class="cab-ex"><div class="cab-ex-who">Julien · ingénieur BE</div><div class="cab-ex-line"><span class="cab-av">Avant</span>recréait des références qui existaient déjà.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>il retrouve et réutilise un composant en quelques secondes.</div></div><div class="cab-ex"><div class="cab-ex-who">Camille · BE</div><div class="cab-ex-line"><span class="cab-av">Avant</span>cotait un dossier en 3 heures.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>un devis pré-rempli en 20 minutes, elle valide.</div></div></div>
+                </div>
+
+                <div class="cab-card reveal">
+                    <span class="cab-badge cab-badge--green">Charge mentale</span>
+                    <h3>Savoir & tâches répétitives</h3>
+                    <p class="cab-irritant">« Les mêmes questions reviennent, on saisit trois fois, on revérifie dix fois — et le savoir part avec les gens. »</p>
+                    <div class="cab-cols">
+                        <div class="cab-block"><div class="cab-block-label cab-c">Ce qu'on met en place</div><ul><li>Assistant interne (recherche dans vos documents)</li><li>Fin des ressaisies (synchronisation)</li><li>Capture des modes opératoires</li><li>Base documentaire</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-a">Ce que ça change</div><ul><li>L'info se trouve en secondes</li><li>On saisit une seule fois</li><li>Le savoir reste dans la maison</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-b">Ce que vous y gagnez</div><ul><li>Du temps et de l'énergie rendus</li><li>Moins d'erreurs</li><li>L'esprit tranquille</li></ul></div>
+                    </div>
+                    <div class="cab-examples"><div class="cab-examples-label">Concrètement, sur le terrain</div><div class="cab-ex"><div class="cab-ex-who">Nathalie · assistante</div><div class="cab-ex-line"><span class="cab-av">Avant</span>répondait dix fois par jour aux mêmes questions.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>l'assistant interne répond, elle se concentre sur l'essentiel.</div></div><div class="cab-ex"><div class="cab-ex-who">Patrick · technicien senior</div><div class="cab-ex-line"><span class="cab-av">Avant</span>tout son savoir machine dans sa tête.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>capté en fiches et vidéos, l'équipe devient autonome.</div></div></div>
+                </div>
+
+                <div class="cab-card reveal reveal-delay-1">
+                    <span class="cab-badge cab-badge--blue">Commercial</span>
+                    <h3>Devis & relances commerciales</h3>
+                    <p class="cab-irritant">« Des devis qui dorment, du chiffre d'affaires qui part faute d'une relance. »</p>
+                    <div class="cab-cols">
+                        <div class="cab-block"><div class="cab-block-label cab-c">Ce qu'on met en place</div><ul><li>Relance automatique des devis</li><li>Priorisation des opportunités</li><li>Qualification des demandes entrantes</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-a">Ce que ça change</div><ul><li>Plus aucun devis oublié</li><li>Le commercial se concentre sur les vrais deals</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-b">Ce que vous y gagnez</div><ul><li>Du CA récupéré sans effort</li><li>Une équipe qui vend au lieu d'administrer</li></ul></div>
+                    </div>
+                    <div class="cab-examples"><div class="cab-examples-label">Concrètement, sur le terrain</div><div class="cab-ex"><div class="cab-ex-who">Laurent · commercial</div><div class="cab-ex-line"><span class="cab-av">Avant</span>oubliait de relancer, des devis chauds refroidissaient.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>chaque devis est relancé au bon moment, plus aucun ne se perd.</div></div><div class="cab-ex"><div class="cab-ex-who">Émilie · ADV</div><div class="cab-ex-line"><span class="cab-av">Avant</span>triait les demandes entrantes à la main.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>elles arrivent qualifiées et priorisées.</div></div></div>
+                </div>
+
+                <div class="cab-card reveal">
+                    <span class="cab-badge cab-badge--purple">Direction</span>
+                    <h3>Pilotage dirigeant</h3>
+                    <p class="cab-irritant">« Je veux voir ma boîte en un coup d'œil, sans avoir à la chercher. »</p>
+                    <div class="cab-cols">
+                        <div class="cab-block"><div class="cab-block-label cab-c">Ce qu'on met en place</div><ul><li>Cockpit unique et simple</li><li>Les indicateurs qui comptent</li><li>Les alertes à ne pas manquer</li><li>Vos données, à jour</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-a">Ce que ça change</div><ul><li>Une seule vue au lieu de dix fichiers</li><li>Les bonnes décisions au bon moment</li></ul></div>
+                        <div class="cab-block"><div class="cab-block-label cab-b">Ce que vous y gagnez</div><ul><li>Vous reprenez la main sur votre activité</li><li>Fini de piloter à l'aveugle</li></ul></div>
+                    </div>
+                    <div class="cab-examples"><div class="cab-examples-label">Concrètement, sur le terrain</div><div class="cab-ex"><div class="cab-ex-who">Pierre · dirigeant</div><div class="cab-ex-line"><span class="cab-av">Avant</span>compilait dix fichiers et faisait des réunions pour savoir où il en était.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>une vue unique, à jour, en un coup d'œil.</div></div><div class="cab-ex"><div class="cab-ex-who">Christine · gérante</div><div class="cab-ex-line"><span class="cab-av">Avant</span>pilotait à l'instinct, sans visibilité.</div><div class="cab-ex-line"><span class="cab-now">Maintenant</span>elle décide sur des données fiables et à jour.</div></div></div>
+                </div>
+            </div>
+            <p class="cab-disclaimer">Exemples illustratifs (prénoms fictifs). Chaque dispositif est cadré et chiffré lors d'un Blueprint, sur vos propres données, avant toute construction. On commence petit, par le sujet qui compte le plus.</p>
+        </div>
+    </section>
+
     <!-- ═══ CTA ═══ -->
     <section class="cta-section">
         <div class="container reveal">
@@ -493,6 +728,78 @@
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Quadrant leviers par typologie
+        var QUAD_DATA = {"Artisan / TPE": [{"n": "Relances", "c": "green", "x": 80, "y": 82}, {"n": "Devis", "c": "blue", "x": 70, "y": 80}, {"n": "Aléas atelier", "c": "purple", "x": 40, "y": 72}, {"n": "Qualité", "c": "green", "x": 45, "y": 60}, {"n": "Écarts / litiges", "c": "green", "x": 40, "y": 55}, {"n": "Ruptures stock", "c": "blue", "x": 35, "y": 55}, {"n": "AR & pièces", "c": "blue", "x": 25, "y": 52}, {"n": "Assistant interne", "c": "green", "x": 42, "y": 55}, {"n": "Fournisseurs", "c": "blue", "x": 45, "y": 50}, {"n": "Pilotage", "c": "purple", "x": 42, "y": 48}, {"n": "TRS / prod", "c": "purple", "x": 30, "y": 45}, {"n": "Cotation BE", "c": "purple", "x": 25, "y": 32}], "PME industrielle": [{"n": "Relances", "c": "green", "x": 50, "y": 80}, {"n": "Devis", "c": "blue", "x": 46, "y": 78}, {"n": "Aléas atelier", "c": "purple", "x": 88, "y": 80}, {"n": "Qualité", "c": "green", "x": 76, "y": 60}, {"n": "Écarts / litiges", "c": "green", "x": 78, "y": 56}, {"n": "Ruptures stock", "c": "blue", "x": 82, "y": 56}, {"n": "AR & pièces", "c": "blue", "x": 85, "y": 55}, {"n": "Assistant interne", "c": "green", "x": 46, "y": 56}, {"n": "Fournisseurs", "c": "blue", "x": 66, "y": 46}, {"n": "Pilotage", "c": "purple", "x": 70, "y": 46}, {"n": "TRS / prod", "c": "purple", "x": 80, "y": 42}, {"n": "Cotation BE", "c": "purple", "x": 70, "y": 34}], "PME services / négoce": [{"n": "Relances", "c": "green", "x": 85, "y": 82}, {"n": "Devis", "c": "blue", "x": 85, "y": 80}, {"n": "Aléas atelier", "c": "purple", "x": 8, "y": 60}, {"n": "Qualité", "c": "green", "x": 48, "y": 58}, {"n": "Écarts / litiges", "c": "green", "x": 38, "y": 55}, {"n": "Ruptures stock", "c": "blue", "x": 62, "y": 58}, {"n": "AR & pièces", "c": "blue", "x": 45, "y": 55}, {"n": "Assistant interne", "c": "green", "x": 72, "y": 58}, {"n": "Fournisseurs", "c": "blue", "x": 72, "y": 55}, {"n": "Pilotage", "c": "purple", "x": 58, "y": 46}, {"n": "TRS / prod", "c": "purple", "x": 8, "y": 45}, {"n": "Cotation BE", "c": "purple", "x": 22, "y": 32}], "ETI": [{"n": "Relances", "c": "green", "x": 50, "y": 72}, {"n": "Devis", "c": "blue", "x": 50, "y": 70}, {"n": "Aléas atelier", "c": "purple", "x": 78, "y": 44}, {"n": "Qualité", "c": "green", "x": 76, "y": 55}, {"n": "Écarts / litiges", "c": "green", "x": 78, "y": 52}, {"n": "Ruptures stock", "c": "blue", "x": 66, "y": 46}, {"n": "AR & pièces", "c": "blue", "x": 70, "y": 50}, {"n": "Assistant interne", "c": "green", "x": 68, "y": 46}, {"n": "Fournisseurs", "c": "blue", "x": 85, "y": 54}, {"n": "Pilotage", "c": "purple", "x": 68, "y": 42}, {"n": "TRS / prod", "c": "purple", "x": 72, "y": 32}, {"n": "Cotation BE", "c": "purple", "x": 82, "y": 30}]};
+        var QUAD_COLORS = {green:'#34d399',blue:'#60a5fa',purple:'#a78bfa'};
+        var QUAD_CAT = {"Trésorerie":["Relances"],"Achats / Stock":["Ruptures stock","AR & pièces"],"Production":["Aléas atelier","TRS / prod"],"Qualité":["Qualité","Écarts / litiges"],"Fournisseurs":["Fournisseurs"],"Bureau d'études":["Cotation BE"],"Charge mentale":["Assistant interne"],"Commercial":["Devis"],"Direction":["Pilotage"]};
+        var currentCat = 'all';
+        function applyQuadHighlight(){
+            var plot=document.getElementById('quad-plot'); if(!plot) return;
+            var names=QUAD_CAT[currentCat]||null;
+            plot.querySelectorAll('.quad-bubble').forEach(function(b){
+                if(!names){ b.classList.remove('hot','dim'); return; }
+                if(names.indexOf(b.getAttribute('data-n'))>=0){ b.classList.add('hot'); b.classList.remove('dim'); }
+                else { b.classList.add('dim'); b.classList.remove('hot'); }
+            });
+        }
+        function quadDeclutter(plot){
+            var labels=Array.prototype.slice.call(plot.querySelectorAll('.quad-blabel'));
+            var off=labels.map(function(){return {x:0,y:0};});
+            labels.forEach(function(l){l.style.transform='translate(0px,0px)';});
+            for(var pass=0;pass<60;pass++){
+                var moved=false;
+                var R=labels.map(function(l){return l.getBoundingClientRect();});
+                for(var i=0;i<labels.length;i++){
+                    for(var j=i+1;j<labels.length;j++){
+                        var a=R[i], b=R[j];
+                        var ox=Math.min(a.right,b.right)-Math.max(a.left,b.left);
+                        var oy=Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top);
+                        if(ox>0 && oy>0){
+                            if(oy<=ox){ var p=oy/2+1.5;
+                                if(a.top<=b.top){off[i].y-=p;off[j].y+=p;} else {off[i].y+=p;off[j].y-=p;}
+                            } else { var qx=ox/2+1.5;
+                                if(a.left<=b.left){off[i].x-=qx;off[j].x+=qx;} else {off[i].x+=qx;off[j].x-=qx;}
+                            }
+                            moved=true;
+                        }
+                    }
+                }
+                if(!moved) break;
+                for(var k=0;k<labels.length;k++) labels[k].style.transform='translate('+off[k].x+'px,'+off[k].y+'px)';
+            }
+        }
+        function renderQuad(typ){
+            var plot=document.getElementById('quad-plot'); if(!plot) return;
+            plot.querySelectorAll('.quad-bubble').forEach(function(b){b.remove();});
+            (QUAD_DATA[typ]||[]).forEach(function(p){
+                var b=document.createElement('div'); b.className='quad-bubble'+(p.x>=58?' lleft':''); b.setAttribute('data-n',p.n);
+                b.style.left=p.x+'%'; b.style.bottom=p.y+'%';
+                b.innerHTML='<span class="quad-dot" style="background:'+(QUAD_COLORS[p.c]||'#fff')+'"></span><span class="quad-blabel">'+p.n+'</span>';
+                plot.appendChild(b);
+            });
+            applyQuadHighlight();
+            requestAnimationFrame(function(){ quadDeclutter(plot); });
+        }
+        var quadTabs=document.querySelectorAll('.quad-tab');
+        quadTabs.forEach(function(t){ t.addEventListener('click',function(){ quadTabs.forEach(function(x){x.classList.remove('active');}); t.classList.add('active'); renderQuad(t.getAttribute('data-typ')); }); });
+        renderQuad('PME industrielle');
+
+        // Filtre catégories — familles de solutions
+        var cabFilters = document.querySelectorAll('.cab-filter');
+        cabFilters.forEach(function(btn){
+            btn.addEventListener('click', function(){
+                cabFilters.forEach(function(b){ b.classList.remove('active'); });
+                btn.classList.add('active');
+                var f = btn.getAttribute('data-filter');
+                document.querySelectorAll('.cab-card').forEach(function(c){
+                    var badge = c.querySelector('.cab-badge');
+                    var t = badge ? badge.textContent.trim() : '';
+                    c.style.display = (f === 'all' || t === f) ? '' : 'none';
+                });
+                currentCat = f; applyQuadHighlight();
+            });
+        });
 
         // Mobile toggle
         const mobileToggle = document.querySelector('.mobile-toggle');
