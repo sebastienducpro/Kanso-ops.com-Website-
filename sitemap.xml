@@ -1,73 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kanso-ops.com/</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://kanso-ops.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kanso-ops.com/"/>
   </url>
-
   <url>
-    <loc>https://kanso-ops.com/cas-usage.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://kanso-ops.com/cas-usage.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/case-studies.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kanso-ops.com/cas-usage.html"/>
+    <loc>https://kanso-ops.com/mentions-legales/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
-
   <url>
-    <loc>https://kanso-ops.com/ressources.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://kanso-ops.com/ressources.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/resources.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kanso-ops.com/ressources.html"/>
+    <loc>https://kanso-ops.com/conditions-utilisation/</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
-
-  <url>
-    <loc>https://kanso-ops.com/score/</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://kanso-ops.com/score/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kanso-ops.com/score/"/>
-  </url>
-
-  <url>
-    <loc>https://kanso-ops.com/en/</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://kanso-ops.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kanso-ops.com/"/>
-  </url>
-
-  <url>
-    <loc>https://kanso-ops.com/en/case-studies.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://kanso-ops.com/cas-usage.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/case-studies.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kanso-ops.com/cas-usage.html"/>
-  </url>
-
-  <url>
-    <loc>https://kanso-ops.com/en/resources.html</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://kanso-ops.com/ressources.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/resources.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kanso-ops.com/ressources.html"/>
-  </url>
-
 </urlset>

@@ -1,1819 +1,339 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- ═══ SEO ═══ -->
-    <!-- [EDIT] Titre du site (onglet navigateur + Google) -->
-    <title>Kanso-Ops | Cockpit métier pour flux opérationnels PME</title>
-    <!-- [EDIT] Description Google (max ~155 caractères) -->
-    <meta name="description" content="Kanso-Ops aide les PME industrielles à repérer et mettre sous contrôle les sujets opérationnels qui coûtent du temps, de la marge et de la tension.">
-    <meta name="author" content="Sébastien Duc — Kanso-Ops">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://kanso-ops.com/">
-    <link rel="alternate" hreflang="fr" href="https://kanso-ops.com/">
-    <link rel="alternate" hreflang="en" href="https://kanso-ops.com/en/">
-    <link rel="alternate" hreflang="x-default" href="https://kanso-ops.com/">
-
-    <!-- ═══ FAVICON & ICONS ═══ -->
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-    <meta name="theme-color" content="#0c1222">
-
-    <!-- ═══ OPEN GRAPH (Facebook, LinkedIn, iMessage…) ═══ -->
-    <!-- [EDIT] Titre social preview -->
-    <meta property="og:title" content="Kanso-Ops — Cockpit métier pour flux opérationnels PME">
-    <!-- [EDIT] Description social preview -->
-    <meta property="og:description" content="Avec 10 ans entre achats, opérations industrielles et conseil, Sébastien Duc aide les PME à rendre visibles les sujets qui coûtent du temps, de la marge ou de la tension.">
-    <meta property="og:image" content="https://kanso-ops.com/images/og-image.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Kanso-Ops — un premier flux sous contrôle, vite">
-    <meta property="og:url" content="https://kanso-ops.com/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Kanso-Ops">
-    <meta property="og:locale" content="fr_FR">
-
-    <!-- ═══ TWITTER CARD ═══ -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Kanso-Ops — Cockpit métier pour flux opérationnels PME">
-    <meta name="twitter:description" content="En 48h, une première vue réelle. En 8 jours, un diagnostic clair. En 30 jours, un premier flux sous contrôle.">
-    <meta name="twitter:image" content="https://kanso-ops.com/images/og-image.png">
-    <script type="application/ld+json">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kanso Ops · PME industrielles : reprendre la main sur vos achats, relances fournisseurs et suivis</title>
+<meta name="description" content="Diagnostic sur vos données réelles, remise en ordre des relances fournisseurs, des écarts de facturation et des suivis qui échappent, puis un outil qui reste chez vous. PME industrielles de 50 à 250 personnes. Nîmes et le quart sud-est.">
+<link rel="canonical" href="https://kanso-ops.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kanso Ops · Reprendre la main sur ce qui vous échappe">
+<meta property="og:description" content="Dans une PME industrielle, il y a toujours quelqu'un qui sait où sont les choses. Et le jour où cette personne s'absente, qui reprend les dossiers ?">
+<meta property="og:url" content="https://kanso-ops.com/">
+<meta property="og:image" content="https://kanso-ops.com/images/og-kanso-2026.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="theme-color" content="#0C1222">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:ital,opsz,wght@1,8..60,600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://kanso-ops.com/#org",
+      "name": "Kanso Ops",
+      "url": "https://kanso-ops.com/",
+      "slogan": "Reprendre la main sur ce qui vous échappe.",
+      "description": "KANSO travaille avec les PME industrielles de 50 à 250 personnes : diagnostic sur les données réelles, remise en ordre des relances fournisseurs, des écarts de facturation et des suivis, puis un outil qui reste chez le client.",
+      "telephone": "+33699073489",
+      "email": "sebastien@kanso-ops.io",
+      "image": "https://kanso-ops.com/images/og-kanso-2026.png",
+      "address": {"@type": "PostalAddress", "addressLocality": "Nîmes", "addressRegion": "Occitanie", "addressCountry": "FR"},
+      "areaServed": ["Occitanie", "Provence-Alpes-Côte d'Azur", "Auvergne-Rhône-Alpes"],
+      "founder": {
+        "@type": "Person",
+        "name": "Sébastien Duc",
+        "jobTitle": "Fondateur",
+        "sameAs": "https://www.linkedin.com/in/sebastienduc05",
+        "alumniOf": ["Nestlé Waters", "KPMG", "Baccarat"]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
         {
-            "@context": "https://schema.org",
-            "@graph": [
-                {
-                    "@type": "Organization",
-                    "@id": "https://kanso-ops.com/#organization",
-                    "name": "Kanso-Ops",
-                    "url": "https://kanso-ops.com/",
-                    "logo": "https://kanso-ops.com/images/android-chrome-512x512.png",
-                    "image": "https://kanso-ops.com/images/og-image.png",
-                    "description": "Kanso-Ops aide les PME et ETI industrielles a reprendre le controle des pertes invisibles dans leurs flux operationnels.",
-                    "email": "mailto:sebastien.duc@kanso-ops.fr",
-                    "founder": {
-                        "@type": "Person",
-                        "name": "Sébastien Duc",
-                        "jobTitle": "Fondateur"
-                    },
-                    "areaServed": {
-                        "@type": "Country",
-                        "name": "France"
-                    },
-                    "sameAs": [
-                        "https://www.linkedin.com/in/sebastienduc05",
-                        "https://www.linkedin.com/company/kanso-ops/"
-                    ]
-                },
-                {
-                    "@type": "WebSite",
-                    "@id": "https://kanso-ops.com/#website",
-                    "url": "https://kanso-ops.com/",
-                    "name": "Kanso-Ops",
-                    "inLanguage": "fr-FR",
-                    "publisher": {
-                        "@id": "https://kanso-ops.com/#organization"
-                    }
-                },
-                {
-                    "@type": "ProfessionalService",
-                    "@id": "https://kanso-ops.com/#service",
-                    "name": "Kanso-Ops",
-                    "url": "https://kanso-ops.com/",
-                    "description": "Diagnostic court et mise sous controle de flux operationnels critiques pour PME industrielles.",
-                    "availableLanguage": [
-                        "fr-FR",
-                        "en"
-                    ],
-                    "areaServed": {
-                        "@type": "Country",
-                        "name": "France"
-                    },
-                    "serviceType": [
-                        "Diagnostic operationnel",
-                        "Mise sous controle de flux critiques",
-                        "Pilotage des pertes invisibles",
-                        "Cockpit operationnel PME"
-                    ],
-                    "provider": {
-                        "@id": "https://kanso-ops.com/#organization"
-                    }
-                }
-            ]
+          "@type": "Question",
+          "name": "C'est encore un projet informatique ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Non. Rien n'est migré, aucun logiciel n'est remplacé. KANSO se pose à côté de votre ERP et de vos fichiers Excel, lit ce qui existe déjà, et vos équipes gardent leurs habitudes."}
+        },
+        {
+          "@type": "Question",
+          "name": "Par où on commence ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Par les gisements rapides. Le diagnostic repère les endroits où un petit effort referme un gros écart : relances fournisseurs, écarts de facturation, avoirs non réclamés, devis restés sans réponse. On traite d'abord ce qui se voit en quelques semaines, pas les chantiers de fond."}
+        },
+        {
+          "@type": "Question",
+          "name": "Où vont mes données ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Nulle part. Elles restent dans votre entreprise. L'accord de confidentialité est signé avant de regarder quoi que ce soit, et ce qui est appris chez vous n'en sort pas."}
+        },
+        {
+          "@type": "Question",
+          "name": "Vous avez des références ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "KANSO est une jeune entreprise, et l'assume : pas de mur de logos ici. Derrière, dix ans de terrain, en poste comme en mission de conseil, auprès de dizaines d'industriels : nucléaire, défense, poids lourd, agroalimentaire, pneumatique, jusqu'à l'horlogerie de luxe. Toujours sur les mêmes sujets : les achats, les opérations, les suivis qui échappent. La meilleure preuve ne se raconte pas, elle se fait sur vos données, au premier diagnostic."}
         }
-    </script>
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  :root{
+    --navy:#0C1222; --navy-deep:#080E1E; --navy-sec:#16213E; --navy-nav:#0F172A;
+    --white:#F3F4F6; --muted:#9CA3AF;
+    --purple:#8B5CF6; --purple-dark:#7C3AED; --purple-light:#A78BFA;
+    --green:#10B981; --green-bright:#34D399;
+    --border:rgba(243,244,246,.09);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--navy);color:var(--white);font-family:'Inter',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  em.k{font-family:'Source Serif 4',serif;font-style:italic;font-weight:600;color:var(--green-bright)}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+  a{color:inherit}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/index.css">
+  /* ---- nav ---- */
+  nav{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  .nav-in{display:flex;align-items:center;gap:28px;height:68px}
+  .mark{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
+  .mark .tile{width:34px;height:34px;border-radius:7px;background:var(--navy-deep);border:1px solid var(--border);display:grid;place-items:center;font-weight:900;color:var(--purple);font-size:19px}
+  .mark .word{font-weight:900;letter-spacing:.15em;font-size:14px}
+  .mark .word i{font-style:normal;color:var(--purple)}
+  .nav-in a.lnk{text-decoration:none;color:var(--muted);font-size:14.5px;font-weight:500;transition:color .15s}
+  .nav-in a.lnk:hover{color:var(--white)}
+  .btn{display:inline-block;background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:11px 22px;border-radius:8px;transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(139,92,246,.35)}
+  .btn.ghost{background:none;border:1px solid var(--border);color:var(--white)}
+  .btn.ghost:hover{box-shadow:none;border-color:var(--muted)}
+  @media(max-width:720px){.nav-in a.lnk{display:none}}
 
-    <!-- ═══ ROI CALCULATOR INLINE CSS ═══ -->
-    <style>
-        :root { --blue: #3b82f6; --red: #ef4444; --amber: #f59e0b; }
-        /* ═══════════════════════════════════════════════════ */
-        /* ROI CALCULATOR — AUDIT EXPRESS                     */
-        /* ═══════════════════════════════════════════════════ */
-        .roi-calc { padding: 6rem 0; position: relative; }
-        .roi-calc::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0;
-            height: 1px; background: linear-gradient(90deg, transparent, var(--border-accent), transparent);
-        }
-        .roi-calc-header { text-align: center; margin-bottom: 3rem; }
-        .roi-calc-header h2 { font-size: 2rem; font-weight: 800; line-height: 1.2; margin-bottom: 0.75rem; }
-        .roi-calc-header h2 em { font-style: normal; color: var(--green); }
-        .roi-calc-header p { color: var(--white-muted); max-width: 520px; margin: 0 auto; font-size: 0.95rem; line-height: 1.6; }
+  /* ---- hero ---- */
+  header{padding:104px 0 96px;background:linear-gradient(180deg,var(--navy) 0%,var(--navy-deep) 100%)}
+  .over{color:var(--muted);font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:22px}
+  .filet{width:64px;height:5px;border-radius:3px;background:var(--purple);margin-bottom:26px}
+  h1{font-size:clamp(36px,6vw,64px);line-height:1.12;font-weight:800;letter-spacing:-.02em;max-width:820px}
+  .lead{margin-top:30px;font-size:clamp(17px,2.2vw,20px);color:var(--white);max-width:660px}
+  .question{margin-top:38px;font-family:'Source Serif 4',serif;font-style:italic;font-weight:600;font-size:clamp(21px,3vw,30px);color:var(--green-bright);max-width:720px}
+  .cta-row{margin-top:42px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .tel{color:var(--muted);font-size:15px;text-decoration:none}
+  .tel:hover{color:var(--white)}
 
-        .roi-card {
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: var(--radius-xl); padding: 2.5rem;
-            max-width: 760px; margin: 0 auto; position: relative; overflow: hidden;
-        }
-        .roi-card::before {
-            content: ''; position: absolute; top: -1px; left: -1px; right: -1px; height: 3px;
-            background: linear-gradient(90deg, var(--green), var(--blue), var(--purple), #f59e0b);
-            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-        }
+  /* ---- sections ---- */
+  section{padding:96px 0;border-top:1px solid var(--border)}
+  section.deep{background:var(--navy-deep)}
+  h2{font-size:clamp(27px,4vw,40px);font-weight:800;letter-spacing:-.015em;line-height:1.18;max-width:780px}
+  .sub{margin-top:18px;color:var(--muted);font-size:17px;max-width:660px}
 
-        /* Sliders Grid */
-        .roi-sliders { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; margin-bottom: 2rem; }
-        .roi-slider-group { position: relative; }
-        .roi-slider-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.6rem; }
-        .roi-slider-name {
-            font-size: 0.75rem; font-weight: 600; color: var(--white-muted);
-            text-transform: none; letter-spacing: 0.02em;
-        }
-        .roi-slider-val {
-            font-size: 1rem; font-weight: 700; font-variant-numeric: tabular-nums; transition: color 0.2s;
-        }
-        .roi-slider-bounds {
-            display: flex; justify-content: space-between; margin-top: 0.35rem;
-            font-size: 0.6rem; color: var(--white-dim);
-        }
+  .grid{margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .grid.deux{grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px}
+  @media(max-width:640px){.grid.deux{grid-template-columns:1fr}}
+  .card{background:var(--navy-sec);border:1px solid var(--border);border-radius:16px;padding:28px}
+  .card b{display:block;font-size:16.5px;font-weight:700;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:15px}
+  .aparte{margin-top:44px;color:var(--white);font-size:17px;max-width:740px}
 
-        /* Range inputs */
-        .roi-card input[type="range"] {
-            -webkit-appearance: none; appearance: none; width: 100%; height: 5px;
-            border-radius: 3px; outline: none; cursor: pointer; transition: box-shadow 0.3s;
-        }
-        .roi-card input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none; appearance: none; width: 20px; height: 20px;
-            border-radius: 50%; cursor: grab; border: 2px solid var(--white);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .roi-card input[type="range"]::-webkit-slider-thumb:active { transform: scale(1.15); cursor: grabbing; }
-        .roi-card input[type="range"]::-moz-range-thumb {
-            width: 20px; height: 20px; border-radius: 50%; cursor: grab; border: 2px solid var(--white);
-        }
+  .steps{margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;counter-reset:s}
+  .step{background:var(--navy-sec);border:1px solid var(--border);border-radius:16px;padding:30px 28px;counter-increment:s;position:relative;overflow:hidden}
+  .step::before{content:"0" counter(s);display:block;font-size:14px;font-weight:800;letter-spacing:.22em;color:var(--purple-light);margin-bottom:14px}
+  .step::after{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--purple),transparent 70%)}
+  .step b{display:block;font-size:18px;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:15px}
+  .bandeau{margin-top:40px;border:1px solid rgba(52,211,153,.35);background:rgba(16,185,129,.07);border-radius:16px;padding:22px 26px;font-size:16.5px;font-weight:600}
 
-        /* Slider color themes */
-        .roi-s-green input[type="range"] { background: linear-gradient(90deg, rgba(255,255,255,0.05), var(--green)); }
-        .roi-s-green input[type="range"]::-webkit-slider-thumb { background: var(--green); box-shadow: 0 0 10px var(--green-glow); }
-        .roi-s-green input[type="range"]:hover { box-shadow: 0 0 18px var(--green-glow); }
-        .roi-s-green .roi-slider-val { color: var(--green); }
+  .statement{font-family:'Source Serif 4',serif;font-style:italic;font-weight:600;font-size:clamp(23px,3.6vw,36px);line-height:1.35;max-width:860px;color:var(--white)}
+  .statement em.k{font-size:inherit}
 
-        .roi-s-blue input[type="range"] { background: linear-gradient(90deg, rgba(255,255,255,0.05), var(--blue)); }
-        .roi-s-blue input[type="range"]::-webkit-slider-thumb { background: var(--blue); box-shadow: 0 0 10px rgba(59,130,246,0.35); }
-        .roi-s-blue input[type="range"]:hover { box-shadow: 0 0 18px rgba(59,130,246,0.35); }
-        .roi-s-blue .roi-slider-val { color: var(--blue); }
+  /* ---- qui ---- */
+  .qui{display:grid;grid-template-columns:minmax(280px,400px) 1fr;gap:56px;align-items:start;margin-top:48px}
+  .qui img{width:100%;height:auto;border-radius:20px;border:1px solid var(--border);display:block}
+  .qui .txt p{margin-bottom:18px;font-size:16.5px}
+  .qui .txt p.m{color:var(--muted)}
+  @media(max-width:820px){.qui{grid-template-columns:1fr;gap:36px}.qui img{max-width:360px;margin:0 auto}}
+  blockquote{margin-top:30px;border-left:4px solid var(--purple);padding:6px 0 6px 24px;font-family:'Source Serif 4',serif;font-style:italic;font-weight:600;font-size:21px;color:var(--green-bright);max-width:640px}
+  .chips{margin-top:44px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{border:1px solid var(--border);border-radius:9999px;padding:9px 18px;font-size:13.5px;color:var(--muted);background:rgba(243,244,246,.02)}
 
-        .roi-s-purple input[type="range"] { background: linear-gradient(90deg, rgba(255,255,255,0.05), var(--purple)); }
-        .roi-s-purple input[type="range"]::-webkit-slider-thumb { background: var(--purple); box-shadow: 0 0 10px rgba(139,92,246,0.35); }
-        .roi-s-purple input[type="range"]:hover { box-shadow: 0 0 18px rgba(139,92,246,0.35); }
-        .roi-s-purple .roi-slider-val { color: var(--purple); }
+  /* ---- faq ---- */
+  .faq{margin-top:48px;display:flex;flex-direction:column;gap:12px;max-width:820px}
+  details{background:var(--navy-sec);border:1px solid var(--border);border-radius:16px;padding:0}
+  summary{cursor:pointer;list-style:none;font-weight:700;font-size:16.5px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-weight:600;font-size:22px;color:var(--purple-light);flex-shrink:0;transition:transform .2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details .a{padding:0 26px 24px;color:var(--muted);font-size:15.5px;max-width:700px}
 
-        .roi-s-amber input[type="range"] { background: linear-gradient(90deg, rgba(255,255,255,0.05), #f59e0b); }
-        .roi-s-amber input[type="range"]::-webkit-slider-thumb { background: #f59e0b; box-shadow: 0 0 10px rgba(245,158,11,0.35); }
-        .roi-s-amber input[type="range"]:hover { box-shadow: 0 0 18px rgba(245,158,11,0.35); }
-        .roi-s-amber .roi-slider-val { color: #f59e0b; }
+  /* ---- contact ---- */
+  .coord{margin-top:36px;display:flex;flex-direction:column;gap:12px;font-size:17px}
+  .coord a{color:var(--white);text-decoration:none;border-bottom:1px solid var(--border)}
+  .coord a:hover{border-color:var(--green-bright)}
+  .coord span{color:var(--muted);font-size:14px;margin-right:8px}
 
-        /* Confidence buttons */
-        .roi-confidence { margin-bottom: 2rem; }
-        .roi-conf-label {
-            font-size: 0.75rem; font-weight: 600; color: var(--white-muted);
-            text-transform: none; letter-spacing: 0.02em; margin-bottom: 0.75rem;
-        }
-        .roi-conf-options { display: flex; gap: 0.6rem; }
-        .roi-conf-btn {
-            flex: 1; padding: 0.75rem 0.5rem; border-radius: var(--radius-md);
-            border: 1px solid var(--border); background: var(--bg-card);
-            color: var(--white-muted); font-size: 0.72rem; font-weight: 500; font-family: var(--font-sans);
-            cursor: pointer; transition: all 0.25s; text-align: center; line-height: 1.3;
-        }
-        .roi-conf-btn:hover { border-color: var(--green); color: var(--white); }
-        .roi-conf-btn.active {
-            background: var(--green-dim); border-color: var(--green); color: var(--green);
-            box-shadow: 0 0 14px var(--green-glow);
-        }
-        .roi-conf-emoji { display: block; font-size: 1.1rem; margin-bottom: 0.25rem; }
+  footer{border-top:1px solid var(--border);padding:44px 0 60px;background:var(--navy-deep)}
+  footer .in{display:flex;flex-wrap:wrap;gap:14px 34px;align-items:baseline;justify-content:space-between;color:var(--muted);font-size:14px}
+  footer a{color:var(--muted);text-decoration:none}
+  footer a:hover{color:var(--white)}
+  footer .kanso{width:100%;margin-bottom:8px;color:var(--white);font-size:15px}
 
-        /* Divider */
-        .roi-divider {
-            height: 1px; margin: 2rem 0;
-            background: linear-gradient(90deg, transparent, var(--border-accent), transparent);
-        }
-
-        /* Results */
-        .roi-results { text-align: center; }
-        .roi-results-label {
-            font-size: 0.74rem; font-weight: 700; letter-spacing: 0.03em;
-            text-transform: none; color: var(--purple); margin-bottom: 0.5rem;
-        }
-        .roi-ebitda {
-            font-size: 3rem; font-weight: 900; color: var(--green); line-height: 1;
-            margin-bottom: 0.25rem; text-shadow: 0 0 40px var(--green-glow);
-            transition: all 0.3s ease; font-variant-numeric: tabular-nums;
-        }
-        .roi-breakdown {
-            display: flex; justify-content: center; gap: 2rem; margin-top: 1rem; margin-bottom: 1.5rem;
-        }
-        .roi-breakdown-item { text-align: center; }
-        .roi-breakdown-val { font-size: 0.9rem; font-weight: 700; font-variant-numeric: tabular-nums; }
-        .roi-breakdown-lbl { font-size: 0.65rem; color: var(--white-muted); margin-top: 0.15rem; }
-
-        /* Strategic time block */
-        .roi-strategy {
-            background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(139,92,246,0.06));
-            border: 1px solid rgba(245,158,11,0.15); border-radius: var(--radius-md);
-            padding: 1.25rem; margin: 1.5rem 0 2rem; text-align: center; position: relative; overflow: hidden;
-        }
-        .roi-strategy::before {
-            content: ''; position: absolute; inset: 0;
-            background: radial-gradient(ellipse at center, rgba(245,158,11,0.04), transparent 70%);
-            pointer-events: none;
-        }
-        .roi-strategy-title {
-            font-size: 0.74rem; font-weight: 700; color: #f59e0b;
-            text-transform: none; letter-spacing: 0.03em; margin-bottom: 0.4rem;
-        }
-        .roi-strategy-val {
-            font-size: 1.8rem; font-weight: 800; color: #f59e0b;
-            text-shadow: 0 0 18px rgba(245,158,11,0.3); font-variant-numeric: tabular-nums;
-        }
-        .roi-strategy-desc { font-size: 0.78rem; color: var(--white-muted); margin-top: 0.35rem; line-height: 1.4; }
-
-        /* CTA */
-        .roi-cta {
-            display: block; width: 100%; padding: 1.1rem 2rem; border: none;
-            border-radius: var(--radius-md); background: linear-gradient(135deg, var(--green), #059669);
-            color: white; font-size: 1rem; font-weight: 700; font-family: var(--font-sans);
-            cursor: pointer; transition: all 0.3s; text-decoration: none; text-align: center;
-            position: relative; overflow: hidden;
-        }
-        .roi-cta::after {
-            content: ''; position: absolute; top: 0; left: -100%; right: 0; bottom: 0; width: 200%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s;
-        }
-        .roi-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--green-glow); }
-        .roi-cta:hover::after { left: 100%; }
-        .roi-cta-sub { display: block; font-size: 0.7rem; font-weight: 400; opacity: 0.8; margin-top: 0.25rem; }
-
-        /* Footer note */
-        .roi-footnote { text-align: center; margin-top: 1.25rem; font-size: 0.65rem; color: var(--white-dim); }
-
-        /* Pulse */
-        @keyframes roiPulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-        .roi-pulse { animation: roiPulse 0.35s ease; }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .roi-card { padding: 1.5rem 1.2rem; }
-            .roi-sliders { grid-template-columns: 1fr; gap: 1.25rem; }
-            .roi-ebitda { font-size: 2.2rem; }
-            .roi-strategy-val { font-size: 1.4rem; }
-            .roi-breakdown { gap: 1.2rem; flex-wrap: wrap; }
-            .roi-conf-options { flex-direction: column; }
-        }
-
-        /* ═══════════════════════════════════════════════════ */
-        /* CAS D'USAGE — CAROUSEL DÉFILANT                    */
-        /* ═══════════════════════════════════════════════════ */
-        .cases-bar {
-            position: relative; padding: 1.5rem 0;
-        }
-        .cases-bar::before, .cases-bar::after {
-            content: ''; position: absolute; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border-accent), transparent);
-        }
-        .cases-bar::before { top: 0; }
-        .cases-bar::after { bottom: 0; }
-        .cases-bar-label {
-            padding: 0.75rem 0; text-align: center;
-        }
-        .cases-bar-label span {
-            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.03em;
-            text-transform: none; color: var(--green);
-            font-family: var(--font-sans);
-        }
-        .cases-bar-track {
-            overflow: hidden; display: flex; align-items: center;
-            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-        }
-        .cases-bar-scroll {
-            display: flex; gap: 0.75rem; width: fit-content;
-            animation: cases-marquee 50s linear infinite;
-        }
-        .cases-bar:hover .cases-bar-scroll { animation-play-state: paused; }
-        .cases-bar-item {
-            flex-shrink: 0; width: 260px; padding: 1rem 1.25rem;
-            display: flex; flex-direction: column; gap: 0.3rem;
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: var(--radius-md); transition: border-color 0.3s, background 0.3s;
-            text-decoration: none; color: inherit; cursor: pointer;
-        }
-        .cases-bar-item:hover {
-            border-color: var(--border-hover); background: var(--bg-card-hover);
-        }
-        .cases-bar-tag {
-            font-size: 0.62rem; font-weight: 600; text-transform: none;
-            letter-spacing: 0.02em;
-        }
-        .cases-bar-tag--blue { color: var(--blue); }
-        .cases-bar-tag--purple { color: var(--purple); }
-        .cases-bar-tag--amber { color: var(--amber); }
-        .cases-bar-tag--green { color: var(--green); }
-        .cases-bar-tag--red { color: var(--red); }
-        .cases-bar-item strong {
-            font-size: 0.82rem; font-weight: 600; color: var(--white);
-            line-height: 1.3; font-family: var(--font-sans);
-        }
-        .cases-bar-metric {
-            font-size: 0.72rem; color: var(--green); font-weight: 600;
-        }
-        @keyframes cases-marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-50% - 0.375rem)); }
-        }
-        @media (max-width: 768px) {
-            .cases-bar { padding: 1rem 0; }
-            .cases-bar-label { padding: 0.5rem 0; }
-            .cases-bar-item { width: 220px; }
-        }
-
-        /* ═══ EFFET D'ÉCHELLE ═══ */
-        .scale{padding:4rem 0;position:relative;}
-        .scale::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border-accent),transparent);}
-        .scale-card{max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(16,185,129,0.06) 0%,rgba(139,92,246,0.06) 100%);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-xl);padding:3rem;text-align:center;position:relative;overflow:hidden;}
-        .scale-card::before{content:'';position:absolute;top:-1px;left:-1px;right:-1px;height:3px;background:linear-gradient(90deg,var(--green),var(--purple));border-radius:var(--radius-xl) var(--radius-xl) 0 0;}
-        .scale-label{font-size:0.72rem;font-weight:700;letter-spacing:0.03em;text-transform:none;color:var(--purple);margin-bottom:1rem;}
-        .scale-amount{font-size:clamp(2.2rem,5vw,3.2rem);font-weight:900;letter-spacing:-0.03em;color:var(--green);margin-bottom:0.5rem;}
-        .scale-desc{font-size:0.9rem;color:var(--white-muted);line-height:1.65;max-width:600px;margin:0 auto 1.5rem;}
-        .scale-desc strong{color:var(--white);font-weight:600;}
-        .scale-note{font-size:0.7rem;color:var(--white-dim);font-family:var(--font-mono);}
-
-        /* Sprint timeline responsive */
-        @media (max-width: 1024px) {
-            #sprint .pillars-grid-timeline { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (max-width: 768px) {
-            #sprint .pillars-grid-timeline { grid-template-columns: 1fr !important; }
-        }
-
-        /* ═══════════════════════════════════════════════════ */
-        /* RESPONSIVE — TABLET                                */
-        /* ═══════════════════════════════════════════════════ */
-        @media (max-width: 1024px) {
-            .container { padding: 0 1.5rem; }
-            .pillars-grid { grid-template-columns: repeat(2, 1fr) !important; }
-            .method-steps { grid-template-columns: 1fr !important; gap: 2rem !important; }
-            .cockpit-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
-            .repreneur-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
-            .engine-tabs { overflow-x: auto; flex-wrap: nowrap; }
-            .engine-tab { min-width: 100px; flex: 0 0 auto; }
-            .pyr-mid { flex-wrap: wrap !important; }
-            .dm-screen { min-height: auto !important; }
-            .contact-grid { grid-template-columns: 1fr !important; }
-            .hero-layout {
-                display: flex !important;
-                align-items: center;
-                justify-content: center;
-                min-height: 620px !important;
-                gap: 0;
-            }
-            .hero-content {
-                width: min(100%, 760px) !important;
-                max-width: 760px !important;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                margin: 0 auto;
-            }
-            .hero-sub,
-            .hero-cta-note {
-                margin-left: auto !important;
-                margin-right: auto !important;
-            }
-            .hero-actions,
-            .hero-proof,
-            .proof-logos {
-                justify-content: center;
-            }
-            .hero-proof {
-                flex-wrap: wrap;
-            }
-            .hero-visual {
-                display: block !important;
-                position: absolute !important;
-                inset: 0 !important;
-                transform: none !important;
-                width: 100% !important;
-                height: 100% !important;
-                margin: 0 !important;
-                opacity: 0.66;
-            }
-            .hero-video-frame {
-                height: 100% !important;
-                aspect-ratio: auto !important;
-            }
-            .hero-video-frame::after {
-                background:
-                    linear-gradient(90deg, rgba(8,14,30,0.9) 0%, rgba(8,14,30,0.64) 42%, rgba(8,14,30,0.78) 100%) !important,
-                    linear-gradient(180deg, rgba(8,14,30,0.24) 0%, rgba(8,14,30,0.72) 100%) !important;
-            }
-        }
-
-        /* ═══════════════════════════════════════════════════ */
-        /* RESPONSIVE — MOBILE                                */
-        /* ═══════════════════════════════════════════════════ */
-        @media (max-width: 768px) {
-            .container { padding: 0 1.25rem; }
-
-            /* NAV */
-            .nav-links { display: none; }
-            .mobile-toggle { display: block; }
-            .nav-links.open {
-                display: flex !important; flex-direction: column;
-                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; height: 100dvh;
-                z-index: 1000; background: rgba(8, 14, 30, 0.98);
-                backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-                justify-content: flex-start; align-items: center;
-                gap: 1.2rem; padding: 5rem 2rem 2rem; overflow-y: auto;
-                animation: mobileMenuIn 0.3s ease;
-            }
-            .nav-links.open li { list-style: none; text-align: center; width: 100%; }
-            .nav-links.open a { font-size: 1.15rem; color: var(--white); font-weight: 600; display: block; padding: 0.5rem 0; }
-            .nav-links.open .nav-cta { font-size: 0.95rem !important; padding: 0.8rem 2rem !important; margin-top: 0.5rem; display: inline-block !important; }
-            .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-            .mobile-toggle.active span:nth-child(2) { opacity: 0; }
-            .mobile-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-            @keyframes mobileMenuIn { from { opacity: 0; } to { opacity: 1; } }
-
-            /* HERO */
-            .hero { padding: 7rem 0 3rem !important; min-height: auto !important; }
-            .hero-layout {
-                display: flex !important;
-                min-height: 620px !important;
-                gap: 0;
-            }
-            .hero-content { max-width: 100% !important; text-align: center; margin: 0 auto; }
-            .hero-sub { max-width: 100% !important; font-size: 0.92rem !important; }
-            .hero h1 { font-size: clamp(1.8rem, 7vw, 2.4rem) !important; }
-            .hero-cta { font-size: 0.85rem; padding: 0.9rem 1.8rem; }
-            .hero-actions { width: 100%; }
-            .hero-proof { flex-direction: column; align-items: center; gap: 0.6rem; text-align: center; }
-            .proof-logos { flex-wrap: wrap; }
-            .hero-visual {
-                display: block !important;
-                position: absolute !important;
-                inset: 0 !important;
-                width: 100% !important;
-                height: 100% !important;
-                margin: 0 !important;
-                opacity: 0.48;
-            }
-            .hero-video-frame {
-                height: 100% !important;
-                aspect-ratio: auto !important;
-                border-radius: 22px !important;
-            }
-            .proof-logos { flex-wrap: wrap; justify-content: center; gap: 0.4rem; }
-            .badge { font-size: 0.62rem; padding: 0.3rem 0.7rem; }
-
-            /* PAIN */
-            .pain { padding: 3rem 0 !important; }
-            .pain-cards { grid-template-columns: 1fr !important; gap: 1.2rem !important; }
-            .pain-card { padding: 1.5rem !important; }
-            .pain-stat { font-size: 2.5rem !important; }
-
-            /* PILLARS */
-            .pillars { padding: 3rem 0 !important; }
-            .pillars-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
-
-            /* METHOD */
-            .method-steps { grid-template-columns: 1fr !important; gap: 1.2rem !important; }
-
-            /* REPRENEUR */
-            .repreneur-card { padding: 1.5rem !important; }
-            .repreneur-grid { grid-template-columns: 1fr !important; gap: 1.2rem !important; }
-
-            /* COCKPIT */
-            .cockpit { padding: 3rem 0 !important; }
-            .cockpit-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
-            .cockpit-mockup { margin-top: 0.5rem; }
-            .cm-kpis { flex-wrap: wrap !important; gap: 0.5rem !important; }
-            .cm-chart { display: none; }
-
-            /* ENGINES */
-            .engine-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 0.5rem; gap: 0.35rem !important; }
-            .engine-tab { min-width: 64px; flex: 0 0 auto; padding: 0.5rem 0.3rem !important; }
-            .engine-tab-icon { width: 26px; height: 26px; margin-bottom: 0.2rem; font-size: 0.85rem; }
-            .engine-tab-name { font-size: 0.58rem; }
-            .engine-tab-role { display: none; }
-            .dm-screen { min-height: auto !important; padding: 1rem !important; }
-            .dm-header { flex-wrap: wrap; gap: 0.3rem; }
-
-            /* PYRAMID */
-            .pyr-top, .pyr-base { padding: 1.2rem !important; }
-            .pyr-mid { gap: 0.3rem !important; }
-            .pyr-brick { width: 68px !important; min-width: 68px !important; padding: 0.5rem !important; }
-            .pyr-brick-icon { font-size: 0.85rem !important; }
-            .pyr-brick-name { font-size: 0.52rem !important; }
-            .pyr-brick-desc { display: none; }
-            .pyr-base-engines { gap: 0.25rem !important; }
-            .pyr-engine { font-size: 0.52rem !important; padding: 0.12rem 0.35rem !important; }
-            .pyr-sec-tag { font-size: 0.48rem !important; padding: 0.12rem 0.35rem !important; }
-
-            /* ROI — already partly handled above, reinforce */
-            .roi-calc { padding: 3rem 0 !important; }
-            .roi-card { padding: 1.5rem 1rem !important; }
-            .roi-conf-options { flex-direction: column !important; gap: 0.4rem !important; }
-            .roi-breakdown { flex-direction: column !important; gap: 0.6rem !important; }
-
-            /* SCALE */
-            .scale-card { padding: 2rem 1.5rem !important; }
-
-            /* ABOUT */
-            .about-grid { flex-direction: column !important; text-align: center !important; gap: 1.5rem !important; }
-
-            /* CONTACT */
-            .contact-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
-
-            /* FOOTER */
-            .footer-bottom { flex-direction: column !important; text-align: center !important; gap: 1rem !important; }
-            .footer-links { justify-content: center !important; flex-wrap: wrap !important; gap: 1rem !important; }
-
-            /* GLOBAL */
-            section { overflow-x: hidden; }
-            h2 { word-break: break-word; }
-            .section-label { font-size: 0.6rem; }
-        }
-
-        /* ═══════════════════════════════════════════════════ */
-        /* RESPONSIVE — SMALL MOBILE                          */
-        /* ═══════════════════════════════════════════════════ */
-        @media (max-width: 480px) {
-            .container { padding: 0 0.9rem; }
-            .hero h1 { font-size: 1.5rem !important; }
-            .hero-sub { font-size: 0.85rem !important; line-height: 1.6 !important; }
-            .pain-stat { font-size: 2rem !important; }
-            .pyr-brick { width: 56px !important; min-width: 56px !important; }
-            .pyr-brick-name { font-size: 0.48rem !important; }
-            .cm-kpi-value { font-size: 0.9rem !important; }
-            .roi-ebitda { font-size: 1.5rem !important; }
-            .scale-card { padding: 1.5rem 1rem !important; }
-            .repreneur-card { padding: 1.2rem !important; }
-            .engine-tab { min-width: 56px; }
-        }
-    </style>
+  /* ---- mobile : de l'air ---- */
+  @media(max-width:640px){
+    .wrap{padding:0 20px}
+    header{padding:72px 0 64px}
+    section{padding:68px 0}
+    .lead{margin-top:24px}
+    .question{margin-top:30px}
+    .cta-row{margin-top:34px}
+    .cta-row .btn{flex:1 1 100%;text-align:center;padding:14px 22px}
+    .grid,.steps{margin-top:36px;gap:14px}
+    .card,.step{padding:24px 22px}
+    .aparte{margin-top:34px}
+    .bandeau{margin-top:30px;padding:20px 22px}
+    .chips{margin-top:34px}
+    .faq{margin-top:36px}
+    summary{padding:19px 20px}
+    details .a{padding:0 20px 20px}
+    blockquote{font-size:18.5px;padding-left:18px}
+  }
+</style>
 </head>
 <body>
 
-    <!-- ═══ NAV ═══ -->
-    <nav>
-        <div class="container">
-            <a href="/" class="logo">KANSO<span>.</span>OPS</a>
-            <ul class="nav-links">
-                <li><a href="/" class="active-page">Accueil</a></li>
-                <li><a href="/cas-usage.html">Cas d'usage</a></li>
-                <li><a href="/ressources.html">Ressources</a></li>
-                <li><a href="/en/" class="nav-lang" hreflang="en" lang="en">EN</a></li>
-                <li><a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" rel="noopener" class="nav-cta">Échanger 30 min</a></li>
-            </ul>
-            <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-        </div>
-    </nav>
+<nav>
+  <div class="wrap nav-in">
+    <a class="mark" href="/">
+      <span class="tile">K</span>
+      <span class="word">KANSO<i>.</i>OPS</span>
+    </a>
+    <a class="lnk" href="#angles-morts">Les angles morts</a>
+    <a class="lnk" href="#methode">La méthode</a>
+    <a class="lnk" href="#qui">Qui est derrière</a>
+    <a class="btn" href="#contact">Échanger</a>
+  </div>
+</nav>
 
-    <!-- ═══ HERO ═══ -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-layout">
-                <div class="hero-content">
-                    <div class="badge">PME industrielles · Sans migration ERP · Premiers résultats en quelques jours</div>
-                    <h1>Le cockpit métier<br><em>qui remet vos flux sous contrôle.</em></h1>
-                    <p class="hero-sub">Kanso-Ops s'installe au-dessus de vos outils existants pour rendre visibles les sujets qui fuient entre ERP, Excel, mails et mémoire humaine : atelier, qualité, stock, ADV, approvisionnements.</p>
-                    <div class="hero-explainer">
-                        <div class="hero-explainer-item">
-                            <span>Ce que ça fait</span>
-                            <strong>Un flux critique devient visible, assigné et suivi.</strong>
-                        </div>
-                        <div class="hero-explainer-item">
-                            <span>Pourquoi</span>
-                            <strong>Les pertes se cachent dans les boucles qui ne se ferment pas.</strong>
-                        </div>
-                        <div class="hero-explainer-item">
-                            <span>Comment</span>
-                            <strong>30 minutes, diagnostic 8 jours, puis premier flux sous contrôle.</strong>
-                        </div>
-                    </div>
-                    <div class="hero-actions">
-                        <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" rel="noopener" class="hero-cta">
-                            Parler d'un cas réel
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" /></svg>
-                        </a>
-                        <a href="#cas-concrets" class="hero-cta hero-cta--secondary">
-                            Voir les cas concrets
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-                        </a>
-                    </div>
-                    <div class="hero-cta-note">Je suis Sébastien Duc. Avec 10 ans entre achats, opérations industrielles et conseil, j'aide les dirigeants de PME à voir vite ce qui coûte déjà du temps, de la marge ou de la tension.</div>
-                    <div class="hero-proof">
-                        <span>Exemples de sujets mis sous contrôle</span>
-                        <div class="proof-logos">
-                            <span>Atelier décalé</span>
-                            <div class="proof-separator"></div>
-                            <span>Commande non suivie</span>
-                            <div class="proof-separator"></div>
-                            <span>Stock subi</span>
-                            <div class="proof-separator"></div>
-                            <span>Non-qualité</span>
-                            <div class="proof-separator"></div>
-                            <span>Relances oubliées</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-visual" aria-hidden="true">
-                    <div class="hero-video-frame">
-                        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="/images/hero-video-v1-poster.png">
-                            <source src="/media/hero-video-v1.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ AVANT / APRÈS ═══ -->
-    <section class="before-after-section">
-        <div class="container">
-            <div class="before-after-panel reveal">
-                <div class="before-after-head">
-                    <div>
-                        <div class="section-label">Avant / Après</div>
-                        <h2>Vos outils restent.<br><em>Le flux arrête de fuir.</em></h2>
-                    </div>
-                    <p>La différence ne vient pas d'un logiciel de plus. Elle vient du moment où un sujet dispersé devient visible, porté, relancé et mesuré.</p>
-                </div>
-                <div class="before-after-grid">
-                    <div class="before-after-card before-after-card--before">
-                        <div class="before-after-kicker">Avant</div>
-                        <h3>Le sujet existe, mais personne ne voit toute la boucle.</h3>
-                        <ul>
-                            <li>ERP, Excel, mails et mémoire humaine se partagent l'information.</li>
-                            <li>Les équipes compensent jusqu'à l'urgence.</li>
-                            <li>Le coût réel arrive trop tard : retard, reprise, stock, tension.</li>
-                        </ul>
-                    </div>
-                    <div class="before-after-card before-after-card--after">
-                        <div class="before-after-kicker">Après Kanso</div>
-                        <h3>Un premier flux devient visible, piloté et mesuré.</h3>
-                        <ul>
-                            <li>Un responsable, une échéance, une preuve, une prochaine action.</li>
-                            <li>Les relances et décisions ne reposent plus sur la mémoire.</li>
-                            <li>Le gain est suivi avant de décider jusqu'où étendre.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ DOULEUR ═══ -->
-    <section class="pain">
-        <div class="container">
-            <div class="pain-header reveal">
-                <div class="section-label">Le vrai problème</div>
-                <h2>Ce n'est pas un manque d'outils<br><em>c'est un manque de contrôle</em></h2>
-            </div>
-            <div class="pain-cards">
-                <div class="pain-card reveal reveal-delay-1">
-                    <div class="pain-stat">Outils</div>
-                    <h3>Chaque outil voit une partie de la vérité</h3>
-                    <p>L'ERP enregistre. Excel suit. Le mail relance. Mais personne ne voit assez vite le statut, le responsable, l'échéance et l'impact.</p>
-                    <span class="pain-source">Kanso part de l'existant, sans grand remplacement</span>
-                </div>
-                <div class="pain-card reveal reveal-delay-2">
-                    <div class="pain-stat">Urgences</div>
-                    <h3>Les sujets critiques remontent trop tard</h3>
-                    <p>Une commande non suivie, un composant attendu, une preuve qualité introuvable : le coût vient souvent de petites dérives répétées.</p>
-                    <span class="pain-source">Le risque n'est pas l'incident isolé, c'est l'accumulation</span>
-                </div>
-                <div class="pain-card reveal reveal-delay-3">
-                    <div class="pain-stat">ROI</div>
-                    <h3>La direction arbitre sans signal fiable</h3>
-                    <p>Quand les statuts sont fragiles, les décisions arrivent après coup. La charge augmente, la marge baisse, le cash reste dehors.</p>
-                    <span class="pain-source">Le contrôle crée le ROI</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="risk-roi-section">
-        <div class="container">
-            <div class="risk-roi-panel reveal">
-                <div class="risk-roi-head">
-                    <div>
-                        <div class="section-label">Avant le mode pompier</div>
-                        <h2>On agit avant<br><em>que ça bloque</em></h2>
-                    </div>
-                    <p class="risk-roi-note">Atelier, qualité, stock, approvisionnements, ADV : Kanso-Ops rend visible le point qui fuit, relance la bonne personne et garde chaque sujet piloté jusqu'à décision.</p>
-                </div>
-                <div class="risk-roi-grid">
-                    <div class="risk-roi-card">
-                        <div class="risk-roi-kicker">Atelier, délais & service client</div>
-                        <h3>Un consommable non suivi devient un retard client</h3>
-                        <p>Une commande à faible montant peut décaler une finition, bloquer une équipe et finir en coût caché disproportionné.</p>
-                        <span class="risk-roi-tag">Impact : retard évité, capacité protégée, urgence maîtrisée</span>
-                    </div>
-                    <div class="risk-roi-card">
-                        <div class="risk-roi-kicker">Approvisionnements & stock subi</div>
-                        <h3>Ruptures, urgences et stock dormant enfin visibles</h3>
-                        <p>Composants critiques, achats en urgence, surstock oublié : chaque sujet a un statut, un responsable et une prochaine action.</p>
-                        <span class="risk-roi-tag">Impact : cash immobilisé réduit, ruptures anticipées, dépendances visibles</span>
-                    </div>
-                    <div class="risk-roi-card">
-                        <div class="risk-roi-kicker">Qualité & réclamations</div>
-                        <h3>Réclamations, preuves et reprises qui ne traînent plus</h3>
-                        <p>Photos, codes articles, preuves et responsabilités sont regroupés pour éviter que le dossier reste ouvert faute de suivi.</p>
-                        <span class="risk-roi-tag">Impact : preuve prête, délai réduit, non-qualité mieux chiffrée</span>
-                    </div>
-                    <div class="risk-roi-card">
-                        <div class="risk-roi-kicker">ADV, marge & relances</div>
-                        <h3>Les relances utiles ne reposent plus sur la mémoire</h3>
-                        <p>Devis, commandes, confirmations, retours clients : les sujets ouverts restent visibles avant de coûter de la marge ou de la tension.</p>
-                        <span class="risk-roi-tag">Impact : marge protégée, temps récupéré, décisions plus rapides</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="audit-entry-section" id="cas-concrets">
-        <div class="container">
-            <div class="audit-entry-header reveal">
-                <div class="section-label">Premiers flux à verrouiller</div>
-                <h2>On part d'un sujet réel<br><em>pas d'un grand chantier</em></h2>
-                <p>On ne commence pas par toute l'entreprise. On choisit un point sensible, fréquent, mesurable, puis on le rend visible avant de décider jusqu'où étendre.</p>
-            </div>
-            <div class="entry-points">
-                <a href="/score/?entry=achats" class="entry-point-card entry-point-card--blue">
-                    <div class="entry-point-kicker">Atelier & planning</div>
-                    <div class="entry-point-title">Un aléa simple ne décale plus toute la chaîne</div>
-                    <div class="entry-point-text">Commande oubliée, composant attendu, capacité perdue : le sujet remonte avant que l'équipe compense dans l'urgence.</div>
-                    <div class="entry-point-action">Rendre le flux visible</div>
-                </a>
-                <a href="/score/?entry=achats" class="entry-point-card entry-point-card--purple">
-                    <div class="entry-point-kicker">Pièces critiques & stock subi</div>
-                    <div class="entry-point-title">Les urgences et stocks dormants arrêtent de surprendre</div>
-                    <div class="entry-point-text">Composant critique, couverture faible, surstock coûteux : chaque écart a un statut, un responsable et une prochaine action.</div>
-                    <div class="entry-point-action">Prioriser les points sensibles</div>
-                </a>
-                <a href="/score/?entry=process" class="entry-point-card entry-point-card--green">
-                    <div class="entry-point-kicker">Qualité & preuves</div>
-                    <div class="entry-point-title">Les réclamations ne restent plus entre mails et mémoire</div>
-                    <div class="entry-point-text">Photo, code article, preuve, responsabilité : le dossier est regroupé avant que la non-qualité ne devienne invisible.</div>
-                    <div class="entry-point-action">Clôturer les dossiers</div>
-                </a>
-                <a href="/score/?entry=process" class="entry-point-card entry-point-card--orange">
-                    <div class="entry-point-kicker">ADV & relances</div>
-                    <div class="entry-point-title">Les sujets ouverts ne reposent plus sur une personne clé</div>
-                    <div class="entry-point-text">Commande, confirmation, relance client, retour attendu : la boucle reste visible jusqu'à décision ou clôture.</div>
-                    <div class="entry-point-action">Fermer les boucles</div>
-                </a>
-                <a href="/score/?entry=process" class="entry-point-card entry-point-card--red">
-                    <div class="entry-point-kicker">BE & industrialisation</div>
-                    <div class="entry-point-title">Les références, règles et exceptions deviennent réutilisables</div>
-                    <div class="entry-point-text">Cotation, documentation, historique, cas déjà vu : le savoir métier ne reste plus seulement dans les têtes.</div>
-                    <div class="entry-point-action">Capitaliser le terrain</div>
-                </a>
-                <a href="/score/?entry=process" class="entry-point-card entry-point-card--teal">
-                    <div class="entry-point-kicker">Marge & arbitrages</div>
-                    <div class="entry-point-title">Le coût réel d'un sujet devient visible</div>
-                    <div class="entry-point-text">Temps caché, urgence, reprise, stock ou retard : le dirigeant voit ce que le sujet coûte avant de choisir la suite.</div>
-                    <div class="entry-point-action">Chiffrer le coût caché</div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ 3 PILIERS ═══ -->
-    <section hidden class="pillars" id="pillars">
-        <div class="container">
-            <div class="pillars-header reveal">
-                <div class="section-label">Le plan</div>
-                <h2>Un sujet. Une preuve.<br><em>Une boucle de contrôle</em></h2>
-                <p>Vous restez aux commandes. Kanso rend le suivi fiable, mesurable et tenable dans la durée.</p>
-            </div>
-            <div class="pillars-grid">
-                <div class="pillar reveal reveal-delay-1">
-                    <div class="pillar-icon pillar-icon--blue">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
-                    </div>
-                    <div class="pillar-label">01 — Voir</div>
-                    <h3>Les sujets importants deviennent visibles</h3>
-                    <p>20 à 50 fournisseurs sensibles. Retards, relances, litiges, responsables et plans d'action.</p>
-                    <span class="pillar-tag pillar-tag--blue">Statut · responsable · échéance</span>
-                </div>
-                <div class="pillar reveal reveal-delay-2">
-                    <div class="pillar-icon pillar-icon--purple">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.47 2.47a3.68 3.68 0 01-4.06.8l-.5-.2a3.68 3.68 0 00-4.06.8L5 19.5" /></svg>
-                    </div>
-                    <div class="pillar-label">02 — Tenir</div>
-                    <h3>Les relances ne dépendent plus de la mémoire</h3>
-                    <p>Quand Excel, mails et mémoire saturent, on fiabilise un flux sans grand chantier SI.</p>
-                    <span class="pillar-tag pillar-tag--purple">Moins d'oubli · moins d'urgence</span>
-                </div>
-                <div class="pillar pillar--star reveal reveal-delay-3">
-                    <div class="pillar-icon pillar-icon--green">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
-                    </div>
-                    <div class="pillar-label">03 — Mesurer</div>
-                    <h3>Le gain est suivi, pas supposé</h3>
-                    <p>Relances tenues, actions suivies, ROI visible, prochaines priorités claires.</p>
-                    <span class="pillar-tag pillar-tag--green">Temps gagné · cash · marge</span>
-                </div>
-            </div>
-            <div class="reveal" style="text-align:center; margin-top:2rem;">
-                <a href="/cas-usage.html" class="cta-link" style="display:inline-flex; align-items:center; gap:0.65rem; font-size:0.9rem; font-weight:700; color:var(--green-bright); text-decoration:none;">
-                    Voir des exemples de cas d'usage
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" style="width:16px;height:16px;"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    
-    <!-- ═══ MÉTHODOLOGIE 3 ÉTAPES ═══ -->
-    <section hidden class="pillars" id="method" style="border-top: 1px solid var(--border);">
-        <div class="container">
-            <div class="pillars-header reveal">
-                <div class="section-label">Le parcours</div>
-                <h2>Un problème réel<br><em>une preuve rapide</em></h2>
-                <p>On part d'un sujet qui coûte déjà. On mesure l'enjeu. On active seulement si le gain est clair.</p>
-            </div>
-            <div class="pillars-grid method-steps reveal" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
-                <div style="text-align: center;">
-                    <div style="font-size: 1.2rem; font-weight: 800; color: var(--green-bright); margin-bottom: 0.8rem;">Étape 1</div>
-                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, rgba(16,185,129,0.3), rgba(16,185,129,0.1)); border: 2px solid var(--green-bright); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#34d399"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5"/></svg>
-                    </div>
-                    <div style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.5rem;">Point de départ</div>
-                    <div style="font-size: 0.82rem; color: var(--white-muted); line-height: 1.5;">On identifie le sujet, l'équipe concernée et l'ordre de grandeur du gain.</div>
-                    <div style="margin-top: 0.8rem; font-size: 0.72rem; font-weight: 700; color: var(--green-bright); background: var(--green-dim); padding: 0.3rem 0.8rem; border-radius: 9999px; display: inline-flex;">30 minutes</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 1.2rem; font-weight: 800; color: #60a5fa; margin-bottom: 0.8rem;">Étape 2</div>
-                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, rgba(59,130,246,0.3), rgba(59,130,246,0.1)); border: 2px solid #60a5fa; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#60a5fa"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33"/></svg>
-                    </div>
-                    <div style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.5rem;">Diagnostic ROI</div>
-                    <div style="font-size: 0.82rem; color: var(--white-muted); line-height: 1.5;">On chiffre, on priorise, on vérifie les données disponibles.</div>
-                    <div style="margin-top: 0.8rem; font-size: 0.72rem; font-weight: 700; color: #60a5fa; background: rgba(59,130,246,0.1); padding: 0.3rem 0.8rem; border-radius: 9999px; display: inline-flex;">Cadrage court</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 1.2rem; font-weight: 800; color: #a78bfa; margin-bottom: 0.8rem;">Étape 3</div>
-                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, rgba(139,92,246,0.3), rgba(139,92,246,0.1)); border: 2px solid #a78bfa; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#a78bfa"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
-                    </div>
-                    <div style="font-size: 1.05rem; font-weight: 800; margin-bottom: 0.5rem;">Activation 30 jours + run</div>
-                    <div style="font-size: 0.82rem; color: var(--white-muted); line-height: 1.5;">On met le flux sous contrôle et on le maintient dans la durée.</div>
-                    <div style="margin-top: 0.8rem; font-size: 0.72rem; font-weight: 700; color: #a78bfa; background: rgba(139,92,246,0.1); padding: 0.3rem 0.8rem; border-radius: 9999px; display: inline-flex;">Run mensuel</div>
-                </div>
-            </div>
-            <div class="reveal" style="background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(139,92,246,0.04)); border: 1px solid rgba(16,185,129,0.2); border-radius: var(--radius-lg); padding: 2rem 2.5rem; text-align: center; max-width: 800px; margin: 3rem auto 0;">
-                <p style="font-family: var(--font-serif); font-size: clamp(1.1rem, 2vw, 1.35rem); font-style: italic; line-height: 1.55; color: var(--white); margin-bottom: 0.8rem;">« Kanso ne remplace pas l'existant. Kanso rend visibles les sujets qui passent entre les mailles. »</p>
-                <p style="font-size: 0.78rem; color: var(--green-bright); font-weight: 600;">Sébastien Duc — Fondateur, Kanso-Ops</p>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ═══ REPRENEURS ═══ -->
-    <section hidden style="padding: 5rem 0; border-top: 1px solid var(--border);">
-        <div class="container">
-            <div class="reveal repreneur-card" style="max-width: 860px; margin: 0 auto; background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(239,68,68,0.04)); border: 1px solid rgba(245,158,11,0.2); border-radius: var(--radius-xl); padding: 3rem; position: relative; overflow: hidden;">
-                <div style="position: absolute; top: -1px; left: -1px; right: -1px; height: 3px; background: linear-gradient(90deg, #f59e0b, #ef4444); border-radius: var(--radius-xl) var(--radius-xl) 0 0;"></div>
-                <div class="repreneur-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center;">
-                    <div>
-                        <div class="section-label" style="color: #fbbf24;">Vous venez de reprendre une entreprise ?</div>
-                        <h2 style="font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem;">Les 100 premiers jours sont <em>décisifs.</em></h2>
-                        <p style="font-size: 0.88rem; color: var(--white-muted); line-height: 1.7;">Vous avez signé. Il faut maintenant comprendre rapidement ce que vous reprenez vraiment : les écarts cachés, les risques fournisseurs, les contrats sensibles et les premières priorités. Le Diagnostic ROI apporte cette lecture avant de lancer un chantier plus large.</p>
-                    </div>
-                    <div style="display: flex; flex-direction: column; gap: 0.8rem;">
-                        <div style="padding: 0.8rem 1rem; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: var(--radius-sm);">
-                            <div style="font-size: 0.72rem; font-weight: 700; color: #fbbf24; margin-bottom: 0.2rem;">📊 Cartographie des fuites</div>
-                            <div style="font-size: 0.75rem; color: var(--white-muted); line-height: 1.4;">Écarts de facturation, doublons, surfacturations — on scanne 24 mois d'historique et on chiffre ce qui fuit.</div>
-                        </div>
-                        <div style="padding: 0.8rem 1rem; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: var(--radius-sm);">
-                            <div style="font-size: 0.72rem; font-weight: 700; color: #f87171; margin-bottom: 0.2rem;">🚨 État des lieux fournisseurs</div>
-                            <div style="font-size: 0.75rem; color: var(--white-muted); line-height: 1.4;">Fournisseurs critiques, dépendances, retards, litiges et plans d'action — les priorités deviennent visibles avant de lancer un chantier plus large.</div>
-                        </div>
-                        <div style="padding: 0.8rem 1rem; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: var(--radius-sm);">
-                            <div style="font-size: 0.72rem; font-weight: 700; color: var(--green-bright); margin-bottom: 0.2rem;">💰 Quick wins immédiats</div>
-                            <div style="font-size: 0.75rem; color: var(--white-muted); line-height: 1.4;">Le cash récupéré dans les premiers mois peut financer une partie de la restructuration et sécuriser les 100 premiers jours.</div>
-                        </div>
-                        <a href="#contact" style="display: block; text-align: center; padding: 0.9rem; background: linear-gradient(135deg, #f59e0b, #d97706); color: var(--bg-deep); font-weight: 700; font-size: 0.85rem; border-radius: var(--radius-sm); text-decoration: none; transition: all 0.25s; margin-top: 0.3rem;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 25px rgba(245,158,11,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">Échanger sur les 100 jours</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ COCKPIT KANSO ═══ -->
-    <section hidden class="cockpit" id="cockpit">
-        <div class="container">
-            <div class="cockpit-grid">
-                <div class="reveal">
-                    <div class="section-label">Le pilotage</div>
-                    <h2>Un tableau de bord simple<br><em>Des suivis qui tiennent</em></h2>
-                    <p class="cockpit-intro">On ne remplace pas votre ERP ni vos habitudes. On ajoute une couche de suivi claire pour que direction, finance, achats et opérations voient rapidement ce qui bloque et ce qui avance.</p>
-                    <div class="features">
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" /></svg>
-                            </div>
-                            <div>
-                                <h4>Zéro perturbation</h4>
-                                <p>On ne touche pas à l'emplacement de vos documents sources (SharePoint, serveurs). Vos équipes gardent leurs habitudes.</p>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
-                            </div>
-                            <div>
-                                <h4>Zéro formation</h4>
-                                <p>L'outil reste simple à lire et à utiliser. Le but n'est pas de rajouter une couche de complexité, mais d'éviter les suivis bricolés et les oublis.</p>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
-                            </div>
-                            <div>
-                                <h4>ROI mesuré en direct</h4>
-                                <p>Le tableau de bord affiche les écarts traités, le cash récupéré et les gains de temps observés. Première preuve exploitable rapidement après cadrage.</p>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
-                            </div>
-                            <div>
-                                <h4>Souveraineté totale</h4>
-                                <p>Infrastructure isolée par client, chiffrement TLS 1.3. Vos données restent dans votre environnement documentaire. Gouvernance RGPD et IA cadrée avec le client.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="reveal reveal-delay-2">
-                    <div class="cockpit-mockup">
-                        <div class="cm-header">
-                            <div class="cm-dots"><div class="cm-dot"></div><div class="cm-dot"></div><div class="cm-dot"></div></div>
-                            <div class="cm-title">Tableau de bord Kanso — live</div>
-                            <div class="cm-status">En ligne</div>
-                        </div>
-                        <div class="cm-kpis">
-                            <div class="cm-kpi"><div class="cm-kpi-value cm-kpi-value--green">€47k</div><div class="cm-kpi-label">Cash récupéré YTD</div></div>
-                            <div class="cm-kpi"><div class="cm-kpi-value cm-kpi-value--purple">24/7</div><div class="cm-kpi-label">Suivi continu</div></div>
-                            <div class="cm-kpi"><div class="cm-kpi-value cm-kpi-value--green">×12</div><div class="cm-kpi-label">ROI mesuré</div></div>
-                            <div class="cm-kpi"><div class="cm-kpi-value cm-kpi-value--blue">0</div><div class="cm-kpi-label">Données exposées</div></div>
-                        </div>
-                        <div class="cm-charts">
-                            <div class="cm-chart">
-                                <div class="cm-chart-title">Activité critique</div>
-                                <div class="cm-bars">
-                                    <div class="cm-bar cm-bar--purple" style="height:45%"></div>
-                                    <div class="cm-bar cm-bar--green" style="height:70%"></div>
-                                    <div class="cm-bar cm-bar--purple" style="height:55%"></div>
-                                    <div class="cm-bar cm-bar--green" style="height:85%"></div>
-                                    <div class="cm-bar cm-bar--purple" style="height:40%"></div>
-                                    <div class="cm-bar cm-bar--green" style="height:95%"></div>
-                                    <div class="cm-bar cm-bar--purple" style="height:60%"></div>
-                                    <div class="cm-bar cm-bar--green" style="height:75%"></div>
-                                </div>
-                            </div>
-                            <div class="cm-chart">
-                                <div class="cm-chart-title">Marge protégée (k€)</div>
-                                <div class="cm-line-chart">
-                                    <svg class="cm-line-svg" viewBox="0 0 200 60" preserveAspectRatio="none">
-                                        <polyline points="0,55 30,48 60,40 90,32 120,22 150,15 180,8 200,3" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <polyline points="0,55 30,48 60,40 90,32 120,22 150,15 180,8 200,3" fill="url(#greenGrad)" stroke="none"/>
-                                        <defs><linearGradient id="greenGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(16,185,129,0.3)"/><stop offset="100%" stop-color="rgba(16,185,129,0)"/></linearGradient></defs>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cm-agents">
-                            <div class="cm-agent"><div class="cm-agent-dot cm-agent-dot--active"></div><div class="cm-agent-name">Litiges suivis</div><div class="cm-agent-status">1 247 factures analysées</div><div class="cm-agent-saving">+€32k</div></div>
-                            <div class="cm-agent"><div class="cm-agent-dot cm-agent-dot--active"></div><div class="cm-agent-name">Factures contrôlées</div><div class="cm-agent-status">389 factures bloquées</div><div class="cm-agent-saving">+€9k</div></div>
-                            <div class="cm-agent"><div class="cm-agent-dot cm-agent-dot--active"></div><div class="cm-agent-name">Prix surveillés</div><div class="cm-agent-status">14 indices surveillés</div><div class="cm-agent-saving">+€6k</div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ DÉMO KANSO — V2 ═══ -->
-    <section hidden class="demo" id="demo">
-        <div class="container">
-            <div class="demo-header reveal">
-                <div class="section-label">En action</div>
-                <h2>Des gestes opérationnels simples,<br><em>une logique claire</em></h2>
-                <p>Lire, comparer, contrôler, relancer, alerter : on active seulement ce qui sert vraiment à votre équipe.</p>
-            </div>
-
-            <!-- 5 Engine Tabs -->
-            <div class="engine-tabs reveal" id="engine-tabs">
-                <div class="engine-tab active" data-engine="extracteur" style="--engine-color:#10b981;--engine-bg:rgba(16,185,129,0.1);--engine-glow:rgba(16,185,129,0.3);">
-                    <div class="engine-tab-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9zm3.75 11.625a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg></div>
-                    <div class="engine-tab-name">Extracteur</div>
-                    <div class="engine-tab-role">Capture & classe</div>
-                </div>
-                <div class="engine-tab" data-engine="comparateur" style="--engine-color:#3b82f6;--engine-bg:rgba(59,130,246,0.1);--engine-glow:rgba(59,130,246,0.3);">
-                    <div class="engine-tab-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg></div>
-                    <div class="engine-tab-name">Comparateur</div>
-                    <div class="engine-tab-role">Détecte les écarts</div>
-                </div>
-                <div class="engine-tab" data-engine="gardien" style="--engine-color:#ef4444;--engine-bg:rgba(239,68,68,0.1);--engine-glow:rgba(239,68,68,0.3);">
-                    <div class="engine-tab-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg></div>
-                    <div class="engine-tab-name">Gardien</div>
-                    <div class="engine-tab-role">Bloque avant paiement</div>
-                </div>
-                <div class="engine-tab" data-engine="relanceur" style="--engine-color:#f59e0b;--engine-bg:rgba(245,158,11,0.1);--engine-glow:rgba(245,158,11,0.3);">
-                    <div class="engine-tab-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-                    <div class="engine-tab-name">Relanceur</div>
-                    <div class="engine-tab-role">Suit & relance</div>
-                </div>
-                <div class="engine-tab" data-engine="vigie" style="--engine-color:#8b5cf6;--engine-bg:rgba(139,92,246,0.1);--engine-glow:rgba(139,92,246,0.3);">
-                    <div class="engine-tab-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg></div>
-                    <div class="engine-tab-name">Vigie</div>
-                    <div class="engine-tab-role">Intelligence marché</div>
-                </div>
-            </div>
-
-            <!-- Progress bar -->
-            <div class="engine-progress reveal"><div class="engine-progress-fill running" id="engine-progress" style="background:linear-gradient(90deg,#10b981,#34d399);"></div></div>
-
-            <!-- Mockup Window -->
-            <div class="demo-mockup reveal">
-                <div class="dm-header">
-                    <div class="dm-dots"><div class="dm-dot"></div><div class="dm-dot"></div><div class="dm-dot"></div></div>
-                    <div class="dm-title" id="dm-title">Lecture facture fournisseur</div>
-                    <div class="dm-status" id="dm-status" style="color:#10b981;">
-                        <span>Actif</span>
-                    </div>
-                </div>
-                <div class="demo-screens">
-
-                    <!-- EXTRACTEUR -->
-                    <div class="demo-screen active" data-engine="extracteur">
-                        <div class="dm-topbar" style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);">
-                            <div class="dm-topbar-dot" style="background:#10b981;"></div>
-                            <div class="dm-topbar-text" style="color:#34d399;">Extraction en cours — Facture_Fournisseur_2026.pdf</div>
-                            <div class="dm-topbar-meta">2.4s</div>
-                        </div>
-                        <div class="dm-grid2">
-                            <div class="dm-card"><div class="dm-label">Fournisseur</div><div class="dm-value">Acier Pro Lyon SAS</div></div>
-                            <div class="dm-card"><div class="dm-label">N° Facture</div><div class="dm-value">APL-2026-00847</div></div>
-                            <div class="dm-card"><div class="dm-label">Montant HT</div><div class="dm-value" style="color:#34d399;">€ 24 850,00</div></div>
-                            <div class="dm-card"><div class="dm-label">Délai paiement</div><div class="dm-value">30 jours fin de mois</div></div>
-                            <div class="dm-card" style="grid-column:span 2;"><div class="dm-label">Écart détecté</div><div class="dm-value">Prix unitaire +3.2% vs contrat — <span style="color:#fbbf24;">€ 795 à récupérer</span></div></div>
-                        </div>
-                        <div style="display:flex;align-items:center;gap:0.8rem;padding:0.7rem 1rem;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-sm);margin-top:0.6rem;animation:dmSlideUp 0.5s ease 0.55s backwards;">
-                            <span style="font-size:0.72rem;color:var(--white-muted);">Confiance</span>
-                            <div class="dm-bar-wrap"><div class="dm-bar-fill animate" style="--fill:97%;background:linear-gradient(90deg,#10b981,#34d399);"></div></div>
-                            <span style="font-size:0.72rem;font-weight:700;color:#34d399;">97%</span>
-                        </div>
-                    </div>
-
-                    <!-- COMPARATEUR -->
-                    <div class="demo-screen" data-engine="comparateur">
-                        <div class="dm-topbar" style="background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);">
-                            <div class="dm-topbar-dot" style="background:#3b82f6;"></div>
-                            <div class="dm-topbar-text" style="color:#60a5fa;">Benchmark — 3 fournisseurs analysés</div>
-                            <div class="dm-topbar-meta">Achats Q1</div>
-                        </div>
-                        <div class="dm-compare">
-                            <div class="dm-compare-col">
-                                <div class="dm-compare-name">Acier Pro Lyon</div>
-                                <div class="dm-compare-row"><div class="dm-label">Prix unitaire</div><div class="dm-value">€ 12,40</div></div>
-                                <div class="dm-compare-row"><div class="dm-label">Délai</div><div class="dm-value">J+14</div></div>
-                                <div class="dm-compare-row"><div class="dm-label">Qualité</div><div class="dm-value">ISO 9001</div></div>
-                                <div class="dm-compare-row"><div class="dm-label">Score</div><div class="dm-value" style="color:#60a5fa;">78/100</div></div>
-                            </div>
-                            <div class="dm-compare-col dm-best">
-                                <div class="dm-compare-name" style="color:#34d399;">MétalTech ★</div>
-                                <div class="dm-compare-row"><div class="dm-label">Prix unitaire</div><div class="dm-value" style="color:#34d399;">€ 11,20</div></div>
-                                <div class="dm-compare-row"><div class="dm-label">Délai</div><div class="dm-value" style="color:#34d399;">J+10</div></div>
-                                <div class="dm-compare-row"><div class="dm-label">Qualité</div><div class="dm-value">ISO 9001 + 14001</div></div>
-                                <div class="dm-compare-row"><div class="dm-label">Score</div><div class="dm-value" style="color:#34d399;">92/100</div></div>
-                            </div>
-                            <div class="dm-compare-col">
-                                <div class="dm-compare-name">FerroSud</div>
-                                <div class="dm-compare-row"><div class="dm-label">Prix unitaire</div><div class="dm-value">€ 13,80</div></div>
-                                <div class="dm-compare-row"><div class="dm-label">Délai</div><div class="dm-value" style="color:#f87171;">J+21</div></div>
-                                <div class="dm-compare-row"><div class="dm-label">Qualité</div><div class="dm-value">ISO 9001</div></div>
-                                <div class="dm-compare-row"><div class="dm-label">Score</div><div class="dm-value">65/100</div></div>
-                            </div>
-                        </div>
-                        <div class="dm-actions">
-                            <div class="dm-btn" style="background:linear-gradient(135deg,#10b981,#059669);color:white;">Recommandation : MétalTech</div>
-                            <div class="dm-btn" style="background:rgba(59,130,246,0.12);color:#60a5fa;border:1px solid rgba(59,130,246,0.25);">−9.7% vs actuel</div>
-                        </div>
-                    </div>
-
-                    <!-- GARDIEN -->
-                    <div class="demo-screen" data-engine="gardien">
-                        <div class="dm-topbar" style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);">
-                            <div class="dm-topbar-dot" style="background:#ef4444;"></div>
-                            <div class="dm-topbar-text" style="color:#f87171;">Contrôle pré-paiement — 3 alertes détectées</div>
-                            <div class="dm-topbar-meta">Contrôle factures</div>
-                        </div>
-                        <div class="dm-row">
-                            <div class="dm-card" style="border-left:3px solid #ef4444;">
-                                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.3rem;">
-                                    <span class="dm-value" style="color:#f87171;">Doublon BDC détecté — €4 200</span>
-                                    <span class="dm-badge" style="background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.3);">Critique</span>
-                                </div>
-                                <div style="font-size:0.72rem;color:var(--white-muted);">Facture identique à celle du 12/01. Paiement bloqué selon règle de contrôle. Action : confirmer ou libérer.</div>
-                            </div>
-                            <div class="dm-card" style="border-left:3px solid #f59e0b;">
-                                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.3rem;">
-                                    <span class="dm-value" style="color:#fbbf24;">Écart prix +8% vs contrat</span>
-                                    <span class="dm-badge" style="background:rgba(245,158,11,0.15);color:#fbbf24;border:1px solid rgba(245,158,11,0.3);">Moyen</span>
-                                </div>
-                                <div style="font-size:0.72rem;color:var(--white-muted);">Prix unitaire facturé 13,50€ vs contrat 12,50€. Notification envoyée au responsable achats.</div>
-                            </div>
-                            <div class="dm-card" style="border-left:3px solid #10b981;">
-                                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.3rem;">
-                                    <span class="dm-value" style="color:#34d399;">Certification ISO 14001 valide</span>
-                                    <span class="dm-badge" style="background:rgba(16,185,129,0.15);color:#34d399;border:1px solid rgba(16,185,129,0.3);">OK</span>
-                                </div>
-                                <div style="font-size:0.72rem;color:var(--white-muted);">Fournisseur conforme. Prochaine échéance : 2026-09-14. Alerte programmée J-30.</div>
-                            </div>
-                        </div>
-                        <div class="dm-grid3" style="margin-top:0.6rem;animation:dmSlideUp 0.5s ease 0.5s backwards;">
-                            <div class="dm-stat"><div class="dm-stat-val" style="color:#f87171;">1</div><div class="dm-stat-lbl">Bloqué</div></div>
-                            <div class="dm-stat"><div class="dm-stat-val" style="color:#fbbf24;">1</div><div class="dm-stat-lbl">Escaladé</div></div>
-                            <div class="dm-stat"><div class="dm-stat-val" style="color:#34d399;">14</div><div class="dm-stat-lbl">Conformes</div></div>
-                        </div>
-                    </div>
-
-                    <!-- RELANCEUR -->
-                    <div class="demo-screen" data-engine="relanceur">
-                        <div class="dm-topbar" style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);">
-                            <div class="dm-topbar-dot" style="background:#f59e0b;"></div>
-                            <div class="dm-topbar-text" style="color:#fbbf24;">Graduation Diplomatique — 4 litiges en cours</div>
-                            <div class="dm-topbar-meta">Cette semaine</div>
-                        </div>
-                        <div class="dm-timeline">
-                            <div class="dm-tl-item">
-                                <div class="dm-tl-dot dm-tl-dot--done"></div>
-                                <div class="dm-tl-content">
-                                    <div class="dm-tl-head"><span class="dm-tl-title" style="color:#34d399;">Avoir reçu — Acier Pro</span><span class="dm-tl-date">Lun 10 fév</span></div>
-                                    <div class="dm-tl-desc">Avoir de €795 reçu et rapproché. Litige prêt à clôturer.</div>
-                                </div>
-                            </div>
-                            <div class="dm-tl-item">
-                                <div class="dm-tl-dot dm-tl-dot--done"></div>
-                                <div class="dm-tl-content">
-                                    <div class="dm-tl-head"><span class="dm-tl-title" style="color:#34d399;">Relance #2 envoyée — MétalTech</span><span class="dm-tl-date">Mar 11 fév</span></div>
-                                    <div class="dm-tl-desc">Relance envoyée selon règle validée. Ouvert 3 fois, pas de réponse. Escalade DAF proposée J+5.</div>
-                                </div>
-                            </div>
-                            <div class="dm-tl-item">
-                                <div class="dm-tl-dot dm-tl-dot--pending"></div>
-                                <div class="dm-tl-content" style="border-color:rgba(245,158,11,0.3);">
-                                    <div class="dm-tl-head"><span class="dm-tl-title" style="color:#fbbf24;">Certification ISO — échéance J-15</span><span class="dm-tl-date">Jeu 13 fév</span></div>
-                                    <div class="dm-tl-desc">Renouvellement ISO 14001 FerroSud. Rappel envoyé selon échéance.</div>
-                                </div>
-                            </div>
-                            <div class="dm-tl-item">
-                                <div class="dm-tl-dot dm-tl-dot--upcoming"></div>
-                                <div class="dm-tl-content">
-                                    <div class="dm-tl-head"><span class="dm-tl-title">Escalade DAF — doublon BDC</span><span class="dm-tl-date">Ven 14 fév</span></div>
-                                    <div class="dm-tl-desc">Pas de réponse du fournisseur. Compensation proposée sur prochaine facture.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ÉCLAIREUR -->
-                    <div class="demo-screen" data-engine="vigie">
-                        <div class="dm-topbar" style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.2);">
-                            <div class="dm-topbar-dot" style="background:#8b5cf6;"></div>
-                            <div class="dm-topbar-text" style="color:#a78bfa;">Intelligence marché — 3 signaux détectés</div>
-                            <div class="dm-topbar-meta">Dernières 24h</div>
-                        </div>
-                        <div class="dm-signals">
-                            <div class="dm-signal">
-                                <div class="dm-signal-icon" style="background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);">⚡</div>
-                                <div class="dm-signal-text">
-                                    <div class="dm-signal-title">Prix acier : +8% prévu Q2 2026</div>
-                                    <div class="dm-signal-desc">Analyse de 12 sources (INSEE, Eurostat). Votre contrat prévoit un plafond à +5%. Écart injustifié de 3 points. Simulation disponible.</div>
-                                </div>
-                                <div class="dm-signal-tag" style="background:rgba(239,68,68,0.15);color:#f87171;">Fenêtre d'achat</div>
-                            </div>
-                            <div class="dm-signal">
-                                <div class="dm-signal-icon" style="background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);">📊</div>
-                                <div class="dm-signal-text">
-                                    <div class="dm-signal-title">FerroSud : risque de dépendance +12pts</div>
-                                    <div class="dm-signal-desc">Concentration d'achats passée de 18% à 30% en 6 mois. Seuil d'alerte dépassé. Recommandation : diversifier.</div>
-                                </div>
-                                <div class="dm-signal-tag" style="background:rgba(245,158,11,0.15);color:#fbbf24;">Risque</div>
-                            </div>
-                            <div class="dm-signal">
-                                <div class="dm-signal-icon" style="background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);">🏛️</div>
-                                <div class="dm-signal-text">
-                                    <div class="dm-signal-title">Traçabilité des contrôles : point de vigilance identifié</div>
-                                    <div class="dm-signal-desc">Certaines validations et relances ne sont pas historisées. Un suivi simple et horodaté évite les angles morts et sécurise les arbitrages.</div>
-                                </div>
-                                <div class="dm-signal-tag" style="background:rgba(16,185,129,0.15);color:#34d399;">Gouvernance</div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div style="text-align:center;margin-top:3rem;" class="reveal">
-                <a href="/cas-usage.html" class="demo-discover-cta">
-                    Voir des cas d'usage concrets
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width:16px;height:16px;"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    
-
-    <!-- ═══ MÉTHODE SIMPLE ═══ -->
-    <section class="pillars" id="architecture">
-        <div class="container">
-            <div class="pillars-header reveal">
-                <div class="section-label">La méthode Kanso</div>
-                <h2>Vite, concret,<br><em>sans tout casser</em></h2>
-                <p>On ne vend pas un grand déploiement. On part d'un flux réel, on rend le sujet visible, on chiffre ce qu'il coûte, puis on décide seulement si la valeur est claire.</p>
-            </div>
-            <div class="pillars-grid" style="grid-template-columns: repeat(2, 1fr);">
-                <div class="pillar reveal reveal-delay-1">
-                    <div class="pillar-icon pillar-icon--blue">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5m-16.5 5.25h16.5m-16.5 5.25h10.5" /></svg>
-                    </div>
-                    <div class="pillar-label">01 — Repérer le point sensible</div>
-                    <h3>Un sujet terrain, fréquent et mesurable</h3>
-                    <p>Atelier, qualité, stock, ADV, approvisionnements : on part d'un endroit où les équipes compensent déjà.</p>
-                    <span class="pillar-tag pillar-tag--blue">Terrain · coût caché · priorité</span>
-                </div>
-                <div class="pillar reveal reveal-delay-2">
-                    <div class="pillar-icon pillar-icon--purple">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
-                    </div>
-                    <div class="pillar-label">02 — Brancher ce qui existe</div>
-                    <h3>ERP, Excel et mails restent en place</h3>
-                    <p>On récupère les signaux utiles sans grand remplacement. Le cockpit ajoute la visibilité qui manque pour décider et agir.</p>
-                    <span class="pillar-tag pillar-tag--purple">Pas d'usine à gaz</span>
-                </div>
-                <div class="pillar pillar--star reveal reveal-delay-3">
-                    <div class="pillar-icon pillar-icon--green">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 15.75L9 10.5l3.75 3.75L20.25 6.75" /><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6.75h3.75V10.5" /></svg>
-                    </div>
-                    <div class="pillar-label">03 — Fermer la boucle</div>
-                    <h3>Voir, assigner, relancer, clôturer</h3>
-                    <p>Chaque sujet a un responsable, une échéance, une preuve et une prochaine action. Le gain est suivi dans le temps.</p>
-                    <span class="pillar-tag pillar-tag--green">Action · preuve · ROI</span>
-                </div>
-                <div class="pillar reveal reveal-delay-3">
-                    <div class="pillar-icon pillar-icon--blue">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6-6m6 6l-6 6" /></svg>
-                    </div>
-                    <div class="pillar-label">04 — Étendre si la valeur tient</div>
-                    <h3>La bibliothèque de flux grandit avec le client</h3>
-                    <p>Une fois le premier flux utile, on réplique sur le sujet voisin : qualité, stock, planning, ADV, relances ou plans d'action.</p>
-                    <span class="pillar-tag pillar-tag--blue">Land · prove · expand</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<!-- ═══ SIMULATEUR ROI ═══ -->
-    <section hidden class="roi-calc" id="roi-calculator">
-        <div class="container">
-            <div class="roi-calc-header reveal">
-                <div class="section-label">Simulateur express</div>
-                <h2>Combien vous coûtent vos suivis manuels ?</h2>
-                <p>4 curseurs. 30 secondes. Estimez ce que vous coûtent aujourd'hui la ressaisie, les relances non faites et les écarts invisibles.</p>
-            </div>
-            <div class="roi-card reveal reveal-delay-1">
-
-                <div class="roi-sliders">
-                    <div class="roi-slider-group roi-s-green">
-                        <div class="roi-slider-top">
-                            <span class="roi-slider-name">Équipe impactée</span>
-                            <div class="roi-slider-val" id="rv-team">4 pers.</div>
-                        </div>
-                        <input type="range" id="rs-team" min="1" max="30" value="4" step="1">
-                        <div class="roi-slider-bounds"><span>1</span><span>30</span></div>
-                    </div>
-                    <div class="roi-slider-group roi-s-blue">
-                        <div class="roi-slider-top">
-                            <span class="roi-slider-name">Heures admin / jour</span>
-                            <div class="roi-slider-val" id="rv-hours">2h</div>
-                        </div>
-                        <input type="range" id="rs-hours" min="0.5" max="6" value="2" step="0.5">
-                        <div class="roi-slider-bounds"><span>30 min</span><span>6h</span></div>
-                    </div>
-                    <div class="roi-slider-group roi-s-purple">
-                        <div class="roi-slider-top">
-                            <span class="roi-slider-name">Coût horaire chargé</span>
-                            <div class="roi-slider-val" id="rv-taux">42 €/h</div>
-                        </div>
-                        <input type="range" id="rs-taux" min="25" max="80" value="42" step="1">
-                        <div class="roi-slider-bounds"><span>25 € (junior)</span><span>80 € (direction)</span></div>
-                    </div>
-                    <div class="roi-slider-group roi-s-amber">
-                        <div class="roi-slider-top">
-                            <span class="roi-slider-name">Fournisseurs actifs</span>
-                            <div class="roi-slider-val" id="rv-fourn">100</div>
-                        </div>
-                        <input type="range" id="rs-fourn" min="10" max="3000" value="100" step="10">
-                        <div class="roi-slider-bounds"><span>10</span><span>3 000</span></div>
-                    </div>
-                </div>
-
-                <div class="roi-confidence">
-                    <div class="roi-conf-label">Fiabilité de votre base fournisseurs</div>
-                    <div class="roi-conf-options">
-                        <button class="roi-conf-btn" data-value="fiable" onclick="setRoiConf(this)">
-                            <span class="roi-conf-emoji">✅</span>Fiable<br><small style="opacity:0.6">Référentiel unique</small>
-                        </button>
-                        <button class="roi-conf-btn active" data-value="partielle" onclick="setRoiConf(this)">
-                            <span class="roi-conf-emoji">⚠️</span>Partielle<br><small style="opacity:0.6">Doublons/obsolètes</small>
-                        </button>
-                        <button class="roi-conf-btn" data-value="non_maitrisee" onclick="setRoiConf(this)">
-                            <span class="roi-conf-emoji">🔴</span>Non maîtrisée<br><small style="opacity:0.6">Chacun son Excel</small>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="roi-divider"></div>
-
-                <div class="roi-results">
-                    <div class="roi-results-label">Coût annuel estimé</div>
-                    <div class="roi-ebitda" id="roi-total">79 460 €</div>
-                    <div class="roi-breakdown">
-                        <div class="roi-breakdown-item">
-                            <div class="roi-breakdown-val" id="roi-prod" style="color:var(--blue)">78 960 €</div>
-                            <div class="roi-breakdown-lbl">Coût productivité</div>
-                        </div>
-                        <div class="roi-breakdown-item">
-                            <div class="roi-breakdown-val" id="roi-qual" style="color:#f59e0b">500 €</div>
-                            <div class="roi-breakdown-lbl">Écarts & anomalies</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="roi-strategy">
-                    <div class="roi-strategy-title">⚡ Projection sur 3 ans (indicative)</div>
-                    <div class="roi-strategy-val" id="roi-ebitda">556 220 €</div>
-                    <div class="roi-strategy-desc">ordre de grandeur indicatif<br>pour visualiser le poids du problème si rien ne change</div>
-                </div>
-
-                <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="roi-cta">
-                    Parler d'un cas réel
-                </a>
-
-            </div>
-            <div class="roi-footnote">Formule : équipe × heures × taux × 235 jours + fournisseurs × 10 € × facteur risque · Projection sur 3 ans : coût annuel estimé × 3</div>
-        </div>
-    </section>
-
-    
-<!-- ═══ À PROPOS ═══ -->
-    <section hidden class="about" id="about">
-        <div class="container">
-            <!-- Philosophie KANSO -->
-            <div class="about-philosophy reveal">
-                <div class="section-label">Notre philosophie</div>
-                <h2>L'approche KANSO <span class="kanji">簡素</span></h2>
-                <p>Un concept japonais consistant à éliminer le superflu pour atteindre la clarté absolue.</p>
-            </div>
-            <!-- Architecte -->
-            <div class="about-grid">
-                <div class="about-visual reveal">
-                    <!-- [EDIT] Photo : remplacer le src par votre photo -->
-                    <div class="about-photo">
-                        <img src="images/sebastien-duc.jpg" alt="Sébastien Duc, fondateur de Kanso-Ops" style="width:100%;height:100%;object-fit:cover;object-position:center top;position:absolute;top:0;left:0;border-radius:var(--radius-lg);">
-                        <div class="about-name-overlay">
-                            <h3>Sébastien Duc</h3>
-                            <span>Fondateur, Kanso-Ops</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="reveal reveal-delay-1">
-                    <div class="section-label">L'architecte</div>
-                    <blockquote class="about-quote">Je ne pars pas d'abord des outils. Je pars du métier, des points où les opérations commencent à fuir, et de ce qu'ils coûtent vraiment.</blockquote>
-                    <p class="about-bio">Kanso-Ops est fondé par Sébastien Duc, avec 10 ans d'expérience entre achats, opérations industrielles et conseil, passé par KPMG, Nestlé Waters et Baccarat. Une approche terrain pour aider les PME à rendre visibles et pilotables leurs sujets opérationnels sensibles.</p>
-                    <div class="about-logos">
-                        <span>KEDGE BS</span>
-                        <span>EMLYON</span>
-                        <span>KPMG</span>
-                        <span>NESTLÉ</span>
-                        <span>BACCARAT</span>
-                    </div>
-                    <a href="https://www.linkedin.com/in/sebastienduc05" target="_blank" class="about-linkedin">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        Sébastien Duc sur LinkedIn
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ CONTACT ═══ -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-intro reveal">
-                    <div class="section-label">Contact</div>
-                    <h2>Partons d'un sujet concret<br><em>en 30 minutes</em></h2>
-                    <p>Le plus simple : partir d'un cas réel. Vous indiquez où le flux se bloque. Kanso-Ops estime si le sujet vaut un diagnostic court.</p>
-                    <div class="contact-info">
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
-                            </div>
-                            <a href="mailto:sebastien.duc@kanso-ops.fr">sebastien.duc@kanso-ops.fr</a>
-                        </div>
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
-                            </div>
-                            <span>France</span>
-                        </div>
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
-                            </div>
-                            <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank">Échanger 30 minutes</a>
-                        </div>
-                    </div>
-                    <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" class="contact-calendly-cta">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:20px;height:20px;"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
-                        Parler d'un cas réel
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width:16px;height:16px;"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                    </a>
-                </div>
-                <div class="reveal reveal-delay-1">
-                    <div class="contact-form-wrapper">
-                        <!-- ═══ FORMULAIRE CONTACT ENDPOINT ═══ -->
-                        <!-- [EDIT] Remplacer l'URL du webhook ci-dessous -->
-                        <!-- Routage formulaire : Webhook → Email/CRM/Google Sheets -->
-                        <form id="contact-form" class="contact-form">
-                            <input type="text" name="honeypot" style="display:none;" tabindex="-1" autocomplete="off">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="name">Nom complet</label>
-                                    <input type="text" id="name" name="name" placeholder="Jean Dupont" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" placeholder="jean@entreprise.com" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="company">Entreprise</label>
-                                    <input type="text" id="company" name="company" placeholder="Votre entreprise (optionnel)">
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Téléphone</label>
-                                    <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject-select">Sujet</label>
-                                <select id="subject-select" name="sujet">
-                                    <option value="Sujet à cadrer">Sujet à cadrer</option>
-                                    <option value="Diagnostic ROI">Diagnostic ROI</option>
-                                    <option value="Fournisseurs critiques">Fournisseurs critiques</option>
-                                    <option value="Quick win à cadrer">Quick win à cadrer</option>
-                                    <option value="Question générale">Question générale</option>
-                                    <option value="Partenariat / Réseau">Partenariat / Réseau</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" placeholder="Décrivez votre besoin ou posez votre question..." required></textarea>
-                            </div>
-                            <button type="submit" class="form-submit">
-                                Envoyer le message
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>
-                            </button>
-                            <p class="form-note">Réponse garantie sous 24h ouvrées. Aucune donnée revendue.</p>
-                        </form>
-                        <!-- Message de succès -->
-                        <div id="form-success" class="form-success">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                            <h3>Message envoyé !</h3>
-                            <p>Merci pour votre message. On revient vers vous sous 24h.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ FOOTER ═══ -->
-    <footer>
-        <div class="container">
-            <div class="footer-cta-section reveal">
-                <h2>Prêt à reprendre le contrôle d'un sujet qui coûte ?</h2>
-                <a href="https://calendly.com/sebastien-duc-kanso-ops/30min" target="_blank" rel="noopener" class="footer-cta-link">
-                    Parler d'un cas réel
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-                </a>
-            </div>
-            <div class="footer-bottom">
-                <span class="footer-copy">© 2026 Kanso-Ops — France. Simple. Efficace. Rentable.</span>
-                <div class="footer-links">
-                    <a href="https://www.linkedin.com/in/sebastienduc05" target="_blank">LinkedIn</a>
-                    <a href="https://www.linkedin.com/company/kanso-ops/" target="_blank">Kanso-Ops</a>
-                    <a href="/score/">Échanger 30 min</a>
-                    <a href="/mentions-legales/">Mentions légales</a>
-                    <a href="/mentions-legales/">Politique de confidentialité</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ═══ COOKIE BANNER ═══ -->
-    <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:1rem 2rem;background:rgba(15,23,42,0.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,0.1);font-family:'Inter',sans-serif;">
-        <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
-            <p style="font-size:0.82rem;color:#9ca3af;margin:0;flex:1;min-width:280px;line-height:1.55;">
-                Ce site utilise le stockage local pour mémoriser votre consentement. Aucun cookie publicitaire ou de tracking n'est utilisé.
-                <a href="/mentions-legales/" style="color:#8b5cf6;text-decoration:none;font-weight:600;">En savoir plus</a>
-            </p>
-            <div style="display:flex;gap:0.8rem;flex-shrink:0;">
-                <button onclick="acceptCookies()" style="padding:0.5rem 1.4rem;background:linear-gradient(135deg,#10b981,#059669);color:white;border:none;border-radius:8px;font-size:0.78rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.2s;">Accepter</button>
-                <button onclick="declineCookies()" style="padding:0.5rem 1.4rem;background:transparent;color:#9ca3af;border:1px solid rgba(255,255,255,0.15);border-radius:8px;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.2s;">Refuser</button>
-            </div>
-        </div>
+<header>
+  <div class="wrap">
+    <p class="over">PME industrielles · 50 à 250 personnes</p>
+    <div class="filet"></div>
+    <h1>Reprendre la main sur ce qui <em class="k">vous échappe.</em></h1>
+    <p class="lead">Dans une PME industrielle, il y a toujours quelqu'un qui sait où sont les choses. Tout le monde s'appuie sur cette personne. Et le jour où elle s'absente une semaine, on découvre tout ce qui reposait sur ses épaules.</p>
+    <p class="question">Chez vous, quand cette personne s'absente, qui reprend les dossiers ?</p>
+    <div class="cta-row">
+      <a class="btn" href="#contact">Parler de ce qui vous échappe</a>
+      <a class="tel" href="tel:+33699073489">06 99 07 34 89</a>
     </div>
-    <script>
-        function acceptCookies(){localStorage.setItem('kanso-cookies','accepted');document.getElementById('cookie-banner').style.display='none';}
-        function declineCookies(){localStorage.setItem('kanso-cookies','declined');document.getElementById('cookie-banner').style.display='none';}
-        if(!localStorage.getItem('kanso-cookies')){document.getElementById('cookie-banner').style.display='block';}
-    </script>
+  </div>
+</header>
 
-    <script>
-        // Scroll reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+<section id="angles-morts" class="deep">
+  <div class="wrap">
+    <h2>Ce n'est la faute de personne. C'est un <em class="k">angle mort</em>, et une entreprise en a toujours.</h2>
+    <p class="sub">Ils n'apparaissent sur aucun tableau de bord. Chacun coûte sans bruit, pendant que les équipes compensent.</p>
+    <div class="grid deux">
+      <div class="card"><b>L'avoir fournisseur jamais réclamé</b><p>L'accord existe, le geste commercial a été négocié. Personne n'a suivi son arrivée.</p></div>
+      <div class="card"><b>L'écart entre le contrat et la facture</b><p>Le prix négocié et le prix facturé divergent, ligne après ligne, sans que personne ne compare.</p></div>
+      <div class="card"><b>La relance qui passe à travers</b><p>Le devis parti sans suite, la commande sans accusé de réception. Chacun croyait que l'autre suivait.</p></div>
+      <div class="card"><b>La rupture qu'on aurait pu voir venir</b><p>Le signal était là, dans un mail ou un délai qui glisse. Il n'est remonté nulle part.</p></div>
+    </div>
+    <p class="aparte">Et le service ne change rien à l'affaire : le commerce, les achats, la qualité, l'ADV, le bureau d'études, chacun a le sien.</p>
+  </div>
+</section>
 
-        // Moteurs Kanso — V2 engine rotation
-        (function() {
-            const engines = ['extracteur','comparateur','gardien','relanceur','vigie'];
-            const titles = {
-                extracteur: 'Lecture facture fournisseur',
-                comparateur: 'Comparaison achats',
-                gardien: 'Contrôle pré-paiement',
-                relanceur: 'Relance diplomatique',
-                vigie: 'Intelligence marché'
-            };
-            const colors = {
-                extracteur: '#10b981', comparateur: '#3b82f6',
-                gardien: '#ef4444', relanceur: '#f59e0b', vigie: '#8b5cf6'
-            };
-            const tabs = document.querySelectorAll('.engine-tab');
-            const screens = document.querySelectorAll('.demo-screen');
-            const dmTitle = document.getElementById('dm-title');
-            const dmStatus = document.getElementById('dm-status');
-            const progressBar = document.getElementById('engine-progress');
-            let currentIdx = 0;
-            let autoTimer = null;
-            let paused = false;
+<section id="methode">
+  <div class="wrap">
+    <h2>Ce que KANSO fait, dans l'ordre.</h2>
+    <div class="steps">
+      <div class="step"><b>Regarder</b><p>Un diagnostic sur vos données, pas sur un questionnaire. On regarde ce qui vous échappe réellement, dans vos fichiers, vos mails et vos outils d'aujourd'hui.</p></div>
+      <div class="step"><b>Refermer</b><p>On remet en ordre, en commençant par les gisements rapides : ce qui se referme en quelques semaines et se voit tout de suite. Les chantiers de fond attendront de l'avoir mérité.</p></div>
+      <div class="step"><b>Laisser l'outil</b><p>Un outil reste chez vous et fait le travail dans la durée. Vous gardez la décision, l'outil prépare et fiabilise.</p></div>
+    </div>
+    <p class="bandeau">Vos données restent chez vous. C'est non négociable, et c'est écrit.</p>
+  </div>
+</section>
 
-            function goTo(idx) {
-                currentIdx = idx;
-                const name = engines[idx];
-                tabs.forEach(t => t.classList.remove('active'));
-                screens.forEach(s => s.classList.remove('active'));
-                const tab = document.querySelector(`.engine-tab[data-engine="${name}"]`);
-                const screen = document.querySelector(`.demo-screen[data-engine="${name}"]`);
-                if (tab) tab.classList.add('active');
-                if (screen) screen.classList.add('active');
-                if (dmTitle) dmTitle.textContent = titles[name];
-                if (dmStatus) dmStatus.style.color = colors[name];
-                // Restart progress bar
-                if (progressBar) {
-                    progressBar.classList.remove('running');
-                    progressBar.style.background = `linear-gradient(90deg, ${colors[name]}, ${colors[name]}88)`;
-                    void progressBar.offsetWidth;
-                    progressBar.classList.add('running');
-                }
-                // Re-trigger animations inside the screen
-                if (screen) {
-                    screen.querySelectorAll('.dm-bar-fill').forEach(b => {
-                        b.classList.remove('animate');
-                        void b.offsetWidth;
-                        b.classList.add('animate');
-                    });
-                }
-            }
+<section class="deep">
+  <div class="wrap">
+    <h2>Ce que ça n'est pas : un projet informatique.</h2>
+    <p class="sub">C'est la première inquiétude, et elle est légitime. Alors disons-le clairement.</p>
+    <div class="grid">
+      <div class="card"><b>Rien à migrer</b><p>Aucun logiciel remplacé, aucune bascule. KANSO se pose à côté de votre ERP et de vos fichiers Excel, et lit ce qui existe déjà. Vos équipes gardent leurs habitudes.</p></div>
+      <div class="card"><b>Petit périmètre d'abord</b><p>On ne cartographie pas toute l'entreprise. On prend le sujet qui déborde le plus, on le referme, et on décide ensemble s'il y a une suite.</p></div>
+      <div class="card"><b>Réversible, et à vous</b><p>Si on arrête, l'outil reste en place et continue de travailler. Il est chez vous, il vous appartient. Personne n'est pris en otage.</p></div>
+    </div>
+  </div>
+</section>
 
-            function next() { goTo((currentIdx + 1) % engines.length); }
+<section>
+  <div class="wrap">
+    <p class="statement">La différence avec un consultant : KANSO ne rend pas un rapport. À la fin, il reste chez vous <em class="k">un outil qui travaille</em>, pas un classeur qui dort.</p>
+  </div>
+</section>
 
-            function startAuto() {
-                stopAuto();
-                autoTimer = setInterval(() => { if (!paused) next(); }, 6000);
-            }
-            function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+<section id="qui" class="deep">
+  <div class="wrap">
+    <h2>Qui est derrière.</h2>
+    <div class="qui">
+      <img src="/images/sebastien-duc-buste.jpg" alt="Sébastien Duc, fondateur de Kanso Ops, conseil en achats et opérations pour PME industrielles à Nîmes" width="917" height="892" loading="lazy">
+      <div class="txt">
+        <p>Je suis Sébastien Duc. J'ai passé dix ans à l'intérieur de ces sujets, des deux côtés : donneur d'ordre chez Nestlé Waters et Baccarat, intégrateur chez KPMG. Déploiements Ariba, Ivalua, Coupa, M3.</p>
+        <p class="m">De l'eau minérale au cristal, en passant par l'automobile, le génie civil, le packaging et la logistique : dix secteurs, le même angle mort.</p>
+        <p>Je fais aujourd'hui ce travail pour des entreprises de 50 à 250 personnes, qui n'ont ni la direction achats ni le service informatique d'un grand groupe, mais qui en ont les problèmes.</p>
+        <p class="m">Basé à Nîmes, au BIC Innov'up. Sur le terrain dans tout le quart sud-est. Au-delà, la distance n'est pas un sujet : je laisse un outil, pas des journées sur place.</p>
+        <blockquote>Une PME industrielle a les mêmes problèmes qu'un grand groupe et pas ses moyens. Il n'y a aucune raison que ça reste comme ça.</blockquote>
+      </div>
+    </div>
+    <div class="chips">
+      <span class="chip">Accompagné par le BIC Innov'up · Nîmes</span>
+      <span class="chip">10 ans d'achats et d'opérations : Nestlé Waters, KPMG, Baccarat</span>
+      <span class="chip">Accord de confidentialité signé avant tout accès</span>
+      <span class="chip">SASU immatriculée au RCS</span>
+    </div>
+  </div>
+</section>
 
-            tabs.forEach((t, i) => {
-                t.addEventListener('click', () => { goTo(i); startAuto(); });
-            });
+<section>
+  <div class="wrap">
+    <h2>Les questions qu'on me pose <em class="k">en premier.</em></h2>
+    <div class="faq">
+      <details>
+        <summary>C'est encore un projet informatique ?</summary>
+        <p class="a">Non. Rien n'est migré, aucun logiciel n'est remplacé. KANSO se pose à côté de votre ERP et de vos fichiers Excel, lit ce qui existe déjà, et vos équipes gardent leurs habitudes. Le jour où quelque chose change dans vos outils, c'est vous qui l'avez décidé.</p>
+      </details>
+      <details>
+        <summary>Par où on commence ?</summary>
+        <p class="a">Par les gisements rapides. Le diagnostic repère les endroits où un petit effort referme un gros écart : relances fournisseurs, écarts de facturation, avoirs non réclamés, devis restés sans réponse. On traite d'abord ce qui se voit en quelques semaines, pas les chantiers de fond.</p>
+      </details>
+      <details>
+        <summary>Où vont mes données ?</summary>
+        <p class="a">Nulle part. Elles restent dans votre entreprise. L'accord de confidentialité est signé avant de regarder quoi que ce soit, et ce qui est appris chez vous n'en sort pas.</p>
+      </details>
+      <details>
+        <summary>Vous avez des références ?</summary>
+        <p class="a">KANSO est une jeune entreprise, et l'assume : vous ne trouverez pas de mur de logos ici. Derrière, il y a dix ans de terrain, en poste comme en mission de conseil, auprès de dizaines d'industriels : le nucléaire, la défense, le poids lourd, l'agroalimentaire, le pneumatique, jusqu'à l'horlogerie de luxe. Toujours sur les mêmes sujets : les achats, les opérations, les suivis qui échappent. Et une conviction : la meilleure preuve ne se raconte pas, elle se fait sur vos données, au premier diagnostic.</p>
+      </details>
+    </div>
+  </div>
+</section>
 
-            // Pause on hover
-            const mockup = document.querySelector('.demo-mockup');
-            if (mockup) {
-                mockup.addEventListener('mouseenter', () => { paused = true; });
-                mockup.addEventListener('mouseleave', () => { paused = false; });
-            }
+<section id="contact" class="deep">
+  <div class="wrap">
+    <h2>Parlons de ce qui <em class="k">vous échappe.</em></h2>
+    <p class="sub">Trente minutes au téléphone. Vous racontez, je pose des questions, et à la fin vous savez si KANSO peut quelque chose pour vous. Si ce n'est pas le cas, je vous le dis, et vous repartez avec un regard extérieur sur votre situation.</p>
+    <div class="coord">
+      <div><span>Courriel</span><a href="mailto:sebastien@kanso-ops.io">sebastien@kanso-ops.io</a></div>
+      <div><span>Téléphone</span><a href="tel:+33699073489">06 99 07 34 89</a></div>
+      <div><span>LinkedIn</span><a href="https://www.linkedin.com/in/sebastienduc05" rel="me">linkedin.com/in/sebastienduc05</a></div>
+    </div>
+    <div class="cta-row" style="margin-top:38px">
+      <a class="btn" href="mailto:sebastien@kanso-ops.io?subject=Ce%20qui%20nous%20%C3%A9chappe">Écrire à Sébastien</a>
+      <a class="btn ghost" href="tel:+33699073489">Appeler directement</a>
+    </div>
+  </div>
+</section>
 
-            // Start when visible
-            const obs = new IntersectionObserver((entries) => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) startAuto();
-                    else stopAuto();
-                });
-            }, { threshold: 0.15 });
-            const el = document.querySelector('.demo');
-            if (el) obs.observe(el);
-        })();
+<footer>
+  <div class="wrap in">
+    <p class="kanso">KANSO veut dire « simple » en japonais. C'est un programme, pas une décoration.</p>
+    <span>Kanso Ops · SASU · BIC Innov'up, Nîmes</span>
+    <span>
+      <a href="/mentions-legales/">Mentions légales</a> ·
+      <a href="/conditions-utilisation/">Conditions d'utilisation</a>
+    </span>
+  </div>
+</footer>
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-        // Contact form submission
-        const _e = [
-            'aHR0cHM6Ly9rYW5zby1jbGllbnQxLXU2Mjgw',
-            'OS52bS5lbGVzdGlvLmFwcC93ZWJob29rL2Nv',
-            'bnRhY3Qta2Fuc28='
-        ];
-        const LEAD_CAPTURE_ENDPOINT_URL = atob(_e.join(''));
-
-        // ═══ ANTI-SPAM : 3 protections ═══
-        // 1. Honeypot (champ invisible piège à bots)
-        // 2. Timer minimum (le formulaire doit être affiché >3s avant soumission)
-        // 3. Cooldown 5 min entre chaque envoi (par session)
-        const COOLDOWN_MS = 5 * 60 * 1000; // 5 minutes
-        const _formLoadTime = Date.now();
-
-        const contactForm = document.getElementById('contact-form');
-        const formSuccess = document.getElementById('form-success');
-        if (contactForm) {
-            contactForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                const btn = contactForm.querySelector('.form-submit');
-                const originalText = btn.innerHTML;
-
-                // Protection 1 : Honeypot
-                if (contactForm.querySelector('[name="honeypot"]').value) return;
-
-                // Protection 2 : Timer minimum (bots soumettent en <1s)
-                if (Date.now() - _formLoadTime < 3000) {
-                    btn.innerHTML = 'Trop rapide — Réessayez';
-                    setTimeout(() => { btn.innerHTML = originalText; }, 3000);
-                    return;
-                }
-
-                // Protection 3 : Cooldown 5 min
-                const lastSent = sessionStorage.getItem('kanso-form-sent');
-                if (lastSent && Date.now() - parseInt(lastSent) < COOLDOWN_MS) {
-                    const reste = Math.ceil((COOLDOWN_MS - (Date.now() - parseInt(lastSent))) / 60000);
-                    btn.innerHTML = 'Patientez ' + reste + ' min avant de renvoyer';
-                    setTimeout(() => { btn.innerHTML = originalText; }, 4000);
-                    return;
-                }
-
-                btn.disabled = true;
-                btn.innerHTML = 'Envoi en cours…';
-                const payload = {
-                    nom: contactForm.querySelector('#name').value,
-                    email: contactForm.querySelector('#email').value,
-                    telephone: contactForm.querySelector('#phone').value || '',
-                    entreprise: contactForm.querySelector('#company').value || '',
-                    sujet: contactForm.querySelector('#subject-select').value,
-                    message: contactForm.querySelector('#message').value,
-                    source: 'kanso-ops.com',
-                    date: new Date().toISOString()
-                };
-                try {
-                    const res = await fetch(LEAD_CAPTURE_ENDPOINT_URL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    if (res.ok) {
-                        sessionStorage.setItem('kanso-form-sent', Date.now().toString());
-                        contactForm.style.display = 'none';
-                        formSuccess.classList.add('show');
-                        contactForm.reset();
-                    } else {
-                        btn.innerHTML = 'Erreur — Réessayez';
-                        setTimeout(() => { btn.innerHTML = originalText; btn.disabled = false; }, 3000);
-                    }
-                } catch(err) {
-                    btn.innerHTML = 'Erreur réseau — Réessayez';
-                    setTimeout(() => { btn.innerHTML = originalText; btn.disabled = false; }, 3000);
-                }
-            });
-        }
-
-        // Mobile hamburger menu
-        const toggle = document.querySelector('.mobile-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        toggle.addEventListener('click', () => {
-            toggle.classList.toggle('active');
-            navLinks.classList.toggle('open');
-            document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
-        });
-        // Close menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                toggle.classList.remove('active');
-                navLinks.classList.remove('open');
-                document.body.style.overflow = '';
-            });
-        });
-    </script>
-
-    <!-- ═══ ROI CALCULATOR JS ═══ -->
-    <script>
-    (function(){
-        'use strict';
-        var roiConf = 'partielle';
-        var riskMap = { fiable: 0.2, partielle: 0.5, non_maitrisee: 1.0 };
-        var rsT = document.getElementById('rs-team');
-        var rsH = document.getElementById('rs-hours');
-        var rsX = document.getElementById('rs-taux');
-        var rsF = document.getElementById('rs-fourn');
-        function fmt(n){ return Math.round(n).toLocaleString('fr-FR'); }
-        function fmtH(v){ v=parseFloat(v); if(v<1) return Math.round(v*60)+' min'; if(v%1===0) return v+'h'; return v.toFixed(1).replace('.',',')+' h'; }
-        function calcROI(){
-            var t=parseInt(rsT.value), h=parseFloat(rsH.value), x=parseInt(rsX.value), f=parseInt(rsF.value), r=riskMap[roiConf];
-            var prod=Math.round(t*h*x*235), qual=Math.round(f*10*r), total=prod+qual;
-            var ebitda=total*7;
-            document.getElementById('rv-team').textContent=t+' pers.';
-            document.getElementById('rv-hours').textContent=fmtH(h);
-            document.getElementById('rv-taux').textContent=x+' €/h';
-            document.getElementById('rv-fourn').textContent=fmt(f);
-            var el=document.getElementById('roi-total');
-            el.textContent=fmt(total)+' €';
-            el.classList.remove('roi-pulse'); void el.offsetWidth; el.classList.add('roi-pulse');
-            document.getElementById('roi-prod').textContent=fmt(prod)+' €';
-            document.getElementById('roi-qual').textContent=fmt(qual)+' €';
-            document.getElementById('roi-ebitda').textContent=fmt(total*3)+' €';
-            if(total>500000){el.style.textShadow='0 0 60px var(--green-glow),0 0 120px var(--green-glow)';}
-            else if(total>200000){el.style.textShadow='0 0 50px var(--green-glow)';}
-            else{el.style.textShadow='0 0 40px var(--green-glow)';}
-        }
-        window.setRoiConf=function(btn){
-            document.querySelectorAll('.roi-conf-btn').forEach(function(b){b.classList.remove('active');});
-            btn.classList.add('active');
-            roiConf=btn.dataset.value;
-            calcROI();
-        };
-        [rsT,rsH,rsX,rsF].forEach(function(s){ if(s) s.addEventListener('input',calcROI); });
-        calcROI();
-    })();
-    </script>
 </body>
 </html>

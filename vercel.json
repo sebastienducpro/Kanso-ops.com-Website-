@@ -1,6 +1,61 @@
 {
   "redirects": [
     {
+      "source": "/produit",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/produit.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/cas-usage",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/cas-usage.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/ressources",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/ressources.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/score",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/score/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/automatisation-achats-p2p-s2p.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/en",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/en/:path(.*)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/cgu",
       "destination": "/conditions-utilisation/",
       "permanent": true
@@ -13,41 +68,6 @@
     {
       "source": "/mentions-legales.html",
       "destination": "/mentions-legales/",
-      "permanent": true
-    },
-    {
-      "source": "/produit",
-      "destination": "/cas-usage.html",
-      "permanent": true
-    },
-    {
-      "source": "/produit.html",
-      "destination": "/cas-usage.html",
-      "permanent": true
-    },
-    {
-      "source": "/en",
-      "destination": "/en/",
-      "permanent": true
-    },
-    {
-      "source": "/en/index.html",
-      "destination": "/en/",
-      "permanent": true
-    },
-    {
-      "source": "/en/product.html",
-      "destination": "/en/case-studies.html",
-      "permanent": true
-    },
-    {
-      "source": "/automatisation-achats-p2p-s2p.html",
-      "destination": "/cas-usage.html",
-      "permanent": true
-    },
-    {
-      "source": "/en/procurement-automation-p2p-s2p.html",
-      "destination": "/en/case-studies.html",
       "permanent": true
     },
     {
