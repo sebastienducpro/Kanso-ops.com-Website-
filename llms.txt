@@ -1,14 +1,15 @@
 # Kanso Ops
 
-> KANSO travaille avec les PME industrielles françaises de 50 à 250 personnes. Dans ces entreprises, il y a toujours quelqu'un qui sait où sont les choses ; le jour où cette personne s'absente, on découvre tout ce qui reposait sur ses épaules. KANSO remet l'information là où elle sert, et laisse en place l'outil qui la tient à jour.
+> KANSO cartographie les dépenses des PME industrielles françaises de 50 à 250 personnes. Le client envoie son fichier comptable, celui que son expert-comptable exporte en cinq minutes. Quinze jours plus tard, il sait qui le facture, ce qui a augmenté sans être négocié, et ce qui peut être récupéré tout de suite.
 
 ## L'essentiel
 
-- Accroche : « Reprendre la main sur ce qui vous échappe. »
+- Accroche : « Il y a de l'argent qui dort dans vos dépenses. »
 - Cible : PME industrielles, 50 à 250 personnes, quart sud-est de la France en priorité.
-- Méthode : un diagnostic sur les données réelles du client, une remise en ordre en commençant par ce qui pèse le plus lourd, puis un outil qui reste en place.
-- Différence : KANSO ne rend pas un rapport. À la fin, il reste chez le client un outil qui travaille.
-- Les données restent chez le client, c'est contractuel.
+- Entrée : le fichier comptable (export réglementaire, cinq minutes), puis l'export des commandes ERP, puis les contrats. Le premier fichier suffit pour commencer.
+- Livrable : la carte des dépenses, le panel et les dépendances, les hausses non justifiées, les avoirs et doublons récupérables avec leurs références, les délais de paiement réels, le stock dormant, les leviers classés, un premier chantier daté, et la même mesure reprise trois mois plus tard.
+- Différence : la cartographie ne se termine pas par des recommandations, mais par des dossiers prêts à partir et une date pour mesurer ce qu'ils auront donné.
+- Confidentialité : accord signé avant tout envoi, fichiers via un espace sécurisé, détruits en fin de mission.
 - Fondateur : Sébastien Duc, dix ans d'achats et d'opérations (Nestlé Waters, KPMG, Baccarat). Basé à Nîmes, au BIC Innov'up.
 - Contact : sebastien@kanso-ops.io · 06 99 07 34 89
 
