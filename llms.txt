@@ -4,7 +4,7 @@
 
 ## L'essentiel
 
-- Accroche : « Il y a de l'argent qui dort dans vos dépenses. »
+- Accroche : « Il y a de l'argent dans vos données. »
 - Cible : PME industrielles, 50 à 250 personnes, quart sud-est de la France en priorité.
 - Entrée : le fichier comptable (export réglementaire, cinq minutes), puis l'export des commandes ERP, puis les contrats. Le premier fichier suffit pour commencer.
 - Livrable : la carte des dépenses, le panel et les dépendances, les hausses non justifiées, les avoirs et doublons récupérables avec leurs références, les délais de paiement réels, le stock dormant, les leviers classés, un premier chantier daté, et la même mesure reprise trois mois plus tard.
