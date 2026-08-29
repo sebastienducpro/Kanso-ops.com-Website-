@@ -116,6 +116,33 @@ section.light .card:hover{border-color:var(--coral);box-shadow:0 12px 32px rgba(
 .find .t{font-size:15.5px}
 .note{margin-top:30px;font-size:13.5px;color:var(--muted);max-width:44em;font-style:italic}
 
+
+.cas{margin-top:44px;background:var(--white);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 10px 34px rgba(20,14,89,.06)}
+.cas-h{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.cas-h>div{background:var(--navy);color:#fff;padding:17px 20px;font-size:14.5px;font-weight:600}
+.cas-h span{display:block;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--coral);font-weight:800;margin-bottom:5px}
+.cas-b{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.cas-b .col{background:var(--white);padding:26px 24px}
+.cas-b h3{font-size:14px;font-weight:800;color:var(--coral2);text-transform:uppercase;letter-spacing:.09em;margin-bottom:12px}
+.cas-b .big{font-family:var(--title);font-weight:900;color:var(--navy);font-size:28px;line-height:1.1;margin-bottom:10px}
+.cas-b p{font-size:14.5px;color:var(--ink)}
+.cas-b p+p{margin-top:10px}
+.cas-f{background:var(--cream);border-top:1px solid var(--border);padding:19px 24px;font-size:14.5px;color:var(--ink)}
+.cas-f b{color:var(--navy)}
+@media(max-width:900px){.cas-h{grid-template-columns:1fr 1fr}.cas-b{grid-template-columns:1fr}}
+@media(max-width:520px){.cas-h{grid-template-columns:1fr}}
+
+.lm{display:grid;grid-template-columns:1.55fr .95fr;gap:36px;align-items:center;background:var(--navy);color:var(--pale);border-radius:20px;padding:44px 46px;position:relative;overflow:hidden}
+.lm::after{content:"";position:absolute;width:330px;height:330px;border-radius:50%;background:rgba(239,125,83,.16);right:-120px;top:-140px}
+.lm-t,.lm-a{position:relative;z-index:2}
+section.light .lm h2{color:#fff}
+.lm h2{color:#fff;font-size:clamp(23px,3vw,31px);margin-top:4px;max-width:15em}
+section.light .lm .kick{color:var(--coral)}
+.lm .kick{color:var(--coral)}
+.lm .lead{margin-top:16px;color:#cfcbe6;font-size:16px;max-width:38em}
+.lm-a{text-align:center}
+.lm-n{margin-top:13px;font-size:12.5px;color:#8f89bb}
+@media(max-width:860px){.lm{grid-template-columns:1fr;padding:34px 28px;gap:22px}.lm-a{text-align:left}}
 /* faq */
 .faq{margin-top:40px;max-width:52em}
 details{border-bottom:1px solid var(--border);padding:19px 0}
@@ -167,6 +194,7 @@ p,li{overflow-wrap:break-word}
     <li><a href="#bruit">Ce qui ne fait pas de bruit</a></li>
     <li><a href="#trouve">Ce que nous trouvons</a></li>
     <li><a href="#maison">Qui nous sommes</a></li>
+    <li><a href="#exemple">Un exemple</a></li>
     <li><a class="cta" href="#contact">Nous écrire</a></li>
   </ul>
 </div></nav>
@@ -175,8 +203,8 @@ p,li{overflow-wrap:break-word}
   <div class="bubs"><div class="bub b1"></div><div class="bub b2"></div><div class="bub b3"></div></div>
   <div class="wrap">
     <div class="kick rev">Kanso-Ops</div>
-    <h1 class="rev">Ce qui ne fait pas de bruit finit toujours par coûter cher.</h1>
-    <p class="sub rev">Nous remettons à plat les dépenses fournisseurs des PME industrielles, et nous reprenons les tâches qui se recopient à la main. <b>Vous ne repartez pas avec des recommandations : vous repartez avec ce qui se signe.</b></p>
+    <h1 class="rev">Ce qui ne fait pas de bruit finit toujours par coûter cher</h1>
+    <p class="sub rev">Nous remettons à plat les dépenses fournisseurs des PME industrielles, et nous reprenons les tâches qui se recopient à la main. <b>Vous ne repartez pas avec des recommandations, mais avec les courriers déjà rédigés, à votre en-tête, qu'il ne vous reste qu'à signer.</b></p>
     <div class="acts rev">
       <a class="btn p" href="#contact">Nous écrire</a>
       <a class="btn s" href="#trouve">Ce que nous trouvons</a>
@@ -186,9 +214,9 @@ p,li{overflow-wrap:break-word}
 
 <section id="bruit" class="alt"><div class="wrap">
   <div class="kick rev">Notre ennemi</div>
-  <h2 class="rev">Personne ne le signale, parce que tout le monde croit que c'est déjà géré.</h2>
-  <p class="lead rev">L'argent qui dort, le fournisseur qui disparaît, l'attestation qui manque. Et de l'autre côté, les heures passées à recopier, à pointer, à relancer, que personne ne compte parce que quelqu'un les porte à bout de bras et ne s'en plaint pas.</p>
-  <p class="lead rev"><b>Dans les deux cas, rien n'alerte, et on le découvre toujours trop tard.</b></p>
+  <h2 class="rev">Personne ne le signale, parce que tout le monde croit que c'est déjà géré</h2>
+  <p class="lead rev">L'argent qu'un fournisseur vous doit et qui n'est jamais revenu, le fournisseur qui cesse de livrer sans que personne le remarque, l'attestation que la loi vous impose de réclamer et qui manque au dossier. Et de l'autre côté, les heures passées à recopier, à pointer, à relancer, que personne ne compte parce que quelqu'un les porte à bout de bras et ne s'en plaint pas.</p>
+  <p class="lead rev"><b>Dans les deux cas, rien n'alerte, et l'on ne le découvre que bien trop tard.</b></p>
   <div class="vu rev">
     <p>Des montagnes de stock immobilisé que plus personne ne regardait.</p>
     <p>Une ligne de production arrêtée parce qu'un accusé de réception était passé à la trappe.</p>
@@ -196,31 +224,59 @@ p,li{overflow-wrap:break-word}
     <p>Un fournisseur qui ferme sans préavis, et des équipes entières qui courent pendant des semaines.</p>
     <p>Et derrière tout ça, des gens qui s'épuisent.</p>
   </div>
-  <p class="lead rev" style="margin-top:34px"><b>Aucune de ces situations ne venait d'une incompétence.</b> Toutes venaient de la même chose : personne ne pouvait les voir venir.</p>
+  <p class="lead rev" style="margin-top:34px"><b>Aucune de ces situations ne venait d'une incompétence.</b> Toutes venaient de la même chose : personne, dans ces maisons, ne pouvait les voir venir.</p>
 </div></section>
 
 <section id="trouve" class="light"><div class="wrap">
-  <div class="kick rev">Ce que nous trouvons</div>
-  <h2 class="rev">Des chiffres, pas des impressions.</h2>
-  <p class="lead rev">Ce qui suit vient de dossiers réels et de conversations avec des directions industrielles : ce qui revient, et ce qu'on trouve quand on regarde vraiment.</p>
-  <div class="finds rev">
-    <div class="find"><div class="n">46</div><div class="t">avoirs jamais réclamés sur deux exercices, chez des fournisseurs toujours actifs. Personne ne les avait rapprochés.</div></div>
-    <div class="find"><div class="n">29 000 €</div><div class="t">chez un fournisseur l'an passé, zéro cette année. Il avait cessé de livrer, et personne ne l'avait vu partir.</div></div>
-    <div class="find"><div class="n">26</div><div class="t">fournisseurs au-dessus du seuil légal de 5 000 €, sans attestation de vigilance au dossier. Un redressement chez l'un d'eux se paie chez le client.</div></div>
-    <div class="find"><div class="n">656</div><div class="t">factures sous 200 € en un an, presque trois par jour ouvré. Chacune coûte plus cher à traiter qu'elle ne vaut.</div></div>
-    <div class="find"><div class="n">2 sociétés</div><div class="t">du même groupe achetant séparément aux mêmes fournisseurs, à deux conditions différentes.</div></div>
-    <div class="find"><div class="n">20 jours</div><div class="t">de délai de paiement réel là où les conditions en autorisaient soixante. De la trésorerie donnée sans contrepartie.</div></div>
-    <div class="find"><div class="n">97 000 €</div><div class="t">de stock immobilisé sur 556 références, dans une maison dont les achats annuels tiennent en trois cent mille euros.</div></div>
-    <div class="find"><div class="n">6 ERP</div><div class="t">qui ne se parlent pas, et un directeur des achats sans accès aux systèmes de ses propres sites. On lui envoie des extractions, il se débrouille.</div></div>
-    <div class="find"><div class="n">500 € / mois</div><div class="t">de frais de financement chez un dirigeant, parce que les relances clients ne partent jamais à temps.</div></div>
-    <div class="find"><div class="n">le dimanche</div><div class="t">soir, c'est le dirigeant lui-même qui fait le rapprochement bancaire. Il n'a jamais compté ces heures.</div></div>
+  <div class="kick rev">Un dossier réel</div>
+  <h2 class="rev">Le détail d'un dossier</h2>
+  <p class="lead rev">Un dossier traité de bout en bout, anonymisé. Les montants sont ceux que nous avons identifiés dans les données, et non ce que nous promettons de faire gagner.</p>
+  <div class="cas rev">
+    <div class="cas-h">
+      <div><span>Secteur</span>Négoce et second œuvre</div>
+      <div><span>Typologie</span>Deux sociétés d'un même groupe</div>
+      <div><span>Achats analysés</span>Plus de 500 000 € sur deux exercices</div>
+      <div><span>Fournisseurs</span>125, tous nommés dans la restitution</div>
+    </div>
+    <div class="cas-b">
+      <div class="col">
+        <h3>Ce qui se récupère</h3>
+        <p class="big">46 avoirs</p>
+        <p>Un avoir, c'est de l'argent qu'un fournisseur reconnaît vous devoir. Quarante-six d'entre eux n'avaient jamais été réclamés sur deux exercices, auprès de fournisseurs pourtant toujours actifs.</p>
+        <p>Nous les avons triés en trois natures que nous ne mélangeons jamais, car chacune se récupère autrement.</p>
+      </div>
+      <div class="col">
+        <h3>Ce qui se renégocie</h3>
+        <p class="big">656 factures</p>
+        <p>sous 200 € en un an, presque trois par jour ouvré. Chacune coûte plus cher à traiter qu'elle ne vaut.</p>
+        <p>Deux sociétés achetant séparément aux mêmes fournisseurs, à deux conditions. Et des règlements à vingt jours là où soixante étaient permis.</p>
+      </div>
+      <div class="col">
+        <h3>Ce qui s'évite</h3>
+        <p class="big">jusqu'à 75 000 €</p>
+        <p>de risque écarté. Au-delà de cinq mille euros par an, la loi impose de réclamer à chaque fournisseur une attestation prouvant qu'il déclare bien ses salariés, et vingt-six d'entre eux ne l'avaient jamais fournie.</p>
+        <p>Plus un fournisseur à 29 754 € l'année précédente, tombé à zéro, sans que personne l'ait vu partir.</p>
+      </div>
+    </div>
+    <div class="cas-f">Et en supplément, sans surcoût : <b>19 034 € de créances clients de plus de soixante jours</b>, dont une de 8 595 € vieille de six mois. Le dirigeant est reparti avec les courriers, à son en-tête, prêts à signer.</div>
   </div>
-  <p class="note rev">Ces montants sont ceux que nous avons identifiés dans des données réelles, jamais ce que nous promettons de faire gagner. Toutes les situations sont anonymisées et aucune n'est attribuable.</p>
+  <div class="kick rev" style="margin-top:74px">Ce que nous cherchons à chaque fois</div>
+  <h2 class="rev">Les mêmes questions, dans tous les dossiers</h2>
+  <div class="finds rev">
+    <div class="find"><div class="n">Les avoirs</div><div class="t">Ceux qui ont été émis et jamais imputés. Le comptable croit que l'acheteur a réclamé, l'acheteur croit que le comptable a imputé.</div></div>
+    <div class="find"><div class="n">Les muets</div><div class="t">Les fournisseurs qui cessent de livrer sans que personne le remarque, et ce qui les a remplacés, à quel prix.</div></div>
+    <div class="find"><div class="n">La vigilance</div><div class="t">Les fournisseurs dépassant cinq mille euros par an, pour lesquels la loi réclame une attestation. Un redressement chez l'un d'eux se paie chez son client.</div></div>
+    <div class="find"><div class="n">Les délais</div><div class="t">Le délai de paiement réellement pratiqué, pas celui que prévoient les conditions. Payer trop vite revient à prêter de la trésorerie sans le savoir.</div></div>
+    <div class="find"><div class="n">Le doublon</div><div class="t">Deux entités, deux sites ou deux services achetant la même chose à des conditions différentes.</div></div>
+    <div class="find"><div class="n">Le dormant</div><div class="t">Le stock immobilisé depuis des années, référence par référence, et ce qu'il pèse face aux achats annuels.</div></div>
+    <div class="find"><div class="n">La miette</div><div class="t">Les factures dont le traitement coûte plus cher que le montant. Elles ne se négocient pas, elles se regroupent.</div></div>
+    <div class="find"><div class="n">Le temps</div><div class="t">Les heures passées à recopier, pointer et relancer, chiffrées au coût réel de celui qui les passe.</div></div>
+  </div>
 </div></section>
 
 <section id="faire"><div class="wrap">
   <div class="kick rev">Ce que nous faisons</div>
-  <h2 class="rev">Deux métiers, un seul problème.</h2>
+  <h2 class="rev">Deux métiers, un seul problème</h2>
   <div class="duo">
     <div class="card rev">
       <h3>L'argent qui dort chez vos fournisseurs</h3>
@@ -239,19 +295,19 @@ p,li{overflow-wrap:break-word}
 
 <section id="methode" class="light"><div class="wrap">
   <div class="kick rev">Comment nous travaillons</div>
-  <h2 class="rev">Cinq règles qui ne se négocient pas.</h2>
+  <h2 class="rev">Cinq règles qui ne se négocient pas</h2>
   <div class="vals">
     <div class="val rev"><h3>Le terrain avant l'outil</h3><p>Nous partons de ce qui se passe chez vous, jamais de ce que la technique permet.</p></div>
     <div class="val rev"><h3>Dire non plutôt que décevoir</h3><p>Nous refusons une mission quand nous savons qu'elle ne servira pas. Un client déçu coûte plus cher qu'un client qu'on n'a pas pris.</p></div>
-    <div class="val rev"><h3>Ce qui est constaté, jamais ce qui est promis</h3><p>Nous annonçons ce que nous avons vu dans vos chiffres. Le reste est du bavardage.</p></div>
-    <div class="val rev"><h3>Rien ne sort de la maison</h3><p>Vos données servent à la mission, ne quittent pas nos machines, et sont détruites ensuite. C'est écrit dans la lettre de mission.</p></div>
+    <div class="val rev"><h3>Ce qui est constaté, jamais ce qui est promis</h3><p>Nous annonçons ce que nous avons vu dans vos chiffres. Tout le reste ne serait que du bavardage.</p></div>
+    <div class="val rev"><h3>Rien ne sort de la maison</h3><p>Vos données servent à la mission, ne quittent pas nos machines, et sont détruites ensuite. Cet engagement figure noir sur blanc dans la lettre de mission.</p></div>
     <div class="val rev"><h3>La simplicité, qui est dans le nom</h3><p>Ce qui n'est pas compris ne sera pas utilisé, et ce qui n'est pas utilisé n'a rien changé.</p></div>
   </div>
 </div></section>
 
 <section id="maison" class="alt"><div class="wrap">
   <div class="kick rev">Qui nous sommes</div>
-  <h2 class="rev">Une maison née dans les ateliers, pas dans les cabinets.</h2>
+  <h2 class="rev">Une maison née dans les ateliers, et non dans les cabinets</h2>
   <p class="lead rev">Kanso-Ops vient de dix ans passés dans les achats et les opérations, en PME comme en multinationale, des deux côtés de la table : en poste chez des industriels, et en cabinet. De l'eau minérale au cristal, en passant par l'automobile, le génie civil, le packaging et la logistique. Dix secteurs, les mêmes fuites partout.</p>
   <p class="lead rev"><b>Notre mission : redonner aux PME les armes que les grands groupes gardent pour eux.</b> Un dirigeant de PME prend les mêmes décisions qu'un directeur de multinationale, avec les mêmes conséquences, mais sans les outils, sans les équipes et sans le temps. Cet écart n'est pas une fatalité, c'est un travail.</p>
   <p class="lead rev">Ce sont les entreprises de ce pays qui le redresseront, et d'abord celles qu'on ne cite jamais : celles qui produisent, qui réparent, qui livrent. <b>Chaque maison qui reprend la main se donne des chances de réussir, et en rend un peu à l'ensemble.</b></p>
@@ -264,21 +320,36 @@ p,li{overflow-wrap:break-word}
 
 <section id="questions" class="light"><div class="wrap">
   <div class="kick rev">Questions fréquentes</div>
-  <h2 class="rev">Ce qu'on nous demande en premier.</h2>
+  <h2 class="rev">Ce que l'on nous demande en premier</h2>
   <div class="faq rev">
-    <details open><summary>Il nous faut quoi pour commencer ?</summary>
+    <details open><summary>De quoi avons-nous besoin pour commencer ?</summary>
       <p>Un seul fichier : l'export comptable de votre exercice, que votre expert-comptable produit en cinq minutes parce que c'est un format réglementaire. Si vous avez aussi un export de commandes, des états de stock ou vos contrats, la lecture va plus loin. Sinon, nous commençons avec ce que vous avez.</p></details>
-    <details><summary>Ça mobilise qui chez nous, et pendant combien de temps ?</summary>
-      <p>Cinq minutes à votre expert-comptable pour l'export, puis plus personne. Nous travaillons quinze jours de notre côté. Vous nous revoyez une heure à la restitution. Aucune réunion hebdomadaire, aucun atelier.</p></details>
-    <details><summary>Nous avons déjà un service achats. Ça change quoi ?</summary>
-      <p>Beaucoup de nos interlocuteurs sont des acheteurs, et c'est avec eux que ça marche le mieux. Une équipe achats passe ses journées dans les urgences : les ruptures, les relances, les litiges. Personne n'a le temps de reprendre l'existant ligne par ligne. C'est exactement ce que nous faisons, et nous leur rendons la matière pour négocier.</p></details>
+    <details><summary>Qui cela mobilise-t-il chez nous, et pendant combien de temps ?</summary>
+      <p>Cinq minutes à votre expert-comptable pour l'export, puis plus personne. Nous travaillons ensuite quinze jours de notre côté, puis vous nous revoyez une heure au moment de la restitution, sans aucune réunion hebdomadaire ni le moindre atelier.</p></details>
+    <details><summary>Nous disposons déjà d'un service achats : qu'est-ce que cela change ?</summary>
+      <p>Beaucoup de nos interlocuteurs sont des acheteurs, et c'est avec eux que la démarche porte le mieux. Une équipe achats passe ses journées dans les urgences : les ruptures, les relances, les litiges. Personne n'a le temps de reprendre l'existant ligne par ligne. C'est exactement ce que nous faisons, et nous leur rendons la matière pour négocier.</p></details>
     <details><summary>Et si nos données ne portent rien ?</summary>
-      <p>Nous vous le disons avant, pas après. La conversation de trente minutes sert à ça : nous vous disons franchement si votre situation s'y prête, et si ce n'est pas le cas nous vous le disons à ce moment-là.</p>
-      <p>Et si, une fois vos fichiers reçus, nous voyons sous quarante-huit heures qu'ils ne permettent pas de travailler, nous arrêtons et nous vous remboursons. C'est écrit dans la lettre de mission.</p></details>
+      <p>Nous vous le disons avant, et non après. La conversation de trente minutes sert précisément à cela : nous vous disons franchement si votre situation s'y prête, et dans le cas contraire nous vous l'annonçons à ce moment-là plutôt qu'une fois la mission engagée.</p>
+      <p>Et si, une fois vos fichiers reçus, nous voyons sous quarante-huit heures qu'ils ne permettent pas de travailler, nous arrêtons et nous vous remboursons. Cet engagement figure noir sur blanc dans la lettre de mission.</p></details>
     <details><summary>Où vont nos données ?</summary>
       <p>L'accord de confidentialité est signé avant que vous n'envoyiez le moindre fichier. Les documents transitent par un espace sécurisé, jamais par courriel. Le traitement se fait sur nos machines, sans que vos données soient envoyées à un service extérieur, et elles sont détruites à la fin de la mission.</p></details>
-    <details><summary>Vous avez des références ?</summary>
+    <details><summary>Disposez-vous de références ?</summary>
       <p>Kanso-Ops est une jeune maison et l'assume : vous ne trouverez pas de mur de logos ici. Derrière, il y a dix ans de terrain, en poste comme en mission de conseil, auprès de dizaines d'entreprises industrielles. Nous préférons vous montrer un travail réel, anonymisé, plutôt qu'une liste de noms.</p></details>
+  </div>
+</div></section>
+
+<section id="exemple" class="light"><div class="wrap">
+  <div class="lm rev">
+    <div class="lm-t">
+      <div class="kick">Sans rendez-vous</div>
+      <h2>Recevoir un exemple complet de cartographie</h2>
+      <p class="lead">Trente pages, la restitution telle qu'un dirigeant la reçoit, sur une maison fictive construite à partir de dossiers réels. Vous verrez exactement ce qui vous serait remis, et vous jugerez sur pièce plutôt que sur promesse.</p>
+      <p class="lead" style="font-size:15px">Nous vous l'envoyons en main propre, par courriel, sans inscription et sans suite automatique. Si vous ne donnez pas de nouvelles, nous n'en donnerons pas non plus.</p>
+    </div>
+    <div class="lm-a">
+      <a class="btn p" href="mailto:sebastien.duc@kanso-ops.fr?subject=Recevoir%20l%27exemple%20complet%20de%20cartographie&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20recevoir%20l%27exemple%20complet%20de%20cartographie%20des%20d%C3%A9penses.%0A%0ASoci%C3%A9t%C3%A9%20%3A%20%0AFonction%20%3A%20%0A%0AMerci%20d%27avance.">Recevoir l'exemple</a>
+      <p class="lm-n">Le courriel est déjà rédigé, il ne vous reste qu'à l'envoyer.</p>
+    </div>
   </div>
 </div></section>
 
@@ -286,7 +357,7 @@ p,li{overflow-wrap:break-word}
   <div class="bubs"><div class="bub b1" style="right:-220px;top:-260px;width:460px;height:460px;opacity:.85"></div><div class="bub b4"></div></div>
   <div class="wrap">
     <div class="kick rev">Nous écrire</div>
-    <h2 class="rev">Une trentaine de minutes, et vous saurez si ça vaut le coup.</h2>
+    <h2 class="rev">Une trentaine de minutes, et vous saurez si cela en vaut la peine</h2>
     <p class="lead rev">Vous nous dites comment vous achetez et où le temps passe. Nous vous disons ce que nous trouverions chez vous, et si vos fichiers s'y prêtent. <b>Si ce n'est pas le cas, nous vous le disons à ce moment-là.</b> Cette conversation ne coûte rien et n'engage à rien.</p>
     <div class="contact rev">
       <ul class="coord">
