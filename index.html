@@ -165,8 +165,8 @@ section.light .lm h2{color:#fff}
 section.light .lm .kick{color:var(--coral)}
 .lm .kick{color:var(--coral)}
 .lm .lead{margin-top:16px;color:#cfcbe6;font-size:16px;max-width:38em}
-.lm-a{text-align:center}
-.lm-n{margin-top:13px;font-size:12.5px;color:#8f89bb}
+.lm-a{text-align:left}
+.lm-n{margin-top:13px;font-size:12px;color:#9d97c9;line-height:1.55}
 @media(max-width:860px){.lm{grid-template-columns:1fr;padding:34px 28px;gap:22px}.lm-a{text-align:left}}
 
 #fx label{display:block;font-size:12.5px;font-weight:700;color:#cfcbe6;text-align:left;margin-bottom:12px}
@@ -384,7 +384,7 @@ p,li{overflow-wrap:break-word}
       <div class="kick">Sans rendez-vous</div>
       <h2>Recevoir un exemple complet de cartographie</h2>
       <p class="lead">Quinze pages, la restitution telle qu'un dirigeant la reçoit, sur une maison fictive construite à partir de dossiers réels. Vous verrez exactement ce qui vous serait remis, et vous jugerez sur pièce plutôt que sur promesse.</p>
-      <p class="lead" style="font-size:15px">Nous vous l'envoyons en main propre, par courriel, sans inscription et sans suite automatique. Si vous ne donnez pas de nouvelles, nous n'en donnerons pas non plus.</p>
+      <p class="lead" style="font-size:15px">Le document s'ouvre immédiatement, vous n'attendez rien. Nous vous demandons vos coordonnées pour savoir à qui nous parlons, et parce qu'un exemple de restitution n'a pas vocation à circuler anonymement. Si vous ne donnez pas de nouvelles, nous n'en donnerons pas non plus.</p>
     </div>
     <div class="lm-a">
       <form id="fx" novalidate>
@@ -393,10 +393,13 @@ p,li{overflow-wrap:break-word}
           <label>Société<input name="societe" required autocomplete="organization"></label>
         </div>
         <label>Fonction<input name="fonction" autocomplete="organization-title"></label>
-        <label>Courriel professionnel<input name="email" type="email" required autocomplete="email"></label>
+        <div class="f2">
+          <label>Courriel professionnel<input name="email" type="email" required autocomplete="email" placeholder="prenom.nom@societe.fr"></label>
+          <label>Téléphone<input name="tel" type="tel" required autocomplete="tel" placeholder="06 12 34 56 78"></label>
+        </div>
         <input name="site" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
         <button class="btn p" type="submit">Recevoir l'exemple</button>
-        <p class="lm-n" id="fxn">Vos coordonnées servent uniquement à vous envoyer ce document et, si vous le souhaitez, à reprendre contact une fois. Elles ne sont ni revendues ni versées à une liste de diffusion.</p>
+        <p class="lm-n" id="fxn">Vos coordonnées servent uniquement à vous remettre ce document et à reprendre contact une fois, si vous le souhaitez. Elles ne sont ni revendues, ni versées à une liste de diffusion, et aucune séquence automatique ne suivra.</p>
       </form>
     </div>
   </div>
@@ -454,7 +457,7 @@ p,li{overflow-wrap:break-word}
   var PDF='/exemples/kanso-ops-exemple-cartographie.pdf';
   function mailto(d){
     return 'mailto:sebastien.duc@kanso-ops.fr?subject='+encodeURIComponent("Exemple de cartographie, demande depuis le site")
-      +'&body='+encodeURIComponent("Bonjour,\n\nJe souhaite recevoir l'exemple complet de cartographie.\n\nNom : "+(d.nom||'')+"\nSociété : "+(d.societe||'')+"\nFonction : "+(d.fonction||'')+"\nCourriel : "+(d.email||'')+"\n\nMerci d'avance.");
+      +'&body='+encodeURIComponent("Bonjour,\n\nJe souhaite recevoir l'exemple complet de cartographie.\n\nNom : "+(d.nom||'')+"\nSociété : "+(d.societe||'')+"\nFonction : "+(d.fonction||'')+"\nCourriel : "+(d.email||'')+"\nTéléphone : "+(d.tel||'')+"\n\nMerci d'avance.");
   }
   function merci(){
     f.parentNode.innerHTML='<div class="lm-ok"><h3>C\'est à vous</h3>'
@@ -464,13 +467,15 @@ p,li{overflow-wrap:break-word}
   }
   f.addEventListener('submit',function(e){
     e.preventDefault();
-    var d={}; ['nom','societe','fonction','email','site'].forEach(function(k){var el=f.elements[k]; d[k]=el?el.value.trim():''});
+    var d={}; ['nom','societe','fonction','email','tel','site'].forEach(function(k){var el=f.elements[k]; d[k]=el?el.value.trim():''});
     var bad=false;
-    ['nom','societe','email'].forEach(function(k){
-      var el=f.elements[k], ko=!d[k] || (k==='email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d[k]));
+    ['nom','societe','email','tel'].forEach(function(k){
+      var el=f.elements[k], v=d[k], ko=!v
+        || (k==='email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v))
+        || (k==='tel' && v.replace(/[^0-9+]/g,'').length<9);
       el.classList.toggle('err',ko); if(ko) bad=true;
     });
-    if(bad){document.getElementById('fxn').textContent="Merci de renseigner votre nom, votre société et un courriel valide.";return}
+    if(bad){document.getElementById('fxn').textContent="Merci de renseigner votre nom, votre société, un courriel valide et un numéro où vous joindre.";return}
     var b=f.querySelector('button'); b.disabled=true; b.textContent='Un instant';
     fetch('/api/exemple',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
       .then(function(r){return r.json().catch(function(){return{}})})

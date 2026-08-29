@@ -23,9 +23,10 @@ module.exports = async (req, res) => {
   // champ leurre : rempli seulement par un robot
   if (d.site) return res.status(200).json({ ok: true, skipped: true });
 
-  const nom = esc(d.nom), societe = esc(d.societe), fonction = esc(d.fonction), email = esc(d.email);
-  if (!nom || !societe || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-    return res.status(400).json({ ok: false, error: 'Champs manquants ou courriel invalide' });
+  const nom = esc(d.nom), societe = esc(d.societe), fonction = esc(d.fonction), email = esc(d.email), tel = esc(d.tel);
+  const telNum = tel.replace(/[^0-9+]/g, '');
+  if (!nom || !societe || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || telNum.length < 9) {
+    return res.status(400).json({ ok: false, error: 'Champs manquants, courriel ou telephone invalide' });
   }
 
   const key = process.env.RESEND_API_KEY;
@@ -38,10 +39,11 @@ module.exports = async (req, res) => {
       <tr><td style="color:#7d7a8c">Nom</td><td><b>${nom}</b></td></tr>
       <tr><td style="color:#7d7a8c">Société</td><td><b>${societe}</b></td></tr>
       <tr><td style="color:#7d7a8c">Fonction</td><td>${fonction || 'non renseignée'}</td></tr>
-      <tr><td style="color:#7d7a8c">Courriel</td><td><a href="mailto:${email}">${email}</a></td></tr>
+      <tr><td style="color:#7d7a8c">Courriel</td><td><a href="mailto:${email}"><b>${email}</b></a></td></tr>
+      <tr><td style="color:#7d7a8c">Téléphone</td><td><a href="tel:${telNum}"><b>${tel}</b></a></td></tr>
       <tr><td style="color:#7d7a8c">Reçue le</td><td>${quand}</td></tr>
     </table>
-    <p style="margin-top:18px;color:#7d7a8c;font-size:13.5px">L'exemple lui a déjà été ouvert automatiquement. Une relance à la main, quelques jours plus tard, vaut mieux qu'une séquence.</p>
+    <p style="margin-top:18px;color:#7d7a8c;font-size:13.5px">L'exemple lui a déjà été ouvert automatiquement. Un appel deux ou trois jours plus tard vaut mieux qu'une relance écrite.</p>
   </div>`;
 
   try {
@@ -50,7 +52,7 @@ module.exports = async (req, res) => {
       headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
         from: FROM, to: [DEST], reply_to: email,
-        subject: `Exemple demandé par ${nom}, ${societe}`, html,
+        subject: `Exemple demandé par ${nom}, ${societe} · ${tel}`, html,
       }),
     });
     if (!r.ok) {
