@@ -1,22 +1,24 @@
-# Kanso Ops
+# Kanso-Ops
 
-> KANSO cartographie les dépenses des PME industrielles françaises de 50 à 250 personnes. Le client envoie son fichier comptable, celui que son expert-comptable exporte en cinq minutes. Quinze jours plus tard, il sait qui le facture, ce qui a augmenté sans être négocié, et ce qui peut être récupéré tout de suite.
+> Kanso-Ops remet à plat les dépenses fournisseurs des PME et ETI industrielles, et reprend les tâches administratives qui se recopient à la main. Le client repart avec trois listes nommées, fournisseur par fournisseur, et les courriers déjà écrits, prêts à signer.
 
 ## L'essentiel
 
-- Accroche : « Il y a de l'argent dans vos données. »
-- Cible : PME industrielles, 50 à 250 personnes, quart sud-est de la France en priorité.
-- Entrée : le fichier comptable (export réglementaire, cinq minutes), puis l'export des commandes ERP, puis les contrats. Le premier fichier suffit pour commencer.
-- Livrable : la carte des dépenses, le panel et les dépendances, les hausses non justifiées, les avoirs et doublons récupérables avec leurs références, les délais de paiement réels, le stock dormant, les leviers classés, un premier chantier daté, et la même mesure reprise trois mois plus tard.
-- Différence : la cartographie ne se termine pas par des recommandations, mais par des dossiers prêts à partir et une date pour mesurer ce qu'ils auront donné.
-- Confidentialité : accord signé avant tout envoi, fichiers via un espace sécurisé, détruits en fin de mission.
-- Fondateur : Sébastien Duc, dix ans d'achats et d'opérations (Nestlé Waters, KPMG, Baccarat). Basé à Nîmes, au BIC Innov'up.
-- Contact : sebastien@kanso-ops.io · 06 99 07 34 89
+- Accroche : « Ce qui ne fait pas de bruit finit toujours par coûter cher. »
+- Ennemi : ce que personne ne signale parce que tout le monde croit que c'est déjà géré, et les heures que personne ne compte parce que quelqu'un les porte à bout de bras.
+- Cible : PME et ETI industrielles, à partir de cinquante personnes, partout en France.
+- Premier métier : la cartographie des dépenses fournisseurs. Entrée par le fichier comptable, export réglementaire produit en cinq minutes par l'expert-comptable, puis les commandes, les stocks et les contrats si le client les a. Sortie en trois listes nommées : ce qui se récupère, ce qui se renégocie, ce qui expose.
+- Second métier : l'automatisation des tâches administratives. Les commandes ressaisies d'un écran à l'autre, les relances qui partent en retard, le rapprochement bancaire fait le dimanche.
+- Différence : on ne rend pas des recommandations, on rend ce qui se signe. Les courriers partent à l'en-tête du client, prêts à signer.
+- Méthode : le terrain avant l'outil, dire non plutôt que décevoir, ce qui est constaté et jamais ce qui est promis, rien ne sort de la maison, la simplicité qui est dans le nom.
+- Confidentialité : accord signé avant tout envoi, fichiers via un espace sécurisé, traitement sur des machines locales, destruction en fin de mission.
+- Maison : née en 2026. Dix ans d'achats et d'opérations en PME comme en multinationale, en poste comme en cabinet.
+- Contact : sebastien.duc@kanso-ops.fr · 06 99 07 34 89
 
 ## Pages
 
-- [Accueil](https://kanso-ops.com/) : la présentation complète.
-- [Mentions légales](https://kanso-ops.com/mentions-legales/)
-- [Conditions d'utilisation](https://kanso-ops.com/conditions-utilisation/)
+- [Accueil](https://www.kanso-ops.com/) : la présentation complète.
+- [Mentions légales](https://www.kanso-ops.com/mentions-legales/)
+- [Conditions d'utilisation](https://www.kanso-ops.com/conditions-utilisation/)
 
-KANSO veut dire « simple » en japonais.
+Kanso veut dire « simple » en japonais : ce qui reste quand on a retiré ce qui ne sert pas.
