@@ -9,23 +9,23 @@
 <meta property="og:description" content="Ce qui ne fait pas de bruit finit toujours par coûter cher.">
 <meta property="og:locale" content="fr_FR">
 <meta name="theme-color" content="#140E59">
-<link rel="canonical" href="https://www.kanso-ops.com/">
+<link rel="canonical" href="https://kanso-ops.com/">
 <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/images/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/images/favicon-16x16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.kanso-ops.com/">
-<meta property="og:image" content="https://www.kanso-ops.com/images/og-kanso-2026.png">
+<meta property="og:url" content="https://kanso-ops.com/">
+<meta property="og:image" content="https://kanso-ops.com/images/og-kanso-2026.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kanso-Ops">
 <meta name="twitter:description" content="Ce qui ne fait pas de bruit finit toujours par coûter cher.">
-<meta name="twitter:image" content="https://www.kanso-ops.com/images/og-kanso-2026.png">
+<meta name="twitter:image" content="https://kanso-ops.com/images/og-kanso-2026.png">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Kanso-Ops",
-"url":"https://www.kanso-ops.com/","email":"sebastien.duc@kanso-ops.fr","telephone":"+33699073489",
+"url":"https://kanso-ops.com/","email":"sebastien.duc@kanso-ops.fr","telephone":"+33699073489",
 "description":"Kanso-Ops remet à plat les dépenses fournisseurs des PME industrielles et reprend les tâches administratives qui se recopient à la main.",
 "address":{"@type":"PostalAddress","streetAddress":"6 rue d'Armaillé","postalCode":"75017","addressLocality":"Paris","addressCountry":"FR"},
 "areaServed":{"@type":"Country","name":"France"},
@@ -168,6 +168,20 @@ section.light .lm .kick{color:var(--coral)}
 .lm-a{text-align:center}
 .lm-n{margin-top:13px;font-size:12.5px;color:#8f89bb}
 @media(max-width:860px){.lm{grid-template-columns:1fr;padding:34px 28px;gap:22px}.lm-a{text-align:left}}
+
+#fx label{display:block;font-size:12.5px;font-weight:700;color:#cfcbe6;text-align:left;margin-bottom:12px}
+#fx input{display:block;width:100%;margin-top:5px;padding:11px 13px;border-radius:9px;border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.07);color:#fff;font:400 15px var(--body);transition:border-color .2s,background .2s}
+#fx input:focus{outline:none;border-color:var(--coral);background:rgba(255,255,255,.11)}
+#fx input.err{border-color:#ff9a9a}
+#fx .f2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+@media(max-width:560px){#fx .f2{grid-template-columns:1fr}}
+#fx .hp{position:absolute;left:-9999px;width:1px;height:1px}
+#fx button{width:100%;margin-top:6px;border:0;cursor:pointer;font:700 15px var(--body)}
+#fx button[disabled]{opacity:.6;cursor:progress}
+.lm-ok{text-align:left}
+.lm-ok h3{color:#fff;font-family:var(--title);font-size:20px;font-weight:800;margin-bottom:10px}
+.lm-ok p{color:#cfcbe6;font-size:15px;margin-bottom:16px}
 /* faq */
 .faq{margin-top:40px;max-width:52em}
 details{border-bottom:1px solid var(--border);padding:19px 0}
@@ -369,12 +383,21 @@ p,li{overflow-wrap:break-word}
     <div class="lm-t">
       <div class="kick">Sans rendez-vous</div>
       <h2>Recevoir un exemple complet de cartographie</h2>
-      <p class="lead">Trente pages, la restitution telle qu'un dirigeant la reçoit, sur une maison fictive construite à partir de dossiers réels. Vous verrez exactement ce qui vous serait remis, et vous jugerez sur pièce plutôt que sur promesse.</p>
+      <p class="lead">Quinze pages, la restitution telle qu'un dirigeant la reçoit, sur une maison fictive construite à partir de dossiers réels. Vous verrez exactement ce qui vous serait remis, et vous jugerez sur pièce plutôt que sur promesse.</p>
       <p class="lead" style="font-size:15px">Nous vous l'envoyons en main propre, par courriel, sans inscription et sans suite automatique. Si vous ne donnez pas de nouvelles, nous n'en donnerons pas non plus.</p>
     </div>
     <div class="lm-a">
-      <a class="btn p" href="mailto:sebastien.duc@kanso-ops.fr?subject=Recevoir%20l%27exemple%20complet%20de%20cartographie&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20recevoir%20l%27exemple%20complet%20de%20cartographie%20des%20d%C3%A9penses.%0A%0ASoci%C3%A9t%C3%A9%20%3A%20%0AFonction%20%3A%20%0A%0AMerci%20d%27avance.">Recevoir l'exemple</a>
-      <p class="lm-n">Le courriel est déjà rédigé, il ne vous reste qu'à l'envoyer.</p>
+      <form id="fx" novalidate>
+        <div class="f2">
+          <label>Prénom et nom<input name="nom" required autocomplete="name"></label>
+          <label>Société<input name="societe" required autocomplete="organization"></label>
+        </div>
+        <label>Fonction<input name="fonction" autocomplete="organization-title"></label>
+        <label>Courriel professionnel<input name="email" type="email" required autocomplete="email"></label>
+        <input name="site" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+        <button class="btn p" type="submit">Recevoir l'exemple</button>
+        <p class="lm-n" id="fxn">Vos coordonnées servent uniquement à vous envoyer ce document et, si vous le souhaitez, à reprendre contact une fois. Elles ne sont ni revendues ni versées à une liste de diffusion.</p>
+      </form>
     </div>
   </div>
 </div></section>
@@ -423,6 +446,37 @@ p,li{overflow-wrap:break-word}
       x.target.classList.add('in'); io.unobserve(x.target);}})
   },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(e){io.observe(e)});
+})();
+</script>
+<script>
+(function(){
+  var f=document.getElementById('fx'); if(!f) return;
+  var PDF='/exemples/kanso-ops-exemple-cartographie.pdf';
+  function mailto(d){
+    return 'mailto:sebastien.duc@kanso-ops.fr?subject='+encodeURIComponent("Exemple de cartographie, demande depuis le site")
+      +'&body='+encodeURIComponent("Bonjour,\n\nJe souhaite recevoir l'exemple complet de cartographie.\n\nNom : "+(d.nom||'')+"\nSociété : "+(d.societe||'')+"\nFonction : "+(d.fonction||'')+"\nCourriel : "+(d.email||'')+"\n\nMerci d'avance.");
+  }
+  function merci(){
+    f.parentNode.innerHTML='<div class="lm-ok"><h3>C\'est à vous</h3>'
+      +'<p>L\'exemple s\'ouvre dans un nouvel onglet. Si rien ne se passe, le lien est juste en dessous.</p>'
+      +'<a class="btn p" href="'+PDF+'" target="_blank" rel="noopener">Ouvrir l\'exemple</a></div>';
+    window.open(PDF,'_blank','noopener');
+  }
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var d={}; ['nom','societe','fonction','email','site'].forEach(function(k){var el=f.elements[k]; d[k]=el?el.value.trim():''});
+    var bad=false;
+    ['nom','societe','email'].forEach(function(k){
+      var el=f.elements[k], ko=!d[k] || (k==='email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d[k]));
+      el.classList.toggle('err',ko); if(ko) bad=true;
+    });
+    if(bad){document.getElementById('fxn').textContent="Merci de renseigner votre nom, votre société et un courriel valide.";return}
+    var b=f.querySelector('button'); b.disabled=true; b.textContent='Un instant';
+    fetch('/api/exemple',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+      .then(function(r){return r.json().catch(function(){return{}})})
+      .then(function(j){ if(!j || j.ok!==true){ window.location.href=mailto(d); } merci(); })
+      .catch(function(){ window.location.href=mailto(d); merci(); });
+  });
 })();
 </script>
 </body></html>
