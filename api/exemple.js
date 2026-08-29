@@ -29,8 +29,9 @@ module.exports = async (req, res) => {
     return res.status(400).json({ ok: false, error: 'Champs manquants, courriel ou telephone invalide' });
   }
 
-  const key = process.env.RESEND_API_KEY;
-  if (!key) return res.status(503).json({ ok: false, error: 'Notification non configuree' });
+  const hook = process.env.LEAD_WEBHOOK_URL;   // n8n, prioritaire s'il est defini
+  const key = process.env.RESEND_API_KEY;      // envoi direct, en secours
+  if (!hook && !key) return res.status(503).json({ ok: false, error: 'Notification non configuree' });
 
   const quand = new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' });
   const html = `<div style="font:15px/1.6 -apple-system,Segoe UI,Arial,sans-serif;color:#3a3550">
@@ -46,6 +47,32 @@ module.exports = async (req, res) => {
     <p style="margin-top:18px;color:#7d7a8c;font-size:13.5px">L'exemple lui a déjà été ouvert automatiquement. Un appel deux ou trois jours plus tard vaut mieux qu'une relance écrite.</p>
   </div>`;
 
+  // 1 · le webhook n8n
+  if (hook) {
+    try {
+      const r = await fetch(hook, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(process.env.LEAD_WEBHOOK_TOKEN ? { Authorization: `Bearer ${process.env.LEAD_WEBHOOK_TOKEN}` } : {}),
+        },
+        body: JSON.stringify({
+          source: 'site kanso-ops.com',
+          document: 'exemple de cartographie',
+          nom, societe, fonction: fonction || null, email, telephone: tel,
+          recu_le: new Date().toISOString(),
+        }),
+      });
+      if (r.ok) return res.status(200).json({ ok: true, via: 'n8n' });
+      console.error('n8n', r.status, await r.text());
+      if (!key) return res.status(502).json({ ok: false, error: 'Notification refusee' });
+    } catch (e) {
+      console.error('n8n', e && e.message);
+      if (!key) return res.status(502).json({ ok: false, error: 'Notification impossible' });
+    }
+  }
+
+  // 2 · envoi direct, en secours
   try {
     const r = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -60,7 +87,7 @@ module.exports = async (req, res) => {
       console.error('Resend', r.status, t);
       return res.status(502).json({ ok: false, error: 'Envoi refuse' });
     }
-    return res.status(200).json({ ok: true });
+    return res.status(200).json({ ok: true, via: 'resend' });
   } catch (e) {
     console.error('Resend', e && e.message);
     return res.status(502).json({ ok: false, error: 'Envoi impossible' });
