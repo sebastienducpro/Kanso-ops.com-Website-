@@ -56,6 +56,12 @@ module.exports = async (req, res) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          // ⚠️ le workflow lit l'origine, le referer et l'agent dans les EN-TETES,
+          // pas dans le corps. Sans eux, le controle anti-robots refuse en missing_origin.
+          Origin: req.headers['origin'] || 'https://kanso-ops.com',
+          Referer: req.headers['referer'] || 'https://kanso-ops.com/',
+          'User-Agent': req.headers['user-agent'] || 'Mozilla/5.0 (site kanso-ops.com)',
+          'X-Forwarded-For': (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || '',
           ...(process.env.LEAD_WEBHOOK_TOKEN ? { Authorization: `Bearer ${process.env.LEAD_WEBHOOK_TOKEN}` } : {}),
         },
         body: JSON.stringify({
