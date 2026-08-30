@@ -1,4 +1,14 @@
 {
+  "rewrites": [
+    {
+      "source": "/connexion",
+      "destination": "https://demo-n8n-kanso-u62809.vm.elestio.app/webhook/kanso-connexion"
+    },
+    {
+      "source": "/connexion/retour",
+      "destination": "https://demo-n8n-kanso-u62809.vm.elestio.app/webhook/kanso-connexion-retour"
+    }
+  ],
   "redirects": [
     {
       "source": "/produit",
