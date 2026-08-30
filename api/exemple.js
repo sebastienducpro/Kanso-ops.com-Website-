@@ -6,9 +6,11 @@
 const DEST = process.env.LEAD_TO || 'sebastien.duc@kanso-ops.fr';
 const FROM = process.env.LEAD_FROM || 'Site Kanso-Ops <site@kanso-ops.com>';
 
+// On borne AVANT d'echapper : couper apres decoupait une entite en plein milieu,
+// et un « &am » orphelin dans le courriel de notification fait desordre.
 const esc = (v) => String(v == null ? '' : v)
-  .replace(/[<>&"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]))
-  .slice(0, 300);
+  .slice(0, 300)
+  .replace(/[<>&"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]));
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {

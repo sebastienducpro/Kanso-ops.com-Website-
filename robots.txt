@@ -1,5 +1,5 @@
-# kanso-ops.com — Robots.txt
-# Automatisation IA Souveraine pour l'industrie
+# kanso-ops.com, robots.txt
+# Les depenses fournisseurs et le temps administratif des PME industrielles
 
 User-agent: *
 Allow: /
