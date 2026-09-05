@@ -31,9 +31,10 @@ module.exports = async (req, res) => {
     return res.status(400).json({ ok: false, error: 'Champs manquants, courriel ou telephone invalide' });
   }
 
-  // Passe par le workflow n8n existant, celui du formulaire de contact :
-  // anti-robots, journalisation SharePoint et envoi par Microsoft Graph y sont deja faits.
-  const hook = process.env.LEAD_WEBHOOK_URL || 'https://demo-n8n-kanso-u62809.vm.elestio.app/webhook/contact-kanso';
+  // Passe par le workflow n8n dedie SITE - Exemple cartographie (actif) :
+  // il repond au site, envoie le lien au prospect et la notification a la boite pro.
+  // L ancien defaut pointait contact-kanso, un workflow dormant : rien ne partait.
+  const hook = process.env.LEAD_WEBHOOK_URL || 'https://demo-n8n-kanso-u62809.vm.elestio.app/webhook/site-exemple';
   const key = process.env.RESEND_API_KEY;      // envoi direct, en secours
   if (!hook && !key) return res.status(503).json({ ok: false, error: 'Notification non configuree' });
 
@@ -67,20 +68,14 @@ module.exports = async (req, res) => {
           ...(process.env.LEAD_WEBHOOK_TOKEN ? { Authorization: `Bearer ${process.env.LEAD_WEBHOOK_TOKEN}` } : {}),
         },
         body: JSON.stringify({
-          // noms de champs attendus par le workflow de contact
-          prenom: '',
+          // noms de champs lus par le workflow SITE - Exemple cartographie
           nom,
+          societe,
+          fonction,
           email,
-          entreprise: societe,
-          telephone: tel,
-          sujet: "Demande de l'exemple de cartographie",
-          message: `A demandé l'exemple complet de cartographie depuis le site.\nFonction : ${fonction || 'non renseignée'}`,
-          source: 'site kanso-ops.com, exemple de cartographie',
-          // ⛔ ne jamais envoyer type ni business_area : le workflow bascule alors
-          // sur la branche du score, qui exige un perimetre et une page dediee.
-          honeypot: '',
+          tel,
+          site: '',
           request_origin: req.headers['origin'] || 'https://kanso-ops.com',
-          request_referer: req.headers['referer'] || 'https://kanso-ops.com/',
           user_agent: req.headers['user-agent'] || 'kanso-ops-site',
         }),
       });
