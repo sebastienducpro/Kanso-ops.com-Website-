@@ -12,3 +12,8 @@
 
 /
   Cache-Control: public, max-age=0, must-revalidate
+
+# Pages en dossier (URL sans .html) : meme regle que les pages HTML,
+# sinon le navigateur garde l'ancienne version en cache heuristique
+/exemples/*
+  Cache-Control: public, max-age=0, must-revalidate
