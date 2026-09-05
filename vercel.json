@@ -7,6 +7,10 @@
     {
       "source": "/connexion/retour",
       "destination": "https://demo-n8n-kanso-u62809.vm.elestio.app/webhook/kanso-connexion-retour"
+    },
+    {
+      "source": "/api/exemple",
+      "destination": "https://demo-n8n-kanso-u62809.vm.elestio.app/webhook/site-exemple"
     }
   ],
   "redirects": [

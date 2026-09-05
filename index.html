@@ -398,8 +398,8 @@ p,li{overflow-wrap:break-word}
           <label>Téléphone<input name="tel" type="tel" required autocomplete="tel" placeholder="06 12 34 56 78"></label>
         </div>
         <input name="site" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
-        <button class="btn p" type="submit">Recevoir l'exemple</button>
-        <p class="lm-n" id="fxn">Vos coordonnées servent uniquement à vous remettre ce document et à reprendre contact une fois, si vous le souhaitez. Elles ne sont ni revendues, ni versées à une liste de diffusion, et aucune séquence automatique ne suivra.</p>
+        <button class="btn p" type="submit">Voir l'exemple</button>
+        <p class="lm-n" id="fxn">Vos coordonnées servent uniquement à savoir à qui nous ouvrons ce document, à vous en envoyer le lien par courriel, et à reprendre contact une fois, si vous le souhaitez. Elles ne sont ni revendues, ni versées à une liste de diffusion, et aucune séquence automatique ne suivra.</p>
       </form>
     </div>
   </div>
@@ -454,7 +454,7 @@ p,li{overflow-wrap:break-word}
 <script>
 (function(){
   var f=document.getElementById('fx'); if(!f) return;
-  var PDF='/exemples/kanso-ops-exemple-cartographie.pdf';
+  var PDF='/exemples/cartographie/';
   function mailto(d){
     return 'mailto:sebastien.duc@kanso-ops.fr?subject='+encodeURIComponent("Exemple de cartographie, demande depuis le site")
       +'&body='+encodeURIComponent("Bonjour,\n\nJe souhaite recevoir l'exemple complet de cartographie.\n\nNom : "+(d.nom||'')+"\nSociété : "+(d.societe||'')+"\nFonction : "+(d.fonction||'')+"\nCourriel : "+(d.email||'')+"\nTéléphone : "+(d.tel||'')+"\n\nMerci d'avance.");
