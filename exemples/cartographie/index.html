@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartographie des dépenses · Rapport complet · Mécanor SAS (exemple)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#140E59; --navy2:#241d70; --coral:#EF7D53; --coral2:#e2673c;
+    --cream:#FBF7F3; --white:#fff; --text:#3a3550; --muted:#7d7a8c;
+    --green:#148F44; --red:#c0392b; --amber:#c98a00; --blue:#3b62c9;
+    --border:#ECE4DA; --line:#E7E2DA;
+    --title:'Lato',-apple-system,sans-serif; --body:'Open Sans',-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--body);background:var(--cream);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px 70px;counter-reset:sec}
+  h1,h2,h3,h4{font-family:var(--title);color:var(--navy)}
+
+  .top{position:sticky;top:0;z-index:40;background:var(--white);border-bottom:1px solid var(--border);box-shadow:0 4px 16px rgba(20,14,89,.05)}
+  .top-in{max-width:960px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .brand{font-family:var(--title);font-weight:900;letter-spacing:.14em;font-size:16px;color:var(--navy)}
+  .brand small{font-family:var(--body);font-weight:600;letter-spacing:0;font-size:11px;color:var(--muted);margin-left:8px}
+  .fict{margin-left:auto;font-size:11px;font-weight:700;color:var(--coral2);border:1px solid rgba(239,125,83,.45);background:rgba(239,125,83,.08);border-radius:999px;padding:4px 12px}
+
+  /* --- language toggle --- */
+  .langtoggle{display:flex;border:1px solid var(--border);border-radius:999px;overflow:hidden;background:var(--cream)}
+  .langtoggle button{appearance:none;border:0;background:transparent;font-family:var(--title);font-weight:800;font-size:12px;letter-spacing:.06em;color:var(--muted);padding:6px 14px;cursor:pointer;transition:all .15s}
+  .langtoggle button.on{background:var(--navy);color:#fff}
+
+  .cover{background:var(--navy);border-radius:0 0 26px 26px;color:#fff;padding:50px 36px 44px;margin-bottom:26px;position:relative;overflow:hidden}
+  .cover .bub1{position:absolute;right:-70px;bottom:-90px;width:270px;height:270px;border-radius:50%;background:var(--coral);opacity:.92;z-index:0}
+  .cover .bub2{position:absolute;right:-8px;bottom:-40px;width:110px;height:110px;border-radius:50%;background:var(--navy);z-index:0}
+  .cover>*{position:relative;z-index:1}
+  .cover .k{font-size:12px;letter-spacing:.18em;font-weight:700;color:var(--coral);text-transform:uppercase;margin-bottom:12px}
+  .cover h1{color:#fff;font-size:38px;line-height:1.1;font-weight:900;max-width:680px}
+  .cover .who{margin-top:16px;font-size:15px;color:#d9d5ef}
+  .cover .who b{color:#fff}
+  .cover .meta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
+  .cover .chip{font-size:12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 13px;color:#efeaff}
+  .cover .conf{margin-top:22px;font-size:11.5px;color:#b9b2e0;letter-spacing:.06em;text-transform:uppercase}
+
+  .toc{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:20px 24px;box-shadow:0 6px 20px rgba(20,14,89,.05);margin-bottom:8px}
+  .toc h3{font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:12px}
+  .toc ol{columns:2;column-gap:36px;list-style:none;counter-reset:toc}
+  .toc li{counter-increment:toc;font-size:13px;color:var(--navy);font-weight:600;padding:4px 0;break-inside:avoid}
+  .toc li::before{content:counter(toc,decimal-leading-zero)"  ";color:var(--coral);font-family:var(--title);font-weight:800}
+
+  .sec{margin:30px 0;counter-increment:sec}
+  .snum{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+  .snum .n{width:30px;height:30px;border-radius:9px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--title);font-weight:800;font-size:14px;flex:none}
+  .snum .n::before{content:counter(sec)}
+  .snum h2{font-size:23px;font-weight:800}
+  .dchip{margin-left:auto;font-size:10.5px;font-weight:700;color:var(--muted);background:var(--white);border:1px solid var(--border);border-radius:999px;padding:4px 11px;white-space:nowrap}
+  .dchip b{color:var(--coral2)}
+  .card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:22px 24px;box-shadow:0 6px 20px rgba(20,14,89,.05)}
+  .lead{color:var(--muted);font-size:14px;margin-bottom:16px}
+  .lead b{color:var(--navy)}
+
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .kpi{background:var(--cream);border:1px solid var(--border);border-radius:13px;padding:16px 15px}
+  .kpi .v{font-family:var(--title);font-size:25px;font-weight:900;color:var(--navy);line-height:1.05}
+  .kpi .v.c{color:var(--coral2)} .kpi .v.g{color:var(--green)} .kpi .v.r{color:var(--red)}
+  .kpi .l{font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.3}
+
+  .mscale{display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);margin:4px 2px 14px;font-weight:600}
+  .mrow{display:grid;grid-template-columns:230px 1fr 56px;gap:12px;align-items:center;margin-bottom:11px;font-size:13px}
+  .mrow .ml{color:var(--navy);font-weight:700}
+  .mtrack{position:relative;height:18px;background:#f2ece4;border-radius:9px}
+  .mfill{position:absolute;left:0;top:0;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--coral),var(--coral2))}
+  .mmark{position:absolute;top:-4px;width:2.5px;height:26px;background:var(--navy);border-radius:2px}
+  .mdia{position:absolute;top:2px;width:14px;height:14px;transform:rotate(45deg) translateX(-8px);background:var(--green);border-radius:3px}
+  .mval{font-family:var(--title);font-weight:800;color:var(--coral2);text-align:right;font-size:14px}
+  .mlegend{display:flex;gap:18px;font-size:11.5px;color:var(--muted);margin-top:14px;flex-wrap:wrap}
+  .verdict{margin-top:16px;padding:15px 17px;border-radius:12px;background:rgba(239,125,83,.07);border:1px solid rgba(239,125,83,.35);font-size:14px;color:var(--navy)}
+  .verdict b{color:var(--coral2)}
+
+  .bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .bt{background:var(--cream);border:1px solid var(--border);border-radius:13px;padding:15px}
+  .bt h4{font-size:12.5px;margin-bottom:7px;color:var(--muted);font-family:var(--body);font-weight:700}
+  .bt .vs{display:flex;align-items:baseline;gap:8px}
+  .bt .you{font-family:var(--title);font-size:22px;font-weight:900;color:var(--navy)}
+  .bt .med{font-size:12px;color:var(--muted)}
+  .bt .tag{display:inline-block;margin-top:7px;font-size:10.5px;font-weight:700;border-radius:999px;padding:2px 9px}
+  .bt .tag.r{color:var(--red);background:rgba(192,57,43,.08)}
+  .bt .tag.a{color:var(--amber);background:rgba(201,138,0,.1)}
+  .bt .tag.g{color:var(--green);background:rgba(20,143,68,.08)}
+  .best{margin-top:16px;background:var(--navy);border-radius:13px;padding:16px 18px;color:#fff}
+  .best h4{color:var(--coral);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+  .best li{list-style:none;font-size:13px;color:#e6e2f7;padding:3px 0 3px 18px;position:relative}
+  .best li::before{content:'✓';position:absolute;left:0;color:var(--coral);font-weight:800}
+
+  .bars{display:flex;flex-direction:column;gap:9px;margin-top:6px}
+  .brow{display:grid;grid-template-columns:190px 1fr 110px;gap:10px;align-items:center;font-size:13px}
+  .brow .bl{color:var(--navy);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .btrack{height:16px;background:#f2ece4;border-radius:8px;overflow:hidden}
+  .bfill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--navy),#3b2fa0)}
+  .bfill.coral{background:linear-gradient(90deg,var(--coral),var(--coral2))}
+  .bval{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums;font-size:12.5px}
+  .bval b{color:var(--navy)}
+  .flag{font-size:11px;font-weight:700;border-radius:999px;padding:3px 10px;white-space:nowrap}
+  .flag.r{color:var(--red);background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.3)}
+  .flag.a{color:var(--amber);background:rgba(201,138,0,.08);border:1px solid rgba(201,138,0,.35)}
+  .flag.g{color:var(--green);background:rgba(20,143,68,.08);border:1px solid rgba(20,143,68,.3)}
+  .conc{margin-top:18px}
+  .conc .ct{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);margin-bottom:6px}
+  .concbar{display:flex;height:22px;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+  .concbar .c1{background:var(--coral);flex:0 0 57%}
+  .concbar .c2{background:#efe6db;flex:1}
+  .dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+  .legend{display:flex;gap:16px;font-size:12px;color:var(--muted);margin-top:8px}
+
+  .kraljic{position:relative;height:380px;border:1px solid var(--border);border-radius:14px;background:
+    linear-gradient(to right,transparent 49.8%,var(--line) 49.8%,var(--line) 50.2%,transparent 50.2%),
+    linear-gradient(to bottom,transparent 49.8%,var(--line) 49.8%,var(--line) 50.2%,transparent 50.2%),var(--cream);margin-top:10px}
+  .quad{position:absolute;font-family:var(--title);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#b9b2a6}
+  .q1{top:12px;left:16px}.q2{top:12px;right:16px}.q3{bottom:12px;left:16px}.q4{bottom:12px;right:16px}
+  .bub{position:absolute;transform:translate(-50%,-50%);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;
+    font-family:var(--title);font-weight:700;color:#fff;line-height:1.1;padding:8px;box-shadow:0 6px 16px rgba(20,14,89,.18);cursor:default}
+  .bub.navy{background:var(--navy)} .bub.coral{background:var(--coral)} .bub.amber{background:#d99a1f} .bub.grey{background:#8f8aa3}
+  .axx{position:absolute;bottom:-26px;width:100%;text-align:center;font-size:11.5px;color:var(--muted)}
+  .axy{position:absolute;left:-14px;top:50%;transform:rotate(-90deg) translateX(24%);transform-origin:left;font-size:11.5px;color:var(--muted);white-space:nowrap}
+  .klegend{display:flex;gap:14px;flex-wrap:wrap;margin-top:40px;font-size:12px;color:var(--muted)}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .mini{background:var(--cream);border:1px solid var(--border);border-radius:13px;padding:16px}
+  .mini h4{font-size:14px;margin-bottom:6px}
+  .mini .big{font-family:var(--title);font-size:24px;font-weight:900;color:var(--navy)}
+  .mini .big span{font-size:13px;color:var(--muted);font-weight:600}
+  .mini p{font-size:12.5px;color:var(--muted);margin-top:5px}
+  .mini p b{color:var(--coral2)}
+
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  th{font-family:var(--title);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);padding:9px 10px;border-bottom:2px solid var(--line)}
+  td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+  td.lev{font-weight:700;color:var(--navy)}
+  td.gain{font-weight:800;color:var(--green);white-space:nowrap;font-family:var(--title)}
+  .kref{display:block;font-size:10px;color:var(--muted);font-weight:400;margin-top:2px;letter-spacing:.02em}
+  .eff{font-size:11px;font-weight:700;border-radius:999px;padding:3px 10px;white-space:nowrap}
+  .eff.f{color:var(--green);background:rgba(20,143,68,.08)}
+  .eff.m{color:var(--amber);background:rgba(201,138,0,.1)}
+  .modchip{display:inline-block;font-size:10px;font-weight:800;border-radius:999px;padding:2px 9px;white-space:nowrap;margin-top:3px}
+  .modchip.auto{color:#fff;background:var(--green)}
+  .modchip.assist{color:#fff;background:var(--blue)}
+  tr:hover td{background:rgba(239,125,83,.04)}
+  .totline{margin-top:14px;padding:14px 16px;border-radius:12px;background:rgba(20,143,68,.07);border:1px solid rgba(20,143,68,.25);font-size:14px;color:var(--navy)}
+  .totline b{color:var(--green)}
+  .axchips{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 14px}
+  .axchip{font-size:11px;font-weight:700;color:var(--navy);background:var(--cream);border:1px solid var(--border);border-radius:999px;padding:4px 11px}
+  .axchip b{color:var(--coral2)}
+
+  .nc{display:inline-block;font-size:10px;font-weight:800;border-radius:999px;padding:2px 9px;white-space:nowrap}
+  .nc.n1{color:var(--muted);background:#efe9e0}
+  .nc.n2{color:var(--blue);background:rgba(59,98,201,.1)}
+  .nc.n3{color:var(--amber);background:rgba(201,138,0,.12)}
+  .nc.n4{color:#fff;background:var(--green)}
+  .nclegend{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px;font-size:11px;color:var(--muted);align-items:center}
+  td.pond{font-family:var(--title);font-weight:900;color:var(--navy);white-space:nowrap}
+  .ramp{display:flex;gap:14px;align-items:flex-end;height:150px;margin-top:18px;padding:0 6px}
+  .rcol{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px;height:100%}
+  .rbar{width:100%;border-radius:8px 8px 0 0;background:linear-gradient(180deg,var(--coral),var(--coral2))}
+  .rcol.done .rbar{background:linear-gradient(180deg,#3b2fa0,var(--navy))}
+  .rv{font-family:var(--title);font-weight:800;font-size:12.5px;color:var(--navy);white-space:nowrap}
+  .rl{font-size:10.5px;color:var(--muted);white-space:nowrap}
+  .plan{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .ph{background:var(--cream);border:1px solid var(--border);border-radius:13px;padding:16px}
+  .ph .tag{display:inline-block;font-family:var(--title);font-size:11px;font-weight:800;letter-spacing:.06em;border-radius:999px;padding:4px 12px;margin-bottom:10px}
+  .ph.p1 .tag{background:var(--coral);color:#fff}
+  .ph.p2 .tag{background:var(--navy);color:#fff}
+  .ph.p3 .tag{background:#8f8aa3;color:#fff}
+  .ph li{list-style:none;font-size:12.8px;padding:4px 0 4px 16px;position:relative;color:var(--text)}
+  .ph li::before{content:'→';position:absolute;left:0;color:var(--coral2);font-weight:700}
+  .ph .gain-ph{margin-top:10px;font-family:var(--title);font-weight:800;color:var(--green);font-size:13px}
+
+  .stages{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:6px}
+  .stage{border-radius:13px;padding:16px;border:1px solid var(--border);background:var(--cream)}
+  .stage.s3{background:var(--navy);border-color:var(--navy)}
+  .stage .st{font-family:var(--title);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--coral2);margin-bottom:7px}
+  .stage.s3 .st{color:var(--coral)}
+  .stage b.t{display:block;font-family:var(--title);font-size:15.5px;color:var(--navy);margin-bottom:5px}
+  .stage.s3 b.t{color:#fff}
+  .stage p{font-size:12.5px;color:var(--muted)}
+  .stage.s3 p{color:#d9d5ef}
+  .mods{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:16px}
+  .mod{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:13px 12px}
+  .mod b{display:block;font-family:var(--title);font-size:12.5px;color:var(--navy);margin-bottom:4px;line-height:1.15}
+  .mod p{font-size:10.5px;color:var(--muted);line-height:1.3}
+  .impute{margin-top:16px;font-size:13.5px;color:var(--green);font-weight:700}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+  .step{background:var(--cream);border:1px solid var(--border);border-radius:13px;padding:16px;text-align:center}
+  .step .n2{width:34px;height:34px;margin:0 auto 9px;border-radius:50%;background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--title);font-weight:800;font-size:16px}
+  .step b{color:var(--navy);font-size:14px;display:block;margin-bottom:4px}
+  .step p{font-size:12px;color:var(--muted)}
+
+  .cta{background:var(--navy);border-radius:18px;color:#fff;padding:30px;margin-top:34px;position:relative;overflow:hidden}
+  .cta .bub1{position:absolute;right:-50px;top:-60px;width:170px;height:170px;border-radius:50%;background:var(--coral)}
+  .cta>*{position:relative;z-index:1}
+  .cta h3{color:#fff;font-size:22px;font-weight:900;margin-bottom:8px}
+  .cta p{color:#d9d5ef;font-size:14px;max-width:640px}
+  .cta .sig{margin-top:16px;font-size:13px;color:var(--coral)}
+  .foot{margin-top:22px;font-size:11px;color:var(--muted);line-height:1.5;border-top:1px solid var(--line);padding-top:14px}
+
+  .docbar{position:sticky;top:48px;z-index:35;background:var(--cream);border-bottom:1px solid var(--border);padding:9px 0}
+  .docbar-in{max-width:960px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .docbar .lbl{font-family:var(--title);font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+  .doc{appearance:none;border:1px solid var(--border);background:var(--white);color:var(--navy);font-family:var(--body);font-weight:700;font-size:12px;border-radius:999px;padding:6px 13px;cursor:pointer;transition:all .15s}
+  .doc.on{background:var(--navy);border-color:var(--navy);color:#fff}
+  .doc.on.socle{background:var(--coral);border-color:var(--coral)}
+  .doc:not(.on){opacity:.5;text-decoration:line-through}
+  .sec.ghost .card{opacity:.28;filter:grayscale(1)}
+  .sec.ghost .snum h2{color:#b9b2a6}
+  .sec.ghost .dchip{opacity:.4}
+  .lock{margin-left:6px;font-size:10.5px;font-weight:700;color:var(--red);background:rgba(192,57,43,.07);border:1px solid rgba(192,57,43,.25);border-radius:999px;padding:3px 10px;white-space:nowrap}
+  tr.ghostrow{opacity:.28;filter:grayscale(1)}
+
+  /* enrichissements 26/08 */
+  .donutrow{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin:16px 0 4px;background:var(--cream);border:1px solid var(--border);border-radius:13px;padding:16px 20px}
+  .dleg{flex:1;min-width:250px}
+  .dleg .dh{font-family:var(--title);font-weight:800;color:var(--navy);font-size:14.5px;margin-bottom:7px}
+  .dli{display:flex;gap:9px;align-items:baseline;margin:4px 0;font-size:12.8px}
+  .dli .sw{width:11px;height:11px;border-radius:3px;flex:none;position:relative;top:1px}
+  .dnote{font-size:11px;color:var(--muted);font-style:italic;margin-top:8px;line-height:1.45}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+  .duo .shc{border:1px solid var(--border);border-radius:12px;background:var(--cream);padding:13px 15px}
+  .duo .shc b.h{display:block;font-family:var(--title);font-size:13.5px;color:var(--navy);margin-bottom:4px}
+  .duo .shc p{font-size:12.3px;color:var(--text)}
+  .duo .shc.g{border-left:4px solid var(--green)} .duo .shc.o{border-left:4px solid var(--coral)}
+  .secu{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+  .secu .sc{background:var(--cream);border:1px solid var(--border);border-left:4px solid var(--navy);border-radius:12px;padding:13px 15px}
+  .secu .sc b{display:block;font-family:var(--title);font-size:13.5px;color:var(--navy);margin-bottom:4px}
+  .secu .sc p{font-size:12.3px;color:var(--muted)}
+  @media(max-width:760px){
+    .kpis,.bgrid{grid-template-columns:1fr 1fr}
+    .grid2,.plan,.steps,.stages{grid-template-columns:1fr}
+    .mods{grid-template-columns:1fr 1fr}
+    .mrow{grid-template-columns:130px 1fr 46px}
+    .brow{grid-template-columns:120px 1fr 74px}
+    .toc ol{columns:1}
+    .cover h1{font-size:27px}
+    .kraljic{height:320px}
+  }
+  @media print{ .top{position:static} body{background:#fff} }
+@media print{
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    body{zoom:.8;background:#fff}
+    .top,.docbar{position:static}
+    .sec{break-inside:avoid;page-break-inside:avoid}
+    .card,.toc{break-inside:avoid;page-break-inside:avoid}
+    tr{break-inside:avoid}
+    .cover{break-after:avoid}
+    .cta{break-inside:avoid}
+    .bub:hover{transform:translate(-50%,-50%)}
+  }
+</style>
+</head>
+<body>
+
+<div class="top"><div class="top-in">
+  <span class="brand">KANSO<span style="color:var(--coral)">·</span>OPS<small>Cartographie des dépenses fournisseurs</small></span>
+  <div class="langtoggle"><button id="btn-fr" class="on" onclick="setLang('fr')">FR</button><button id="btn-en" onclick="setLang('en')">EN</button></div>
+  <span class="fict" id="fict">Exemple · données fictives</span>
+</div></div>
+
+<div class="docbar"><div class="docbar-in">
+  <span class="lbl" id="doclbl">Documents transmis :</span>
+  <button class="doc on socle" data-doc="fec">📄 FEC (le socle)</button>
+  <button class="doc on" data-doc="panel">🏢 Panel fournisseurs</button>
+  <button class="doc on" data-doc="erp">📦 Commandes facturées (détail article · 24 mois)</button>
+  <button class="doc on" data-doc="contrats">📑 Contrats &amp; grilles</button>
+  <button class="doc on" data-doc="flux">🚚 Flux &amp; stock</button>
+  <button class="doc on" data-doc="entretiens">🎙 Entretiens</button>
+  <span class="lbl" id="dochint" style="margin-left:auto;text-transform:none;letter-spacing:0;font-weight:600">cliquez : chaque document débloque des analyses</span>
+</div></div>
+
+<!-- ============================================================ FR ============================================================ -->
+<div class="wrap" id="wrap-fr">
+
+  <div class="cover">
+    <div class="bub1"></div><div class="bub2"></div>
+    <div class="k">Cartographie des dépenses · Rapport complet</div>
+    <h1>Vos achats, votre maturité, votre marché · et votre longueur d'avance.</h1>
+    <div class="who">Rapport d'exemple · <b>Mécanor SAS</b> · PME industrielle (mécanique de précision / aéronautique) · ~30 M€ CA · Occitanie <i>(entreprise fictive)</i></div>
+    <div class="meta">
+      <span class="chip">FEC · panel · commandes facturées · contrats · flux · entretiens</span>
+      <span class="chip">Référentiel KANSO · 48 leviers</span>
+      <span class="chip">Sans accès à votre SI</span>
+    </div>
+    <div class="conf">Document confidentiel · Direction Générale · Édition 2026</div>
+  </div>
+
+  <div class="toc">
+    <h3>Sommaire</h3>
+    <ol>
+      <li>Synthèse exécutive</li><li>Maturité de la fonction achats</li><li>Votre environnement sectoriel</li><li>Cartographie du spend</li>
+      <li>Panel, dépendances &amp; rapport de force</li><li>Ce qui expose la maison</li><li>Matrice de Kraljic</li><li>Indices marché &amp; dérives de prix</li><li>Supply chain &amp; trésorerie</li>
+      <li>Ce qui se récupère tout de suite</li><li>Les munitions, prêtes à signer</li><li>Leviers chiffrés &amp; automatisation</li><li>Pipeline de gains · niveaux de confiance</li><li>Feuille de route 12 mois</li><li>Prendre une longueur d'avance</li><li>Méthodologie &amp; confidentialité</li>
+    </ol>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Synthèse exécutive</h2><span class="dchip">🗂 toutes les données transmises</span></div>
+    <div class="card">
+      <p class="lead">Analyse de <b>24 mois de données</b> (FEC, commandes facturées, contrats, flux) + <b>entretiens</b> avec la direction, les achats, la comptabilité et l'atelier. <b>Chaque section indique les données qui la produisent.</b></p>
+      <div class="kpis">
+        <div class="kpi"><div class="v">17,4 M€</div><div class="l">de spend analysé<br>(58 % du CA)</div></div>
+        <div class="kpi"><div class="v r">1,7 / 5</div><div class="l">maturité achats<br>(secteur : 2,4 · top 25 % : 3,8)</div></div>
+        <div class="kpi"><div class="v g">220–340 k€</div><div class="l">de gains récurrents identifiés / an (estim.)</div></div>
+        <div class="kpi"><div class="v c">&gt; 800 k€</div><div class="l">de cash mobilisable<br>(avoirs, stock, trésorerie)</div></div>
+      </div>
+      <div class="donutrow">
+        <svg viewBox="0 0 42 42" style="width:170px;height:170px;flex:none" role="img">
+          <circle cx="21" cy="21" r="15.9" fill="none" stroke="#efe6db" stroke-width="7"/>
+          <circle cx="21" cy="21" r="15.9" fill="none" stroke="#148F44" stroke-width="7" stroke-dasharray="9.7 90.3" stroke-dashoffset="25"/>
+          <circle cx="21" cy="21" r="15.9" fill="none" stroke="#140E59" stroke-width="7" stroke-dasharray="21.4 78.6" stroke-dashoffset="15.3"/>
+          <circle cx="21" cy="21" r="15.9" fill="none" stroke="#c0392b" stroke-width="7" stroke-dasharray="68.9 31.1" stroke-dashoffset="-6.1"/>
+          <text x="21" y="20" text-anchor="middle" style="font:800 4.6px 'Lato',sans-serif;fill:#140E59">17,4 M€</text>
+          <text x="21" y="25" text-anchor="middle" style="font:600 2.7px 'Open Sans',sans-serif;fill:#7d7a8c">d'achats analysés</text>
+        </svg>
+        <div class="dleg">
+          <div class="dh">Trois natures, trois ordres de grandeur · jamais additionnés</div>
+          <div class="dli"><span class="sw" style="background:var(--green)"></span><span><b>≈ 127 k€</b> récupérables tout de suite, un encaissement unique</span></div>
+          <div class="dli"><span class="sw" style="background:var(--navy)"></span><span><b>≈ 280 k€</b> négociables, un gain qui revient chaque année (fourchette 220 à 340 k€)</span></div>
+          <div class="dli"><span class="sw" style="background:var(--red)"></span><span><b>≈ 900 k€</b> d'achats annuels exposés : les volumes confiés à un fournisseur fragile, sans alternative référencée</span></div>
+          <div class="dnote">Le graphique compare des ordres de grandeur, il n'additionne rien : un encaissement, un gain annuel et une exposition sont trois natures différentes. S'y ajoute une exposition réglementaire non représentée : les retards de paiement fournisseurs sont passibles d'une amende administrative pouvant atteindre deux millions d'euros pour une personne morale (code de commerce, article L. 441-16).</div>
+        </div>
+      </div>
+      <div class="verdict">💡 <b>Le verdict en une phrase :</b> une fonction achats <b>réactive</b> qui subit ses fournisseurs et son marché · alors que les données, les leviers et les fenêtres existent pour <b>reprendre la main en 12 mois</b>.</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Maturité de la fonction achats</h2><span class="dchip">🎙 <b>entretiens</b> + toutes données</span></div>
+    <div class="card">
+      <p class="lead">Votre position sur <b>6 dimensions</b>, évaluée sur une échelle de 1 à 5 · comparée à la <b>médiane de votre secteur</b> et au <b>top 25 %</b>.</p>
+      <div class="mscale"><span>1 · Réactif</span><span>2 · Structuré</span><span>3 · Piloté</span><span>4 · Intégré</span><span>5 · Créateur de valeur</span></div>
+      <div class="mrow"><span class="ml">Stratégie &amp; organisation</span><div class="mtrack"><div class="mfill" style="width:40%"></div><div class="mmark" style="left:48%"></div><div class="mdia" style="left:76%"></div></div><span class="mval">2,0</span></div>
+      <div class="mrow"><span class="ml">Processus &amp; contractualisation</span><div class="mtrack"><div class="mfill" style="width:30%"></div><div class="mmark" style="left:50%"></div><div class="mdia" style="left:78%"></div></div><span class="mval">1,5</span></div>
+      <div class="mrow"><span class="ml">Pilotage &amp; données</span><div class="mtrack"><div class="mfill" style="width:30%"></div><div class="mmark" style="left:46%"></div><div class="mdia" style="left:74%"></div></div><span class="mval">1,5</span></div>
+      <div class="mrow"><span class="ml">Gestion du panel fournisseurs</span><div class="mtrack"><div class="mfill" style="width:40%"></div><div class="mmark" style="left:50%"></div><div class="mdia" style="left:78%"></div></div><span class="mval">2,0</span></div>
+      <div class="mrow"><span class="ml">Digital &amp; automatisation</span><div class="mtrack"><div class="mfill" style="width:20%"></div><div class="mmark" style="left:44%"></div><div class="mdia" style="left:80%"></div></div><span class="mval">1,0</span></div>
+      <div class="mrow"><span class="ml">RSE &amp; conformité</span><div class="mtrack"><div class="mfill" style="width:40%"></div><div class="mmark" style="left:46%"></div><div class="mdia" style="left:72%"></div></div><span class="mval">2,0</span></div>
+      <div class="mlegend">
+        <span><span class="dot" style="background:var(--coral)"></span>Mécanor (vous)</span>
+        <span><span class="dot" style="background:var(--navy)"></span>| Médiane secteur</span>
+        <span><span class="dot" style="background:var(--green)"></span>◆ Top 25 %</span>
+      </div>
+      <p class="lead" style="margin-top:20px"><b>Ce que la maturité vaut, en euros.</b> Les études sectorielles montrent qu'à chaque niveau de maturité correspond un niveau d'économies annuelles moyen (en % du spend) :</p>
+      <table>
+        <tr><th>Niveau</th><th>1 · Réactif</th><th>2 · Structuré</th><th>3 · Piloté</th><th>4 · Intégré</th><th>5 · Créateur de valeur</th></tr>
+        <tr><td class="lev">Économies annuelles moyennes</td><td>≈ 1,8 %</td><td>≈ 2,5 %</td><td style="background:rgba(239,125,83,.08)"><b style="color:var(--coral2)">≈ 3,5 %</b></td><td>≈ 4,4 %</td><td>≈ 5,0 %</td></tr>
+      </table>
+      <div class="verdict"><b>Maturité globale : 1,7/5 · « Réactif-Structuré ».</b> À noter : la direction estimait sa maturité à <b>2,8</b> · l'évaluation factuelle donne <b>1,7</b>. L'écart de perception est un enseignement en soi. La cible <b>3+ en 12 mois</b> signifie passer de ~2 % à <b>~3,5 % d'économies annuelles</b> · sur 17,4 M€ de spend, c'est le potentiel chiffré en section Leviers. Et la bonne nouvelle : les dimensions les plus faibles (pilotage, digital) sont <b>les plus rapides à faire progresser</b> · c'est de l'outillage, pas de la réorganisation.</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Votre environnement sectoriel</h2><span class="dchip">📊 benchmarks sectoriels publics + base d'observation</span></div>
+    <div class="card">
+      <p class="lead">Vos indicateurs, comparés aux <b>PME industrielles mécanique / aéronautique de 20 à 50 M€ de CA</b> (ordres de grandeur illustratifs).</p>
+      <div class="bgrid">
+        <div class="bt"><h4>Fournisseurs actifs / M€ d'achats</h4><div class="vs"><span class="you">12,3</span><span class="med">vs 8,1 médiane</span></div><span class="tag r">Panel très fragmenté</span></div>
+        <div class="bt"><h4>Couverture contractuelle du spend</h4><div class="vs"><span class="you">38 %</span><span class="med">vs 62 % médiane</span></div><span class="tag r">Dark buying élevé</span></div>
+        <div class="bt"><h4>Délai de paiement obtenu (DPO)</h4><div class="vs"><span class="you">47 j</span><span class="med">vs 58 j médiane</span></div><span class="tag a">Trésorerie sous-utilisée</span></div>
+        <div class="bt"><h4>Factures dématérialisées</h4><div class="vs"><span class="you">22 %</span><span class="med">vs 41 % médiane</span></div><span class="tag a">Retard e-invoicing 2026-27</span></div>
+        <div class="bt"><h4>Poids des achats dans le CA</h4><div class="vs"><span class="you">58 %</span><span class="med">vs 55 % médiane</span></div><span class="tag a">Chaque % d'achat pèse double</span></div>
+        <div class="bt"><h4>Catégories en mono-source critique</h4><div class="vs"><span class="you">2</span><span class="med">vs &lt; 1 médiane</span></div><span class="tag r">Risque de rupture</span></div>
+      </div>
+      <div class="best">
+        <h4>Ce que font les meilleurs de votre secteur</h4>
+        <li>Contrats-cadres sur le top 10 fournisseurs, revus chaque année</li>
+        <li>Surveillance continue des indices matières · et des clauses qui jouent dans les deux sens</li>
+        <li>Scoring fournisseurs objectif (santé, OTD, litiges) alimenté automatiquement</li>
+        <li>Plan annuel de mise en concurrence par catégorie</li>
+        <li>Un cockpit achats mensuel qui prouve les gains à la direction</li>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Cartographie du spend</h2><span class="dchip">📄 <b>FEC seul</b></span></div>
+    <div class="card">
+      <p class="lead">Où part l'argent · <b>par catégorie d'achat</b>, reconstitué depuis la comptabilité (aucune ressaisie).</p>
+      <div class="bars">
+        <div class="brow"><span class="bl">Matières premières (aciers, alu)</span><div class="btrack"><div class="bfill" style="width:100%"></div></div><span class="bval"><b>6,1 M€</b> · 35 %</span></div>
+        <div class="brow"><span class="bl">Sous-traitance usinage</span><div class="btrack"><div class="bfill" style="width:62%"></div></div><span class="bval"><b>3,8 M€</b> · 22 %</span></div>
+        <div class="brow"><span class="bl">Composants &amp; visserie</span><div class="btrack"><div class="bfill" style="width:38%"></div></div><span class="bval"><b>2,3 M€</b> · 13 %</span></div>
+        <div class="brow"><span class="bl">Traitements de surface</span><div class="btrack"><div class="bfill" style="width:23%"></div></div><span class="bval"><b>1,4 M€</b> · 8 %</span></div>
+        <div class="brow"><span class="bl">Transport &amp; logistique</span><div class="btrack"><div class="bfill coral" style="width:20%"></div></div><span class="bval"><b>1,2 M€</b> · 7 %</span></div>
+        <div class="brow"><span class="bl">Énergie</span><div class="btrack"><div class="bfill coral" style="width:15%"></div></div><span class="bval"><b>0,9 M€</b> · 5 %</span></div>
+        <div class="brow"><span class="bl">Maintenance &amp; pièces</span><div class="btrack"><div class="bfill" style="width:13%"></div></div><span class="bval"><b>0,8 M€</b> · 5 %</span></div>
+        <div class="brow"><span class="bl">Frais généraux / indirects</span><div class="btrack"><div class="bfill" style="width:15%"></div></div><span class="bval"><b>0,9 M€</b> · 5 %</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Panel, dépendances &amp; rapport de force</h2><span class="dchip">📄 FEC + 🏢 <b>panel (SIREN)</b></span></div>
+    <div class="card">
+      <p class="lead">Le top 10 pèse <b>57 % du spend</b>. Au-delà de la concentration, la vraie question : <b>qui tient qui ?</b> Le rapport de force par fournisseur détermine votre marge de négociation.</p>
+      <div class="conc">
+        <div class="ct"><span>Répartition du spend</span><span>214 fournisseurs</span></div>
+        <div class="concbar"><div class="c1"></div><div class="c2"></div></div>
+        <div class="legend"><span><span class="dot" style="background:var(--coral)"></span>Top 10 · 57 %</span><span><span class="dot" style="background:#efe6db"></span>204 autres · 43 %</span></div>
+      </div>
+      <table style="margin-top:16px">
+        <tr><th>Fournisseur</th><th>Taux de dépendance</th><th>Santé (SIREN)</th><th>Rapport de force</th><th>Signal</th></tr>
+        <tr><td class="lev">AcierPro Distribution</td><td><b style="color:var(--red)">68 %</b> des aciers spéciaux</td><td>Saine</td><td>Fournisseur dominant · vous pesez &lt; 5 % de son CA</td><td><span class="flag r">🔴 Dépendance critique</span></td></tr>
+        <tr><td class="lev">Usitech SAS</td><td><b style="color:var(--amber)">45 %</b> de la sous-traitance</td><td>Saine</td><td><b style="color:var(--green)">Équilibré</b> · vous êtes ~18 % de son CA</td><td><span class="flag r">🔴 OTD 71 % · à recadrer (levier)</span></td></tr>
+        <tr><td class="lev">TraitSurf Occitanie</td><td><b style="color:var(--amber)">62 %</b> des traitements</td><td><b style="color:var(--red)">Fragile</b> · capitaux propres ↓</td><td>Dépendance mutuelle · vous êtes ~30 % de son CA</td><td><span class="flag a">🟠 Plan B + accompagnement</span></td></tr>
+        <tr><td class="lev">CompoFix</td><td>31 % des composants</td><td>Saine</td><td><b style="color:var(--green)">Acheteur en position de force</b></td><td><span class="flag g">🟢 Levier de négociation</span></td></tr>
+      </table>
+      <p style="font-size:11.5px;color:var(--muted);margin-top:10px">Rapport de force estimé : votre poids dans le CA du fournisseur (SIREN) vs son poids dans votre spend. C'est lui qui dicte la stratégie : négocier, sécuriser, ou rééquilibrer avant de négocier.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Ce qui expose la maison · sécuriser</h2><span class="dchip">📄 FEC + 🏢 <b>panel (SIREN)</b> · données publiques</span></div>
+    <div class="card">
+      <p class="lead">Au-delà du rapport de force : <b>ce que vos propres données révèlent des risques que l'activité crée</b>. Nommé, jamais chiffré en « gain » : une exposition ne se vend pas, elle se traite.</p>
+      <div class="secu">
+        <div class="sc" style="border-left-color:var(--red)"><b>1 fournisseur en procédure collective</b><p>Croisement du panel avec les publications officielles (BODACC) : une procédure de sauvegarde en cours chez un fournisseur actif. Et TraitSurf, fragile, porte 62 % d'une famille.</p></div>
+        <div class="sc" style="border-left-color:var(--red)"><b>9 % des règlements au-delà du plafond légal</b><p>Mesuré sur les délais réels. Exposition : amende administrative jusqu'à deux millions d'euros pour une personne morale, décision publiable (code de commerce, art. L. 441-16).</p></div>
+        <div class="sc" style="border-left-color:var(--red)"><b>23 fournisseurs au seuil de vigilance</b><p>Volume annuel au-dessus du seuil de 5 000 € qui déclenche l'obligation de vigilance : pour combien détenez-vous une attestation en cours de validité ? Si l'un d'eux est redressé pour travail dissimulé, la solidarité financière vous fait payer ses cotisations et ses impôts, sans plafond, et jusqu'à 75 000 € de vos propres exonérations sont annulées (code du travail, art. L. 8222-1 et suivants).</p></div>
+        <div class="sc"><b>1 fournisseur devenu muet</b><p>Plus de 100 k€ par an, aucune facture depuis 7 mois, aucun avoir de clôture. Décidé, ou subi ?</p></div>
+        <div class="sc"><b>Matières réglementées : volumes agrégés</b><p>Vos volumes annuels de solvants et gaz techniques sont agrégés en annexe. La seule question posée : quelqu'un a-t-il vérifié le régime applicable ?</p></div>
+        <div class="sc"><b>3 changements d'IBAN en 12 mois</b><p>Le signal de la fraude au faux fournisseur. Qui valide un changement de coordonnées bancaires chez vous, et comment ?</p></div>
+      </div>
+      <p style="font-size:11.5px;color:var(--muted);margin-top:10px">Ces points sont signalés avec leurs listes. Aucun conseil juridique ni réglementaire : ils se traitent avec vos conseils habituels.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Matrice de Kraljic · la stratégie par catégorie</h2><span class="dchip">📄 FEC + 📦 <b>commandes facturées</b></span></div>
+    <div class="card">
+      <p class="lead">Chaque catégorie positionnée selon son <b>impact financier</b> et la <b>complexité de son marché</b> · la stratégie d'achat en découle.</p>
+      <div class="kraljic">
+        <span class="quad q1">Leviers · négocier</span>
+        <span class="quad q2">Stratégiques · sécuriser</span>
+        <span class="quad q3">Simples · automatiser</span>
+        <span class="quad q4">Goulots · dérisquer</span>
+        <div class="bub navy" style="left:74%;top:20%;width:104px;height:104px;font-size:12px">Matières premières</div>
+        <div class="bub navy" style="left:62%;top:38%;width:88px;height:88px;font-size:11.5px">Sous-traitance usinage</div>
+        <div class="bub coral" style="left:26%;top:26%;width:78px;height:78px;font-size:11.5px">Transport</div>
+        <div class="bub coral" style="left:16%;top:42%;width:64px;height:64px;font-size:11px">Énergie</div>
+        <div class="bub coral" style="left:35%;top:44%;width:72px;height:72px;font-size:11px">Composants</div>
+        <div class="bub amber" style="left:76%;top:70%;width:84px;height:84px;font-size:11px">Traitements de surface</div>
+        <div class="bub grey" style="left:22%;top:76%;width:64px;height:64px;font-size:10.5px">Frais généraux</div>
+        <div class="bub grey" style="left:38%;top:80%;width:58px;height:58px;font-size:10.5px">Maintenance</div>
+        <span class="axx">Complexité du marché fournisseur →</span>
+        <span class="axy">Impact financier →</span>
+      </div>
+      <div class="klegend">
+        <span><span class="dot" style="background:var(--navy)"></span>Stratégiques</span>
+        <span><span class="dot" style="background:var(--coral)"></span>Leviers (gains rapides)</span>
+        <span><span class="dot" style="background:#d99a1f"></span>Goulots (risque)</span>
+        <span><span class="dot" style="background:#8f8aa3"></span>Simples</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Indices marché &amp; dérives de prix</h2><span class="dchip">📄 FEC + 📑 <b>contrats</b> · indices publics</span></div>
+    <div class="card">
+      <p class="lead">Vos prix payés, confrontés aux <b>indices publics</b> (LME, INSEE, CNR, Eurostat) et à vos <b>clauses d'indexation</b> · pour distinguer hausse justifiée et hausse passée en douce.</p>
+      <div class="grid2">
+        <div class="mini"><h4>⚙️ Aciers · dérive détectée</h4><div class="big" style="color:var(--red)">+9,2 % <span>payés sur 12 mois</span></div><p>vs indice marché <b style="color:var(--navy)">+3,1 %</b> → <b>6,1 points de dérive</b> non justifiée ≈ <b>85–120 k€/an</b> à challenger.</p></div>
+        <div class="mini"><h4>⚡ Énergie · contrat au-dessus du marché</h4><div class="big" style="color:var(--amber)">+18 % <span>vs prix de marché actuel</span></div><p>Contrat signé au pic · échéance proche = <b>fenêtre de renégociation</b>.</p></div>
+        <div class="mini"><h4>🚚 Transport · surcharge gasoil</h4><div class="big">2019 <span>grille jamais révisée</span></div><p>Surcharges appliquées <b>au-dessus de l'indice CNR</b> · base factuelle pour l'AO.</p></div>
+        <div class="mini"><h4>🧾 Clauses d'indexation dormantes</h4><div class="big" style="color:var(--green)">2 <span>clauses de révision à la baisse non activées</span></div><p>Les indices ont baissé, vos prix non. La clause existe · <b>il suffit de la faire jouer</b>.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Supply chain &amp; trésorerie</h2><span class="dchip">📦 commandes facturées + <b>flux</b> (réceptions, stock)</span></div>
+    <div class="card">
+      <p class="lead">Ce que révèlent les <b>flux réels</b> · paiements, livraisons, stock.</p>
+      <div class="grid2">
+        <div class="mini"><h4>⏱ Délais de paiement réels</h4><div class="big">47 j <span>vs 60 j négociés</span></div><p>Vous payez en moyenne <b>13 jours trop tôt</b> → ~620 k€ de trésorerie mobilisée inutilement.</p></div>
+        <div class="mini"><h4>🚚 Taux de service fournisseurs (OTD)</h4><div class="big">78 % <span>de livraisons à l'heure</span></div><p>Les retards se concentrent sur 3 fournisseurs · <b>dont un stratégique</b> (Usitech, 71 %).</p></div>
+        <div class="mini"><h4>🧾 Avoirs non récupérés</h4><div class="big">86 k€ <span>(comptes 409)</span></div><p>Avoirs émis, <b>jamais lettrés ni déduits</b>. Récupérables sous 30 jours.</p></div>
+        <div class="mini"><h4>📦 Stock dormant</h4><div class="big">410 k€ <span>sans mouvement &gt; 12 mois</span></div><p>Composants et matières immobilisés · <b>120 à 180 k€</b> mobilisables.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Ce qui se récupère tout de suite · liste nominative</h2><span class="dchip">📄 <b>FEC seul</b></span></div>
+    <div class="card">
+      <p class="lead">De l'argent qui vous appartient déjà, <b>ligne par ligne, avec la pièce comptable d'origine</b>. Les courriers de réclamation sont préparés, vos équipes les envoient, et nous restons avec vous pendant que vous allez le chercher.</p>
+      <table>
+        <tr><th>Ce qui a été trouvé</th><th>Fournisseur</th><th>Référence</th><th>Montant</th></tr>
+        <tr><td class="lev">Avoirs émis, jamais lettrés ni déduits</td><td>7 fournisseurs</td><td>comptes 409</td><td class="gain">86 000 €</td></tr>
+        <tr><td class="lev">Facture réglée deux fois (même montant, même mois)</td><td>MétalService Sud</td><td>F-24-0612 / F-24-0619</td><td class="gain">21 400 €</td></tr>
+        <tr><td class="lev">Acomptes versés, commandes soldées depuis plus d'un an</td><td>Outillages Bréa</td><td>comptes 4091</td><td class="gain">11 200 €</td></tr>
+        <tr><td class="lev">Frais de port facturés au-dessus du franco contractuel</td><td>Visserie Delmas</td><td>12 factures</td><td class="gain">8 900 €</td></tr>
+      </table>
+      <div class="totline">Total : <b>≈ 127 500 € à réclamer</b>, un encaissement unique. Aucune négociation : des courriers.</div>
+      <div class="duo">
+        <div class="shc g"><b class="h">Votre délai de paiement réel : 47 jours pondérés</b><p>Vos conditions négociées en autorisent 60. Chaque jour vaut ≈ 48 k€ chez vous : l'écart représente <b>≈ 620 k€ de trésorerie libérable</b>, comptés à part, une fois, hors du total ci-dessus.</p></div>
+        <div class="shc o"><b class="h">Ou l'inverse : payer tôt, contre escompte</b><p>2 % d'escompte pour un paiement à 10 jours, c'est un rendement d'environ <b>21 % en rythme annuel</b>. La mention figure déjà en bas de vos factures, ligne que personne ne lit : chez les fournisseurs qui l'accordent, le potentiel est de <b>≈ 18 k€ par an</b>. Les deux leviers s'excluent chez un même fournisseur.</p></div>
+      </div>
+      <div class="totline" style="margin-top:12px;background:rgba(20,143,68,.05)">En supplément, sans surcoût : <b>la balance âgée de vos clients</b>. Le même fichier comptable contient ce qu'on vous doit : la liste des factures échues au-delà de 60 jours est jointe. Vos équipes relancent, ce n'est pas notre métier.</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Les munitions · ce qui part signé de votre bureau</h2><span class="dchip">✍️ <b>prêt à envoyer</b></span></div>
+    <div class="card">
+      <p class="lead">Un rapport se range. <b>Un courrier se signe.</b> Chaque ligne de la liste précédente ressort en lettre rédigée, à votre en-tête, avec la pièce, la date et le montant. Vous relisez, vous signez, vous envoyez. Nous restons derrière pendant que vous allez le chercher.</p>
+      <table>
+        <tr><th>Le courrier</th><th>Destinataire</th><th>Ce qu'il réclame</th><th>Montant</th></tr>
+        <tr><td class="lev">Réclamation d'avoirs jamais imputés</td><td>7 fournisseurs, un courrier chacun</td><td>Relevé de compte et remboursement sous quinze jours</td><td class="gain">86 000 €</td></tr>
+        <tr><td class="lev">Demande de remboursement d'un double règlement</td><td>MétalService Sud</td><td>Les deux références de facture, jointes</td><td class="gain">21 400 €</td></tr>
+        <tr><td class="lev">Solde d'acomptes sur commandes closes</td><td>Outillages Bréa</td><td>Imputation ou remboursement</td><td class="gain">11 200 €</td></tr>
+        <tr><td class="lev">Rappel du franco contractuel</td><td>Visserie Delmas</td><td>Régularisation des douze factures</td><td class="gain">8 900 €</td></tr>
+        <tr><td class="lev">Collecte des attestations de vigilance</td><td>Les fournisseurs au-dessus du seuil légal</td><td>Attestation, extrait d'immatriculation, assurance</td><td class="gain">risque écarté</td></tr>
+        <tr><td class="lev">Conditions groupe sur volume cumulé</td><td>Les fournisseurs communs à vos sites</td><td>Tarif unique et remise de fin d'année</td><td class="gain">à négocier</td></tr>
+      </table>
+      <div class="totline">Six modèles, <b>une trentaine d'envois</b>, tous rédigés. Le premier peut partir le jour de la restitution.</div>
+      <div class="duo">
+        <div class="shc g"><b class="h">Ce que nous préparons</b><p>Le texte, les pièces citées, les dates, les montants, et la relance à trente jours écrite d'avance. Chaque courrier commence par « sauf erreur de notre part » et demande d'abord le relevé de compte : on ouvre une conversation, on ne lance pas un litige.</p></div>
+        <div class="shc o"><b class="h">Ce qui reste chez vous</b><p>La signature, la relation fournisseur, et la décision d'envoyer ou non. Vous connaissez vos partenaires mieux que quiconque : certains courriers partiront tels quels, d'autres se diront au téléphone.</p></div>
+      </div>
+      <div class="totline" style="margin-top:12px;background:rgba(20,143,68,.05)">Le suivi des réponses tient dans le même dossier : ce qui rentre se pointe contre la liste, et <b>ce qui reste ouvert à trente jours remonte à la relance suivante, déjà écrite</b>.</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Leviers chiffrés &amp; automatisation</h2><span class="dchip">🗂 l'ensemble des données transmises</span></div>
+    <div class="card">
+      <p class="lead">Chaque catégorie passe par <b>cinq questions</b> · qu'achetez-vous ? faites-vous ou faites-vous faire ? comment coule le processus, de la demande à la livraison ? que dit le marché fournisseur ? que disent vos contrats ? · puis chaque levier est évalué sur le <b>référentiel KANSO · 48 leviers, 5 axes</b>. La dernière colonne indique s'il peut être <b>automatisé en continu</b>.</p>
+      <div class="axchips">
+        <span class="axchip"><b>①</b> Financiers &amp; Cash</span>
+        <span class="axchip"><b>②</b> Risque &amp; Qualité</span>
+        <span class="axchip"><b>③</b> Panel fournisseurs</span>
+        <span class="axchip"><b>④</b> Négociation &amp; Marché</span>
+        <span class="axchip"><b>⑤</b> Conformité &amp; Performance</span>
+      </div>
+      <table>
+        <tr><th>Levier</th><th>Effort · Horizon</th><th>Gain estimé</th><th>Automatisation continue</th></tr>
+        <tr><td class="lev">Récupération des avoirs non lettrés<span class="kref">K07 · ① Financiers &amp; Cash</span></td><td><span class="eff f">Faible · Quick win</span></td><td class="gain">86 k€ <span style="color:var(--muted);font-weight:400;font-size:11px">one-shot</span></td><td><span class="modchip auto">AUTO · détection des écarts &amp; doublons</span></td></tr>
+        <tr><td class="lev">Renégociation transport (AO, grille 2019)<span class="kref">K29 · ④ Négociation &amp; Marché</span></td><td><span class="eff f">Faible · Quick win</span></td><td class="gain">60–90 k€ / an</td><td><span class="modchip auto">AUTO · veille indices &amp; échéances</span></td></tr>
+        <tr><td class="lev">Renégociation contrat énergie (échéance)<span class="kref">K30 · ④ Négociation &amp; Marché</span></td><td><span class="eff f">Faible · Quick win</span></td><td class="gain">40–70 k€ / an</td><td><span class="modchip auto">AUTO · fenêtres de marché</span></td></tr>
+        <tr><td class="lev">Massification aciers (3 fournisseurs → 2)<span class="kref">K22 · ③ Panel fournisseurs</span></td><td><span class="eff m">Moyen · 3-12 mois</span></td><td class="gain">120–180 k€ / an</td><td><span class="modchip auto">AUTO · analyse ABC du panel</span></td></tr>
+        <tr><td class="lev">Alignement des délais de paiement réels<span class="kref">K08 · ① Financiers &amp; Cash</span></td><td><span class="eff f">Faible · Quick win</span></td><td class="gain">~620 k€ <span style="color:var(--muted);font-weight:400;font-size:11px">tréso</span></td><td><span class="modchip assist">ASSIST · suivi des délais réels</span></td></tr>
+        <tr><td class="lev">Résorption du stock dormant<span class="kref">K10 · ① Financiers &amp; Cash</span></td><td><span class="eff m">Moyen · 3-12 mois</span></td><td class="gain">120–180 k€ <span style="color:var(--muted);font-weight:400;font-size:11px">cash</span></td><td><span class="modchip assist">ASSIST · détection sur-stocks</span></td></tr>
+        <tr><td class="lev">Dual sourcing traitements de surface<span class="kref">K14 · ② Risque &amp; Qualité</span></td><td><span class="eff m">Moyen · 3-12 mois</span></td><td class="gain">sécurisation</td><td><span class="modchip auto">AUTO · alerte dépendance &amp; santé</span></td></tr>
+      </table>
+      <div class="totline">Total : <b>220 à 340 k€ de gains récurrents / an</b> + <b>plus de 800 k€ de cash mobilisable</b> · et <b>5 leviers sur 7 automatisables en continu</b> pour que les gains ne s'érodent pas.</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Pipeline de gains · niveaux de confiance</h2><span class="dchip">📈 suivi d'initiatives</span></div>
+    <div class="card">
+      <p class="lead"><b>Un potentiel n'est pas un gain.</b> Chaque initiative est suivie par <b>niveau de confiance</b> et son gain est <b>pondéré par sa probabilité</b> · la direction pilote un pipeline, pas une promesse.</p>
+      <div class="nclegend">
+        <span class="nc n1">NC1 · Identifié</span><span>potentiel détecté dans les données</span>
+        <span class="nc n2">NC2 · Cadré</span><span>initiative décrite, plan posé</span>
+        <span class="nc n3">NC3 · Validé</span><span>business case accepté</span>
+        <span class="nc n4">NC4 · Encaissé</span><span>gain constaté en comptabilité</span>
+      </div>
+      <table>
+        <tr><th>Initiative</th><th>Spend adressable</th><th>Gain plein</th><th>Probabilité</th><th>Gain pondéré</th><th>Confiance</th></tr>
+        <tr><td class="lev">Récupération des avoirs</td><td>·</td><td>86 k€</td><td>95 %</td><td class="pond">≈ 82 k€</td><td><span class="nc n3">NC3</span></td></tr>
+        <tr><td class="lev">Alignement délais de paiement</td><td>17,4 M€</td><td>620 k€ tréso</td><td>90 %</td><td class="pond">≈ 560 k€ tréso</td><td><span class="nc n3">NC3</span></td></tr>
+        <tr><td class="lev">Appel d'offres transport</td><td>1,2 M€</td><td>60–90 k€ / an</td><td>70 %</td><td class="pond">≈ 52 k€ / an</td><td><span class="nc n2">NC2</span></td></tr>
+        <tr><td class="lev">Renégociation énergie</td><td>0,9 M€</td><td>40–70 k€ / an</td><td>75 %</td><td class="pond">≈ 41 k€ / an</td><td><span class="nc n2">NC2</span></td></tr>
+        <tr><td class="lev">Résorption stock dormant</td><td>410 k€</td><td>120–180 k€ cash</td><td>65 %</td><td class="pond">≈ 98 k€ cash</td><td><span class="nc n2">NC2</span></td></tr>
+        <tr><td class="lev">Massification aciers</td><td>2,4 M€</td><td>120–180 k€ / an</td><td>60 %</td><td class="pond">≈ 90 k€ / an</td><td><span class="nc n1">NC1</span></td></tr>
+        <tr><td class="lev">Dual sourcing traitements</td><td>1,4 M€</td><td>sécurisation</td><td>·</td><td class="pond">·</td><td><span class="nc n1">NC1</span></td></tr>
+      </table>
+      <div class="totline">Vision prudente (pondérée) : <b>≈ 180 k€/an récurrents</b> + <b>≈ 180 k€ de cash</b> + <b>≈ 560 k€ de trésorerie</b>. Le potentiel plein (220–340 k€/an) se sécurise initiative par initiative · et chaque passage de niveau se constate dans le cockpit.</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Feuille de route 12 mois</h2></div>
+    <div class="card">
+      <div class="plan">
+        <div class="ph p1"><span class="tag">0–30 JOURS · QUICK WINS</span>
+          <li>Récupérer les 86 k€ d'avoirs</li>
+          <li>Aligner les délais de paiement</li>
+          <li>Activer les 2 clauses de révision à la baisse</li>
+          <li>Lancer l'AO transport</li>
+          <div class="gain-ph">≈ 90–130 k€ + 620 k€ tréso</div>
+        </div>
+        <div class="ph p2"><span class="tag">1–6 MOIS · CHANTIERS</span>
+          <li>Massification aciers (AO structuré)</li>
+          <li>Renégociation énergie sur la fenêtre</li>
+          <li>Plan de résorption du stock dormant</li>
+          <li>Contrats-cadres top 10 (couverture 38 → 70 %)</li>
+          <div class="gain-ph">≈ 160–250 k€ / an</div>
+        </div>
+        <div class="ph p3"><span class="tag">6–12 MOIS · STRUCTUREL</span>
+          <li>Dual sourcing sur les goulots</li>
+          <li>Scoring panel &amp; revues fournisseurs</li>
+          <li>Surveillance continue (indices, écarts, panel)</li>
+          <li>Cockpit achats mensuel · preuve des gains</li>
+          <div class="gain-ph">Maturité 1,7 → cible 3+</div>
+        </div>
+      </div>
+      <p class="lead" style="margin:22px 0 0"><b>Montée des gains</b> · cumul encaissé sur 12 mois (scénario médian, hors trésorerie) :</p>
+      <div class="ramp">
+        <div class="rcol done"><span class="rv">≈ 90 k€</span><div class="rbar" style="height:20%"></div><span class="rl">Mois 1</span></div>
+        <div class="rcol done"><span class="rv">≈ 160 k€</span><div class="rbar" style="height:36%"></div><span class="rl">Mois 3</span></div>
+        <div class="rcol"><span class="rv">≈ 280 k€</span><div class="rbar" style="height:62%"></div><span class="rl">Mois 6</span></div>
+        <div class="rcol"><span class="rv">≈ 450 k€</span><div class="rbar" style="height:100%"></div><span class="rl">Mois 12</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Prendre une longueur d'avance</h2></div>
+    <div class="card">
+      <p class="lead"><b>L'écart se creuse.</b> Les grands donneurs d'ordre ont des directions achats outillées ; les PME qui s'équipent captent les fenêtres de marché, détectent les écarts en temps réel et prouvent leurs gains. Les autres subissent. Une cartographie corrige le passé · <b>seule la surveillance continue protège l'avenir.</b></p>
+      <div class="stages">
+        <div class="stage"><div class="st">Étape 1 · fait ✓</div><b class="t">Le diagnostic</b><p>Ce rapport : la photo, les risques, les leviers chiffrés, la feuille de route.</p></div>
+        <div class="stage"><div class="st">Étape 2 · vous, épaulé</div><b class="t">La transformation</b><p>Vous gardez la négociation, la décision et la relation fournisseur. Les mandats sont préparés, les courriers aussi, et nous restons avec vous pendant que vous allez le chercher.</p></div>
+        <div class="stage s3"><div class="st">Étape 3 · KANSO-OPS</div><b class="t">L'avantage durable</b><p>L'automatisation en continu : les leviers restent actifs, les gains ne s'érodent plus, les dérives sont détectées avant de coûter.</p></div>
+      </div>
+      <div class="mods">
+        <div class="mod"><b>Écarts &amp; avoirs</b><p>Chaque facture contrôlée vs contrat · récupération structurée.</p></div>
+        <div class="mod"><b>Indices marché</b><p>Veille LME/INSEE/CNR · alerte quand une clause ou une fenêtre joue.</p></div>
+        <div class="mod"><b>Panel &amp; risques</b><p>Dépendances, santé fournisseurs, certifications · surveillées en continu.</p></div>
+        <div class="mod"><b>Traçabilité</b><p>Chaque document indexé · prêt pour la facturation électronique 2026-27 et les contrôles.</p></div>
+        <div class="mod"><b>Preuve des gains</b><p>Un cockpit mensuel : cash récupéré, fuites évitées, ROI visible.</p></div>
+      </div>
+      <p class="impute">→ Une large part de la cartographie est déduite de la mise en œuvre · vous ne payez jamais deux fois le même travail.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Méthodologie &amp; confidentialité</h2></div>
+    <div class="card">
+      <div class="steps">
+        <div class="step"><div class="n2">1</div><b>Vous transmettez ce que vous avez</b><p>Le FEC suffit pour démarrer. Panel, extraction des commandes facturées au détail article sur 24 mois (ou plus si utile), contrats, flux, entretiens : chaque niveau approfondit · jusqu'à la cartographie complète.</p></div>
+        <div class="step"><div class="n2">2</div><b>Nous analysons</b><p>Croisement, enrichissement (données publiques SIREN), indices marché, référentiel 48 leviers, entretiens ciblés.</p></div>
+        <div class="step"><div class="n2">3</div><b>Vous décidez</b><p>Restitution en direction générale : maturité, benchmark, leviers, feuille de route. Vous arbitrez.</p></div>
+      </div>
+      <div class="secu" style="margin-top:16px">
+        <div class="sc"><b>🔒 Un coffre-fort, jamais un courriel</b><p>Vos fichiers transitent par un espace chiffré de bout en bout, hébergé en Suisse : même l'hébergeur ne peut pas les lire.</p></div>
+        <div class="sc"><b>💻 Un traitement local</b><p>L'analyse tourne sur un poste dédié et chiffré, hors de tout service en ligne. Aucune donnée transmise à un tiers, et aucun accès à votre SI.</p></div>
+        <div class="sc"><b>📝 Un cadre signé avant le premier fichier</b><p>Accord de confidentialité systématique. À la fin, <b>destruction des fichiers confirmée par écrit</b> : seuls des enseignements anonymisés et agrégés sont conservés.</p></div>
+        <div class="sc"><b>⏱ La vérification sous 48 heures</b><p>Si vos fichiers ne permettent pas le travail, ou si le potentiel est manifestement faible, la mission s'arrête : acompte remboursé, fichiers détruits.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="bub1"></div>
+    <h3>Et votre entreprise · où en est-elle vraiment ?</h3>
+    <p>Ce rapport est un exemple, sur des données fictives. Le vôtre se construit sur <b style="color:#fff">vos</b> données, votre maturité, votre marché · et il vous dit précisément par quoi commencer.</p>
+    <div class="sig">KANSO-OPS · Sébastien Duc · 06 99 07 34 89 · sebastien@kanso-ops.io · kanso-ops.com</div>
+  </div>
+
+  <div class="foot">
+    Document d'exemple · Mécanor SAS est une entreprise fictive ; toutes les données sont illustratives. Les positions de maturité et benchmarks sont des ordres de grandeur d'illustration, établis lors d'une mission réelle à partir des données de l'entreprise et d'entretiens. Les gains sont des estimations type, à valider. Prestation soumise à accord de confidentialité ; obligation de moyens.
+  </div>
+
+
+<section style="background:#140E59;color:#fff;border-radius:14px;padding:36px 28px;margin:40px auto;max-width:920px;text-align:center;">
+  <h2 style="margin:0 0 12px;font-size:1.5em;">Envie de voir la vôtre ?</h2>
+  <p style="margin:0 0 8px;opacity:.92;">Un export comptable de cinq minutes suffit, personne de mobilisé chez vous, et quinze jours plus tard vous lisez ce rapport sur vos propres chiffres.</p>
+  <p style="margin:0 0 20px;opacity:.92;">Vos données ne servent qu'à la mission et sont détruites ensuite. C'est non négociable, et c'est écrit.</p>
+  <a href="mailto:sebastien.duc@kanso-ops.fr" style="display:inline-block;background:#EF7D53;color:#fff;text-decoration:none;font-weight:700;padding:12px 26px;border-radius:999px;">Écrivez-moi : sebastien.duc@kanso-ops.fr</a>
+  <p style="margin:16px 0 0;font-size:.9em;"><a href="https://kanso-ops.com" style="color:#EF7D53;">kanso-ops.com</a></p>
+</section>
+</div>
+
+<!-- ============================================================ EN ============================================================ -->
+<div class="wrap" id="wrap-en" style="display:none">
+
+  <div class="cover">
+    <div class="bub1"></div><div class="bub2"></div>
+    <div class="k">Supplier Spend Mapping · Full report</div>
+    <h1>Your purchasing, your maturity, your market · and your head start.</h1>
+    <div class="who">Sample report · <b>Mécanor SAS</b> · industrial SME (precision machining / aerospace) · ~€30M revenue · Occitanie, France <i>(fictitious company)</i></div>
+    <div class="meta">
+      <span class="chip">FEC · supplier base · invoiced orders · contracts · flows · interviews</span>
+      <span class="chip">KANSO framework · 48 procurement levers</span>
+      <span class="chip">No access to your IT systems</span>
+    </div>
+    <div class="conf">Confidential · Executive Management · 2026 edition</div>
+  </div>
+
+  <div class="toc">
+    <h3>Contents</h3>
+    <ol>
+      <li>Executive summary</li><li>Procurement function maturity</li><li>Your sector environment</li><li>Spend mapping</li>
+      <li>Supplier base, dependencies &amp; bargaining power</li><li>What exposes the company</li><li>Kraljic matrix</li><li>Market indices &amp; price drift</li><li>Supply chain &amp; cash</li>
+      <li>Recovered right away</li><li>Quantified levers &amp; automation</li><li>Gains pipeline · confidence levels</li><li>12-month roadmap</li><li>Staying ahead</li><li>Methodology &amp; confidentiality</li>
+    </ol>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Executive summary</h2><span class="dchip">🗂 all data provided</span></div>
+    <div class="card">
+      <p class="lead">Analysis of <b>24 months of data</b> (FEC statutory accounting file, invoiced orders, contracts, flows) + <b>interviews</b> with management, purchasing, accounting and the shop floor. <b>Each section shows the data behind it.</b></p>
+      <div class="kpis">
+        <div class="kpi"><div class="v">€17.4M</div><div class="l">of spend analysed<br>(58% of revenue)</div></div>
+        <div class="kpi"><div class="v r">1.7 / 5</div><div class="l">procurement maturity<br>(sector: 2.4 · top 25%: 3.8)</div></div>
+        <div class="kpi"><div class="v g">€220–340k</div><div class="l">recurring savings identified / year (est.)</div></div>
+        <div class="kpi"><div class="v c">&gt; €800k</div><div class="l">of cash that can be freed<br>(credit notes, inventory, payment terms)</div></div>
+      </div>
+      <div class="donutrow">
+        <svg viewBox="0 0 42 42" style="width:170px;height:170px;flex:none" role="img">
+          <circle cx="21" cy="21" r="15.9" fill="none" stroke="#efe6db" stroke-width="7"/>
+          <circle cx="21" cy="21" r="15.9" fill="none" stroke="#148F44" stroke-width="7" stroke-dasharray="9.7 90.3" stroke-dashoffset="25"/>
+          <circle cx="21" cy="21" r="15.9" fill="none" stroke="#140E59" stroke-width="7" stroke-dasharray="21.4 78.6" stroke-dashoffset="15.3"/>
+          <circle cx="21" cy="21" r="15.9" fill="none" stroke="#c0392b" stroke-width="7" stroke-dasharray="68.9 31.1" stroke-dashoffset="-6.1"/>
+          <text x="21" y="20" text-anchor="middle" style="font:800 4.6px 'Lato',sans-serif;fill:#140E59">€17.4M</text>
+          <text x="21" y="25" text-anchor="middle" style="font:600 2.7px 'Open Sans',sans-serif;fill:#7d7a8c">of spend analysed</text>
+        </svg>
+        <div class="dleg">
+          <div class="dh">Three natures, three orders of magnitude · never added together</div>
+          <div class="dli"><span class="sw" style="background:var(--green)"></span><span><b>≈ €127k</b> recoverable right away, a one-off cash-in</span></div>
+          <div class="dli"><span class="sw" style="background:var(--navy)"></span><span><b>≈ €280k</b> negotiable, a gain that recurs every year (range €220–340k)</span></div>
+          <div class="dli"><span class="sw" style="background:var(--red)"></span><span><b>≈ €900k</b> of annual spend at risk: volumes entrusted to a fragile supplier with no referenced alternative</span></div>
+          <div class="dnote">The chart compares orders of magnitude, it adds nothing together: a one-off cash-in, an annual gain and an exposure are three different natures. On top sits a regulatory exposure not shown here: late supplier payments carry an administrative fine of up to two million euros for a legal entity (French commercial code, art. L. 441-16).</div>
+        </div>
+      </div>
+      <div class="verdict">💡 <b>The verdict in one sentence:</b> a <b>reactive</b> procurement function that endures its suppliers and its market · while the data, the levers and the market windows exist to <b>take back control within 12 months</b>.</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Procurement function maturity</h2><span class="dchip">🎙 <b>interviews</b> + all data</span></div>
+    <div class="card">
+      <p class="lead">Your position across <b>6 dimensions</b>, rated 1 to 5 · against your <b>sector median</b> and the <b>top 25%</b>.</p>
+      <div class="mscale"><span>1 · Reactive</span><span>2 · Structured</span><span>3 · Managed</span><span>4 · Integrated</span><span>5 · Value creator</span></div>
+      <div class="mrow"><span class="ml">Strategy &amp; organisation</span><div class="mtrack"><div class="mfill" style="width:40%"></div><div class="mmark" style="left:48%"></div><div class="mdia" style="left:76%"></div></div><span class="mval">2.0</span></div>
+      <div class="mrow"><span class="ml">Processes &amp; contracting</span><div class="mtrack"><div class="mfill" style="width:30%"></div><div class="mmark" style="left:50%"></div><div class="mdia" style="left:78%"></div></div><span class="mval">1.5</span></div>
+      <div class="mrow"><span class="ml">Steering &amp; data</span><div class="mtrack"><div class="mfill" style="width:30%"></div><div class="mmark" style="left:46%"></div><div class="mdia" style="left:74%"></div></div><span class="mval">1.5</span></div>
+      <div class="mrow"><span class="ml">Supplier base management</span><div class="mtrack"><div class="mfill" style="width:40%"></div><div class="mmark" style="left:50%"></div><div class="mdia" style="left:78%"></div></div><span class="mval">2.0</span></div>
+      <div class="mrow"><span class="ml">Digital &amp; automation</span><div class="mtrack"><div class="mfill" style="width:20%"></div><div class="mmark" style="left:44%"></div><div class="mdia" style="left:80%"></div></div><span class="mval">1.0</span></div>
+      <div class="mrow"><span class="ml">CSR &amp; compliance</span><div class="mtrack"><div class="mfill" style="width:40%"></div><div class="mmark" style="left:46%"></div><div class="mdia" style="left:72%"></div></div><span class="mval">2.0</span></div>
+      <div class="mlegend">
+        <span><span class="dot" style="background:var(--coral)"></span>Mécanor (you)</span>
+        <span><span class="dot" style="background:var(--navy)"></span>| Sector median</span>
+        <span><span class="dot" style="background:var(--green)"></span>◆ Top 25%</span>
+      </div>
+      <p class="lead" style="margin-top:20px"><b>What maturity is worth, in euros.</b> Sector studies show that each maturity level maps to an average level of annual savings (as % of spend):</p>
+      <table>
+        <tr><th>Level</th><th>1 · Reactive</th><th>2 · Structured</th><th>3 · Managed</th><th>4 · Integrated</th><th>5 · Value creator</th></tr>
+        <tr><td class="lev">Average annual savings</td><td>≈ 1.8%</td><td>≈ 2.5%</td><td style="background:rgba(239,125,83,.08)"><b style="color:var(--coral2)">≈ 3.5%</b></td><td>≈ 4.4%</td><td>≈ 5.0%</td></tr>
+      </table>
+      <div class="verdict"><b>Overall maturity: 1.7/5 · “Reactive-Structured”.</b> Worth noting: management estimated its own maturity at <b>2.8</b> · the fact-based assessment gives <b>1.7</b>. The perception gap is a lesson in itself. Targeting <b>3+ within 12 months</b> means moving from ~2% to <b>~3.5% annual savings</b> · on €17.4M of spend, that is the potential quantified in the Levers section. And the good news: the weakest dimensions (steering, digital) are <b>the fastest to improve</b> · it's tooling, not reorganisation.</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Your sector environment</h2><span class="dchip">📊 public sector benchmarks + observation base</span></div>
+    <div class="card">
+      <p class="lead">Your indicators, compared with <b>industrial SMEs in machining / aerospace, €20–50M revenue</b> (illustrative orders of magnitude).</p>
+      <div class="bgrid">
+        <div class="bt"><h4>Active suppliers / €M of spend</h4><div class="vs"><span class="you">12.3</span><span class="med">vs 8.1 median</span></div><span class="tag r">Highly fragmented base</span></div>
+        <div class="bt"><h4>Spend under contract</h4><div class="vs"><span class="you">38%</span><span class="med">vs 62% median</span></div><span class="tag r">High dark buying</span></div>
+        <div class="bt"><h4>Days payable outstanding (DPO)</h4><div class="vs"><span class="you">47 d</span><span class="med">vs 58 d median</span></div><span class="tag a">Under-used cash lever</span></div>
+        <div class="bt"><h4>E-invoicing rate</h4><div class="vs"><span class="you">22%</span><span class="med">vs 41% median</span></div><span class="tag a">Behind on 2026-27 e-invoicing</span></div>
+        <div class="bt"><h4>Purchasing as % of revenue</h4><div class="vs"><span class="you">58%</span><span class="med">vs 55% median</span></div><span class="tag a">Every % saved counts double</span></div>
+        <div class="bt"><h4>Single-sourced critical categories</h4><div class="vs"><span class="you">2</span><span class="med">vs &lt; 1 median</span></div><span class="tag r">Supply disruption risk</span></div>
+      </div>
+      <div class="best">
+        <h4>What the best in your sector do</h4>
+        <li>Frame agreements on the top 10 suppliers, reviewed every year</li>
+        <li>Continuous tracking of commodity indices · and clauses that work both ways</li>
+        <li>Objective supplier scoring (health, OTD, claims) fed automatically</li>
+        <li>An annual competitive-tendering plan by category</li>
+        <li>A monthly procurement cockpit that proves the gains to management</li>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Spend mapping</h2><span class="dchip">📄 <b>FEC only</b></span></div>
+    <div class="card">
+      <p class="lead">Where the money goes · <b>by purchasing category</b>, rebuilt from the accounting data (no re-keying).</p>
+      <div class="bars">
+        <div class="brow"><span class="bl">Raw materials (steel, aluminium)</span><div class="btrack"><div class="bfill" style="width:100%"></div></div><span class="bval"><b>€6.1M</b> · 35%</span></div>
+        <div class="brow"><span class="bl">Machining subcontracting</span><div class="btrack"><div class="bfill" style="width:62%"></div></div><span class="bval"><b>€3.8M</b> · 22%</span></div>
+        <div class="brow"><span class="bl">Components &amp; fasteners</span><div class="btrack"><div class="bfill" style="width:38%"></div></div><span class="bval"><b>€2.3M</b> · 13%</span></div>
+        <div class="brow"><span class="bl">Surface treatments</span><div class="btrack"><div class="bfill" style="width:23%"></div></div><span class="bval"><b>€1.4M</b> · 8%</span></div>
+        <div class="brow"><span class="bl">Transport &amp; logistics</span><div class="btrack"><div class="bfill coral" style="width:20%"></div></div><span class="bval"><b>€1.2M</b> · 7%</span></div>
+        <div class="brow"><span class="bl">Energy</span><div class="btrack"><div class="bfill coral" style="width:15%"></div></div><span class="bval"><b>€0.9M</b> · 5%</span></div>
+        <div class="brow"><span class="bl">Maintenance &amp; parts</span><div class="btrack"><div class="bfill" style="width:13%"></div></div><span class="bval"><b>€0.8M</b> · 5%</span></div>
+        <div class="brow"><span class="bl">Overheads / indirect</span><div class="btrack"><div class="bfill" style="width:15%"></div></div><span class="bval"><b>€0.9M</b> · 5%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Supplier base, dependencies &amp; bargaining power</h2><span class="dchip">📄 FEC + 🏢 <b>supplier base (registry)</b></span></div>
+    <div class="card">
+      <p class="lead">The top 10 accounts for <b>57% of spend</b>. Beyond concentration, the real question: <b>who holds whom?</b> Bargaining power per supplier sets your room to negotiate.</p>
+      <div class="conc">
+        <div class="ct"><span>Spend distribution</span><span>214 suppliers</span></div>
+        <div class="concbar"><div class="c1"></div><div class="c2"></div></div>
+        <div class="legend"><span><span class="dot" style="background:var(--coral)"></span>Top 10 · 57%</span><span><span class="dot" style="background:#efe6db"></span>204 others · 43%</span></div>
+      </div>
+      <table style="margin-top:16px">
+        <tr><th>Supplier</th><th>Dependency</th><th>Financial health (registry)</th><th>Bargaining power</th><th>Signal</th></tr>
+        <tr><td class="lev">AcierPro Distribution</td><td><b style="color:var(--red)">68%</b> of special steels</td><td>Sound</td><td>Dominant supplier · you are &lt; 5% of its revenue</td><td><span class="flag r">🔴 Critical dependency</span></td></tr>
+        <tr><td class="lev">Usitech SAS</td><td><b style="color:var(--amber)">45%</b> of subcontracting</td><td>Sound</td><td><b style="color:var(--green)">Balanced</b> · you are ~18% of its revenue</td><td><span class="flag r">🔴 OTD 71% · to address (lever)</span></td></tr>
+        <tr><td class="lev">TraitSurf Occitanie</td><td><b style="color:var(--amber)">62%</b> of treatments</td><td><b style="color:var(--red)">Fragile</b> · equity declining</td><td>Mutual dependency · you are ~30% of its revenue</td><td><span class="flag a">🟠 Plan B + support</span></td></tr>
+        <tr><td class="lev">CompoFix</td><td>31% of components</td><td>Sound</td><td><b style="color:var(--green)">Buyer holds the power</b></td><td><span class="flag g">🟢 Negotiation lever</span></td></tr>
+      </table>
+      <p style="font-size:11.5px;color:var(--muted);margin-top:10px">Bargaining power estimated as your weight in the supplier's revenue (public registry data) vs its weight in your spend. It dictates the strategy: negotiate, secure, or rebalance before negotiating.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>What exposes the company · secure</h2><span class="dchip">📄 FEC + 🏢 <b>supplier base (registry)</b> · public data</span></div>
+    <div class="card">
+      <p class="lead">Beyond bargaining power: <b>what your own data reveals about the risks the business creates</b>. Named, never priced as a “gain”: an exposure is not sold, it is dealt with.</p>
+      <div class="secu">
+        <div class="sc" style="border-left-color:var(--red)"><b>1 supplier under insolvency proceedings</b><p>Supplier base crossed with official publications: safeguard proceedings under way at one active supplier. And TraitSurf, fragile, carries 62% of a category.</p></div>
+        <div class="sc" style="border-left-color:var(--red)"><b>9% of payments beyond the legal ceiling</b><p>Measured on actual payment terms. Exposure: administrative fine up to two million euros for a legal entity, decision publishable (French commercial code, art. L. 441-16).</p></div>
+        <div class="sc" style="border-left-color:var(--red)"><b>23 suppliers above the due-diligence threshold</b><p>Annual volume above the &euro;5,000 threshold that triggers the statutory duty of vigilance: for how many do you hold a valid certificate? If one of them is reassessed for undeclared work, joint financial liability makes you pay their contributions and taxes, with no cap, and up to &euro;75,000 of your own exemptions are cancelled (French labour code, art. L. 8222-1 et seq.).</p></div>
+        <div class="sc"><b>1 supplier gone silent</b><p>Over €100k a year, no invoice for 7 months, no closing credit note. Decided, or endured?</p></div>
+        <div class="sc"><b>Regulated materials: aggregated volumes</b><p>Your annual volumes of solvents and technical gases are aggregated in the appendix. The only question asked: has anyone checked the applicable regime?</p></div>
+        <div class="sc"><b>3 bank-detail changes in 12 months</b><p>The signal of fake-supplier fraud. Who validates a change of bank details, and how?</p></div>
+      </div>
+      <p style="font-size:11.5px;color:var(--muted);margin-top:10px">These points come with their lists. No legal or regulatory advice: they are handled with your usual advisers.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Kraljic matrix · strategy by category</h2><span class="dchip">📄 FEC + 📦 <b>invoiced orders</b></span></div>
+    <div class="card">
+      <p class="lead">Each category positioned by <b>financial impact</b> and <b>supply-market complexity</b> · the purchasing strategy follows.</p>
+      <div class="kraljic">
+        <span class="quad q1">Leverage · negotiate</span>
+        <span class="quad q2">Strategic · secure</span>
+        <span class="quad q3">Non-critical · automate</span>
+        <span class="quad q4">Bottleneck · de-risk</span>
+        <div class="bub navy" style="left:74%;top:20%;width:104px;height:104px;font-size:12px">Raw materials</div>
+        <div class="bub navy" style="left:62%;top:38%;width:88px;height:88px;font-size:11.5px">Machining subcontracting</div>
+        <div class="bub coral" style="left:26%;top:26%;width:78px;height:78px;font-size:11.5px">Transport</div>
+        <div class="bub coral" style="left:16%;top:42%;width:64px;height:64px;font-size:11px">Energy</div>
+        <div class="bub coral" style="left:35%;top:44%;width:72px;height:72px;font-size:11px">Components</div>
+        <div class="bub amber" style="left:76%;top:70%;width:84px;height:84px;font-size:11px">Surface treatments</div>
+        <div class="bub grey" style="left:22%;top:76%;width:64px;height:64px;font-size:10.5px">Overheads</div>
+        <div class="bub grey" style="left:38%;top:80%;width:58px;height:58px;font-size:10.5px">Maintenance</div>
+        <span class="axx">Supply-market complexity →</span>
+        <span class="axy">Financial impact →</span>
+      </div>
+      <div class="klegend">
+        <span><span class="dot" style="background:var(--navy)"></span>Strategic</span>
+        <span><span class="dot" style="background:var(--coral)"></span>Leverage (quick gains)</span>
+        <span><span class="dot" style="background:#d99a1f"></span>Bottlenecks (risk)</span>
+        <span><span class="dot" style="background:#8f8aa3"></span>Non-critical</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Market indices &amp; price drift</h2><span class="dchip">📄 FEC + 📑 <b>contracts</b> · public indices</span></div>
+    <div class="card">
+      <p class="lead">The prices you actually pay, checked against <b>public indices</b> (LME, INSEE, CNR, Eurostat) and your <b>indexation clauses</b> · to tell a justified increase from one that slipped through.</p>
+      <div class="grid2">
+        <div class="mini"><h4>⚙️ Steel · drift detected</h4><div class="big" style="color:var(--red)">+9.2% <span>paid over 12 months</span></div><p>vs market index <b style="color:var(--navy)">+3.1%</b> → <b>6.1 points of unjustified drift</b> ≈ <b>€85–120k/yr</b> to challenge.</p></div>
+        <div class="mini"><h4>⚡ Energy · contract above market</h4><div class="big" style="color:var(--amber)">+18% <span>vs current market price</span></div><p>Contract signed at the peak · expiry approaching = <b>renegotiation window</b>.</p></div>
+        <div class="mini"><h4>🚚 Transport · fuel surcharge</h4><div class="big">2019 <span>price grid never revised</span></div><p>Surcharges applied <b>above the CNR index</b> · a factual basis for the tender.</p></div>
+        <div class="mini"><h4>🧾 Dormant indexation clauses</h4><div class="big" style="color:var(--green)">2 <span>downward-revision clauses never triggered</span></div><p>The indices fell, your prices didn't. The clause exists · <b>it just has to be invoked</b>.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Supply chain &amp; cash</h2><span class="dchip">📦 invoiced orders + <b>flows</b> (receipts, inventory)</span></div>
+    <div class="card">
+      <p class="lead">What the <b>real flows</b> reveal · payments, deliveries, inventory.</p>
+      <div class="grid2">
+        <div class="mini"><h4>⏱ Actual payment terms</h4><div class="big">47 d <span>vs 60 d negotiated</span></div><p>You pay on average <b>13 days early</b> → ~€620k of cash tied up unnecessarily.</p></div>
+        <div class="mini"><h4>🚚 Supplier on-time delivery (OTD)</h4><div class="big">78% <span>of deliveries on time</span></div><p>Delays concentrate on 3 suppliers · <b>including one strategic</b> (Usitech, 71%).</p></div>
+        <div class="mini"><h4>🧾 Unclaimed credit notes</h4><div class="big">€86k <span>(account 409)</span></div><p>Credit notes issued, <b>never matched nor deducted</b>. Recoverable within 30 days.</p></div>
+        <div class="mini"><h4>📦 Dormant inventory</h4><div class="big">€410k <span>no movement &gt; 12 months</span></div><p>Components and materials tied up · <b>€120–180k</b> can be freed.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Recovered right away · a named list</h2><span class="dchip">📄 <b>FEC only</b></span></div>
+    <div class="card">
+      <p class="lead">Money that already belongs to you, <b>line by line, with the original accounting entry</b>. The claim letters are prepared, your teams send them, and we stay with you while you go and get it.</p>
+      <table>
+        <tr><th>What was found</th><th>Supplier</th><th>Reference</th><th>Amount</th></tr>
+        <tr><td class="lev">Credit notes issued, never matched nor deducted</td><td>7 suppliers</td><td>account 409</td><td class="gain">€86,000</td></tr>
+        <tr><td class="lev">Invoice paid twice (same amount, same month)</td><td>MétalService Sud</td><td>F-24-0612 / F-24-0619</td><td class="gain">€21,400</td></tr>
+        <tr><td class="lev">Down payments never settled, orders closed over a year ago</td><td>Outillages Bréa</td><td>account 4091</td><td class="gain">€11,200</td></tr>
+        <tr><td class="lev">Freight charged above the contractual free-carriage threshold</td><td>Visserie Delmas</td><td>12 invoices</td><td class="gain">€8,900</td></tr>
+      </table>
+      <div class="totline">Total: <b>≈ €127,500 to claim</b>, a one-off cash-in. No negotiation: letters.</div>
+      <div class="duo">
+        <div class="shc g"><b class="h">Your actual payment terms: 47 weighted days</b><p>Your negotiated terms allow 60. Each day is worth ≈ €48k for you: the gap represents <b>≈ €620k of cash that can be freed</b>, counted separately, once, outside the total above.</p></div>
+        <div class="shc o"><b class="h">Or the reverse: pay early, in exchange for a discount</b><p>A 2% early-payment discount for paying at 10 days is a return of about <b>21% annualised</b>. The mention already sits at the bottom of your invoices, the line nobody reads: with the suppliers who grant it, the potential is <b>≈ €18k a year</b>. The two levers are mutually exclusive per supplier.</p></div>
+      </div>
+      <div class="totline" style="margin-top:12px;background:rgba(20,143,68,.05)">As a bonus, at no extra cost: <b>your customer ageing balance</b>. The same accounting file contains what you are owed: the list of invoices overdue beyond 60 days is attached. Your teams do the chasing, that is not our trade.</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Quantified levers &amp; automation</h2><span class="dchip">🗂 all data provided</span></div>
+    <div class="card">
+      <p class="lead">Each category goes through <b>five questions</b> · what do you buy? make or buy? how does the process flow, from request to delivery? what does the supply market say? what do your contracts say? · then each lever is scored against the <b>KANSO framework · 48 levers, 5 axes</b>. The last column shows whether it can be <b>automated continuously</b>.</p>
+      <div class="axchips">
+        <span class="axchip"><b>①</b> Financials &amp; Cash</span>
+        <span class="axchip"><b>②</b> Risk &amp; Quality</span>
+        <span class="axchip"><b>③</b> Supplier base</span>
+        <span class="axchip"><b>④</b> Negotiation &amp; Market</span>
+        <span class="axchip"><b>⑤</b> Compliance &amp; Performance</span>
+      </div>
+      <table>
+        <tr><th>Lever</th><th>Effort · Horizon</th><th>Estimated gain</th><th>Continuous automation</th></tr>
+        <tr><td class="lev">Recover unmatched credit notes<span class="kref">K07 · ① Financials &amp; Cash</span></td><td><span class="eff f">Low · Quick win</span></td><td class="gain">€86k <span style="color:var(--muted);font-weight:400;font-size:11px">one-off</span></td><td><span class="modchip auto">AUTO · gap &amp; duplicate detection</span></td></tr>
+        <tr><td class="lev">Transport renegotiation (tender, 2019 grid)<span class="kref">K29 · ④ Negotiation &amp; Market</span></td><td><span class="eff f">Low · Quick win</span></td><td class="gain">€60–90k / yr</td><td><span class="modchip auto">AUTO · index &amp; deadline watch</span></td></tr>
+        <tr><td class="lev">Energy contract renegotiation (expiry)<span class="kref">K30 · ④ Negotiation &amp; Market</span></td><td><span class="eff f">Low · Quick win</span></td><td class="gain">€40–70k / yr</td><td><span class="modchip auto">AUTO · market windows</span></td></tr>
+        <tr><td class="lev">Steel consolidation (3 suppliers → 2)<span class="kref">K22 · ③ Supplier base</span></td><td><span class="eff m">Medium · 3-12 months</span></td><td class="gain">€120–180k / yr</td><td><span class="modchip auto">AUTO · ABC base analysis</span></td></tr>
+        <tr><td class="lev">Align actual payment terms<span class="kref">K08 · ① Financials &amp; Cash</span></td><td><span class="eff f">Low · Quick win</span></td><td class="gain">~€620k <span style="color:var(--muted);font-weight:400;font-size:11px">cash</span></td><td><span class="modchip assist">ASSIST · actual-terms tracking</span></td></tr>
+        <tr><td class="lev">Clear dormant inventory<span class="kref">K10 · ① Financials &amp; Cash</span></td><td><span class="eff m">Medium · 3-12 months</span></td><td class="gain">€120–180k <span style="color:var(--muted);font-weight:400;font-size:11px">cash</span></td><td><span class="modchip assist">ASSIST · overstock detection</span></td></tr>
+        <tr><td class="lev">Dual sourcing for surface treatments<span class="kref">K14 · ② Risk &amp; Quality</span></td><td><span class="eff m">Medium · 3-12 months</span></td><td class="gain">security</td><td><span class="modchip auto">AUTO · dependency &amp; health alert</span></td></tr>
+      </table>
+      <div class="totline">Total: <b>€220–340k recurring savings / year</b> + <b>over €800k of cash that can be freed</b> · and <b>5 of the 7 levers can be automated continuously</b> so the gains don't erode.</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Gains pipeline · confidence levels</h2><span class="dchip">📈 initiative tracking</span></div>
+    <div class="card">
+      <p class="lead"><b>A potential is not a gain.</b> Each initiative is tracked by <b>confidence level</b> and its gain is <b>weighted by probability</b> · management steers a pipeline, not a promise.</p>
+      <div class="nclegend">
+        <span class="nc n1">CL1 · Identified</span><span>potential detected in the data</span>
+        <span class="nc n2">CL2 · Scoped</span><span>initiative described, plan set</span>
+        <span class="nc n3">CL3 · Validated</span><span>business case approved</span>
+        <span class="nc n4">CL4 · Banked</span><span>gain visible in the accounts</span>
+      </div>
+      <table>
+        <tr><th>Initiative</th><th>Addressable spend</th><th>Full gain</th><th>Probability</th><th>Weighted gain</th><th>Confidence</th></tr>
+        <tr><td class="lev">Credit-note recovery</td><td>·</td><td>€86k</td><td>95%</td><td class="pond">≈ €82k</td><td><span class="nc n3">CL3</span></td></tr>
+        <tr><td class="lev">Payment-terms alignment</td><td>€17.4M</td><td>€620k cash</td><td>90%</td><td class="pond">≈ €560k cash</td><td><span class="nc n3">CL3</span></td></tr>
+        <tr><td class="lev">Transport tender</td><td>€1.2M</td><td>€60–90k / yr</td><td>70%</td><td class="pond">≈ €52k / yr</td><td><span class="nc n2">CL2</span></td></tr>
+        <tr><td class="lev">Energy renegotiation</td><td>€0.9M</td><td>€40–70k / yr</td><td>75%</td><td class="pond">≈ €41k / yr</td><td><span class="nc n2">CL2</span></td></tr>
+        <tr><td class="lev">Dormant-inventory clearance</td><td>€410k</td><td>€120–180k cash</td><td>65%</td><td class="pond">≈ €98k cash</td><td><span class="nc n2">CL2</span></td></tr>
+        <tr><td class="lev">Steel consolidation</td><td>€2.4M</td><td>€120–180k / yr</td><td>60%</td><td class="pond">≈ €90k / yr</td><td><span class="nc n1">CL1</span></td></tr>
+        <tr><td class="lev">Dual sourcing treatments</td><td>€1.4M</td><td>security</td><td>·</td><td class="pond">·</td><td><span class="nc n1">CL1</span></td></tr>
+      </table>
+      <div class="totline">Prudent (weighted) view: <b>≈ €180k/yr recurring</b> + <b>≈ €180k cash</b> + <b>≈ €560k payment-terms cash</b>. The full potential (€220–340k/yr) is secured initiative by initiative · and every level change shows in the cockpit.</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>12-month roadmap</h2></div>
+    <div class="card">
+      <div class="plan">
+        <div class="ph p1"><span class="tag">0–30 DAYS · QUICK WINS</span>
+          <li>Recover the €86k of credit notes</li>
+          <li>Align payment terms</li>
+          <li>Trigger the 2 downward-revision clauses</li>
+          <li>Launch the transport tender</li>
+          <div class="gain-ph">≈ €90–130k + €620k cash</div>
+        </div>
+        <div class="ph p2"><span class="tag">1–6 MONTHS · CORE PROJECTS</span>
+          <li>Steel consolidation (structured tender)</li>
+          <li>Energy renegotiation in the window</li>
+          <li>Dormant-inventory clearance plan</li>
+          <li>Frame agreements top 10 (coverage 38 → 70%)</li>
+          <div class="gain-ph">≈ €160–250k / yr</div>
+        </div>
+        <div class="ph p3"><span class="tag">6–12 MONTHS · STRUCTURAL</span>
+          <li>Dual sourcing on the bottlenecks</li>
+          <li>Supplier scoring &amp; reviews</li>
+          <li>Continuous monitoring (indices, gaps, base)</li>
+          <li>Monthly procurement cockpit · proof of gains</li>
+          <div class="gain-ph">Maturity 1.7 → target 3+</div>
+        </div>
+      </div>
+      <p class="lead" style="margin:22px 0 0"><b>Gains ramp-up</b> · cumulative banked over 12 months (median scenario, cash excluded):</p>
+      <div class="ramp">
+        <div class="rcol done"><span class="rv">≈ €90k</span><div class="rbar" style="height:20%"></div><span class="rl">Month 1</span></div>
+        <div class="rcol done"><span class="rv">≈ €160k</span><div class="rbar" style="height:36%"></div><span class="rl">Month 3</span></div>
+        <div class="rcol"><span class="rv">≈ €280k</span><div class="rbar" style="height:62%"></div><span class="rl">Month 6</span></div>
+        <div class="rcol"><span class="rv">≈ €450k</span><div class="rbar" style="height:100%"></div><span class="rl">Month 12</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Staying ahead</h2></div>
+    <div class="card">
+      <p class="lead"><b>The gap is widening.</b> Large OEMs have well-equipped procurement teams; the SMEs that tool up catch market windows, detect gaps in real time and prove their gains. The others endure. A mapping fixes the past · <b>only continuous monitoring protects the future.</b></p>
+      <div class="stages">
+        <div class="stage"><div class="st">Step 1 · done ✓</div><b class="t">The diagnostic</b><p>This report: the picture, the risks, the quantified levers, the roadmap.</p></div>
+        <div class="stage"><div class="st">Step 2 · you, backed up</div><b class="t">The transformation</b><p>You keep the negotiation, the decision and the supplier relationship. The mandates and letters are prepared, and we stay with you while you go and get it.</p></div>
+        <div class="stage s3"><div class="st">Step 3 · KANSO-OPS</div><b class="t">The lasting edge</b><p>Continuous automation: levers stay active, gains stop eroding, drifts are detected before they cost.</p></div>
+      </div>
+      <div class="mods">
+        <div class="mod"><b>Gaps &amp; credit notes</b><p>Every invoice checked against contract · structured recovery.</p></div>
+        <div class="mod"><b>Market indices</b><p>LME/INSEE/CNR watch · alert when a clause or a window applies.</p></div>
+        <div class="mod"><b>Base &amp; risks</b><p>Dependencies, supplier health, certifications · monitored continuously.</p></div>
+        <div class="mod"><b>Traceability</b><p>Every document indexed · ready for 2026-27 e-invoicing and inspections.</p></div>
+        <div class="mod"><b>Proof of gains</b><p>A monthly cockpit: cash recovered, leaks avoided, visible ROI.</p></div>
+      </div>
+      <p class="impute">→ A large share of the mapping is credited against implementation · you never pay twice for the same work.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="snum"><span class="n"></span><h2>Methodology &amp; confidentiality</h2></div>
+    <div class="card">
+      <div class="steps">
+        <div class="step"><div class="n2">1</div><b>You send what you have</b><p>The FEC alone is enough to start. Supplier base, invoiced order lines at item level over 24 months (or more if useful), contracts, flows, interviews: each level goes deeper · up to the full mapping.</p></div>
+        <div class="step"><div class="n2">2</div><b>We analyse</b><p>Cross-checks, enrichment (public registry data), market indices, the 48-lever framework, targeted interviews.</p></div>
+        <div class="step"><div class="n2">3</div><b>You decide</b><p>Presentation to executive management: maturity, benchmark, levers, roadmap. You arbitrate.</p></div>
+      </div>
+      <div class="secu" style="margin-top:16px">
+        <div class="sc"><b>🔒 A vault, never an email</b><p>Your files travel through an end-to-end encrypted space hosted in Switzerland: even the host cannot read them.</p></div>
+        <div class="sc"><b>💻 Local processing</b><p>The analysis runs on a dedicated, encrypted workstation, outside any online service. No data passed to any third party, and no access to your IT systems.</p></div>
+        <div class="sc"><b>📝 A framework signed before the first file</b><p>NDA as standard. At the end, <b>file destruction confirmed in writing</b>: only anonymised, aggregated learnings are kept.</p></div>
+        <div class="sc"><b>⏱ The 48-hour check</b><p>If your files do not allow the work, or the potential is clearly weak, the engagement stops: deposit refunded, files destroyed.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="bub1"></div>
+    <h3>And your company · where does it really stand?</h3>
+    <p>This report is a sample, built on fictitious data. Yours is built on <b style="color:#fff">your</b> data, your maturity, your market · and tells you precisely where to start.</p>
+    <div class="sig">KANSO-OPS · Sébastien Duc · +33 6 99 07 34 89 · sebastien@kanso-ops.io · kanso-ops.com</div>
+  </div>
+
+  <div class="foot">
+    Sample document · Mécanor SAS is a fictitious company; all figures are illustrative. Maturity positions and benchmarks are illustrative orders of magnitude, established in a real engagement from the company's own data and interviews. Gains are typical estimates, to be validated. Service subject to a non-disclosure agreement; obligation of means.
+  </div>
+
+
+<section style="background:#140E59;color:#fff;border-radius:14px;padding:36px 28px;margin:40px auto;max-width:920px;text-align:center;">
+  <h2 style="margin:0 0 12px;font-size:1.5em;">Want to see yours?</h2>
+  <p style="margin:0 0 8px;opacity:.92;">A five-minute accounting export is all it takes, nobody mobilised on your side, and fifteen days later you read this report on your own numbers.</p>
+  <p style="margin:0 0 20px;opacity:.92;">Your data serves the mission only and is destroyed afterwards. Non-negotiable, and in writing.</p>
+  <a href="mailto:sebastien.duc@kanso-ops.fr" style="display:inline-block;background:#EF7D53;color:#fff;text-decoration:none;font-weight:700;padding:12px 26px;border-radius:999px;">Write to me: sebastien.duc@kanso-ops.fr</a>
+  <p style="margin:16px 0 0;font-size:.9em;"><a href="https://kanso-ops.com" style="color:#EF7D53;">kanso-ops.com</a></p>
+</section>
+</div>
+
+<script>
+let LANG='fr';
+const UI={
+  fr:{fict:"Exemple · données fictives",doclbl:"Documents transmis :",dochint:"cliquez : chaque document débloque des analyses",lock:"🔒 nécessite : ",req:"Nécessite : ",
+      docs:{fec:"📄 FEC (le socle)",panel:"🏢 Panel fournisseurs",erp:"📦 Commandes facturées (détail article · 24 mois)",contrats:"📑 Contrats & grilles",flux:"🚚 Flux & stock",entretiens:"🎙 Entretiens"},
+      lbl:{fec:"FEC",panel:"panel fournisseurs",erp:"commandes facturées au détail article (24 mois)",contrats:"contrats",flux:"flux & stock",entretiens:"entretiens"}},
+  en:{fict:"Sample · fictitious data",doclbl:"Documents provided:",dochint:"click: each document unlocks analyses",lock:"🔒 requires: ",req:"Requires: ",
+      docs:{fec:"📄 FEC (the foundation)",panel:"🏢 Supplier base",erp:"📦 Invoiced orders (item level · 24 mo)",contrats:"📑 Contracts & price lists",flux:"🚚 Flows & inventory",entretiens:"🎙 Interviews"},
+      lbl:{fec:"FEC",panel:"supplier base",erp:"invoiced orders at item level (24 months)",contrats:"contracts",flux:"flows & inventory",entretiens:"interviews"}}
+};
+const SECMAP=[
+ [["Maturité de la fonction","function maturity"],"entretiens"],
+ [["environnement sectoriel","sector environment"],"fec"],
+ [["Cartographie du spend","Spend mapping"],"fec"],
+ [["Panel, dépendances","dependencies & bargaining","dependencies &amp; bargaining","bargaining power"],"fec,panel"],
+ [["Kraljic"],"fec,erp"],
+ [["expose la maison","exposes the company"],"fec,panel"],
+ [["se récupère tout de suite","Recovered right away"],"fec"],
+ [["Indices marché","Market indices"],"fec,contrats"],
+ [["Supply chain"],"fec,erp,flux"]
+];
+const ROWKEY=[
+ [["Récupération des avoirs","Credit-note recovery","Recover unmatched"],"fec"],
+ [["Renégociation transport","Appel d'offres transport","Transport renegotiation","Transport tender"],"fec"],
+ [["Renégociation contrat énergie","Renégociation énergie","Energy contract renegotiation","Energy renegotiation"],"fec,contrats"],
+ [["Massification aciers","Steel consolidation"],"fec,erp"],
+ [["Alignement des délais","Alignement délais","Align actual payment","Payment-terms alignment"],"fec"],
+ [["Résorption","Clear dormant","Dormant-inventory"],"fec,flux"],
+ [["Dual sourcing"],"fec,panel"]
+];
+const state={fec:true,panel:true,erp:true,contrats:true,flux:true,entretiens:true};
+function missing(req){return req.split(',').filter(d=>!state[d]);}
+function apply(){
+  const ui=UI[LANG];
+  document.querySelectorAll('.doc').forEach(b=>{b.classList.toggle('on',state[b.dataset.doc]);b.textContent=ui.docs[b.dataset.doc];});
+  document.querySelectorAll('.sec').forEach(sec=>{
+    const h=sec.querySelector('h2'); if(!h) return;
+    const m=SECMAP.find(([keys])=>keys.some(k=>h.innerText.includes(k)));
+    const miss=m?missing(m[1]):[];
+    sec.classList.toggle('ghost',miss.length>0);
+    let lock=sec.querySelector('.lock');
+    if(miss.length){
+      if(!lock){lock=document.createElement('span');lock.className='lock';sec.querySelector('.snum').appendChild(lock);}
+      lock.textContent=ui.lock+miss.map(d=>ui.lbl[d]).join(' + ');
+    } else if(lock) lock.remove();
+  });
+  document.querySelectorAll('td.lev').forEach(td=>{
+    const e=ROWKEY.find(([keys])=>keys.some(k=>td.innerText.includes(k))); if(!e) return;
+    const miss=missing(e[1]);
+    td.parentElement.classList.toggle('ghostrow',miss.length>0);
+    td.parentElement.title=miss.length?(ui.req+miss.map(d=>ui.lbl[d]).join(' + ')):'';
+  });
+}
+function setLang(l){
+  LANG=l;
+  document.documentElement.lang=l;
+  document.getElementById('wrap-fr').style.display=(l==='fr')?'':'none';
+  document.getElementById('wrap-en').style.display=(l==='en')?'':'none';
+  document.getElementById('btn-fr').classList.toggle('on',l==='fr');
+  document.getElementById('btn-en').classList.toggle('on',l==='en');
+  const ui=UI[l];
+  document.getElementById('fict').textContent=ui.fict;
+  document.getElementById('doclbl').textContent=ui.doclbl;
+  document.getElementById('dochint').textContent=ui.dochint;
+  apply();
+  window.scrollTo(0,0);
+}
+document.querySelectorAll('.doc').forEach(b=>b.addEventListener('click',()=>{state[b.dataset.doc]=!state[b.dataset.doc];apply();}));
+apply();
+</script>
+</body>
+</html>
