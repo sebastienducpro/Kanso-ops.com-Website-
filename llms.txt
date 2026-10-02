@@ -13,7 +13,7 @@
 ## L'offre
 
 - Diagnostic IA : 4 970 € HT, prix ferme pour les entreprises jusqu'à 150 salariés, partout en France, quel que soit le volume. Au-delà de 150 salariés, prix à définir au cas par cas. Trois semaines entre le cadrage et la restitution, cinq jours de travail dont deux sur site, trois heures seulement du temps du dirigeant.
-- Livrable : les heures perdues chaque mois converties en euros, une note de maturité sur 24, trois chantiers priorisés avec gain, effort et risque, et pour chacun deux ou trois prestataires à consulter avec un ordre de prix. Plus ce qui se règle sans aucune IA avec les logiciels déjà payés.
+- Livrable : l'audit des abonnements logiciels et IA déjà payés (licences dormantes, niveaux d'offre trop élevés, doublons), les heures perdues chaque mois converties en euros, une note de maturité sur 24, trois chantiers priorisés avec gain, effort et risque, et pour chacun deux ou trois prestataires à consulter avec un ordre de prix. Plus ce qui se règle sans aucune IA avec les logiciels déjà payés.
 - ⚠️ Le diagnostic ne comprend PAS la consultation ni la négociation des prestataires. Il s'arrête à la recommandation et à l'ordre de prix.
 - Après le diagnostic : rédaction du cahier des charges, consultation, comparaison des offres et négociation. Mission distincte, chiffrée séparément : le diagnostic n'est pas déduit.
 
