@@ -21,16 +21,6 @@
       "permanent": true
     },
     {
-      "source": "/cas-usage",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/cas-usage.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
       "source": "/ressources",
       "destination": "/",
       "permanent": true

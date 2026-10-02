@@ -26,6 +26,7 @@
 
 - [Accueil](https://kanso-ops.com/) : le constat chiffré, les causes d'échec, l'offre et le prix.
 - [La méthode](https://kanso-ops.com/methode/) : les cinq étapes du diagnostic, et pour chacune l'erreur qu'elle empêche.
+- [Cas d'usage par secteur](https://kanso-ops.com/cas-usage/) : ce qui marche et ce qui ne marche pas encore dans le BTP, le negoce, l'industrie et les entreprises reprises.
 - [Un extrait de rapport](https://kanso-ops.com/exemple/) : quatre pages anonymisées d'un rapport, sur des données fictives.
 - [Mentions légales](https://kanso-ops.com/mentions-legales/)
 
