@@ -258,16 +258,18 @@ p,li{overflow-wrap:break-word}
 .sect:first-of-type{border-top:0;padding-top:8px}
 .sect>h3{color:var(--navy);font-size:23px;margin-bottom:4px}
 .sect .pour{font-size:13px;color:var(--muted);margin-bottom:18px}
-.cas{display:grid;grid-template-columns:1fr;gap:0}
-.cas .c{display:grid;grid-template-columns:1fr 150px;gap:18px;align-items:start;padding:14px 0;border-top:1px dashed var(--border)}
-.cas .c:first-child{border-top:0}
-.cas .c b{display:block;color:var(--navy);font-size:15.5px;margin-bottom:4px}
-.cas .c p{font-size:14.5px;color:var(--ink);line-height:1.55}
-.cas .c .lvl{font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;text-align:right;padding-top:2px}
+/* ⚠️ ne pas nommer .cas ni .c : ces classes existent deja dans le CSS du site
+   et apportent un fond blanc sans le rembourrage attendu. */
+.usages{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:6px 30px}
+.usages .u{display:grid;grid-template-columns:1fr 130px;gap:20px;align-items:start;padding:22px 0;border-top:1px dashed var(--border)}
+.usages .u:first-child{border-top:0}
+.usages .u b{display:block;color:var(--navy);font-size:15.5px;margin-bottom:5px}
+.usages .u p{font-size:14.5px;color:var(--ink);line-height:1.55}
+.usages .u .lvl{font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;text-align:right;padding-top:3px}
 .l1{color:#17633A}.l2{color:#8F3A12}.l3{color:#473a86}
 .pasencore{background:#F3EFFA;border-radius:10px;padding:16px 18px;margin-top:20px;font-size:14px;color:#3b3168;line-height:1.55}
 .pasencore b{color:#2e2457}
-@media(max-width:820px){.cas .c{grid-template-columns:1fr}.cas .c .lvl{text-align:left}}
+@media(max-width:820px){.usages{padding:6px 20px}.usages .u{grid-template-columns:1fr}.usages .u .lvl{text-align:left;padding-top:8px}}
 </style>
 <body>
 <a class="skip" href="#top">Aller au contenu</a>
@@ -301,43 +303,43 @@ p,li{overflow-wrap:break-word}
       <div class="sect rev">
         <h3>BTP et second œuvre</h3>
         <div class="pour">Entreprises de 15 à 150 salariés, plusieurs chantiers en parallèle</div>
-        <div class="cas">
-        <div class="c"><div><b>Lecture des factures et situations fournisseurs</b><p>Les montants, les références et le chantier concerné sont extraits et rapprochés de la commande. Les écarts remontent seuls.</p></div><div class="lvl l1">Mature</div></div>
-        <div class="c"><div><b>Comptes rendus de chantier dictés</b><p>Le conducteur dicte en sortant du chantier, le compte rendu est rédigé et classé au bon dossier.</p></div><div class="lvl l1">Mature</div></div>
-        <div class="c"><div><b>Recherche dans les pièces de marché</b><p>Retrouver une clause du CCTP ou une cote sans rouvrir quinze fichiers.</p></div><div class="lvl l2">À cadrer</div></div>
-        <div class="c"><div><b>Suivi des avenants et retenues de garantie</b><p>Les échéances et les montants retenus sont extraits des marchés et suivis automatiquement.</p></div><div class="lvl l2">À cadrer</div></div>
+        <div class="usages">
+        <div class="u"><div><b>Lecture des factures et situations fournisseurs</b><p>Les montants, les références et le chantier concerné sont extraits et rapprochés de la commande. Les écarts remontent seuls.</p></div><div class="lvl l1">Mature</div></div>
+        <div class="u"><div><b>Comptes rendus de chantier dictés</b><p>Le conducteur dicte en sortant du chantier, le compte rendu est rédigé et classé au bon dossier.</p></div><div class="lvl l1">Mature</div></div>
+        <div class="u"><div><b>Recherche dans les pièces de marché</b><p>Retrouver une clause du CCTP ou une cote sans rouvrir quinze fichiers.</p></div><div class="lvl l2">À cadrer</div></div>
+        <div class="u"><div><b>Suivi des avenants et retenues de garantie</b><p>Les échéances et les montants retenus sont extraits des marchés et suivis automatiquement.</p></div><div class="lvl l2">À cadrer</div></div>
         </div>
         <div class="pasencore"><b>Ce qui ne marche pas encore ici.</b> Le chiffrage automatique des devis. Chaque entreprise a ses propres ratios et ses propres astuces, et aucun modèle généraliste ne les connaît. Les outils qui le promettent produisent des prix qu’il faut tous reprendre, donc ne font rien gagner.</div>
       </div>
       <div class="sect rev">
         <h3>Négoce et distribution</h3>
         <div class="pour">Entreprises à fort flux de documents fournisseurs</div>
-        <div class="cas">
-        <div class="c"><div><b>Saisie des bons de livraison</b><p>C’est le cas le plus rentable et le plus simple. Volume élevé, format stable, gain immédiat en comptabilité.</p></div><div class="lvl l1">Mature</div></div>
-        <div class="c"><div><b>Détection des écarts de prix</b><p>Prix facturé contre prix de la commande ou du tarif négocié, ligne à ligne, sur tout l’historique.</p></div><div class="lvl l1">Mature</div></div>
-        <div class="c"><div><b>Mise à jour des tarifs fournisseurs</b><p>Les nouvelles grilles arrivent en PDF ou en tableur, dans quinze formats différents, et sont intégrées sans ressaisie.</p></div><div class="lvl l2">À cadrer</div></div>
-        <div class="c"><div><b>Réponses aux demandes de prix récurrentes</b><p>Les demandes simples et répétitives sont préparées, un humain valide avant envoi.</p></div><div class="lvl l2">À cadrer</div></div>
+        <div class="usages">
+        <div class="u"><div><b>Saisie des bons de livraison</b><p>C’est le cas le plus rentable et le plus simple. Volume élevé, format stable, gain immédiat en comptabilité.</p></div><div class="lvl l1">Mature</div></div>
+        <div class="u"><div><b>Détection des écarts de prix</b><p>Prix facturé contre prix de la commande ou du tarif négocié, ligne à ligne, sur tout l’historique.</p></div><div class="lvl l1">Mature</div></div>
+        <div class="u"><div><b>Mise à jour des tarifs fournisseurs</b><p>Les nouvelles grilles arrivent en PDF ou en tableur, dans quinze formats différents, et sont intégrées sans ressaisie.</p></div><div class="lvl l2">À cadrer</div></div>
+        <div class="u"><div><b>Réponses aux demandes de prix récurrentes</b><p>Les demandes simples et répétitives sont préparées, un humain valide avant envoi.</p></div><div class="lvl l2">À cadrer</div></div>
         </div>
         <div class="pasencore"><b>Ce qui ne marche pas encore ici.</b> La prévision de stock, quand l’historique est court, incomplet ou marqué par des années atypiques. Un modèle entraîné sur des données trouées produit des prévisions confiantes et fausses, ce qui est pire qu’une absence de prévision.</div>
       </div>
       <div class="sect rev">
         <h3>Industrie et production</h3>
         <div class="pour">PME industrielles avec documentation technique et qualité</div>
-        <div class="cas">
-        <div class="c"><div><b>Analyse des certificats et fiches techniques</b><p>Les caractéristiques sont extraites des documents fournisseurs et comparées aux spécifications.</p></div><div class="lvl l1">Mature</div></div>
-        <div class="c"><div><b>Recherche dans la documentation technique</b><p>Des années de modes opératoires et de plans deviennent interrogeables en langage courant.</p></div><div class="lvl l1">Mature</div></div>
-        <div class="c"><div><b>Rédaction des rapports de non-conformité</b><p>À partir des constats de l’opérateur, avec le vocabulaire et le format de l’entreprise.</p></div><div class="lvl l2">À cadrer</div></div>
-        <div class="c"><div><b>Contrôle qualité visuel</b><p>Technologie éprouvée, mais investissement matériel et temps de paramétrage à prévoir.</p></div><div class="lvl l3">Lourd</div></div>
+        <div class="usages">
+        <div class="u"><div><b>Analyse des certificats et fiches techniques</b><p>Les caractéristiques sont extraites des documents fournisseurs et comparées aux spécifications.</p></div><div class="lvl l1">Mature</div></div>
+        <div class="u"><div><b>Recherche dans la documentation technique</b><p>Des années de modes opératoires et de plans deviennent interrogeables en langage courant.</p></div><div class="lvl l1">Mature</div></div>
+        <div class="u"><div><b>Rédaction des rapports de non-conformité</b><p>À partir des constats de l’opérateur, avec le vocabulaire et le format de l’entreprise.</p></div><div class="lvl l2">À cadrer</div></div>
+        <div class="u"><div><b>Contrôle qualité visuel</b><p>Technologie éprouvée, mais investissement matériel et temps de paramétrage à prévoir.</p></div><div class="lvl l3">Lourd</div></div>
         </div>
         <div class="pasencore"><b>Ce qui ne marche pas encore ici.</b> Le contrôle visuel des défauts rares. Pour reconnaître un défaut, il faut en avoir montré beaucoup d’exemples au système. Un défaut qui apparaît trois fois par an ne s’apprend pas, et c’est souvent celui qui coûte le plus cher.</div>
       </div>
       <div class="sect rev">
         <h3>Entreprises récemment reprises</h3>
         <div class="pour">Reprise de moins de trois ans, héritage à remettre en ordre</div>
-        <div class="cas">
-        <div class="c"><div><b>Cartographie des contrats et des échéances</b><p>Les contrats hérités sont lus, les dates de reconduction tacite et les préavis remontés avant qu’il soit trop tard.</p></div><div class="lvl l1">Mature</div></div>
-        <div class="c"><div><b>Reprise de l’historique documentaire</b><p>Des années d’archives hétérogènes rendues consultables, sans ressaisie.</p></div><div class="lvl l2">À cadrer</div></div>
-        <div class="c"><div><b>Analyse des dépenses du prédécesseur</b><p>Où part l’argent, chez qui, et depuis quand, quand personne en interne ne sait plus répondre.</p></div><div class="lvl l1">Mature</div></div>
+        <div class="usages">
+        <div class="u"><div><b>Cartographie des contrats et des échéances</b><p>Les contrats hérités sont lus, les dates de reconduction tacite et les préavis remontés avant qu’il soit trop tard.</p></div><div class="lvl l1">Mature</div></div>
+        <div class="u"><div><b>Reprise de l’historique documentaire</b><p>Des années d’archives hétérogènes rendues consultables, sans ressaisie.</p></div><div class="lvl l2">À cadrer</div></div>
+        <div class="u"><div><b>Analyse des dépenses du prédécesseur</b><p>Où part l’argent, chez qui, et depuis quand, quand personne en interne ne sait plus répondre.</p></div><div class="lvl l1">Mature</div></div>
         </div>
         <div class="pasencore"><b>Ce qui ne marche pas encore ici.</b> Tout ce qui suppose des données propres. Une entreprise reprise n’en a presque jamais la première année : c’est le cas où il faut le plus souvent commencer par ranger avant d’acheter quoi que ce soit.</div>
       </div>
