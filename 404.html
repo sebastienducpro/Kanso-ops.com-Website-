@@ -253,6 +253,10 @@ p,li{overflow-wrap:break-word}
 .qa[open] summary::after{content:"\2212"}
 .qa p{color:#cfcbe6;font-size:15px;line-height:1.65;padding:0 20px 18px 0}
 .light .qa{border-color:var(--border)}.light .qa summary{color:var(--navy)}.light .qa p{color:var(--ink)}
+
+/* la page courante se signale : savoir ou l'on est evite l'impression d'errer */
+.nav li a.ici{color:#fff;position:relative}
+.nav li a.ici::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:2px;background:var(--coral);border-radius:2px}
 </style>
 <body>
 <a class="skip" href="#top">Aller au contenu</a>
@@ -262,6 +266,7 @@ p,li{overflow-wrap:break-word}
     <li><a href="/methode/">La méthode</a></li>
     <li><a href="/cas-usage/">Cas d’usage</a></li>
     <li><a href="/exemple/">Un extrait</a></li>
+    <li><a href="/#diag">Le diagnostic</a></li>
     <li><a class="cta" href="/#contact">Me contacter</a></li>
   </ul>
 </div></nav>
