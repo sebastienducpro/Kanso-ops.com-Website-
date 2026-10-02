@@ -1,24 +1,35 @@
 # Kanso-Ops
 
-> Kanso-Ops remet à plat les dépenses fournisseurs des PME et ETI industrielles, et reprend les tâches administratives qui se recopient à la main. Le client repart avec trois listes nommées, fournisseur par fournisseur, et les courriers déjà écrits, prêts à signer.
+> Kanso-Ops est l'acheteur IA des PME. Diagnostic des usages où l'intelligence artificielle fait réellement gagner du temps et de l'argent, puis sélection et négociation des prestataires. Aucune solution revendue, aucune commission d'éditeur.
 
 ## L'essentiel
 
-- Accroche : « Ce qui ne fait pas de bruit finit toujours par coûter cher. »
-- Ennemi : ce que personne ne signale parce que tout le monde croit que c'est déjà géré, et les heures que personne ne compte parce que quelqu'un les porte à bout de bras.
-- Cible : PME et ETI industrielles, à partir de cinquante personnes, partout en France.
-- Premier métier : la cartographie des dépenses fournisseurs. Entrée par le fichier comptable, export réglementaire produit en cinq minutes par l'expert-comptable, puis les commandes, les stocks et les contrats si le client les a. Sortie en trois listes nommées : ce qui se récupère, ce qui se renégocie, ce qui expose.
-- Second métier : l'automatisation des tâches administratives. Les commandes ressaisies d'un écran à l'autre, les relances qui partent en retard, le rapprochement bancaire fait le dimanche.
-- Différence : on ne rend pas des recommandations, on rend ce qui se signe. Les courriers partent à l'en-tête du client, prêts à signer.
-- Méthode : le terrain avant l'outil, dire non plutôt que décevoir, ce qui est constaté et jamais ce qui est promis, rien ne sort de la maison, la simplicité qui est dans le nom.
-- Confidentialité : accord signé avant tout envoi, fichiers via un espace sécurisé, traitement sur des machines locales, destruction en fin de mission.
-- Maison : née en 2026. Dix ans d'achats et d'opérations en PME comme en multinationale, en poste comme en cabinet.
-- Contact : sebastien.duc@kanso-ops.fr · 06 99 07 34 89
+- Accroche : « Huit projets IA sur dix ne tiennent pas leurs promesses. Le vôtre peut faire partie des deux autres. »
+- Ennemi : le mauvais achat. Le problème n'est pas la technologie, c'est le choix du cas d'usage, celui du prestataire, et des données qui n'étaient pas prêtes.
+- Cible : dirigeants de PME de 15 à 250 salariés, dans le Gard, l'Hérault et le Vaucluse. Priorité aux repreneurs récents, au BTP second œuvre, aux industriels et négoces à fort flux documentaire.
+- Métier : acheteur. Qualifier un besoin, écrire un cahier des charges, mettre des prestataires en concurrence, négocier, vérifier qu'on reçoit ce qui était promis. L'IA est une catégorie d'achat, pas une spécialité technique.
+- Différence : la neutralité est structurelle, pas déclarative. Aucun partenariat éditeur, aucun catalogue à écouler, aucune équipe à occuper. La recommandation peut être de ne rien acheter.
+
+## L'offre
+
+- Diagnostic IA : 4 970 € HT, prix ferme quel que soit le volume. Trois semaines entre le cadrage et la restitution, cinq jours de travail dont deux sur site, trois heures seulement du temps du dirigeant.
+- Livrable : les heures perdues chaque mois converties en euros, une note de maturité sur 24, trois chantiers priorisés avec gain, effort et risque, et pour chacun deux ou trois prestataires à consulter avec un ordre de prix. Plus ce qui se règle sans aucune IA avec les logiciels déjà payés.
+- Après le diagnostic : rédaction du cahier des charges, consultation, comparaison des offres et négociation. Le montant du diagnostic est déduit si la mission est engagée sous deux mois.
+
+## Ce que Kanso-Ops ne fait pas
+
+- Ne développe rien et n'installe rien. Le travail s'arrête à la décision et au choix du prestataire.
+- Ne promet aucun pourcentage de gain avant d'avoir vu les chiffres du client.
+- Ne remplace ni l'expert-comptable ni le conseil juridique sur les questions de données.
 
 ## Pages
 
-- [Accueil](https://www.kanso-ops.com/) : la présentation complète.
-- [Mentions légales](https://www.kanso-ops.com/mentions-legales/)
-- [Conditions d'utilisation](https://www.kanso-ops.com/conditions-utilisation/)
+- [Accueil](https://kanso-ops.com/) : le constat chiffré, les causes d'échec, l'offre et le prix.
+- [La méthode](https://kanso-ops.com/methode/) : les cinq étapes du diagnostic, et pour chacune l'erreur qu'elle empêche.
+- [Un extrait de rapport](https://kanso-ops.com/exemple/) : quatre pages anonymisées d'un rapport, sur des données fictives.
+- [Mentions légales](https://kanso-ops.com/mentions-legales/)
 
-Kanso veut dire « simple » en japonais : ce qui reste quand on a retiré ce qui ne sert pas.
+## Contact
+
+- Sébastien Duc, sebastien.duc@kanso-ops.fr, 06 74 85 90 78
+- Dix ans d'achats et d'opérations en PME et en groupe, dont quatre comme acheteur dans le luxe.
