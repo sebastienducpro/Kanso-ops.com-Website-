@@ -27,6 +27,7 @@
 
 - [Accueil](https://kanso-ops.com/) : le constat chiffré, les causes d'échec, l'offre et le prix.
 - [La méthode](https://kanso-ops.com/methode/) : les cinq étapes du diagnostic, et pour chacune l'erreur qu'elle empêche.
+- [Les 88 solutions IA retenues par l'Etat, lues par un acheteur](https://kanso-ops.com/catalogue-etat/) : analyse independante du catalogue DGE et Hub France IA du 30 juillet 2026. 21 editeurs sur la production, zero sur les achats, 3 sur 88 annoncent un resultat chiffre, 14 sur 88 nomment les PME.
 - [Cas d'usage par secteur](https://kanso-ops.com/cas-usage/) : ce qui marche et ce qui ne marche pas encore dans le BTP, le negoce, l'industrie et les entreprises reprises.
 - [Un extrait de rapport](https://kanso-ops.com/exemple/) : quatre pages anonymisées d'un rapport, sur des données fictives.
 - [Mentions légales](https://kanso-ops.com/mentions-legales/)
