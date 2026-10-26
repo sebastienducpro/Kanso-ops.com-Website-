@@ -2,12 +2,12 @@
   "redirects": [
     {
       "source": "/exemples/cartographie/",
-      "destination": "/exemple/",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/exemples/cartographie",
-      "destination": "/exemple/",
+      "destination": "/",
       "permanent": true
     },
     {
@@ -71,6 +71,41 @@
       "permanent": true
     },
     {
+      "source": "/methode",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/methode/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/exemple",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/exemple/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/catalogue-etat",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/catalogue-etat/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/exemples/kanso-ops-exemple-cartographie.pdf",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/:path(.*)",
       "has": [
         {
@@ -127,19 +162,6 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/exemples/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400"
-        },
-        {
-          "key": "Content-Disposition",
-          "value": "inline"
         }
       ]
     }

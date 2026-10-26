@@ -1,39 +1,30 @@
 # Kanso-Ops
 
-> Kanso-Ops est l'acheteur IA des PME. Diagnostic des usages où l'intelligence artificielle fait réellement gagner du temps et de l'argent, puis sélection et négociation des prestataires. Aucune solution revendue, aucune commission d'éditeur.
+> Kanso-Ops, c'est Sebastien Duc. Des operations simples, automatisees vite, pour les TPE et PME : ce que les equipes font encore a la main et qui s'automatise en quelques semaines, construit sur les outils que l'entreprise a deja. Aucune solution revendue, aucune commission d'editeur. Un forfait mensuel, dit a l'avance, pour garder l'outil en marche une fois livre.
 
 ## L'essentiel
 
-- Accroche : « Huit projets IA sur dix ne tiennent pas leurs promesses. Le vôtre peut faire partie des deux autres. »
-- Ennemi : le mauvais achat. Le problème n'est pas la technologie, c'est le choix du cas d'usage, celui du prestataire, et des données qui n'étaient pas prêtes.
-- Cible : dirigeants de PME jusqu'à 150 salariés, partout en France. Basé à Nîmes : déplacement compris dans un rayon de 100 km, frais réels au-delà. Priorité aux repreneurs récents, au BTP second œuvre, aux industriels et négoces à fort flux documentaire.
-- Métier : acheteur. Qualifier un besoin, écrire un cahier des charges, mettre des prestataires en concurrence, négocier, vérifier qu'on reçoit ce qui était promis. L'IA est une catégorie d'achat, pas une spécialité technique.
-- Différence : la neutralité est structurelle, pas déclarative. Aucun partenariat éditeur, aucun catalogue à écouler, aucune équipe à occuper. La recommandation peut être de ne rien acheter.
+- Ce qu'on automatise : une commande qui arrive par courriel et qu'on ressaisit dans le logiciel de gestion ; un releve recopie chaque semaine depuis deux exports ; un controle de coherence que personne n'a le temps de faire ; une relance ou un rappel qu'on finit par oublier.
+- Ce qu'on ne fait pas : pas de refonte du systeme d'information, pas de programme de transformation, pas de solution revendue. Quand le besoin demande un editeur ou un integrateur, Kanso-Ops le dit et aide a bien l'acheter.
+- Comment : trente minutes en visio pour decrire la tache ; un lot chiffre en jours, a prix ferme, paye par tiers ; une version a tester toutes les deux semaines ; mise en service avec l'informatique du client ; code, documentation et regles remis a la livraison.
+- Ou : partout en France, presque tout a distance. Base a Nimes.
+- Intelligence artificielle : rarement. Des regles, des fichiers, des courriels. L'IA seulement quand elle est le moyen le plus simple.
+- Les outils tournent chez le client, sur ses machines et ses comptes. Aucune donnee ne part vers un service qu'il n'a pas choisi.
 
-## L'offre
+## Qui
 
-- Diagnostic IA : 4 970 € HT, prix ferme pour les entreprises jusqu'à 150 salariés, partout en France, quel que soit le volume. Au-delà de 150 salariés, prix à définir au cas par cas. Trois semaines entre le cadrage et la restitution, cinq jours de travail dont deux sur site, trois heures seulement du temps du dirigeant.
-- Livrable : l'audit des abonnements logiciels et IA déjà payés (licences dormantes, niveaux d'offre trop élevés, doublons), les heures perdues chaque mois converties en euros, une note de maturité sur 24, trois chantiers priorisés avec gain, effort et risque, et pour chacun deux ou trois prestataires à consulter avec un ordre de prix. Plus ce qui se règle sans aucune IA avec les logiciels déjà payés.
-- ⚠️ Le diagnostic ne comprend PAS la consultation ni la négociation des prestataires. Il s'arrête à la recommandation et à l'ordre de prix.
-- Après le diagnostic : rédaction du cahier des charges, consultation, comparaison des offres et négociation. Mission distincte, chiffrée séparément : le diagnostic n'est pas déduit.
-
-## Ce que Kanso-Ops ne fait pas
-
-- Ne développe rien et n'installe rien. Le travail s'arrête à la décision et au choix du prestataire.
-- Ne promet aucun pourcentage de gain avant d'avoir vu les chiffres du client.
-- Ne remplace ni l'expert-comptable ni le conseil juridique sur les questions de données.
-
-## Pages
-
-- [Accueil](https://kanso-ops.com/) : le constat chiffré, les causes d'échec, l'offre et le prix.
-- [La méthode](https://kanso-ops.com/methode/) : les cinq étapes du diagnostic, et pour chacune l'erreur qu'elle empêche.
-- [Les 88 solutions IA retenues par l'Etat, lues par un acheteur](https://kanso-ops.com/catalogue-etat/) : analyse independante du catalogue DGE et Hub France IA du 30 juillet 2026. 21 editeurs sur la production, zero sur les achats, 3 sur 88 annoncent un resultat chiffre, 14 sur 88 nomment les PME.
-- [Cas d'usage par secteur](https://kanso-ops.com/cas-usage/) : ce qui marche et ce qui ne marche pas encore dans le BTP, le negoce, l'industrie et les entreprises reprises.
-- [Un extrait de rapport](https://kanso-ops.com/exemple/) : quatre pages anonymisées d'un rapport, sur des données fictives.
-- [Mentions légales](https://kanso-ops.com/mentions-legales/)
+Sebastien Duc : dix ans d'achats et d'operations en PME et en groupe, consultant achats et e-procurement chez KPMG, business process owner d'un deploiement ERP sur 22 processus, et une annee a construire sa propre plateforme d'automatisation (plus de cent flux en production).
 
 ## Contact
 
-- Sébastien Duc, sebastien.duc@kanso-ops.fr, 06 74 85 90 78
-- Rendez-vous de trente minutes, gratuit et sans suite obligatoire : https://calendly.com/sebastien-duc-kanso-ops/30min
-- Trois places occupées : acheteur pendant dix ans en PME et en groupe ; consultant achats et e-procurement chez KPMG, certifié Coupa, et business process owner d'un déploiement ERP sur 22 processus procure-to-pay ; constructeur de sa propre plateforme d'automatisation en 2026. Les trois côtés de la table : acheter, déployer, construire.
+- Courriel : sebastien.duc@kanso-ops.fr
+- Telephone : +33 6 74 85 90 78
+- Rendez-vous : https://calendly.com/sebastien-duc-kanso-ops/30min
+- LinkedIn : https://www.linkedin.com/in/sebastienduc05/
+
+## Pages
+
+- [Accueil](https://kanso-ops.com/)
+- [Cas d'usage par secteur](https://kanso-ops.com/cas-usage/) : BTP, negoce, industrie, entreprises reprises ; chaque cas etiquete gain rapide ou a cadrer, et ce qui n'est pas un gain rapide.
+- [Mentions legales](https://kanso-ops.com/mentions-legales/)
+- [Conditions d'utilisation](https://kanso-ops.com/conditions-utilisation/)
