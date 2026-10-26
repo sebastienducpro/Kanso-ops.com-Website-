@@ -1,6 +1,12 @@
 # Kanso-Ops
 
-> Kanso-Ops, c'est Sebastien Duc. Des operations simples, automatisees vite, pour les TPE et PME : ce que les equipes font encore a la main et qui s'automatise en quelques semaines, construit sur les outils que l'entreprise a deja. Aucune solution revendue, aucune commission d'editeur. Un forfait mensuel, dit a l'avance, pour garder l'outil en marche une fois livre.
+> Kanso-Ops automatise les taches administratives que les equipes font encore a la main, achats et administration des ventes en tete, en quelques semaines, sur les outils que l'entreprise a deja, sans refaire son systeme d'information. Aucune solution revendue, aucune commission d'editeur. Un forfait mensuel, dit a l'avance, pour garder l'outil en marche une fois livre.
+
+## Trois facons de travailler ensemble
+
+1. Automatisation des process administratifs, achats et ADV en tete (l'essentiel du travail).
+2. Diagnostic des depenses achats : ou part l'argent, fournisseur par fournisseur, et les trois chantiers qui valent le coup.
+3. Aide a l'achat d'une solution quand le besoin demande un editeur ou un integrateur : cahier des charges, comparaison des offres, negociation.
 
 ## L'essentiel
 
@@ -13,7 +19,7 @@
 
 ## Qui
 
-Sebastien Duc : dix ans d'achats et d'operations en PME et en groupe, consultant achats et e-procurement chez KPMG, business process owner d'un deploiement ERP sur 22 processus, et une annee a construire sa propre plateforme d'automatisation (plus de cent flux en production).
+Kanso-Ops est dirige par Sebastien Duc : dix ans d'achats et d'operations en PME et en groupe, consultant achats et e-procurement chez KPMG, business process owner d'un deploiement ERP sur 22 processus, et une annee a construire sa propre plateforme d'automatisation (plus de cent flux en production).
 
 ## Contact
 
