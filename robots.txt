@@ -3,7 +3,6 @@
 
 User-agent: *
 Allow: /
-Disallow: /espace/
 
 # Sitemap
 Sitemap: https://kanso-ops.com/sitemap.xml
