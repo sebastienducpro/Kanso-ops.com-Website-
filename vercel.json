@@ -111,6 +111,11 @@
       "permanent": false
     },
     {
+      "source": "/espace/",
+      "destination": "https://sebastienduc.fr/espace/",
+      "permanent": false
+    },
+    {
       "source": "/espace/:path*",
       "destination": "https://sebastienduc.fr/espace/",
       "permanent": false
